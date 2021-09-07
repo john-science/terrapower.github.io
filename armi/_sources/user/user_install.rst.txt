@@ -9,7 +9,7 @@ These instructions target users with some software development knowledge. In
 particular, we assume familiarity with `Python <https://www.python.org/>`_, 
 `virtual environments <https://docs.python.org/3/tutorial/venv.html>`_, and `Git <https://git-scm.com/>`_. 
 
-You must have the following before proceeding:
+You must have the following installed before proceeding:
 
 * `Python <https://www.python.org/downloads/>`_ version 3.6 or later (preferably 64-bit)
 
