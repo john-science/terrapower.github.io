@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>armi.utils &mdash; ARMI 0.1.6 documentation</title>
+  <title>armi.utils &mdash; ARMI 0.1.7 documentation</title>
   
 
   
@@ -35,10 +35,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.1.6
+                0.1.7
               </div>
             
           
@@ -188,8 +191,6 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="sd">&quot;&quot;&quot;Generic ARMI utilities&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -215,9 +216,6 @@
 <span class="kn">import</span> <span class="nn">armi</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">iterables</span>
-<span class="kn">from</span> <span class="nn">armi.localization</span> <span class="kn">import</span> <span class="n">strings</span>
-<span class="kn">from</span> <span class="nn">armi.localization</span> <span class="kn">import</span> <span class="n">warnings</span>
-<span class="kn">from</span> <span class="nn">armi.localization</span> <span class="kn">import</span> <span class="n">exceptions</span>
 <span class="kn">from</span> <span class="nn">armi.utils.flags</span> <span class="kn">import</span> <span class="n">Flag</span>
 
 <span class="c1"># Read in file 1 MB at a time to reduce memory burden of reading entire file at once</span>
@@ -250,16 +248,13 @@
             <span class="n">cov</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
         <span class="n">cov</span><span class="o">.</span><span class="n">html_report</span><span class="p">()</span>
         <span class="n">cov</span><span class="o">.</span><span class="n">xml_report</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
-        <span class="c1"># Albert has some issues with filename that start with a &#39;.&#39;, such as the</span>
+    <span class="k">except</span> <span class="ne">PermissionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Some file systems have some issues with filenames that start with a &#39;.&#39;, such as the</span>
         <span class="c1"># .coverage files. If a permissions error is raised, it likely has something to</span>
         <span class="c1"># do with that. We changed the COVERAGE_RESULTS_FILE in cases.py for this reason.</span>
-        <span class="c1">#</span>
-        <span class="c1"># We print here, since this is used to run a one-off command, so runLog isn&#39;t</span>
-        <span class="c1"># really appropriate.</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">&quot;There was an issue in generating coverage reports. Probably related to &quot;</span>
-            <span class="s2">&quot;Albert hidden file issues.&quot;</span>
+        <span class="n">runLog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;There was an issue in generating coverage reports due &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;to the following permissions error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
         <span class="c1"># disabled until we figure out the problem.</span>
         <span class="c1"># raise</span>
@@ -270,7 +265,7 @@
         <span class="c1"># simply be that we dont want a coverage report generated for the TestFixture.</span>
         <span class="c1"># Something to think about. Either way, we do not want to fail the job just</span>
         <span class="c1"># because of this</span>
-        <span class="nb">print</span><span class="p">(</span>
+        <span class="n">runLog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
             <span class="s2">&quot;There was an issue generating coverage reports &quot;</span>
             <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2">):</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
         <span class="p">)</span></div>
@@ -1461,7 +1456,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-04-09.
+        Last updated on 2021-09-07.
       </span>
 
     </p>
