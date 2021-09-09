@@ -2457,7 +2457,9 @@
                     <span class="s2">&quot;Detected a grid plate </span><span class="si">{}</span><span class="s2">.  Adding to stationary blocks&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
                 <span class="p">)</span>  <span class="c1"># TODO: remove hard-coded assumption of grid plates (T3019)</span>
 
-        <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;stationaryBlocks&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stationaryBlocks</span>
+        <span class="n">cs</span><span class="p">[</span>
+            <span class="s2">&quot;stationaryBlocks&quot;</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">stationaryBlocks</span>  <span class="c1"># TODO: DeprecationWarning - changing settings</span>
 
         <span class="c1"># Perform initial zoning task</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">buildZones</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
@@ -2478,7 +2480,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-09-07.
+        Last updated on 2021-09-09.
       </span>
 
     </p>

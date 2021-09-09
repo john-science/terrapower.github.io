@@ -236,7 +236,8 @@
             <span class="s2">&quot;Converting deprecated Rx. Coeffs ``runType` setting to Snapshots. &quot;</span>
             <span class="s2">&quot;You may need to manually disable modules you don&#39;t want to run&quot;</span>
         <span class="p">)</span>
-        <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;runType&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Snapshots&quot;</span></div>
+        <span class="k">with</span> <span class="n">cs</span><span class="o">.</span><span class="n">_unlock</span><span class="p">():</span>
+            <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;runType&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Snapshots&quot;</span></div>
 </pre></div>
 
            </div>
@@ -250,7 +251,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-09-07.
+        Last updated on 2021-09-09.
       </span>
 
     </p>

@@ -309,27 +309,6 @@ The approach has been to write a routine in the reading code which will interpre
 </dd></dl>
 
 <dl class="function">
-<dt id="armi.utils.cleanPath">
-<code class="sig-prename descclassname">armi.utils.</code><code class="sig-name descname">cleanPath</code><span class="sig-paren">(</span><em class="sig-param">path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/utils.html#cleanPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#armi.utils.cleanPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recursively delete a path.</p>
-<p>!!! careful with this !!! It can delete the entire cluster.</p>
-<p>We add copious os.path.exists checks in case an MPI set of things is trying to delete everything at the same time.
-Always check filenames for some special flag when calling this, especially
-with full permissions on the cluster. You could accidentally delete everyone’s work
-with one misplaced line! This doesn’t ask questions.</p>
-<p>Safety nets include a whitelist of paths.</p>
-<p>This makes use of shutil.rmtree and os.remove</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>success</strong> – True if file was deleted. False if it was not.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="armi.utils.copyWithoutBlocking">
 <code class="sig-prename descclassname">armi.utils.</code><code class="sig-name descname">copyWithoutBlocking</code><span class="sig-paren">(</span><em class="sig-param">src</em>, <em class="sig-param">dest</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/utils.html#copyWithoutBlocking"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#armi.utils.copyWithoutBlocking" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy a file in a separate thread to avoid blocking while IO completes.</p>
@@ -929,7 +908,7 @@ containing the value and its index in the list.</p>
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-09-07.
+        Last updated on 2021-09-09.
       </span>
 
     </p>

@@ -43,7 +43,7 @@ demonstration purposes.
     Traceback (most recent call last):
       File "/home/runner/work/armi/armi/doc/gallery-src/framework/run_fuelManagement.py", line 31, in <module>
         o, reactor = test_reactors.loadTestReactor(inputFileName="refTestCartesian.yaml")
-      File "/home/runner/work/armi/armi/armi/reactor/tests/test_reactors.py", line 170, in loadTestReactor
+      File "/home/runner/work/armi/armi/armi/reactor/tests/test_reactors.py", line 176, in loadTestReactor
         o = operators.factory(cs)
       File "/home/runner/work/armi/armi/armi/operators/__init__.py", line 52, in factory
         return getOperatorClassFromSettings(cs)(cs)
@@ -119,7 +119,7 @@ demonstration purposes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.015 seconds)
+   **Total running time of the script:** ( 0 minutes  0.020 seconds)
 
 
 .. _sphx_glr_download_gallery_framework_run_fuelManagement.py:

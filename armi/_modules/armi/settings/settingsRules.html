@@ -373,7 +373,9 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;dumpSnapshot&quot;</span><span class="p">]:</span>
         <span class="c1"># Nothing was specified in standard cycle/node or dumpSnapshots.</span>
         <span class="c1"># Give old default of 0, 0.</span>
-        <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;dumpSnapshot&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;000000&quot;</span><span class="p">]</span>
+        <span class="k">with</span> <span class="n">cs</span><span class="o">.</span><span class="n">_unlock</span><span class="p">():</span>
+            <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;dumpSnapshot&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;000000&quot;</span><span class="p">]</span>
+
     <span class="k">return</span> <span class="p">{}</span></div>
 </pre></div>
 
@@ -388,7 +390,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-09-07.
+        Last updated on 2021-09-09.
       </span>
 
     </p>

@@ -373,9 +373,25 @@
         <span class="n">DirectoryChanger</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">filesToMove</span><span class="p">,</span> <span class="n">filesToRetrieve</span><span class="p">,</span> <span class="n">dumpOnException</span>
         <span class="p">)</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="n">root</span> <span class="ow">or</span> <span class="n">armi</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">getFastPath</span><span class="p">()</span>
+
+        <span class="c1"># If no root dir is given, the default path to grab in context is cwd(), which</span>
+        <span class="c1"># can lead to deleting any directory on the hard drive. So this check is here</span>
+        <span class="c1"># to ensure that if we grab a path from context, it is a proper temp dir.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">armi</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">getFastPath</span><span class="p">()</span>
+            <span class="c1"># ARMIs temp dirs are in an /.armi/ directory: validate this is a temp dir.</span>
+            <span class="k">if</span> <span class="s2">&quot;.armi&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Temporary directory not found.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># make the tmp dir, if necessary</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+                <span class="c1"># ignore the obvious race condition</span>
+                <span class="k">pass</span>
+
+        <span class="c1"># init the important path attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initial</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">TemporaryDirectoryChanger</span><span class="o">.</span><span class="n">GetRandomDirectory</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
         <span class="k">while</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">):</span>
@@ -397,17 +413,12 @@
 
     <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
         <span class="n">DirectoryChanger</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">)</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">)</span></div>
+        <span class="n">pathTools</span><span class="o">.</span><span class="n">cleanPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ForcedCreationDirectoryChanger"><a class="viewcode-back" href="../../../.apidocs/armi.utils.directoryChangers.html#armi.utils.directoryChangers.ForcedCreationDirectoryChanger">[docs]</a><span class="k">class</span> <span class="nc">ForcedCreationDirectoryChanger</span><span class="p">(</span><span class="n">DirectoryChanger</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates the directory tree necessary to reach your desired destination</span>
-
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    clean : bool</span>
-<span class="sd">        if True and the directory exists, clear all contents on entry.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -416,14 +427,12 @@
         <span class="n">filesToMove</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">filesToRetrieve</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">dumpOnException</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">clean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">destination</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A destination directory must be provided.&quot;</span><span class="p">)</span>
         <span class="n">DirectoryChanger</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">filesToMove</span><span class="p">,</span> <span class="n">filesToRetrieve</span><span class="p">,</span> <span class="n">dumpOnException</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clean</span> <span class="o">=</span> <span class="n">clean</span>
 
     <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">):</span>
@@ -441,8 +450,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Destination folder already exists: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">DirectoryChanger</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean</span><span class="p">:</span>
-            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
@@ -466,7 +474,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-09-07.
+        Last updated on 2021-09-09.
       </span>
 
     </p>

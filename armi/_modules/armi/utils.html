@@ -366,76 +366,6 @@
         <span class="k">return</span> <span class="n">minVal</span></div>
 
 
-<span class="c1"># TODO: move into pathTools</span>
-<div class="viewcode-block" id="cleanPath"><a class="viewcode-back" href="../../.apidocs/armi.utils.html#armi.utils.cleanPath">[docs]</a><span class="k">def</span> <span class="nf">cleanPath</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Recursively delete a path.</span>
-
-<span class="sd">    !!! careful with this !!! It can delete the entire cluster.</span>
-
-<span class="sd">    We add copious os.path.exists checks in case an MPI set of things is trying to delete everything at the same time.</span>
-<span class="sd">    Always check filenames for some special flag when calling this, especially</span>
-<span class="sd">    with full permissions on the cluster. You could accidentally delete everyone&#39;s work</span>
-<span class="sd">    with one misplaced line! This doesn&#39;t ask questions.</span>
-
-<span class="sd">    Safety nets include a whitelist of paths.</span>
-
-<span class="sd">    This makes use of shutil.rmtree and os.remove</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    success : bool</span>
-<span class="sd">        True if file was deleted. False if it was not.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-        <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span><span class="s2">&quot;Clearing all files in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span><span class="s2">&quot;Nothing to clean in </span><span class="si">{}</span><span class="s2">. Doing nothing. &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">validPath</span> <span class="ow">in</span> <span class="p">[</span>
-        <span class="s2">&quot;users&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;shufflebranches&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;snapshot&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;failedruns&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;armiruns&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;mc2run&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;tests&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;mongoose&quot;</span><span class="p">,</span>
-    <span class="p">]:</span>
-        <span class="k">if</span> <span class="n">validPath</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-            <span class="n">valid</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-            <span class="s2">&quot;Thou shalt not try to delete folders other than things in Users. Thou tried to delete </span><span class="si">{0}</span><span class="s2">&quot;</span>
-            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-                <span class="c1"># it&#39;s just a file. Delete it.</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">pass</span>
-            <span class="c1"># in case the OS is behind or something</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-            <span class="k">break</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
-
-
 <div class="viewcode-block" id="copyWithoutBlocking"><a class="viewcode-back" href="../../.apidocs/armi.utils.html#armi.utils.copyWithoutBlocking">[docs]</a><span class="k">def</span> <span class="nf">copyWithoutBlocking</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Copy a file in a separate thread to avoid blocking while IO completes.</span>
@@ -970,7 +900,8 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
             <span class="k">break</span>
-
+        <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+            <span class="k">break</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="n">numTimesTried</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="c1"># Only ouput err every 10 times.</span>
@@ -1456,7 +1387,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-09-07.
+        Last updated on 2021-09-09.
       </span>
 
     </p>
