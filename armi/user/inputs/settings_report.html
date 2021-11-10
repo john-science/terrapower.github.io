@@ -340,7 +340,7 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
 <td><p><code class="docutils literal notranslate"><span class="pre">/home/runner/work/armi/ar</span></code> <code class="docutils literal notranslate"><span class="pre">mi/armi/resources/burn-</span></code> <code class="docutils literal notranslate"><span class="pre">chain.yaml</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>burnSteps</p></td>
-<td><p>Number of depletion substeps in one cycle, n. Note: There will be n+1 time nodes so the burnup step time will be computed as cycle length/n+1.</p></td>
+<td><p>Number of depletion substeps, n, in one cycle. Note: There will be n+1 time nodes and the burnup step time will be computed as cycle length/n.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>burnupPeakingFactor</p></td>
@@ -404,7 +404,7 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>cycleLength</p></td>
-<td><p>Duration of one single cycle. If availability factor is below 1, the reactor will be at power less than this. If variable, use cycleLengths setting.</p></td>
+<td><p>Duration of one single cycle in days. If availability factor is below 1, the reactor will be at power less than this. If variable, use cycleLengths setting.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">365.242199</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>cycleLengths</p></td>
@@ -496,7 +496,7 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>epsEig</p></td>
-<td><p>convergence criterion for calculating the eigenvalue</p></td>
+<td><p>Convergence criteria for calculating the eigenvalue in the global flux solver</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-07</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>epsFSAvg</p></td>
@@ -816,11 +816,11 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
 <td><p><code class="docutils literal notranslate"><span class="pre">FluxWeightedAverage</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>xsBucklingConvergence</p></td>
-<td><p>The convergence criteria for the buckling iteration if it is available in the lattice physics solver</p></td>
+<td><p>Convergence criteria for the buckling iteration if it is available in the lattice physics solver</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-05</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>xsEigenvalueConvergence</p></td>
-<td><p>The convergence criteria for the eigenvalue</p></td>
+<td><p>Convergence criteria for the eigenvalue in the lattice physics kernel</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-05</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>xsKernel</p></td>
@@ -868,7 +868,7 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-11-09.
+        Last updated on 2021-11-10.
       </span>
 
     </p>
