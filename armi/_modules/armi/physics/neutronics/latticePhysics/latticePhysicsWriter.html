@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>armi.physics.neutronics.latticePhysics.latticePhysicsWriter &mdash; ARMI 0.1.7 documentation</title>
+  <title>armi.physics.neutronics.latticePhysics.latticePhysicsWriter &mdash; ARMI 0.2.0 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.1.7
+                0.2.0
               </div>
             
           
@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../blog/index.html">News</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
@@ -580,17 +581,21 @@
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        We&#39;re going to increase the Pu-239 density to make the ratio of fissile mass to heavy metal mass equal to the</span>
-<span class="sd">        target ``minimumFissileFraction``:</span>
+<span class="sd">        target ``minimumFissileFraction``::</span>
+
 <span class="sd">            minFrac = (fiss - old + new) / (hm - old + new)</span>
 <span class="sd">            minFrac * (hm - old + new) = fiss - old + new</span>
 <span class="sd">            minFrac * (hm - old) + old - fiss = new * (1 - minFrac)</span>
 <span class="sd">            new = (minFrac * (hm - old) + old - fiss) / (1 - minFrac)</span>
-<span class="sd">        where,</span>
+
+<span class="sd">        where::</span>
+
 <span class="sd">            minFrac = ``minimumFissileFraction`` setting</span>
 <span class="sd">            fiss = fissile mass of block</span>
 <span class="sd">            hm = heavy metal mass of block</span>
 <span class="sd">            old = number density of Pu-239 before adjustment</span>
 <span class="sd">            new = number density of Pu-239 after adjustment</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">minFrac</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;minimumFissileFraction&quot;</span><span class="p">]</span>
@@ -651,7 +656,7 @@
     <p>
         &#169; Copyright 2009-2021, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-11-19.
+        Last updated on 2021-11-20.
       </span>
 
     </p>
