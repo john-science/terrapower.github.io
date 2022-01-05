@@ -138,7 +138,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">News</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../.apidocs/modules.html">API Docs</a></li>
@@ -197,16 +196,12 @@
       <li>2.1. The Settings Input File</li>
     
     
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            
-              <a href="https://github.com/terrapower/armi/blob/master/doc/user/inputs/settings.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
-      </li>
+  <li class="wy-breadcrumbs-aside">
     
+      
+    
+  </li>
+
   </ul>
 
   
@@ -256,19 +251,19 @@ modeling as well as which modules to run and various modeling/approximation sett
 </ul>
 <p>This file is a YAML file that you can edit manually with a text editor or with the ARMI GUI.</p>
 <p>Here is an excerpt from a settings file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">settings</span><span class="p">:</span>
-  <span class="nt">beta</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.003454</span>
-  <span class="nt">BOL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="nt">branchVerbosity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">debug</span>
-  <span class="nt">buGroups</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-  <span class="nt">burnSteps</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-  <span class="nt">clusterExclusive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">comment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simple test input.</span>
-  <span class="nt">crossSectionControl</span><span class="p">:</span>
-    <span class="nt">DA</span><span class="p">:</span>
-      <span class="nt">geometry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0D</span>
-      <span class="nt">blockRepresentation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Median</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">settings</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">beta</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.003454</span><span class="w"></span>
+<span class="w">  </span><span class="nt">BOL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">  </span><span class="nt">branchVerbosity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debug</span><span class="w"></span>
+<span class="w">  </span><span class="nt">buGroups</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
+<span class="w">  </span><span class="nt">burnSteps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<span class="w">  </span><span class="nt">clusterExclusive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">  </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Simple test input.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">crossSectionControl</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">DA</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">geometry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0D</span><span class="w"></span>
+<span class="w">      </span><span class="nt">blockRepresentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Median</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A full listing of settings may be found in the <a class="reference internal" href="settings_report.html"><span class="doc">Table of all global settings</span></a>.</p>
@@ -387,9 +382,9 @@ group-wise delayed neutron fractions.</p></li>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2009-2021, TerraPower, LLC.
+        &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2021-12-08.
+        Last updated on 2022-01-05.
       </span>
 
     </p>
