@@ -15,7 +15,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>armi.reactor.components package &mdash; ARMI 0.2.1 documentation</title>
+  <title>armi.reactor.components package &mdash; ARMI 0.2.2 documentation</title>
   
 
   
@@ -84,7 +84,7 @@
             
             
               <div class="version">
-                0.2.1
+                0.2.2
               </div>
             
           
@@ -548,6 +548,11 @@ results.</p>
 both the volume and area based on its context within the scope
 of the parent object by considering the volumes and areas of
 the surrounding components.</p>
+<p>Since some components are volumetric shapes, this must consider the volume
+so that it wraps around in all three dimensions.</p>
+<p>But there are also situations where we need to handle zero-height blocks
+with purely 2D components. Thus we track area and volume fractions here
+when possible.</p>
 </div>
 </dd></dl>
 
@@ -619,7 +624,7 @@ here.</p>
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-01-17.
+        Last updated on 2022-01-24.
       </span>
 
     </p>
