@@ -5,32 +5,32 @@
 
 Computation times
 =================
-**00:21.006** total execution time for **gallery_framework** files:
+**00:19.483** total execution time for **gallery_framework** files:
 
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_reactorFacemap.py` (``run_reactorFacemap.py``)                               | 00:07.351 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_reactorFacemap.py` (``run_reactorFacemap.py``)                               | 00:06.679 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_fuelManagement.py` (``run_fuelManagement.py``)                               | 00:04.048 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_fuelManagement.py` (``run_fuelManagement.py``)                               | 00:03.618 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_transmutationMatrix.py` (``run_transmutationMatrix.py``)                     | 00:03.351 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_programmaticReactorDefinition.py` (``run_programmaticReactorDefinition.py``) | 00:03.179 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_programmaticReactorDefinition.py` (``run_programmaticReactorDefinition.py``) | 00:02.856 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_transmutationMatrix.py` (``run_transmutationMatrix.py``)                     | 00:03.028 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_materials.py` (``run_materials.py``)                                         | 00:00.816 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_materials.py` (``run_materials.py``)                                         | 00:00.712 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_computeReactionRates.py` (``run_computeReactionRates.py``)                   | 00:00.592 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_isotxs.py` (``run_isotxs.py``)                                               | 00:00.521 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_isotxs.py` (``run_isotxs.py``)                                               | 00:00.584 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_computeReactionRates.py` (``run_computeReactionRates.py``)                   | 00:00.515 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_isotxs2_matrix.py` (``run_isotxs2_matrix.py``)                               | 00:00.401 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_isotxs2_matrix.py` (``run_isotxs2_matrix.py``)                               | 00:00.351 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_grids1_hex.py` (``run_grids1_hex.py``)                                       | 00:00.252 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_blockVolumeFractions.py` (``run_blockVolumeFractions.py``)                   | 00:00.221 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_blockVolumeFractions.py` (``run_blockVolumeFractions.py``)                   | 00:00.250 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_grids1_hex.py` (``run_grids1_hex.py``)                                       | 00:00.220 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_chartOfNuclides.py` (``run_chartOfNuclides.py``)                             | 00:00.215 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_chartOfNuclides.py` (``run_chartOfNuclides.py``)                             | 00:00.185 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_grids2_cartesian.py` (``run_grids2_cartesian.py``)                           | 00:00.145 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_grids2_cartesian.py` (``run_grids2_cartesian.py``)                           | 00:00.127 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_framework_run_grids3_rzt.py` (``run_grids3_rzt.py``)                                       | 00:00.143 | 0.0 MB |
+| :ref:`sphx_glr_gallery_framework_run_grids3_rzt.py` (``run_grids3_rzt.py``)                                       | 00:00.126 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
