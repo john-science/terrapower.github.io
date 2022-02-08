@@ -51,9 +51,9 @@ from scratch.
     =========== Case Information ===========
     =========== Input File Information ===========
     =========== Reactor Cycle Information ===========
-    =========== Adding Assemblies to <Core: core id:140462180382752> ===========
+    =========== Adding Assemblies to <Core: core id:140311519753168> ===========
     =========== Verifying Assembly Configurations ===========
-    =========== Summarizing Source of Material Data for <Core: core id:140462180382752> ===========
+    =========== Summarizing Source of Material Data for <Core: core id:140311519753168> ===========
     =========== Applying Geometry Modifications ===========
     =========== Interface Stack Summary  ===========
     ===========  Triggering Init Event ===========
@@ -289,7 +289,7 @@ from scratch.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.132 seconds)
+   **Total running time of the script:** ( 0 minutes  2.551 seconds)
 
 
 .. _sphx_glr_download_gallery_framework_run_programmaticReactorDefinition.py:
