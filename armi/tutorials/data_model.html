@@ -548,7 +548,7 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
                               [GCC 9.3.0]
        Master Machine:        ?
        Number of Processors:  1
-       Date and Time:         Tue Apr 19 16:33:50 2022
+       Date and Time:         Wed Apr 20 16:33:44 2022
        ---------------------  ------------------------------------------------------------
 =========== Input File Information ===========
 [info] -------------------  ------------------------------  ------------
@@ -571,9 +571,9 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
        ---------------------------  ---------------------------------------------------------------
 =========== Constructing Reactor and Verifying Inputs ===========
 [info] Constructing the `core`
-=========== Adding Assemblies to &lt;Core: core id:140116078573792&gt; ===========
+=========== Adding Assemblies to &lt;Core: core id:140000548580320&gt; ===========
 [info] Will expand CR, FE, MO, NI, SI, ZR, HE, NA, MN, W elementals to have natural isotopics
-[info] Nuclides truncating the burn-chain:  DUMP2, LFP39, LFP38, LFP41, LFP40, LFP35, DUMP1
+[info] Nuclides truncating the burn-chain:  LFP39, DUMP1, LFP35, LFP41, LFP40, DUMP2, LFP38
 [info] Constructing assembly `inner fuel`
 [warn] No component matched Flags.CLAD in &lt;reflector block-bol-000 at ExCore XS: A BU GP: A&gt;. Returning None
 [warn] Some component was missing in &lt;reflector block-bol-000 at ExCore XS: A BU GP: A&gt; so pin-to-duct gap not calculated
@@ -597,7 +597,7 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
 [warn] Could not create a spatialGrid for block control, multiplicities are not 1 or N they are {1.0}
 [info] Constructing assembly `ultimate shutdown`
 =========== Verifying Assembly Configurations ===========
-=========== Summarizing Source of Material Data for &lt;Core: core id:140116078573792&gt; ===========
+=========== Summarizing Source of Material Data for &lt;Core: core id:140000548580320&gt; ===========
 [info] ---------------  -----------------  ----------------------------
        Material Name    Source Location    Property Data was Modified
                                            from the Source?
@@ -612,19 +612,19 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
 [info] Updating spatial grid pitch data for hex geometry
 =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
 [info] Nuclide categorization for cross section temperature assignments:
-       ------------------  -------------------------------------------------------------
+       ------------------  ----------------------------------------------------------
        Nuclide Category    Nuclides
-       ------------------  -------------------------------------------------------------
-       Fuel                LFP39, AM242, PU236, CM246, LFP40, U234, NP238, PU242, CM247,
-                           DUMP2, CM244, ZR90, ZR94, PU240, LFP41, U235, U238, LFP35,
-                           PU238, AM241, CM245, PU239, ZR96, DUMP1, NP237, CM242,
-                           CM243, U236, HE4, ZR92, ZR91, LFP38, AM243, PU241
+       ------------------  ----------------------------------------------------------
+       Fuel                LFP39, ZR94, U236, DUMP1, ZR90, U234, CM246, PU240, CM242,
+                           CM244, U238, NP238, CM247, HE4, U235, NP237, LFP40, PU238,
+                           LFP38, AM243, CM243, PU236, LFP41, DUMP2, PU239, CM245,
+                           ZR91, ZR92, ZR96, PU241, LFP35, AM242, AM241, PU242
        Coolant             NA23
-       Structure           W182, MO94, FE56, NI62, CR53, FE58, NI61, W186,
-                           MO92, SI29, V, W184, C, W183, NI58, NI64,
-                           FE54, B11, MO96, SI30, CR52, CR50, B10, MO98,
-                           MO100, MN55, FE57, SI28, NI60, MO95, CR54, MO97
-       ------------------  -------------------------------------------------------------
+       Structure           B10, MO97, NI61, MO94, W184, MO96, V, B11,
+                           W186, NI64, NI62, NI60, SI30, CR50, MO98, MO95,
+                           W182, MO92, FE56, SI28, FE54, CR54, CR53, MO100,
+                           C, FE58, SI29, CR52, FE57, W183, MN55, NI58
+       ------------------  ----------------------------------------------------------
 [info] Assembly zone definitions:
        --------  ------  ------------  -----------------------------------------------------  ----------  ------
            Zone                                                                                 Symmetry  Hot
@@ -806,7 +806,7 @@ assembly out of a reactor just like you’d get the fifth item out of any other 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;Core: core id:140116078573792&gt;
+&lt;Core: core id:140000548580320&gt;
 &lt;inner fuel Assembly A0008 at 003-012&gt;
 &lt;fuel B0008-005 at 003-012-005 XS: A BU GP: A&gt;
 Block&#39;s parent is: &lt;inner fuel Assembly A0008 at 003-012&gt;
@@ -1142,7 +1142,7 @@ After:  2.43 MT Sodium
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[info] Opening database file at /home/runner/.armi/0-20220419163352699850/anl-afci-177.h5
+[info] Opening database file at /home/runner/.armi/0-20220420163346394394/anl-afci-177.h5
 [info] Writing to database for statepoint: /c00n00
 </pre></div></div>
 </div>
@@ -1244,19 +1244,19 @@ After:  2.43 MT Sodium
 [info] Applying &lt;Migration from 0.1.2: Update elemental nuclide flags....
 =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
 [info] Nuclide categorization for cross section temperature assignments:
-       ------------------  -------------------------------------------------------------
+       ------------------  ----------------------------------------------------------
        Nuclide Category    Nuclides
-       ------------------  -------------------------------------------------------------
-       Fuel                LFP39, AM242, PU236, CM246, LFP40, NP238, PU242, U234, CM247,
-                           DUMP2, CM244, PU240, ZR90, ZR94, LFP41, LFP35, PU238,
-                           U235, U238, AM241, CM245, PU239, ZR96, DUMP1, NP237,
-                           CM242, CM243, U236, ZR92, ZR91, LFP38, AM243, PU241
+       ------------------  ----------------------------------------------------------
+       Fuel                LFP39, ZR94, U236, DUMP1, ZR90, U234, CM246, PU240, CM242,
+                           CM244, U238, NP238, CM247, U235, NP237, LFP40, PU238,
+                           LFP38, AM243, CM243, PU236, LFP41, DUMP2, PU239, CM245,
+                           ZR91, ZR92, ZR96, PU241, LFP35, AM242, AM241, PU242
        Coolant             NA23
-       Structure           W182, MO94, FE56, NI62, CR53, FE58, NI61, W186,
-                           MO92, SI29, V, W184, C, W183, NI58, NI64,
-                           FE54, B11, MO96, SI30, CR52, CR50, B10, MO98,
-                           MO100, MN55, FE57, SI28, NI60, MO95, CR54, MO97
-       ------------------  -------------------------------------------------------------
+       Structure           B10, MO97, NI61, MO94, W184, MO96, V, B11,
+                           W186, NI64, NI62, NI60, SI30, CR50, MO98, MO95,
+                           W182, MO92, FE56, SI28, FE54, CR54, CR53, MO100,
+                           C, FE58, SI29, CR52, FE57, W183, MN55, NI58
+       ------------------  ----------------------------------------------------------
 [info] The setting `splitZones` is enabled. Building subzones from core zones:
        --------  --------------------------  ----------  ------------  -----------------------------------------------------  ----------  ------
            Zone                              Original                                                                           Symmetry  Hot
@@ -1345,7 +1345,7 @@ After:  2.43 MT Sodium
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-04-19.
+        Last updated on 2022-04-20.
       </span>
 
     </p>
