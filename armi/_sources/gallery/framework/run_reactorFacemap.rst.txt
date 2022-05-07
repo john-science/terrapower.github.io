@@ -42,12 +42,12 @@ power distribution from it. You can plot any block parameter.
     =========== Case Information ===========
     =========== Input File Information ===========
     =========== Reactor Cycle Information ===========
-    =========== Adding Assemblies to <Core: core id:140046883898176> ===========
+    =========== Adding Assemblies to <Core: core id:140714517000256> ===========
     =========== Verifying Assembly Configurations ===========
-    =========== Summarizing Source of Material Data for <Core: core id:140046883898176> ===========
+    =========== Summarizing Source of Material Data for <Core: core id:140714517000256> ===========
     =========== Applying Geometry Modifications ===========
-    =========== Adding Assemblies to <Core: sfp id:140046840546400> ===========
-    =========== Summarizing Source of Material Data for <Core: sfp id:140046840546400> ===========
+    =========== Adding Assemblies to <Core: sfp id:140714508690144> ===========
+    =========== Summarizing Source of Material Data for <Core: sfp id:140714508690144> ===========
     =========== Applying Geometry Modifications ===========
     =========== Interface Stack Summary  ===========
     ===========  Triggering Init Event ===========
@@ -89,7 +89,7 @@ power distribution from it. You can plot any block parameter.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.814 seconds)
+   **Total running time of the script:** ( 0 minutes  10.020 seconds)
 
 
 .. _sphx_glr_download_gallery_framework_run_reactorFacemap.py:
