@@ -5,12 +5,12 @@
 
 Computation times
 =================
-**00:06.445** total execution time for **gallery_analysis** files:
+**00:07.058** total execution time for **gallery_analysis** files:
 
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_analysis_run_hexReactorToRZ.py` (``run_hexReactorToRZ.py``)                 | 00:05.007 | 0.0 MB |
+| :ref:`sphx_glr_gallery_analysis_run_hexReactorToRZ.py` (``run_hexReactorToRZ.py``)                 | 00:05.345 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_analysis_run_hexBlockToRZConversion.py` (``run_hexBlockToRZConversion.py``) | 00:00.752 | 0.0 MB |
+| :ref:`sphx_glr_gallery_analysis_run_hexBlockToRZConversion.py` (``run_hexBlockToRZConversion.py``) | 00:00.886 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_analysis_run_blockMcnpMaterialCard.py` (``run_blockMcnpMaterialCard.py``)   | 00:00.686 | 0.0 MB |
+| :ref:`sphx_glr_gallery_analysis_run_blockMcnpMaterialCard.py` (``run_blockMcnpMaterialCard.py``)   | 00:00.827 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------+-----------+--------+
