@@ -265,6 +265,8 @@
 <li><p>Made the min/max temperatures of <code class="docutils literal notranslate"><span class="pre">Material</span></code> curves discoverable.</p></li>
 <li><p>Introduction of axial expansion changer to enable component-level axial expansion of assemblies.</p></li>
 <li><p>Add setting <code class="docutils literal notranslate"><span class="pre">inputHeightsConsideredHot</span></code> to enable thermal expansion of assemblies at BOL.</p></li>
+<li><p>Add blueprints setting, <code class="docutils literal notranslate"><span class="pre">axial</span> <span class="pre">expansion</span> <span class="pre">target</span> <span class="pre">component</span></code>, to enable users to manually set a “target component” for axial expansion.</p></li>
+<li><p>Allow database comparison to continue even if <code class="docutils literal notranslate"><span class="pre">unpackSpecialData</span></code> fails.</p></li>
 <li><p>TBD</p></li>
 </ol>
 </div>
@@ -283,7 +285,10 @@
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">copy.deepcopy</span></code> from <code class="docutils literal notranslate"><span class="pre">armi/reactor/converters/uniformMesh.py</span></code></p></li>
 <li><p>Clarify docstring for <code class="docutils literal notranslate"><span class="pre">armi/reactor/components/complexShapes.py::Helix</span></code></p></li>
 <li><p>Bug fix in <code class="docutils literal notranslate"><span class="pre">armi/reactor/components/complexShapes.py::Helix::getCircleInnerDiameter</span></code></p></li>
+<li><p>Fixed issue with axial expansion changer and axial meshing in <code class="docutils literal notranslate"><span class="pre">armi/reactor/reactors.py::Core::processLoading</span></code>.</p></li>
+<li><p>Bug fix and clarity improvements for how number densities are initialized for components.</p></li>
 <li><p>Bug fix in <code class="docutils literal notranslate"><span class="pre">armi/cases/case.py::copyInterfaceInputs</span></code></p></li>
+<li><p>Bug fix in <code class="docutils literal notranslate"><span class="pre">armi/reactor/components/component.py::getReac</span></code></p></li>
 <li><p>TBD</p></li>
 </ol>
 </div>
@@ -409,7 +414,7 @@ slow down. This release is a stake in the ground on a stable API.</p>
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-08-02.
+        Last updated on 2022-08-04.
       </span>
 
     </p>
