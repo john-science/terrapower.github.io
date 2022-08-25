@@ -215,13 +215,13 @@
 <span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">tabulate</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span>
 
+<span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">getPluginManagerOrFail</span><span class="p">,</span> <span class="n">materials</span><span class="p">,</span> <span class="n">nuclearDataIO</span><span class="p">,</span> <span class="n">settings</span>
 <span class="kn">from</span> <span class="nn">armi.nuclearDataIO</span> <span class="kn">import</span> <span class="n">xsLibraries</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">assemblies</span>
@@ -240,9 +240,6 @@
 <span class="kn">from</span> <span class="nn">armi.utils.iterables</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">armi.utils.mathematics</span> <span class="kn">import</span> <span class="n">average1DWithinTolerance</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.converters.axialExpansionChanger</span> <span class="kn">import</span> <span class="n">AxialExpansionChanger</span>
-
-<span class="c1"># init logger</span>
-<span class="n">runLog</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="Reactor"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Reactor">[docs]</a><span class="k">class</span> <span class="nc">Reactor</span><span class="p">(</span><span class="n">composites</span><span class="o">.</span><span class="n">Composite</span><span class="p">):</span>
@@ -399,7 +396,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_circularRingPitch</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_automaticVariableMesh</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_minMeshSizeRatio</span> <span class="o">=</span> <span class="mf">0.15</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_inputHeightsConsideredHot</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_detailedAxialExpansion</span> <span class="o">=</span> <span class="kc">False</span>
 
 <div class="viewcode-block" id="Core.setOptionsFromCs"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.setOptionsFromCs">[docs]</a>    <span class="k">def</span> <span class="nf">setOptionsFromCs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
@@ -411,7 +407,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_circularRingPitch</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;circularRingPitch&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_automaticVariableMesh</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;automaticVariableMesh&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_minMeshSizeRatio</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;minMeshSizeRatio&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_inputHeightsConsideredHot</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;inputHeightsConsideredHot&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_detailedAxialExpansion</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;detailedAxialExpansion&quot;</span><span class="p">]</span></div>
 
     <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -500,6 +495,11 @@
     <span class="nd">@lib</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">lib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set the microscopic cross section library.&quot;&quot;&quot;</span>
+        <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Updating cross section library on </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Initial: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_lib</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Updated: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_lib</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
@@ -2522,6 +2522,12 @@
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assems</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">):</span>
                 <span class="n">axialExpChngr</span><span class="o">.</span><span class="n">setAssembly</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+                <span class="c1"># this doesn&#39;t get applied to control assems, so CR will be interpreted</span>
+                <span class="c1"># as hot. This should be conservative because the control rods will</span>
+                <span class="c1"># be modeled as slightly shorter with the correct hot density. Density</span>
+                <span class="c1"># is more important than height, so we are forcing density to be correct</span>
+                <span class="c1"># since we can&#39;t do axial expansion (yet)</span>
+                <span class="n">axialExpChngr</span><span class="o">.</span><span class="n">applyColdHeightMassIncrease</span><span class="p">()</span>
                 <span class="n">axialExpChngr</span><span class="o">.</span><span class="n">expansionData</span><span class="o">.</span><span class="n">computeThermalExpansionFactors</span><span class="p">()</span>
                 <span class="n">axialExpChngr</span><span class="o">.</span><span class="n">axiallyExpandAssembly</span><span class="p">(</span><span class="n">thermal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="c1"># resolve axially disjoint mesh (if needed)</span>
@@ -2549,7 +2555,7 @@
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-08-12.
+        Last updated on 2022-08-25.
       </span>
 
     </p>
