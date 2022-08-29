@@ -386,6 +386,8 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.adjustDensity">adjustDensity() (armi.reactor.blocks.Block method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.components.component.html#armi.reactor.components.component.Component.adjustDensityForHeightExpansion">adjustDensityForHeightExpansion() (armi.reactor.components.component.Component method)</a>
+</li>
       <li><a href=".apidocs/armi.materials.material.html#armi.materials.material.Material.adjustMassEnrichment">adjustMassEnrichment() (armi.materials.material.Material method)</a>
 
       <ul>
@@ -493,8 +495,6 @@
       <li><a href=".apidocs/armi.physics.neutronics.html#armi.physics.neutronics.applyEffectiveDelayedNeutronFractionToCore">applyEffectiveDelayedNeutronFractionToCore() (in module armi.physics.neutronics)</a>
 </li>
       <li><a href=".apidocs/armi.physics.fuelPerformance.utils.html#armi.physics.fuelPerformance.utils.applyFuelDisplacement">applyFuelDisplacement() (in module armi.physics.fuelPerformance.utils)</a>
-</li>
-      <li><a href=".apidocs/armi.reactor.components.component.html#armi.reactor.components.component.Component.applyHotHeightDensityReduction">applyHotHeightDensityReduction() (armi.reactor.components.component.Component method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.b4c.html#armi.materials.b4c.B4C.applyInputParams">applyInputParams() (armi.materials.b4c.B4C method)</a>
 
@@ -1882,8 +1882,6 @@
         <li><a href=".apidocs/armi.operators.runTypes.html#module-armi.operators.runTypes">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     armi.operators.settingsValidation
 
@@ -1891,6 +1889,8 @@
         <li><a href=".apidocs/armi.operators.settingsValidation.html#module-armi.operators.settingsValidation">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     armi.operators.snapshots
 
@@ -3454,6 +3454,10 @@
 </li>
       <li><a href=".apidocs/armi.tests.html#armi.tests.ArmiTestHelper">ArmiTestHelper (class in armi.tests)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.BlockParamMapper.arrayParamGetter">arrayParamGetter() (armi.reactor.converters.uniformMesh.BlockParamMapper static method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.BlockParamMapper.arrayParamSetter">arrayParamSetter() (armi.reactor.converters.uniformMesh.BlockParamMapper static method)</a>
+</li>
       <li><a href=".apidocs/armi.utils.asciimaps.html#armi.utils.asciimaps.AsciiMap.asciiLabelByIndices">asciiLabelByIndices (armi.utils.asciimaps.AsciiMap attribute)</a>
 </li>
       <li><a href=".apidocs/armi.utils.asciimaps.html#armi.utils.asciimaps.AsciiMap.asciiLines">asciiLines (armi.utils.asciimaps.AsciiMap attribute)</a>
@@ -3684,8 +3688,6 @@
 </li>
       <li><a href=".apidocs/armi.materials.tests.test__init__.html#armi.materials.tests.test__init__.betterSubClassCheck">betterSubClassCheck() (in module armi.materials.tests.test__init__)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentExpansion.biggerDelta">biggerDelta (armi.reactor.tests.test_components.TestComponentExpansion attribute)</a>
-</li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_rzflux.html#armi.nuclearDataIO.cccc.tests.test_rzflux.binaryFilesEqual">binaryFilesEqual() (in module armi.nuclearDataIO.cccc.tests.test_rzflux)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.cccc.html#armi.nuclearDataIO.cccc.cccc.BinaryRecordReader">BinaryRecordReader (class in armi.nuclearDataIO.cccc.cccc)</a>
@@ -3715,6 +3717,8 @@
       <li><a href=".apidocs/armi.reactor.blueprints.blockBlueprint.html#armi.reactor.blueprints.blockBlueprint.BlockKeyedList">BlockKeyedList (class in armi.reactor.blueprints.blockBlueprint)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.blockBlueprint.html#armi.reactor.blueprints.blockBlueprint.BlockList">BlockList (class in armi.reactor.blueprints.blockBlueprint)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.BlockParamMapper">BlockParamMapper (class in armi.reactor.converters.uniformMesh)</a>
 </li>
       <li><a href=".apidocs/armi.cases.inputModifiers.inputModifiers.html#armi.cases.inputModifiers.inputModifiers.BluePrintBlockModifier">BluePrintBlockModifier (class in armi.cases.inputModifiers.inputModifiers)</a>
 </li>
@@ -4024,6 +4028,8 @@
 </li>
       <li><a href=".apidocs/armi.tests.mockRunLogs.html#armi.tests.mockRunLogs.BufferLog.clearSingleWarnings">clearSingleWarnings() (armi.tests.mockRunLogs.BufferLog method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.clearStateOnAssemblies">clearStateOnAssemblies() (armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter static method)</a>
+</li>
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.latticePhysicsInterface.html#armi.physics.neutronics.latticePhysics.latticePhysicsInterface.LatticePhysicsInterface.clearXS">clearXS() (armi.physics.neutronics.latticePhysics.latticePhysicsInterface.LatticePhysicsInterface method)</a>
 </li>
       <li><a href="glossary.html#term-CLI"><strong>CLI</strong></a>
@@ -4071,6 +4077,8 @@
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.utils.tests.test_codeTiming.html#armi.utils.tests.test_codeTiming.CodeTimingTest">CodeTimingTest (class in armi.utils.tests.test_codeTiming)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentExpansion.coldOuterDiameter">coldOuterDiameter (armi.reactor.tests.test_components.TestComponentExpansion attribute)</a>
 </li>
       <li><a href=".apidocs/armi.operators.operatorMPI.html#armi.operators.operatorMPI.OperatorMPI.collapseAllStderrs">collapseAllStderrs() (armi.operators.operatorMPI.OperatorMPI method)</a>
 </li>
@@ -6339,6 +6347,8 @@
         <li><a href=".apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getHeight">(armi.reactor.blocks.Block method)</a>
 </li>
       </ul></li>
+      <li><a href=".apidocs/armi.reactor.components.component.html#armi.reactor.components.component.Component.getHeightFactor">getHeightFactor() (armi.reactor.components.component.Component method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.components.componentParameters.html#armi.reactor.components.componentParameters.getHelixParameterDefinitions">getHelixParameterDefinitions() (in module armi.reactor.components.componentParameters)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.components.componentParameters.html#armi.reactor.components.componentParameters.getHexagonParameterDefinitions">getHexagonParameterDefinitions() (in module armi.reactor.components.componentParameters)</a>
@@ -11268,6 +11278,10 @@
 </li>
       <li><a href=".apidocs/armi.materials.scandiumOxide.html#armi.materials.scandiumOxide.Sc2O3">Sc2O3 (class in armi.materials.scandiumOxide)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.BlockParamMapper.scalarParamGetter">scalarParamGetter() (armi.reactor.converters.uniformMesh.BlockParamMapper static method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.BlockParamMapper.scalarParamSetter">scalarParamSetter() (armi.reactor.converters.uniformMesh.BlockParamMapper static method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.EdgeAssemblyChanger.scaleParamsRelatedToSymmetry">scaleParamsRelatedToSymmetry() (armi.reactor.converters.geometryConverters.EdgeAssemblyChanger static method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.ScandiumOxide_TestCase">ScandiumOxide_TestCase (class in armi.materials.tests.test_materials)</a>
@@ -11325,6 +11339,8 @@
       <li><a href=".apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.setAreaFractionsReport">setAreaFractionsReport() (armi.reactor.blocks.Block method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.axialExpansionChanger.html#armi.reactor.converters.axialExpansionChanger.AxialExpansionChanger.setAssembly">setAssembly() (armi.reactor.converters.axialExpansionChanger.AxialExpansionChanger method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.setAssemblyStateFromOverlaps">setAssemblyStateFromOverlaps() (armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter static method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.setAssemNumCounter">setAssemNumCounter() (in module armi.reactor.assemblies)</a>
 </li>
@@ -11560,14 +11576,14 @@
 </li>
       <li><a href=".apidocs/armi.cli.entryPoint.html#armi.cli.entryPoint.setSetting">setSetting() (in module armi.cli.entryPoint)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href=".apidocs/armi.operators.operator.html#armi.operators.operator.Operator.setStateToDefault">setStateToDefault() (armi.operators.operator.Operator static method)</a>
 
       <ul>
         <li><a href=".apidocs/armi.operators.snapshots.html#armi.operators.snapshots.OperatorSnapshots.setStateToDefault">(armi.operators.snapshots.OperatorSnapshots static method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href=".apidocs/armi.reactor.components.component.html#armi.reactor.components.component.Component.setTemperature">setTemperature() (armi.reactor.components.component.Component method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.Parameter.setter">setter() (armi.reactor.parameters.parameterDefinitions.Parameter method)</a>
@@ -12354,6 +12370,8 @@
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_pathTools.html#armi.utils.tests.test_pathTools.PathToolsTests.test_cleanPathNoMpi">test_cleanPathNoMpi() (armi.utils.tests.test_pathTools.PathToolsTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh.test_clearAssemblyState">test_clearAssemblyState() (armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_clearDensity">test_clearDensity() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestCaseSuiteDependencies.test_clone">test_clone() (armi.cases.tests.test_cases.TestCaseSuiteDependencies method)</a>
@@ -12439,6 +12457,8 @@
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_componentInteractionsLinkingByDimensions">test_componentInteractionsLinkingByDimensions() (armi.reactor.tests.test_components.TestCircle method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_componentInteractionsLinkingBySubtraction">test_componentInteractionsLinkingBySubtraction() (armi.reactor.tests.test_components.TestCircle method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentExpansion.test_ComponentMassIndependentOfInputTemp">test_ComponentMassIndependentOfInputTemp() (armi.reactor.tests.test_components.TestComponentExpansion method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blueprints.html#armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema.test_components">test_components() (armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema method)</a>
 </li>
@@ -13866,7 +13886,9 @@
 </li>
       <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmi.test_main">test_main() (armi.tests.test_apps.TestArmi method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestDetailedAxialExpansionComponents.test_makeAssemWithUniformMesh">test_makeAssemWithUniformMesh() (armi.reactor.converters.tests.test_uniformMesh.TestDetailedAxialExpansionComponents method)</a>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh.test_makeAssemUniformMeshParamMappingSameMesh">test_makeAssemUniformMeshParamMappingSameMesh() (armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh.test_makeAssemWithUniformMesh">test_makeAssemWithUniformMesh() (armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_makeAxialSnapList">test_makeAxialSnapList() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
@@ -14964,6 +14986,8 @@
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_asciimaps.html#armi.utils.tests.test_asciimaps.TestAsciiMaps">TestAsciiMaps (class in armi.utils.tests.test_asciimaps)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestAssemblyUniformMesh">TestAssemblyUniformMesh (class in armi.reactor.converters.tests.test_uniformMesh)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestAxialExpansionHeight">TestAxialExpansionHeight (class in armi.reactor.converters.tests.test_axialExpansionChanger)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.tests.test_databaseInterface.html#armi.bookkeeping.tests.test_databaseInterface.TestBadName">TestBadName (class in armi.bookkeeping.tests.test_databaseInterface)</a>
@@ -15051,8 +15075,6 @@
       <li><a href=".apidocs/armi.bookkeeping.tests.test_databaseInterface.html#armi.bookkeeping.tests.test_databaseInterface.TestDatabaseWriter">TestDatabaseWriter (class in armi.bookkeeping.tests.test_databaseInterface)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape">TestDerivedShape (class in armi.reactor.tests.test_components)</a>
-</li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestDetailedAxialExpansionComponents">TestDetailedAxialExpansionComponents (class in armi.reactor.converters.tests.test_uniformMesh)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestDetermineTargetComponent">TestDetermineTargetComponent (class in armi.reactor.converters.tests.test_axialExpansionChanger)</a>
 </li>
@@ -15531,8 +15553,6 @@
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.bookkeeping.newReports.html#armi.bookkeeping.newReports.TimeSeries">TimeSeries (class in armi.bookkeeping.newReports)</a>
-</li>
-      <li><a href=".apidocs/armi.reactor.components.component.html#armi.reactor.components.component.Component.tInputWarning">tInputWarning() (armi.reactor.components.component.Component method)</a>
 </li>
       <li><a href=".apidocs/armi.cases.case.html#armi.cases.case.Case.title">title (armi.cases.case.Case property)</a>
 </li>
@@ -16182,7 +16202,7 @@
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-08-25.
+        Last updated on 2022-08-29.
       </span>
 
     </p>
