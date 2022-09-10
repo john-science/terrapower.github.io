@@ -39,13 +39,13 @@ power distribution from it. You can plot any block parameter.
     =========== Input File Information ===========
     =========== Reactor Cycle Information ===========
     =========== Constructing Reactor and Verifying Inputs ===========
-    =========== Adding Assemblies to <Core: core id:139678338647856> ===========
+    =========== Adding Assemblies to <Core: core id:140395833413008> ===========
     =========== Verifying Assembly Configurations ===========
-    =========== Summarizing Source of Material Data for <Core: core id:139678338647856> ===========
+    =========== Summarizing Source of Material Data for <Core: core id:140395833413008> ===========
     =========== Applying Geometry Modifications ===========
     =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
-    =========== Adding Assemblies to <Core: sfp id:139678326886256> ===========
-    =========== Summarizing Source of Material Data for <Core: sfp id:139678326886256> ===========
+    =========== Adding Assemblies to <Core: sfp id:140395726843760> ===========
+    =========== Summarizing Source of Material Data for <Core: sfp id:140395726843760> ===========
     =========== Applying Geometry Modifications ===========
     =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
     =========== Interface Stack Summary  ===========
@@ -89,7 +89,7 @@ power distribution from it. You can plot any block parameter.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.100 seconds)
+   **Total running time of the script:** ( 0 minutes  7.046 seconds)
 
 
 .. _sphx_glr_download_gallery_framework_run_reactorFacemap.py:
