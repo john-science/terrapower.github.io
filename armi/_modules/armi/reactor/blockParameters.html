@@ -196,10 +196,8 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
-<span class="sd">&quot;&quot;&quot;Parameter definitions for Blocks.&quot;&quot;&quot;</span>
-
+<span class="sd">&quot;&quot;&quot;Parameter definitions for Blocks&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
-
 <span class="kn">import</span> <span class="nn">six</span>
 
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
@@ -489,10 +487,6 @@
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dpaRx&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;dpa/s&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;heliumInB4C&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;He/s/cm$^3$&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
@@ -523,8 +517,6 @@
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;basePBu&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">saveToDB</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;hydDiam&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">saveToDB</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;nHMAtBOL&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;atoms/bn-cm.&quot;</span><span class="p">,</span>
@@ -537,12 +529,6 @@
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;cm&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Center axial dimension of this block&quot;</span><span class="p">,</span>
             <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">retainOnReplacement</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;pinPeakingStdDev&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Standard deviation of the pin peaking factors for the block&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">()</span> <span class="k">as</span> <span class="n">pb</span><span class="p">:</span>
@@ -625,14 +611,6 @@
             <span class="n">saveToDB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;regName&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Set by Assembly in writeNIP30 once the region has been placed&quot;</span><span class="p">,</span>
-            <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">saveToDB</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="p">)</span>
-
     <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">(</span>
         <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
@@ -652,21 +630,8 @@
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;distortWorth&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/cm^3&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Distortion reactivity distribution&quot;</span><span class="p">,</span>
-            <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;fuelWorth&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;dk/kk&#39;-kg&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of fuel material per unit mass&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;fuelWorthDollarsPerKg&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;$/kg&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of fuel material per unit mass&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
@@ -701,33 +666,9 @@
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;coolantWorthDollarsPerKg&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;$/kg&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of coolant material per unit mass&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;cladWorth&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;dk/kk&#39;-kg&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of clad material per unit mass&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;cladWorthDollarsPerKg&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;$/kg&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of clad material per unit mass&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;structureWorth&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;dk/kk&#39;-kg&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of structure material per unit mass&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;structureWorthDollarsPerKg&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;$/kg&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Reactivity worth of structure material (non-clad and non-wire wrap material) per unit mass&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
@@ -838,36 +779,6 @@
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;cents/K&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Voided Doppler power reactivity coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;virdentGr&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/%/cm^3&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Radial surface leakage reactivity&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;virdentGz&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/%/cm^3&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Axial surface leakage reactivity&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;virdentLr&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/%/cm^3&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Radial volume leakage reactivity&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;virdentLz&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/%/cm^3&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Axial volume leakage reactivity&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;assemPeakStd&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/%/cm^3&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Spectral reactivity&quot;</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;virdentS&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pcm/%/cm^3&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Spectral reactivity&quot;</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">(</span>
         <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
@@ -1056,13 +967,6 @@
     <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span> <span class="k">as</span> <span class="n">pb</span><span class="p">:</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;VirDenTerr&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;VirDenT error&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;assemNum&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Index that refers, nominally, to the assemNum parameter of &quot;</span>
@@ -1191,96 +1095,6 @@
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationElasticPM&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Combined elastic membrane and bending components of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationElasticT&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Thermal expansion component of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationElasticTRefueling&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Thermal expansion component of duct dilation at refueling temperature (180C)&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationCreepIrrad&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Irradiation creep component of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">,</span> <span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationSwellingSF&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Stress-free void swelling component of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">,</span> <span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;blockAxialSwellingSF&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Axial stress-free void swelling of block&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">,</span> <span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationSwellingSE&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Stress-enhanced swelling component of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">,</span> <span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationCreepTh1&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Primary thermal creep component of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">,</span> <span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationCreepTh2&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Secondary thermal creep component of duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">,</span> <span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationTotal&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Total duct dilation&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;dilationRefueling&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;mm&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Amount of duct dilation at refueling temperature (180C)&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-            <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;distortion&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;displacementMAG&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;heightBOL&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;cm&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;As-fabricated height of this block (as input). Used in fuel performance. Should be constant.&quot;</span><span class="p">,</span>
@@ -1354,13 +1168,6 @@
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
-            <span class="s2">&quot;powerShapePercent&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Percent change in power shape when core temperature rises.&quot;</span><span class="p">,</span>
-            <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;puFrac&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Current Pu number density relative to HM at BOL&quot;</span><span class="p">,</span>
@@ -1373,14 +1180,6 @@
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Smear density of fuel pins in this block. Defined as the ratio of fuel area to total space inside cladding.&quot;</span><span class="p">,</span>
             <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
         <span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">)</span> <span class="k">as</span> <span class="n">pb</span><span class="p">:</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;distortionReactivity&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;harmonic&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
-
-        <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span><span class="s2">&quot;harmonicAdj&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">pDefs</span></div>
 </pre></div>
@@ -1396,7 +1195,7 @@
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-11-18.
+        Last updated on 2022-12-09.
       </span>
 
     </p>
