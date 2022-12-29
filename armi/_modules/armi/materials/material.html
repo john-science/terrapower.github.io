@@ -214,17 +214,18 @@
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
+<span class="kn">from</span> <span class="nn">armi.materials</span> <span class="kn">import</span> <span class="n">materialParameters</span>
 <span class="kn">from</span> <span class="nn">armi.nucDirectory</span> <span class="kn">import</span> <span class="n">nuclideBases</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">composites</span>
-<span class="kn">from</span> <span class="nn">armi.materials</span> <span class="kn">import</span> <span class="n">materialParameters</span>
-<span class="kn">from</span> <span class="nn">armi.utils.units</span> <span class="kn">import</span> <span class="n">getTk</span><span class="p">,</span> <span class="n">getTc</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">TypeSpec</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">densityTools</span>
+<span class="kn">from</span> <span class="nn">armi.utils.units</span> <span class="kn">import</span> <span class="n">getTk</span><span class="p">,</span> <span class="n">getTc</span>
 
 <span class="c1"># globals</span>
 <span class="n">FAIL_ON_RANGE</span> <span class="o">=</span> <span class="kc">False</span>
 
 
-<div class="viewcode-block" id="Material"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material">[docs]</a><span class="k">class</span> <span class="nc">Material</span><span class="p">(</span><span class="n">composites</span><span class="o">.</span><span class="n">Leaf</span><span class="p">):</span>
+<div class="viewcode-block" id="Material"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material">[docs]</a><span class="k">class</span> <span class="nc">Material</span><span class="p">(</span><span class="n">composites</span><span class="o">.</span><span class="n">Composite</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A material is made up of elements or isotopes. It has bulk properties like mass density.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -256,7 +257,7 @@
 <span class="sd">    with information about thermal scattering.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">composites</span><span class="o">.</span><span class="n">Leaf</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">composites</span><span class="o">.</span><span class="n">Composite</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">massFrac</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="c1"># track sum of massFrac (which are modified and won&#39;t always sum to 1.0!)</span>
@@ -273,6 +274,16 @@
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;Material: </span><span class="si">{0}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+
+<div class="viewcode-block" id="Material.getChildren"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getChildren">[docs]</a>    <span class="k">def</span> <span class="nf">getChildren</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">generationNum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">includeMaterials</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return empty list, representing that this object has no children.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Material.getChildrenWithFlags"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getChildrenWithFlags">[docs]</a>    <span class="k">def</span> <span class="nf">getChildrenWithFlags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeSpec</span><span class="p">:</span> <span class="n">TypeSpec</span><span class="p">,</span> <span class="n">exactMatch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return empty list, representing that this object has no children.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="Material.duplicate"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.duplicate">[docs]</a>    <span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;copy without needing a deepcopy.&quot;&quot;&quot;</span>
@@ -596,8 +607,7 @@
             <span class="p">)</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">dLL</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span>
-        <span class="n">dRhoOverRho</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span>
-        <span class="k">return</span> <span class="n">refD</span> <span class="o">*</span> <span class="p">(</span><span class="n">dRhoOverRho</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">refD</span> <span class="o">/</span> <span class="n">f</span></div>
 
 <div class="viewcode-block" id="Material.density3KgM3"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.density3KgM3">[docs]</a>    <span class="k">def</span> <span class="nf">density3KgM3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Return density that preserves mass when thermally expanded in 3D in units of kg/m^3.</span>
@@ -664,8 +674,6 @@
 <div class="viewcode-block" id="Material.getMassFrac"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getMassFrac">[docs]</a>    <span class="k">def</span> <span class="nf">getMassFrac</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">nucName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">elementSymbol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">nucList</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">expandFissionProducts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
@@ -676,12 +684,6 @@
 <span class="sd">        ----------</span>
 <span class="sd">        nucName : str, optional</span>
 <span class="sd">            Nuclide name to return (&#39;ZR&#39;,&#39;PU239&#39;,etc.)</span>
-
-<span class="sd">        elementSymbol :str, optional</span>
-<span class="sd">             Return mass fractions of all isotopes of this element (example: &#39;Pu&#39;, &#39;U&#39;)</span>
-
-<span class="sd">        nucList : optional, list</span>
-<span class="sd">            List of nuclides to sum up and return the total</span>
 
 <span class="sd">        normalized : bool, optional</span>
 <span class="sd">            Return the mass fraction such that the sum of all nuclides is sum to 1.0. Default True</span>
@@ -1025,7 +1027,7 @@
     <p>
         &#169; Copyright 2009-2022, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-12-20.
+        Last updated on 2022-12-29.
       </span>
 
     </p>
