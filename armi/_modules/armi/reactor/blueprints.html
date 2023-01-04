@@ -274,6 +274,7 @@
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">geometry</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">systemLayoutInput</span>
 <span class="kn">from</span> <span class="nn">armi.scripts</span> <span class="kn">import</span> <span class="n">migration</span>
+
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">textProcessors</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.fissionProductModel</span> <span class="kn">import</span> <span class="n">lumpedFissionProduct</span>
 <span class="kn">from</span> <span class="nn">armi.nucDirectory</span> <span class="kn">import</span> <span class="n">elements</span>
@@ -288,13 +289,14 @@
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints.componentBlueprint</span> <span class="kn">import</span> <span class="n">ComponentGroups</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints</span> <span class="kn">import</span> <span class="n">isotopicOptions</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints.gridBlueprint</span> <span class="kn">import</span> <span class="n">Grids</span><span class="p">,</span> <span class="n">Triplet</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.converters</span> <span class="kn">import</span> <span class="n">axialExpansionChanger</span>
 
 <span class="n">context</span><span class="o">.</span><span class="n">BLUEPRINTS_IMPORTED</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">context</span><span class="o">.</span><span class="n">BLUEPRINTS_IMPORT_CONTEXT</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_stack</span><span class="p">())</span>
 
 
 <div class="viewcode-block" id="loadFromCs"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.loadFromCs">[docs]</a><span class="k">def</span> <span class="nf">loadFromCs</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">roundTrip</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to load Blueprints based on supplied ``CaseSettings``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># pylint: disable=import-outside-toplevel; circular import protection</span>
@@ -318,7 +320,7 @@
 
 
 <span class="k">class</span> <span class="nc">_BlueprintsPluginCollector</span><span class="p">(</span><span class="n">yamlize</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">ObjectType</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Simple metaclass for adding yamlize.Attributes from plugins to Blueprints.</span>
 
 <span class="sd">    This calls the defineBlueprintsSections() plugin hook to discover new class</span>
@@ -355,7 +357,7 @@
 
 
 <div class="viewcode-block" id="Blueprints"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.Blueprints">[docs]</a><span class="k">class</span> <span class="nc">Blueprints</span><span class="p">(</span><span class="n">yamlize</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">_BlueprintsPluginCollector</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base Blueprintsobject representing all the subsections in the input file.</span>
 
 <span class="sd">    .. impl:: ARMI represents a user-specified reactor by providing a &quot;Blueprint&quot; YAML interface.</span>
@@ -421,7 +423,7 @@
         <span class="p">)</span>
 
 <div class="viewcode-block" id="Blueprints.constructAssem"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.Blueprints.constructAssem">[docs]</a>    <span class="k">def</span> <span class="nf">constructAssem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">specifier</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a new assembly instance from the assembly designs in this Blueprints object.</span>
 
 <span class="sd">        Parameters</span>
@@ -469,7 +471,7 @@
         <span class="k">return</span> <span class="n">a</span></div>
 
     <span class="k">def</span> <span class="nf">_prepConstruction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method initializes a bunch of information within a Blueprints object such</span>
 <span class="sd">        as assigning assembly and block type numbers, resolving the nuclides in the</span>
 <span class="sd">        problem, and pre-populating assemblies.</span>
@@ -507,10 +509,25 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">assemblies</span><span class="p">[</span><span class="n">aDesign</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
             <span class="k">if</span> <span class="n">currentCount</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">assemblies</span><span class="o">.</span><span class="n">setAssemNumCounter</span><span class="p">(</span><span class="n">currentCount</span><span class="p">)</span>
-
+            <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;=========== Verifying Assembly Configurations ===========&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_checkAssemblyAreaConsistency</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
 
-            <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;=========== Verifying Assembly Configurations ===========&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;detailedAxialExpansion&quot;</span><span class="p">]:</span>
+                <span class="c1"># this is required to set up assemblies so they know how to snap</span>
+                <span class="c1"># to the reference mesh. They wont know the mesh to conform to</span>
+                <span class="c1"># otherwise....</span>
+                <span class="n">axialExpansionChanger</span><span class="o">.</span><span class="n">makeAssemsAbleToSnapToUniformMesh</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">assemblies</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;nonUniformAssemFlags&quot;</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;inputHeightsConsideredHot&quot;</span><span class="p">]:</span>
+                <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span>
+                    <span class="s2">&quot;=========== Axially expanding all assemblies (except control) from Tinput to Thot ===========&quot;</span>
+                <span class="p">)</span>
+                <span class="c1"># expand axial heights from cold to hot so dims and masses are consistent</span>
+                <span class="c1"># with specified component hot temperatures.</span>
+                <span class="n">axialExpansionChanger</span><span class="o">.</span><span class="n">expandColdDimsToHot</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">assemblies</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;detailedAxialExpansion&quot;</span><span class="p">]</span>
+                <span class="p">)</span>
 
             <span class="c1"># pylint: disable=no-member</span>
             <span class="n">getPluginManagerOrFail</span><span class="p">()</span><span class="o">.</span><span class="n">hook</span><span class="o">.</span><span class="n">afterConstructionOfAssemblies</span><span class="p">(</span>
@@ -529,7 +546,7 @@
                         <span class="bp">self</span><span class="o">.</span><span class="n">blockDesigns</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bDesign</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_resolveNuclides</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process elements and determine how to expand them to natural isotopics.</span>
 
 <span class="sd">        Also builds meta-data about which nuclides are in the problem.</span>
@@ -705,7 +722,7 @@
 
 <div class="viewcode-block" id="Blueprints.migrate"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.Blueprints.migrate">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">inp</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">TextIO</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Given a stream representation of a blueprints file, migrate it.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given a stream representation of a blueprints file, migrate it.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -720,7 +737,7 @@
 
 <div class="viewcode-block" id="Blueprints.load"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.Blueprints.load">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">roundTrip</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This class method is a wrapper around the `yamlize.Object.load()` method.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This class method is a wrapper around the `yamlize.Object.load()` method.</span>
 
 <span class="sd">        The reason for the wrapper is to allow us to default to `Cloader`. Essentially,</span>
 <span class="sd">        the `CLoader` class is 10x faster, but doesn&#39;t allow for &quot;round trip&quot; (read-</span>
@@ -731,7 +748,7 @@
 
 
 <div class="viewcode-block" id="migrate"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.migrate">[docs]</a><span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">bp</span><span class="p">:</span> <span class="n">Blueprints</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Apply migrations to the input structure.</span>
 
 <span class="sd">    This is a good place to perform migrations that address changes to the system design</span>
@@ -809,9 +826,9 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2009-2022, TerraPower, LLC.
+        &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2022-12-29.
+        Last updated on 2023-01-04.
       </span>
 
     </p>
