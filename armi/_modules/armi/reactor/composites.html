@@ -1082,7 +1082,8 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nuclideNames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getNuclidesFromSpecifier</span><span class="p">(</span><span class="n">nucName</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getMassFracs</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nucName</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">nucName</span> <span class="ow">in</span> <span class="n">nuclideNames</span><span class="p">)</span></div>
+        <span class="n">massFracs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMassFracs</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">massFracs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nucName</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">nucName</span> <span class="ow">in</span> <span class="n">nuclideNames</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ArmiObject.getMicroSuffix"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.getMicroSuffix">[docs]</a>    <span class="k">def</span> <span class="nf">getMicroSuffix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
@@ -1459,9 +1460,6 @@
 <span class="sd">        ----------</span>
 <span class="sd">        expandFissionProducts : bool (optional)</span>
 <span class="sd">            expand the fission product number densities</span>
-
-<span class="sd">        nuclideNames : iterable (optional)</span>
-<span class="sd">            nuclide names to get number densities</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -3561,7 +3559,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-01-04.
+        Last updated on 2023-01-15.
       </span>
 
     </p>
