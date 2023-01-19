@@ -39,13 +39,13 @@ power distribution from it. You can plot any block parameter.
     =========== Input File Information ===========
     =========== Reactor Cycle Information ===========
     =========== Constructing Reactor and Verifying Inputs ===========
-    =========== Adding Assemblies to <Core: core id:140642427547264> ===========
+    =========== Adding Assemblies to <Core: core id:140062166267072> ===========
     =========== Verifying Assembly Configurations ===========
-    =========== Summarizing Source of Material Data for <Core: core id:140642427547264> ===========
+    =========== Summarizing Source of Material Data for <Core: core id:140062166267072> ===========
     =========== Applying Geometry Modifications ===========
     =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
-    =========== Adding Assemblies to <Core: sfp id:140642382183680> ===========
-    =========== Summarizing Source of Material Data for <Core: sfp id:140642382183680> ===========
+    =========== Adding Assemblies to <Core: sfp id:140061656440064> ===========
+    =========== Summarizing Source of Material Data for <Core: sfp id:140061656440064> ===========
     =========== Applying Geometry Modifications ===========
     =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
     =========== Interface Stack Summary  ===========
