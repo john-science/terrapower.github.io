@@ -8,6 +8,7 @@ Release Date: TBD
 
 What's new in ARMI
 ------------------
+#. The ``Material`` class no longer subclasses ``Composite`` (`PR#1062 <https://github.com/terrapower/armi/pull/1062>`_)
 #. Split 3 classes in ``database3.py`` into 3 files (`PR#955 <https://github.com/terrapower/armi/pull/955>`_)
 #. savePhysicsFiles setting to copy physics kernel input and output to directories organized by cycle and time step number (e.g., c2n1) to retain files from a simulation and avoid overwriting them. (`PR#958 <https://github.com/terrapower/armi/pull/952>`_)
 #. Add pinQuantities parameter category for blockParams that have spatial distribution within a block.
@@ -39,6 +40,7 @@ Bug fixes
 #. Fixed a bug where the material namespace order for test_axialExpansionChanger.py was persisting beyond the tests. (`PR#1046 https://github.com/terrapower/armi/pull/1046`_)
 #. A bug was fixed in `PR#1022 <https://github.com/terrapower/armi/pull/1022>`_ where the gaseous fission products were not being removed from the core directly, but instead the fission yields within the lumped fission products were being adjusted.
 #. Fixed a bug where non-fuel depletable components were not being initialized with all nuclides with the ``explicitFissionProducts`` model (`PR#1067 https://github.com/terrapower/armi/pull/1067`_)
+#. Bug fix to ensure consistency between cross section group manager and lattice physics interface for tight coupling. (`PR#1118 <https://github.com/terrapower/armi/pull/1118>`_)
 
 ARMI v0.2.5
 ===========
