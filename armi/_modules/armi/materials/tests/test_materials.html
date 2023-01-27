@@ -343,13 +343,13 @@
 
 <div class="viewcode-block" id="Magnesium_TestCase.test_density"><a class="viewcode-back" href="../../../../.apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Magnesium_TestCase.test_density">[docs]</a>    <span class="k">def</span> <span class="nf">test_density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="mi">923</span><span class="p">)</span>
-        <span class="n">ref</span> <span class="o">=</span> <span class="mf">1.59</span>
-        <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.05</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">1.5897</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.0001</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
 
         <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="mi">1390</span><span class="p">)</span>
-        <span class="n">ref</span> <span class="o">=</span> <span class="mf">1.466</span>
-        <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.05</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">1.4661</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.0001</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Magnesium_TestCase.test_propertyValidTemperature"><a class="viewcode-back" href="../../../../.apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Magnesium_TestCase.test_propertyValidTemperature">[docs]</a>    <span class="k">def</span> <span class="nf">test_propertyValidTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -489,18 +489,28 @@
     <span class="n">MAT_CLASS</span> <span class="o">=</span> <span class="n">materials</span><span class="o">.</span><span class="n">Potassium</span>
 
 <div class="viewcode-block" id="Potassium_TestCase.test_density"><a class="viewcode-back" href="../../../../.apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Potassium_TestCase.test_density">[docs]</a>    <span class="k">def</span> <span class="nf">test_density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tk</span><span class="o">=</span><span class="mi">333</span><span class="p">)</span>
-        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.828</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.8195</span>
         <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.001</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
 
-        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tk</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.7909</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="mi">333</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.7664</span>
         <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.001</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
 
-        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tk</span><span class="o">=</span><span class="mi">750</span><span class="p">)</span>
-        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.732</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.7267</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.001</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
+
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="mi">750</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.6654</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.001</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
+
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.5502</span>
         <span class="n">delta</span> <span class="o">=</span> <span class="n">ref</span> <span class="o">*</span> <span class="mf">0.001</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span></div>
 
@@ -790,7 +800,7 @@
 
 <div class="viewcode-block" id="UraniumOxide_TestCase.test_densityTimesHeatCapactiy"><a class="viewcode-back" href="../../../../.apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.UraniumOxide_TestCase.test_densityTimesHeatCapactiy">[docs]</a>    <span class="k">def</span> <span class="nf">test_densityTimesHeatCapactiy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">Tc</span> <span class="o">=</span> <span class="mf">500.0</span>
-        <span class="n">expectedRhoCp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">heatCapacity</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">)</span>
+        <span class="n">expectedRhoCp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">density3</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">heatCapacity</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">expectedRhoCp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">densityTimesHeatCapacity</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="UraniumOxide_TestCase.test_getTempChangeForDensityChange"><a class="viewcode-back" href="../../../../.apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.UraniumOxide_TestCase.test_getTempChangeForDensityChange">[docs]</a>    <span class="k">def</span> <span class="nf">test_getTempChangeForDensityChange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1997,7 +2007,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-01-26.
+        Last updated on 2023-01-27.
       </span>
 
     </p>
