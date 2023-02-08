@@ -549,7 +549,7 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
                               [GCC 11.3.0]
        Master Machine:        ?
        Number of Processors:  1
-       Date and Time:         Mon Feb  6 22:08:55 2023
+       Date and Time:         Wed Feb  8 14:57:46 2023
        ---------------------  ------------------------------------------------------------
 =========== Input File Information ===========
 [info] --------------------------------------------------------------------  ------------------------------  ------------
@@ -577,9 +577,9 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
        ---------------------------  -----------------------------------------------------------------
 =========== Constructing Reactor and Verifying Inputs ===========
 [info] Constructing the `core`
-=========== Adding Assemblies to &lt;Core: core id:140270121875968&gt; ===========
+=========== Adding Assemblies to &lt;Core: core id:139818171178624&gt; ===========
 [info] Will expand HE, NA, SI, CR, MN, FE, NI, ZR, MO, W elementals to have natural isotopics
-[info] Nuclides truncating the burn-chain:  DUMP1, LFP38, LFP41, DUMP2, LFP39, LFP40, LFP35
+[info] Nuclides truncating the burn-chain:  DUMP1, LFP39, LFP41, LFP40, LFP35, LFP38, DUMP2
 [info] Constructing assembly `inner fuel`
 [warn] No component matched Flags.CLAD in &lt;reflector block-bol-000 at ExCore XS: A BU GP: A&gt;. Returning None
 [warn] Some component was missing in &lt;reflector block-bol-000 at ExCore XS: A BU GP: A&gt; so pin-to-duct gap not calculated
@@ -603,7 +603,7 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
 [warn] Could not create a spatialGrid for block control, multiplicities are not 1 or N they are {1.0}
 [info] Constructing assembly `ultimate shutdown`
 =========== Verifying Assembly Configurations ===========
-=========== Summarizing Source of Material Data for &lt;Core: core id:140270121875968&gt; ===========
+=========== Summarizing Source of Material Data for &lt;Core: core id:139818171178624&gt; ===========
 [info] ---------------  -----------------  ----------------------------
        Material Name    Source Location    Property Data was Modified
                                            from the Source?
@@ -622,15 +622,15 @@ Failed to import psutil; MemoryProfiler will not provide meaningful data.
        ------------------  ------------------------------------------------------------
        Nuclide Category    Nuclides
        ------------------  ------------------------------------------------------------
-       Fuel                PU236, PU240, DUMP1, PU238, ZR92, ZR90, NP238, LFP38, ZR96,
-                           AM241, AM242M, PU242, U235, PU241, U234, LFP35, ZR94, DUMP2,
-                           ZR91, HE4, U236, CM246, PU239, LFP39, LFP40, CM247,
-                           CM242, AM243, LFP41, CM243, CM245, CM244, NP237, U238
+       Fuel                LFP38, U236, PU236, PU240, CM242, U238, NP238, CM245, ZR90,
+                           CM247, LFP39, PU241, LFP41, NP237, U234, ZR92, PU238, LFP40,
+                           U235, ZR91, ZR96, AM241, CM246, PU242, ZR94, HE4,
+                           DUMP1, AM242M, AM243, LFP35, CM244, CM243, PU239, DUMP2
        Coolant             NA23
-       Structure           NI64, MO94, FE57, NI58, W184, SI29, SI28, NI62,
-                           MO98, MO96, MN55, CR54, C, B11, SI30, B10,
-                           CR50, V, FE58, CR52, MO95, MO100, NI61, MO97,
-                           W186, W182, MO92, FE56, W183, FE54, CR53, NI60
+       Structure           FE56, SI28, FE54, W184, SI29, V, MO94, CR54,
+                           CR53, MO98, MO100, B10, FE57, MO97, W182, NI64,
+                           MO92, B11, W183, SI30, NI58, CR50, C, FE58,
+                           W186, CR52, MN55, NI62, MO96, NI60, NI61, MO95
        ------------------  ------------------------------------------------------------
 =========== Creating Interfaces ===========
 =========== Interface Stack Summary  ===========
@@ -762,7 +762,7 @@ assembly out of a reactor just like you’d get the fifth item out of any other 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;Core: core id:140270121875968&gt;
+&lt;Core: core id:139818171178624&gt;
 &lt;inner fuel Assembly A0008 at 003-012&gt;
 &lt;fuel B0008-005 at 003-012-005 XS: A BU GP: A&gt;
 Block&#39;s parent is: &lt;inner fuel Assembly A0008 at 003-012&gt;
@@ -1098,7 +1098,7 @@ After:  2.43 MT Sodium
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[info] Opening database file at /home/runner/.armi/0-20230206220857493660/anl-afci-177.h5
+[info] Opening database file at /home/runner/.armi/0-20230208145748154916/anl-afci-177.h5
 [info] Writing to database for statepoint: /c00n00
 </pre></div></div>
 </div>
@@ -1213,19 +1213,19 @@ After:  2.43 MT Sodium
 [info] Constructing assembly `ultimate shutdown`
 =========== Verifying Assembly Configurations ===========
 [info] Nuclide categorization for cross section temperature assignments:
-       ------------------  -------------------------------------------------------------
+       ------------------  ------------------------------------------------------------
        Nuclide Category    Nuclides
-       ------------------  -------------------------------------------------------------
-       Fuel                PU236, PU240, DUMP1, PU238, ZR92, NP238, ZR90, LFP38, AM242M,
-                           AM241, ZR96, PU242, U235, PU241, U234, LFP35, ZR94, DUMP2,
-                           ZR91, HE4, CM246, U236, PU239, LFP39, LFP40, CM247,
-                           CM242, AM243, LFP41, CM243, CM245, CM244, NP237, U238
+       ------------------  ------------------------------------------------------------
+       Fuel                U236, PU236, PU240, CM242, U238, NP238, CM245, ZR90, CM247,
+                           LFP39, LFP41, PU241, NP237, U234, PU239, ZR92, PU238, LFP40,
+                           U235, ZR91, ZR96, AM241, CM246, PU242, ZR94, HE4,
+                           DUMP1, AM242M, AM243, CM244, LFP35, CM243, LFP38, DUMP2
        Coolant             NA23
-       Structure           NI64, MO94, FE57, NI58, W184, SI29, SI28, NI62,
-                           MO98, MO96, MN55, CR54, C, B11, SI30, B10,
-                           CR50, FE58, MO100, CR52, MO95, V, NI61, MO97,
-                           W186, W182, MO92, FE56, W183, FE54, CR53, NI60
-       ------------------  -------------------------------------------------------------
+       Structure           FE56, FE54, SI28, W184, SI29, V, CR54, CR53,
+                           MO98, MO100, B10, FE57, MO97, W182, NI64, MO92,
+                           B11, W183, SI30, NI58, CR50, C, FE58, W186,
+                           CR52, MN55, NI62, NI61, MO96, NI60, MO94, MO95
+       ------------------  ------------------------------------------------------------
 </pre></div></div>
 </div>
 <p>We can see that the time node is what we expect (node 1), and there is some fission product mass since we loaded from a cycle after a depletion step.</p>
@@ -1287,7 +1287,7 @@ After:  2.43 MT Sodium
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-06.
+        Last updated on 2023-02-08.
       </span>
 
     </p>
