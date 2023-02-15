@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>armi.nuclearDataIO.tests.test_xsCollections &mdash; ARMI 0.2.5 documentation</title>
+  <title>armi.nuclearDataIO.tests.test_xsCollections &mdash; ARMI 0.2.6 documentation</title>
   
 
   
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                0.2.5
+                0.2.6
               </div>
             
           
@@ -202,7 +202,7 @@
 
 <span class="kn">from</span> <span class="nn">armi.nuclearDataIO</span> <span class="kn">import</span> <span class="n">isotxs</span>
 <span class="kn">from</span> <span class="nn">armi.nuclearDataIO</span> <span class="kn">import</span> <span class="n">xsCollections</span>
-<span class="kn">from</span> <span class="nn">armi.physics.neutronics.tests</span> <span class="kn">import</span> <span class="n">test_cross_section_manager</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.tests</span> <span class="kn">import</span> <span class="n">test_crossSectionManager</span>
 <span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">ISOAA_PATH</span>
 
 
@@ -213,7 +213,7 @@
 
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mc</span> <span class="o">=</span> <span class="n">xsCollections</span><span class="o">.</span><span class="n">MacroscopicCrossSectionCreator</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">test_cross_section_manager</span><span class="o">.</span><span class="n">MockBlock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">test_crossSectionManager</span><span class="o">.</span><span class="n">MockBlock</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">.</span><span class="n">setNumberDensity</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">.</span><span class="n">setNumberDensity</span><span class="p">(</span><span class="s2">&quot;FE&quot;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 
@@ -295,7 +295,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-08.
+        Last updated on 2023-02-15.
       </span>
 
     </p>

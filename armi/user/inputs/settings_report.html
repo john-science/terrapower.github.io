@@ -15,7 +15,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.4. Settings Report &mdash; ARMI 0.2.5 documentation</title>
+  <title>2.4. Settings Report &mdash; ARMI 0.2.6 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
             
             
               <div class="version">
-                0.2.5
+                0.2.6
               </div>
             
           
@@ -256,203 +256,203 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>HCFcoretype</p></td>
-<td><p>Switch to apply different sets of hot channel factors based on design being analyzed</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">TWRC</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">['TWRC',</span> <span class="pre">'TWRP',</span> <span class="pre">'TWRC-</span></code> <code class="docutils literal notranslate"><span class="pre">HEX']</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>Tin</p></td>
+<tr class="row-even"><td><p>Tin</p></td>
 <td><p>The inlet temperature of the reactor in C</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">360.0</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Tout</p></td>
+<tr class="row-odd"><td><p>Tout</p></td>
 <td><p>The outlet temperature of the reactor in C</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">510.0</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>acceptableBlockAreaError</p></td>
+<tr class="row-even"><td><p>acceptableBlockAreaError</p></td>
 <td><p>The limit of error between a block’s cross- sectional area and the reference block used during the assembly area consistency check</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-05</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>aclpDoseLimit</p></td>
+<tr class="row-odd"><td><p>aclpDoseLimit</p></td>
 <td><p>Dose limit in dpa used to position the above-core load pad (if one exists)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">80.0</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>assemPowSummary</p></td>
+<tr class="row-even"><td><p>assemPowSummary</p></td>
 <td><p>Print a summary of how much power is in each assembly type at every timenode</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>assemblyRotationAlgorithm</p></td>
+<tr class="row-odd"><td><p>assemblyRotationAlgorithm</p></td>
 <td><p>The algorithm to use to rotate the detail assemblies while shuffling</p></td>
 <td></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">['',</span> <span class="pre">'buReducingAssemblyR</span></code> <code class="docutils literal notranslate"><span class="pre">otation',</span></code> <code class="docutils literal notranslate"><span class="pre">'simpleAssemblyRotation']</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>assemblyRotationStationar y</p></td>
+<tr class="row-even"><td><p>assemblyRotationStationar y</p></td>
 <td><p>Whether or not to rotate assemblies that are not shuffled.This can only be True if ‘rotation’ is true.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>autoGenerateBlockGrids</p></td>
+<tr class="row-odd"><td><p>autoGenerateBlockGrids</p></td>
 <td><p>Should block blueprints attempt to auto-generate a spatial grid upon construction? This feature makes heavy use of multi-index locations, which are not yet universally supported.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>automaticVariableMesh</p></td>
+<tr class="row-even"><td><p>automaticVariableMesh</p></td>
 <td><p>Flag to let ARMI add additional mesh points if the neutronics mesh is too irregular</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>availabilityFactor</p></td>
+<tr class="row-odd"><td><p>availabilityFactor</p></td>
 <td><p>Availability factor of the plant. This is the fraction of the time that the plant is operating. If variable, use <cite>availabilityFactors</cite> setting.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>availabilityFactors</p></td>
+<tr class="row-even"><td><p>availabilityFactors</p></td>
 <td><p>List of availability factor of each cycle as a fraction (fraction of time plant is not in an outage). R is repeat. For example [0.5, 1.0, ‘9R’] is 1 50% followed by 10 100%. Empty list is constant duration set by <cite>availabilityFactor</cite>.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>axialExpansion</p></td>
+<tr class="row-odd"><td><p>axialExpansion</p></td>
 <td><p>Perform axial fuel expansion. This will adjust fuel block lengths.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>axialMeshRefinementFactor</p></td>
+<tr class="row-even"><td><p>axialMeshRefinementFactor</p></td>
 <td><p>Multiplicative factor on the Global Flux number of mesh per block. Used for axial mesh refinement.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>bcCoefficient</p></td>
+<tr class="row-odd"><td><p>bcCoefficient</p></td>
 <td><p>Value for the parameter A of the generalized boundary condition.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>beta</p></td>
+<tr class="row-even"><td><p>beta</p></td>
 <td><p>Individual precursor group delayed neutron fractions</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>bondRemoval</p></td>
+<tr class="row-odd"><td><p>bondRemoval</p></td>
 <td><p>Toggles fuel performance bond removal. This will remove thermal bond from the fuel.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>boundaries</p></td>
+<tr class="row-even"><td><p>boundaries</p></td>
 <td><p>External Neutronic Boundary Conditions. Reflective does not include axial.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">Extrapolat</span></code> <code class="docutils literal notranslate"><span class="pre">ed</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">['Extrapolated',</span></code> <code class="docutils literal notranslate"><span class="pre">'Reflective',</span> <span class="pre">'Infinite',</span></code> <code class="docutils literal notranslate"><span class="pre">'ZeroSurfaceFlux',</span></code> <code class="docutils literal notranslate"><span class="pre">'ZeroInwardCurrent',</span></code> <code class="docutils literal notranslate"><span class="pre">'Generalized']</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>branchVerbosity</p></td>
+<tr class="row-odd"><td><p>branchVerbosity</p></td>
 <td><p>Verbosity of the non- primary MPI nodes</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">error</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">['debug',</span> <span class="pre">'extra',</span></code> <code class="docutils literal notranslate"><span class="pre">'info',</span> <span class="pre">'important',</span></code> <code class="docutils literal notranslate"><span class="pre">'prompt',</span> <span class="pre">'warning',</span></code> <code class="docutils literal notranslate"><span class="pre">'error']</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>buGroups</p></td>
+<tr class="row-even"><td><p>buGroups</p></td>
 <td><p>The range of burnups where cross-sections will be the same for a given assembly type (units of %FIMA)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">[10,</span> <span class="pre">20,</span></code> <code class="docutils literal notranslate"><span class="pre">30,</span> <span class="pre">100]</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>burnChainFileName</p></td>
+<tr class="row-odd"><td><p>burnChainFileName</p></td>
 <td><p>Path to YAML file that has the depletion chain defined in it</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">burn-</span></code> <code class="docutils literal notranslate"><span class="pre">chain.yaml</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>burnSteps</p></td>
+<tr class="row-even"><td><p>burnSteps</p></td>
 <td><p>Number of depletion substeps, n, in one cycle. Note: There will be n+1 time nodes and the burnup step time will be computed as cycle length/n when the simple cycles input format is used.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>burnupPeakingFactor</p></td>
+<tr class="row-odd"><td><p>burnupPeakingFactor</p></td>
 <td><p>None</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>circularRingMode</p></td>
+<tr class="row-even"><td><p>circularRingMode</p></td>
 <td><p>Toggle between circular ring definitions to hexagonal ring definitions</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>circularRingOrder</p></td>
+<tr class="row-odd"><td><p>circularRingOrder</p></td>
 <td><p>Order by which locations are sorted in circular rings for equilibrium shuffling</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">['angle',</span> <span class="pre">'distance',</span></code> <code class="docutils literal notranslate"><span class="pre">'distanceSmart']</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>circularRingPitch</p></td>
+<tr class="row-even"><td><p>circularRingPitch</p></td>
 <td><p>The relative pitch to be used to define a single circular ring in circular shuffling</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>claddingStrain</p></td>
+<tr class="row-odd"><td><p>claddingStrain</p></td>
 <td><p>Evaluate cladding strain.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>claddingWastage</p></td>
+<tr class="row-even"><td><p>claddingWastage</p></td>
 <td><p>Evaluate cladding wastage.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>clearXS</p></td>
+<tr class="row-odd"><td><p>clearXS</p></td>
 <td><p>Delete all cross section libraries before regenerating them.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>comment</p></td>
+<tr class="row-even"><td><p>comment</p></td>
 <td><p>A comment describing this case</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>conditionalModuleName</p></td>
+<tr class="row-odd"><td><p>conditionalModuleName</p></td>
 <td><p>File name (directory not included) of the Python module that contains a conditional function to determine the end of burn cycles</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>copyFilesFrom</p></td>
+<tr class="row-even"><td><p>copyFilesFrom</p></td>
 <td><p>None</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>copyFilesTo</p></td>
+<tr class="row-odd"><td><p>copyFilesTo</p></td>
 <td><p>None</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>coverage</p></td>
+<tr class="row-even"><td><p>coverage</p></td>
 <td><p>Turn on coverage report generation which tracks all the lines of code that execute during a run</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>coverageConfigFile</p></td>
+<tr class="row-odd"><td><p>coverageConfigFile</p></td>
 <td><p>User-defined coverage configuration file</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>crossSectionControl</p></td>
+<tr class="row-even"><td><p>crossSectionControl</p></td>
 <td><p>Data structure defining how cross sections are created</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>customFuelManagementIndex</p></td>
+<tr class="row-odd"><td><p>customFuelManagementIndex</p></td>
 <td><p>An index that determines which of various options is used in management. Useful for optimization sweeps.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>cycleLength</p></td>
+<tr class="row-even"><td><p>cycleLength</p></td>
 <td><p>Duration of one single cycle in days. If <cite>availabilityFactor</cite> is below 1, the reactor will be at power less than this. If variable, use <cite>cycleLengths</cite> setting.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">365.242199</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>cycleLengths</p></td>
+<tr class="row-odd"><td><p>cycleLengths</p></td>
 <td><p>List of durations of each cycle in days. The at- power duration will be affected by <cite>availabilityFactor</cite>. R is repeat. For example [100, 150, ‘9R’] is 1 100 day cycle followed by 10 150 day cycles. Empty list is constant duration set by <cite>cycleLength</cite>.</p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>cycles</p></td>
+<tr class="row-even"><td><p>cycles</p></td>
 <td><p>YAML list defining the cycle history of the case. Options at each cycle include: <cite>name</cite>, <cite>cumulative days</cite>, <cite>step days</cite>, <cite>availability factor</cite>, <cite>cycle length</cite>, <cite>burn steps</cite>, and <cite>power fractions</cite>. If specified, do not use any of the case settings <cite>cycleLength(s)</cite>, <cite>availabilityFactor(s)</cite>, <cite>powerFractions</cite>, or <cite>burnSteps</cite>. Must also specify <cite>nCycles</cite> and <cite>power</cite>.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>cyclesSkipTightCouplingIn teraction</p></td>
+<td><p>List of cycle numbers skip tight coupling interaction for. Will still update component temps, etc during these cycles, will just not iterate a second (or more) time.</p></td>
 <td></td>
 <td></td>
 </tr>
@@ -1052,7 +1052,7 @@ through the <a class="reference internal" href="../../.apidocs/armi.settings.cas
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-08.
+        Last updated on 2023-02-15.
       </span>
 
     </p>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>armi.operators.operator &mdash; ARMI 0.2.5 documentation</title>
+  <title>armi.operators.operator &mdash; ARMI 0.2.6 documentation</title>
   
 
   
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                0.2.5
+                0.2.6
               </div>
             
           
@@ -571,17 +571,26 @@
 <span class="sd">        -----</span>
 <span class="sd">        writeDB is False for OperatorSnapshots as the DB gets written at EOL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">couplingIsActive</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">couplingIsActive</span><span class="p">():</span>
+            <span class="c1"># no coupling was requested</span>
+            <span class="k">return</span>
+        <span class="n">skipCycles</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;cyclesSkipTightCouplingInteraction&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">skipCycles</span><span class="p">:</span>
+            <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;interactAllCoupled disabled this cycle (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="si">}</span><span class="s2">) due to &quot;</span>
+                <span class="s2">&quot;`cycleTreatTightConverged` setting.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_convergenceSummary</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">coupledIteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;tightCouplingMaxNumIters&quot;</span><span class="p">]):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">coupledIteration</span> <span class="o">=</span> <span class="n">coupledIteration</span> <span class="o">+</span> <span class="mi">1</span>
                 <span class="n">converged</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interactAllCoupled</span><span class="p">(</span><span class="n">coupledIteration</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">converged</span><span class="p">:</span>
                     <span class="k">break</span>
-            <span class="k">if</span> <span class="n">writeDB</span><span class="p">:</span>
-                <span class="c1"># database has not yet been written, so we need to write it.</span>
-                <span class="n">dbi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">)</span>
-                <span class="n">dbi</span><span class="o">.</span><span class="n">writeDBEveryNode</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">timeNode</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">writeDB</span><span class="p">:</span>
+            <span class="c1"># database has not yet been written, so we need to write it.</span>
+            <span class="n">dbi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">)</span>
+            <span class="n">dbi</span><span class="o">.</span><span class="n">writeDBEveryNode</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">timeNode</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_interactAll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interactionName</span><span class="p">,</span> <span class="n">activeInterfaces</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -599,7 +608,9 @@
 
         <span class="n">halt</span> <span class="o">=</span> <span class="kc">False</span>
 
-        <span class="n">cycleNodeTag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expandCycleAndTimeNodeArgs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">cycleNodeTag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expandCycleAndTimeNodeArgs</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">interactionName</span><span class="o">=</span><span class="n">interactionName</span>
+        <span class="p">)</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span>
             <span class="s2">&quot;===========  Triggering </span><span class="si">{}</span><span class="s2"> Event ===========&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">interactionName</span> <span class="o">+</span> <span class="n">cycleNodeTag</span>
@@ -655,18 +666,34 @@
 <span class="sd">        This looks better as multiple lines but it&#39;s a lot easier to grep as one line.</span>
 <span class="sd">        We leverage newlines instead of long banners to save disk space.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">nodeInfo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expandCycleAndTimeNodeArgs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">nodeInfo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expandCycleAndTimeNodeArgs</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">interactionName</span><span class="o">=</span><span class="n">interactionName</span>
+        <span class="p">)</span>
         <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;=========== </span><span class="si">{:02d}</span><span class="s2"> - </span><span class="si">{:30s}</span><span class="s2"> </span><span class="si">{:15s}</span><span class="s2"> ===========&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">statePointIndex</span><span class="p">,</span> <span class="n">interface</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">interactionName</span> <span class="o">+</span> <span class="n">nodeInfo</span>
         <span class="p">)</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></div>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_expandCycleAndTimeNodeArgs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return text annotating the (cycle, time node) args for each that are present.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">_expandCycleAndTimeNodeArgs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">interactionName</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return text annotating information for current run event.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - Init, BOL, EOL: empty</span>
+<span class="sd">        - Everynode: (cycle, time node)</span>
+<span class="sd">        - BOC: cycle number</span>
+<span class="sd">        - Coupling: iteration number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cycleNodeInfo</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s2">&quot; - cycle </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;, node </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">args</span><span class="p">):</span>
-            <span class="n">cycleNodeInfo</span> <span class="o">+=</span> <span class="n">label</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">interactionName</span> <span class="o">==</span> <span class="s2">&quot;Coupled&quot;</span><span class="p">:</span>
+                    <span class="n">cycleNodeInfo</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; - iteration </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">elif</span> <span class="n">interactionName</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;BOC&quot;</span><span class="p">,</span> <span class="s2">&quot;EOC&quot;</span><span class="p">):</span>
+                    <span class="n">cycleNodeInfo</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; - cycle </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cycleNodeInfo</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; - cycle </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, node </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">cycleNodeInfo</span>
 
     <span class="k">def</span> <span class="nf">_debugDB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interactionName</span><span class="p">,</span> <span class="n">interfaceName</span><span class="p">,</span> <span class="n">statePointIndex</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -1248,7 +1275,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">newFolder</span><span class="p">)</span>
 
-        <span class="c1"># copy the cross section inputs</span>
+        <span class="c1"># Moving the cross section files is to a snapshot directory is a reasonable</span>
+        <span class="c1"># requirement, but these hard-coded names are not desirable. This is legacy</span>
+        <span class="c1"># and should be updated to be more robust for users.</span>
         <span class="k">for</span> <span class="n">fileName</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
             <span class="k">if</span> <span class="s2">&quot;mcc&quot;</span> <span class="ow">in</span> <span class="n">fileName</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[A-Z]AF?\d?.inp&quot;</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
                 <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
@@ -1260,6 +1289,8 @@
                         <span class="n">newFolder</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_</span><span class="si">{1:03d}</span><span class="s2">_</span><span class="si">{2:d}{3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
                     <span class="p">),</span>
                 <span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;rzmflx&quot;</span> <span class="ow">in</span> <span class="n">fileName</span><span class="p">:</span>
+                <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span><span class="s2">&quot;rzmflx for snapshot&quot;</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">newFolder</span><span class="p">)</span>
 
         <span class="n">isoFName</span> <span class="o">=</span> <span class="s2">&quot;ISOTXS-c</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
         <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span>
@@ -1311,7 +1342,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-08.
+        Last updated on 2023-02-15.
       </span>
 
     </p>
