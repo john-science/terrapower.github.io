@@ -318,6 +318,24 @@ and component area correctly. Order of components is also checked since in
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionComponentAverage1DCylinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.physics.neutronics.tests.test_crossSectionManager.</span></span><span class="sig-name descname"><span class="pre">TestBlockCollectionComponentAverage1DCylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#TestBlockCollectionComponentAverage1DCylinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionComponentAverage1DCylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>tests for 1D cylinder XS gen cases</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionComponentAverage1DCylinder.test_ComponentAverage1DCylinder">
+<span class="sig-name descname"><span class="pre">test_ComponentAverage1DCylinder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#TestBlockCollectionComponentAverage1DCylinder.test_ComponentAverage1DCylinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionComponentAverage1DCylinder.test_ComponentAverage1DCylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>tests that the XS group manager calculates the expected component atom density
+and component area correctly. Order of components is also checked since in
+1D cases the order of the components matters.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionFluxWeightedAverage">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.physics.neutronics.tests.test_crossSectionManager.</span></span><span class="sig-name descname"><span class="pre">TestBlockCollectionFluxWeightedAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#TestBlockCollectionFluxWeightedAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionFluxWeightedAverage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
@@ -380,9 +398,34 @@ between the original and the new representative blocks.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactCoupled">
-<span class="sig-name descname"><span class="pre">test_interactCoupled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#Test_CrossSectionGroupManager.test_interactCoupled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactCoupled" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactBOL">
+<span class="sig-name descname"><span class="pre">test_interactBOL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#Test_CrossSectionGroupManager.test_interactBOL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactBOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test <cite>BOL</cite> lattice physics update frequency</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactBOC">
+<span class="sig-name descname"><span class="pre">test_interactBOC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#Test_CrossSectionGroupManager.test_interactBOC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactBOC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test <cite>BOC</cite> lattice physics update frequency</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactEveryNode">
+<span class="sig-name descname"><span class="pre">test_interactEveryNode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#Test_CrossSectionGroupManager.test_interactEveryNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactEveryNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test <cite>everyNode</cite> lattice physics update frequency</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactFirstCoupledIteration">
+<span class="sig-name descname"><span class="pre">test_interactFirstCoupledIteration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#Test_CrossSectionGroupManager.test_interactFirstCoupledIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactFirstCoupledIteration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test <cite>firstCoupledIteration</cite> lattice physics update frequency</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactAllCoupled">
+<span class="sig-name descname"><span class="pre">test_interactAllCoupled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/tests/test_crossSectionManager.html#Test_CrossSectionGroupManager.test_interactAllCoupled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactAllCoupled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test <cite>all</cite> lattice physics update frequency</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_copyPregeneratedFiles">
@@ -484,7 +527,7 @@ not have a method with the specified name.</p>
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>

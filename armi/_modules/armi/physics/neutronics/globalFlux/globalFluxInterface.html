@@ -217,6 +217,19 @@
 <span class="kn">from</span> <span class="nn">armi.reactor.converters</span> <span class="kn">import</span> <span class="n">uniformMesh</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">units</span><span class="p">,</span> <span class="n">codeTiming</span><span class="p">,</span> <span class="n">getMaxBurnSteps</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CONF_BOUNDARIES</span><span class="p">,</span>
+    <span class="n">CONF_DPA_PER_FLUENCE</span><span class="p">,</span>
+    <span class="n">CONF_EIGEN_PROB</span><span class="p">,</span>
+    <span class="n">CONF_NEUTRONICS_KERNEL</span><span class="p">,</span>
+    <span class="n">CONF_RESTART_NEUTRONICS</span><span class="p">,</span>
+    <span class="n">CONF_ACLP_DOSE_LIMIT</span><span class="p">,</span>
+    <span class="n">CONF_DPA_XS_SET</span><span class="p">,</span>
+    <span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">,</span>
+    <span class="n">CONF_LOAD_PAD_ELEVATION</span><span class="p">,</span>
+    <span class="n">CONF_LOAD_PAD_LENGTH</span><span class="p">,</span>
+    <span class="n">CONF_XS_KERNEL</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="n">ORDER</span> <span class="o">=</span> <span class="n">interfaces</span><span class="o">.</span><span class="n">STACK_ORDER</span><span class="o">.</span><span class="n">FLUX</span>
 
@@ -406,17 +419,18 @@
 <span class="sd">        Flux, power, and keff are generally calculated at every timestep to ensure flux</span>
 <span class="sd">        is up to date with the reactor state.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">executer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getExecuter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span><span class="si">}</span><span class="s2">-flux-c</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s2">n</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">executer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getExecuter</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">getLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
         <span class="n">executer</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
         <span class="n">GlobalFluxInterface</span><span class="o">.</span><span class="n">interactEveryNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="GlobalFluxInterfaceUsingExecuters.interactCoupled"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterfaceUsingExecuters.interactCoupled">[docs]</a>    <span class="k">def</span> <span class="nf">interactCoupled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iteration</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Runs during a tightly-coupled physics iteration to updated the flux and power.&quot;&quot;&quot;</span>
         <span class="n">executer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getExecuter</span><span class="p">(</span>
-            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;c</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="si">}</span><span class="s2">n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span><span class="si">}</span><span class="s2">i</span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">getLabel</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span><span class="p">,</span> <span class="n">iteration</span>
+            <span class="p">)</span>
         <span class="p">)</span>
         <span class="n">executer</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
         <span class="n">GlobalFluxInterface</span><span class="o">.</span><span class="n">interactCoupled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iteration</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="GlobalFluxInterfaceUsingExecuters.getTightCouplingValue"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterfaceUsingExecuters.getTightCouplingValue">[docs]</a>    <span class="k">def</span> <span class="nf">getTightCouplingValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -490,7 +504,28 @@
         <span class="n">executer</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">applyResultsToReactor</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">executer</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">calcReactionRatesOnMeshConversion</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">executer</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">getKeff</span><span class="p">()</span></div></div>
+        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">getKeff</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="GlobalFluxInterfaceUsingExecuters.getLabel"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterfaceUsingExecuters.getLabel">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">getLabel</span><span class="p">(</span><span class="n">caseTitle</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Make a label (input/output file name) for the executer based on cycle, node, iteration</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        caseTitle : str, required</span>
+<span class="sd">            The caseTitle for the ARMI run</span>
+<span class="sd">        cycle : int, required</span>
+<span class="sd">            The cycle number</span>
+<span class="sd">        node : int, required</span>
+<span class="sd">            The time node index</span>
+<span class="sd">        iteration : int, optional</span>
+<span class="sd">            The coupled iteration index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">iteration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">caseTitle</span><span class="si">}</span><span class="s2">-flux-c</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s2">n</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">i</span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">caseTitle</span><span class="si">}</span><span class="s2">-flux-c</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s2">n</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">&quot;</span></div></div>
 
 
 <div class="viewcode-block" id="GlobalFluxOptions"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions">[docs]</a><span class="k">class</span> <span class="nc">GlobalFluxOptions</span><span class="p">(</span><span class="n">executers</span><span class="o">.</span><span class="n">ExecutionOptions</span><span class="p">):</span>
@@ -542,24 +577,24 @@
 
 <span class="sd">        This is not required; these options can alternatively be set programmatically.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">kernelName</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;neutronicsKernel&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernelName</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_NEUTRONICS_KERNEL</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setRunDirFromCaseTitle</span><span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">isRestart</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;restartNeutronics&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isRestart</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_RESTART_NEUTRONICS</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">adjoint</span> <span class="o">=</span> <span class="n">neutronics</span><span class="o">.</span><span class="n">adjointCalculationRequested</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">neutronics</span><span class="o">.</span><span class="n">realCalculationRequested</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">detailedAxialExpansion</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;detailedAxialExpansion&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hasNonUniformAssems</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
             <span class="p">[</span><span class="n">Flags</span><span class="o">.</span><span class="n">fromStringIgnoreErrors</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;nonUniformAssemFlags&quot;</span><span class="p">]]</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">eigenvalueProblem</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;eigenProb&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eigenvalueProblem</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_EIGEN_PROB</span><span class="p">]</span>
 
         <span class="c1"># dose/dpa specific (should be separate subclass?)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dpaPerFluence</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;dpaPerFluence&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">aclpDoseLimit</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;aclpDoseLimit&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadElevation</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;loadPadElevation&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadLength</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;loadPadLength&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">boundaries</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;boundaries&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">xsKernel</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;xsKernel&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dpaPerFluence</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_DPA_PER_FLUENCE</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aclpDoseLimit</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_ACLP_DOSE_LIMIT</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadElevation</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_LOAD_PAD_ELEVATION</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadLength</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_LOAD_PAD_LENGTH</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boundaries</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_BOUNDARIES</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xsKernel</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_XS_KERNEL</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="n">cs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">savePhysicsFilesList</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;savePhysicsFiles&quot;</span><span class="p">]</span></div>
 
@@ -809,10 +844,10 @@
 <span class="sd">        -------</span>
 <span class="sd">            list : cross section values</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;gridPlateDpaXsSet&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">GRID_PLATE</span><span class="p">):</span>
-            <span class="n">dpaXsSetName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;gridPlateDpaXsSet&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">]</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">GRID_PLATE</span><span class="p">):</span>
+            <span class="n">dpaXsSetName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">dpaXsSetName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;dpaXsSet&quot;</span><span class="p">]</span>
+            <span class="n">dpaXsSetName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_DPA_XS_SET</span><span class="p">]</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">DPA_CROSS_SECTIONS</span><span class="p">[</span><span class="n">dpaXsSetName</span><span class="p">]</span>
@@ -1417,7 +1452,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>

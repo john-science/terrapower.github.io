@@ -223,6 +223,7 @@
 <span class="n">CONF_INITIALIZE_BURN_CHAIN</span> <span class="o">=</span> <span class="s2">&quot;initializeBurnChain&quot;</span>
 <span class="n">CONF_BURN_CHAIN_FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;burnChainFileName&quot;</span>
 <span class="n">CONF_AXIAL_MESH_REFINEMENT_FACTOR</span> <span class="o">=</span> <span class="s2">&quot;axialMeshRefinementFactor&quot;</span>
+<span class="n">CONF_UNIFORM_MESH_MINIMUM_SIZE</span> <span class="o">=</span> <span class="s2">&quot;uniformMeshMinimumSize&quot;</span>
 <span class="n">CONF_AUTOMATIC_VARIABLE_MESH</span> <span class="o">=</span> <span class="s2">&quot;automaticVariableMesh&quot;</span>
 <span class="n">CONF_TRACE</span> <span class="o">=</span> <span class="s2">&quot;trace&quot;</span>
 <span class="n">CONF_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;profile&quot;</span>
@@ -298,6 +299,7 @@
 <span class="n">CONF_INPUT_HEIGHTS_HOT</span> <span class="o">=</span> <span class="s2">&quot;inputHeightsConsideredHot&quot;</span>
 <span class="n">CONF_CYCLES</span> <span class="o">=</span> <span class="s2">&quot;cycles&quot;</span>
 <span class="n">CONF_USER_PLUGINS</span> <span class="o">=</span> <span class="s2">&quot;userPlugins&quot;</span>
+<span class="n">CONF_ASSEM_FLAGS_SKIP_AXIAL_EXP</span> <span class="o">=</span> <span class="s2">&quot;assemFlagsToSkipAxialExpansion&quot;</span>
 
 <span class="c1"># TODO: Unused by ARMI, slated for removal</span>
 <span class="n">CONF_CONDITIONAL_MODULE_NAME</span> <span class="o">=</span> <span class="s2">&quot;conditionalModuleName&quot;</span>  <span class="c1"># mcfr</span>
@@ -343,6 +345,15 @@
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Multiplicative factor on the Global Flux number of mesh per &quot;</span>
             <span class="s2">&quot;block. Used for axial mesh refinement.&quot;</span><span class="p">,</span>
             <span class="n">schema</span><span class="o">=</span><span class="n">vol</span><span class="o">.</span><span class="n">All</span><span class="p">(</span><span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">vol</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_included</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+        <span class="p">),</span>
+        <span class="n">setting</span><span class="o">.</span><span class="n">Setting</span><span class="p">(</span>
+            <span class="n">CONF_UNIFORM_MESH_MINIMUM_SIZE</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Minimum axial mesh size in cm for uniform mesh&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Minimum mesh size used when generating an axial mesh for the &quot;</span>
+            <span class="s2">&quot;uniform mesh converter. Providing a value for this setting allows fuel &quot;</span>
+            <span class="s2">&quot;and control material boundaries to be enforced better in uniform mesh.&quot;</span><span class="p">,</span>
+            <span class="n">schema</span><span class="o">=</span><span class="n">vol</span><span class="o">.</span><span class="n">All</span><span class="p">(</span><span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">vol</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">min_included</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
         <span class="p">),</span>
         <span class="n">setting</span><span class="o">.</span><span class="n">Setting</span><span class="p">(</span>
             <span class="n">CONF_DETAILED_AXIAL_EXPANSION</span><span class="p">,</span>
@@ -1036,6 +1047,14 @@
             <span class="s2">&quot;or you can enter the full file path: /path/to/my/pluginz.py:MyPlugin &quot;</span><span class="p">,</span>
             <span class="n">schema</span><span class="o">=</span><span class="n">vol</span><span class="o">.</span><span class="n">Any</span><span class="p">([</span><span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">str</span><span class="p">)],</span> <span class="kc">None</span><span class="p">),</span>
         <span class="p">),</span>
+        <span class="n">setting</span><span class="o">.</span><span class="n">Setting</span><span class="p">(</span>
+            <span class="n">CONF_ASSEM_FLAGS_SKIP_AXIAL_EXP</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Assembly Flags to Skip Axial Expansion&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="p">(</span>
+                <span class="s2">&quot;Assemblies that match a flag on this list will not be axially expanded.&quot;</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
     <span class="p">]</span>
     <span class="k">return</span> <span class="n">settings</span></div>
 
@@ -1083,7 +1102,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>

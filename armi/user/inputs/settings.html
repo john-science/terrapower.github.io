@@ -136,7 +136,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../assembly_parameters_report.html">7. Assembly Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../block_parameters_report.html">8. Block Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../physics_coupling.html">9. Physics Coupling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../accessingEntryPoints.html">10. Accessing Entry Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../radial_and_axial_expansion.html">10. Radial and Axial Expansion and Contraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessingEntryPoints.html">11. Accessing Entry Points</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Docs</a></li>
@@ -457,15 +458,15 @@ For each cycle, an entry to the <code class="docutils literal notranslate"><span
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The detailed cycle history may not be used for equilibrium calculations at this time.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> field of the detailed cycle history is not yet used for anything, but this information will still be accessible on the operator during runtime.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Cycles without names will be given the name <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When a detailed cycle history is combined with tight coupling, a subclass of <a class="reference internal" href="../../.apidocs/armi.physics.neutronics.latticePhysics.latticePhysicsInterface.html#armi.physics.neutronics.latticePhysics.latticePhysicsInterface.LatticePhysicsInterface.interactCoupled" title="armi.physics.neutronics.latticePhysics.latticePhysicsInterface.LatticePhysicsInterface.interactCoupled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">LatticePhysicsInterface.interactCoupled</span></code></a> should be used.</p>
 </div>
 </div>
 <div class="section" id="restart-cases">
@@ -662,7 +663,7 @@ may be necessary to use the detailed <code class="docutils literal notranslate">
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>

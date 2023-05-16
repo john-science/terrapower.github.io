@@ -195,7 +195,7 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="sd">&quot;&quot;&quot;enable component-wise axial expansion for assemblies and/or a reactor&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Enable component-wise axial expansion for assemblies and/or a reactor&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
@@ -239,18 +239,22 @@
         <span class="n">a</span><span class="o">.</span><span class="n">makeAxialSnapList</span><span class="p">(</span><span class="n">referenceAssembly</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="expandColdDimsToHot"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.axialExpansionChanger.html#armi.reactor.converters.axialExpansionChanger.expandColdDimsToHot">[docs]</a><span class="k">def</span> <span class="nf">expandColdDimsToHot</span><span class="p">(</span><span class="n">assems</span><span class="p">,</span> <span class="n">isDetailedAxialExpansion</span><span class="p">,</span> <span class="n">referenceAssembly</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="expandColdDimsToHot"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.axialExpansionChanger.html#armi.reactor.converters.axialExpansionChanger.expandColdDimsToHot">[docs]</a><span class="k">def</span> <span class="nf">expandColdDimsToHot</span><span class="p">(</span>
+    <span class="n">assems</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="n">isDetailedAxialExpansion</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">referenceAssembly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Expand BOL assemblies, resolve disjoint axial mesh (if needed), and update block BOL heights</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    assems: list</span>
-<span class="sd">        list of :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;` objects to be thermally expanded</span>
+<span class="sd">    assems: list[:py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`]</span>
+<span class="sd">        list of assemblies to be thermally expanded</span>
 <span class="sd">    isDetailedAxialExpansion: bool</span>
-<span class="sd">        If true assemblies will be forced to conform to the reference mesh after expansion</span>
-<span class="sd">    referenceAssembly: assembly, optional</span>
-<span class="sd">        Assembly whose mesh other meshes wil conform to if isDetailedAxialExpansion is true.</span>
+<span class="sd">        If False, assemblies will be forced to conform to the reference mesh after expansion</span>
+<span class="sd">    referenceAssembly: :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`, optional</span>
+<span class="sd">        Assembly whose mesh other meshes will conform to if isDetailedAxialExpansion is False.</span>
 <span class="sd">        If not provided, will assume the finest mesh assembly which is typically fuel.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">assems</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">assems</span><span class="p">)</span>
@@ -258,26 +262,18 @@
         <span class="n">referenceAssembly</span> <span class="o">=</span> <span class="n">getDefaultReferenceAssem</span><span class="p">(</span><span class="n">assems</span><span class="p">)</span>
     <span class="n">axialExpChanger</span> <span class="o">=</span> <span class="n">AxialExpansionChanger</span><span class="p">(</span><span class="n">isDetailedAxialExpansion</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assems</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">):</span>
-            <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">setAssembly</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-            <span class="c1"># this doesn&#39;t get applied to control assems, so CR will be interpreted</span>
-            <span class="c1"># as hot. This should be conservative because the control rods will</span>
-            <span class="c1"># be modeled as slightly shorter with the correct hot density. Density</span>
-            <span class="c1"># is more important than height, so we are forcing density to be correct</span>
-            <span class="c1"># since we can&#39;t do axial expansion (yet)</span>
-            <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">applyColdHeightMassIncrease</span><span class="p">()</span>
-            <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">expansionData</span><span class="o">.</span><span class="n">computeThermalExpansionFactors</span><span class="p">()</span>
-            <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">axiallyExpandAssembly</span><span class="p">()</span>
+        <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">setAssembly</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">applyColdHeightMassIncrease</span><span class="p">()</span>
+        <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">expansionData</span><span class="o">.</span><span class="n">computeThermalExpansionFactors</span><span class="p">()</span>
+        <span class="n">axialExpChanger</span><span class="o">.</span><span class="n">axiallyExpandAssembly</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">isDetailedAxialExpansion</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assems</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">):</span>
-                <span class="n">a</span><span class="o">.</span><span class="n">setBlockMesh</span><span class="p">(</span><span class="n">referenceAssembly</span><span class="o">.</span><span class="n">getAxialMesh</span><span class="p">())</span>
+            <span class="n">a</span><span class="o">.</span><span class="n">setBlockMesh</span><span class="p">(</span><span class="n">referenceAssembly</span><span class="o">.</span><span class="n">getAxialMesh</span><span class="p">())</span>
     <span class="c1"># update block BOL heights to reflect hot heights</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assems</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-                <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">heightBOL</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span>
-                <span class="n">b</span><span class="o">.</span><span class="n">completeInitialLoading</span><span class="p">()</span></div>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">heightBOL</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">completeInitialLoading</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="AxialExpansionChanger"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.axialExpansionChanger.html#armi.reactor.converters.axialExpansionChanger.AxialExpansionChanger">[docs]</a><span class="k">class</span> <span class="nc">AxialExpansionChanger</span><span class="p">:</span>
@@ -286,9 +282,9 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    linked : :py:class:`AssemblyAxialLinkage` object.</span>
+<span class="sd">    linked : :py:class:`AssemblyAxialLinkage`</span>
 <span class="sd">        establishes object containing axial linkage information</span>
-<span class="sd">    expansionData : :py:class:`ExpansionData &lt;armi.reactor.converters.axialExpansionChanger.ExpansionData&gt;` object.</span>
+<span class="sd">    expansionData : :py:class:`ExpansionData &lt;armi.reactor.converters.axialExpansionChanger.ExpansionData&gt;`</span>
 <span class="sd">        establishes object to store and access relevant expansion data</span>
 
 <span class="sd">    Notes</span>
@@ -318,11 +314,11 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;` object.</span>
+<span class="sd">        a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
 <span class="sd">            ARMI assembly to be changed</span>
-<span class="sd">        componentLst : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`, list</span>
-<span class="sd">            list of :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` objects to be expanded</span>
-<span class="sd">        percents : float, list</span>
+<span class="sd">        componentLst : list[:py:class:`Component &lt;armi.reactor.components.component.Component&gt;`]</span>
+<span class="sd">            list of Components to be expanded</span>
+<span class="sd">        percents : list[float]</span>
 <span class="sd">            list of expansion percentages for each component listed in componentList</span>
 <span class="sd">        setFuel : boolean, optional</span>
 <span class="sd">            Boolean to determine whether or not fuel blocks should have their target components set</span>
@@ -348,7 +344,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;` object.</span>
+<span class="sd">        a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
 <span class="sd">            ARMI assembly to be changed</span>
 <span class="sd">        tempGrid : float, list</span>
 <span class="sd">            Axial temperature grid (in cm) (i.e., physical locations where temp is stored)</span>
@@ -384,7 +380,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">         a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;` object.</span>
+<span class="sd">         a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
 <span class="sd">            ARMI assembly to be changed</span>
 <span class="sd">        setFuel : boolean, optional</span>
 <span class="sd">            Boolean to determine whether or not fuel blocks should have their target components set</span>
@@ -471,14 +467,6 @@
                     <span class="n">c</span><span class="o">.</span><span class="n">ztop</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">zbottom</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">height</span>
                     <span class="c1"># redistribute block boundaries if on the target component</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expansionData</span><span class="o">.</span><span class="n">isTargetComponent</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-                        <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">axialExpTargetComponent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                            <span class="n">runLog</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                                <span class="sa">f</span><span class="s2">&quot;      Component </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> is target component (inferred)&quot;</span>
-                            <span class="p">)</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">runLog</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                                <span class="sa">f</span><span class="s2">&quot;      Component </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> is target component (blueprints defined)&quot;</span>
-                            <span class="p">)</span>
                         <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">ztop</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">ztop</span>
 
             <span class="c1"># see also b.setHeight()</span>
@@ -506,7 +494,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        r : :py:class:`Reactor &lt;armi.reactor.reactors.Reactor&gt;` object.</span>
+<span class="sd">        r : :py:class:`Reactor &lt;armi.reactor.reactors.Reactor&gt;`</span>
 <span class="sd">            ARMI reactor to have mesh modified</span>
 
 <span class="sd">        Notes</span>
@@ -597,16 +585,23 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;` object.</span>
+<span class="sd">    a : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
 <span class="sd">        reference to original assembly; is directly modified/changed during expansion.</span>
+
 <span class="sd">    linkedBlocks : dict</span>
-<span class="sd">        keys   --&gt; :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` object</span>
+<span class="sd">        keys   --&gt; :py:class:`Block &lt;armi.reactor.blocks.Block&gt;`</span>
+
 <span class="sd">        values --&gt; list of axially linked blocks; index 0 = lower linked block; index 1: upper linked block.</span>
-<span class="sd">                   see also: self._getLinkedBlocks()</span>
+
+<span class="sd">        see also: self._getLinkedBlocks()</span>
+
 <span class="sd">    linkedComponents : dict</span>
-<span class="sd">        keys --&gt;   :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object</span>
+<span class="sd">        keys --&gt;   :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`</span>
+
 <span class="sd">        values --&gt; list of axially linked components; index 0 = lower linked component; index 1: upper linked component.</span>
-<span class="sd">                   see also: self._getLinkedComponents</span>
+
+<span class="sd">        see also: self._getLinkedComponents</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">StdAssem</span><span class="p">):</span>
@@ -627,7 +622,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` object</span>
+<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;`</span>
 <span class="sd">            block to determine axial linkage for</span>
 
 <span class="sd">        Notes</span>
@@ -683,9 +678,9 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` object</span>
+<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;`</span>
 <span class="sd">            key to access blocks containing linked components</span>
-<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object</span>
+<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`</span>
 <span class="sd">            component to determine axial linkage for</span>
 
 <span class="sd">        Raises</span>
@@ -814,9 +809,9 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        componentLst : list of :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`</span>
-<span class="sd">            list of :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` objects to have their heights changed # pylint: disable=line-too-long</span>
-<span class="sd">        percents : list of floats</span>
+<span class="sd">        componentLst : list[:py:class:`Component &lt;armi.reactor.components.component.Component&gt;`]</span>
+<span class="sd">            list of Components to have their heights changed</span>
+<span class="sd">        percents : list[float]</span>
 <span class="sd">            list of height changes in percent that are to be applied to componentLst</span>
 
 <span class="sd">        Raises</span>
@@ -904,10 +899,10 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` object</span>
+<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;`</span>
 <span class="sd">            parent block for c</span>
-<span class="sd">        c : py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object</span>
-<span class="sd">            component object to which the temperature, temp, is to be applied</span>
+<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`</span>
+<span class="sd">            component to which the temperature, temp, is to be applied</span>
 <span class="sd">        temp : float</span>
 <span class="sd">            new component temperature in C</span>
 <span class="sd">        updateNDensForRadialExp : bool</span>
@@ -960,8 +955,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object</span>
-<span class="sd">            :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object to retrive expansion factor for</span>
+<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`</span>
+<span class="sd">            Component to retrive expansion factor for</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expansionFactors</span><span class="p">:</span>
@@ -980,8 +975,10 @@
 <span class="sd">            target components should be determined on the fly.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">axialExpTargetComponent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_componentDeterminesBlockHeight</span><span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">axialExpTargetComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">axialExpTargetComponent</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_componentDeterminesBlockHeight</span><span class="p">[</span>
+                    <span class="n">b</span><span class="o">.</span><span class="n">getComponentByName</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">axialExpTargetComponent</span><span class="p">)</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">elif</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">PLENUM</span><span class="p">)</span> <span class="ow">or</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">ACLP</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">determineTargetComponent</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Flags</span><span class="o">.</span><span class="n">CLAD</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">DUMMY</span><span class="p">):</span>
@@ -992,13 +989,13 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">determineTargetComponent</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ExpansionData.determineTargetComponent"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.axialExpansionChanger.html#armi.reactor.converters.axialExpansionChanger.ExpansionData.determineTargetComponent">[docs]</a>    <span class="k">def</span> <span class="nf">determineTargetComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">flagOfInterest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;appends target component to self._componentDeterminesBlockHeight</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;determines target component, stores it on the block, and appends it to self._componentDeterminesBlockHeight</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` object</span>
+<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;`</span>
 <span class="sd">            block to specify target component for</span>
-<span class="sd">        flagOfInterest : :py:class:`Flags &lt;armi.reactor.flags.Flags&gt;` object</span>
+<span class="sd">        flagOfInterest : :py:class:`Flags &lt;armi.reactor.flags.Flags&gt;`</span>
 <span class="sd">            the flag of interest to identify the target component</span>
 
 <span class="sd">        Notes</span>
@@ -1027,22 +1024,28 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">componentWFlag</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">getChildren</span><span class="p">()</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">flagOfInterest</span><span class="p">)]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">componentWFlag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No target component found!</span><span class="se">\n</span><span class="s2">   Block </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+            <span class="c1"># if only 1 solid, be smart enought to snag it</span>
+            <span class="n">solidMaterials</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">material</span><span class="p">,</span> <span class="n">material</span><span class="o">.</span><span class="n">Fluid</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">solidMaterials</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">componentWFlag</span> <span class="o">=</span> <span class="n">solidMaterials</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">componentWFlag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No target component found!</span><span class="se">\n</span><span class="s2">   Block </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">componentWFlag</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="s2">&quot;Cannot have more than one component within a block that has the target flag!&quot;</span>
-                <span class="s2">&quot;Block </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">flagOfInterest </span><span class="si">{1}</span><span class="se">\n</span><span class="s2">Components </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">b</span><span class="p">,</span> <span class="n">flagOfInterest</span><span class="p">,</span> <span class="n">componentWFlag</span>
-                <span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;Cannot have more than one component within a block that has the target flag!&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Block </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="se">\n</span><span class="s2">flagOfInterest </span><span class="si">{</span><span class="n">flagOfInterest</span><span class="si">}</span><span class="se">\n</span><span class="s2">Components </span><span class="si">{</span><span class="n">componentWFlag</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_componentDeterminesBlockHeight</span><span class="p">[</span><span class="n">componentWFlag</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_componentDeterminesBlockHeight</span><span class="p">[</span><span class="n">componentWFlag</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">axialExpTargetComponent</span> <span class="o">=</span> <span class="n">componentWFlag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span></div>
 
     <span class="k">def</span> <span class="nf">_isFuelLocked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;physical/realistic implementation reserved for ARMI plugin</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` object</span>
+<span class="sd">        b : :py:class:`Block &lt;armi.reactor.blocks.Block&gt;`</span>
 <span class="sd">            block to specify target component for</span>
 
 <span class="sd">        Raises</span>
@@ -1059,14 +1062,15 @@
         <span class="k">if</span> <span class="n">c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No fuel component within </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_componentDeterminesBlockHeight</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">axialExpTargetComponent</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span>
 
 <div class="viewcode-block" id="ExpansionData.isTargetComponent"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.axialExpansionChanger.html#armi.reactor.converters.axialExpansionChanger.ExpansionData.isTargetComponent">[docs]</a>    <span class="k">def</span> <span class="nf">isTargetComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;returns bool if c is a target component</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object</span>
-<span class="sd">            :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object to check target component status</span>
+<span class="sd">        c : :py:class:`Component &lt;armi.reactor.components.component.Component&gt;`</span>
+<span class="sd">            Component to check target component status</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_componentDeterminesBlockHeight</span><span class="p">)</span></div></div>
 </pre></div>
@@ -1082,7 +1086,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>

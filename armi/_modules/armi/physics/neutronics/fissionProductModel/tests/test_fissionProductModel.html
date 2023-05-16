@@ -212,6 +212,11 @@
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.isotopicDepletion.isotopicDepletionInterface</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">isDepletable</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.fissionProductModel.fissionProductModelSettings</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CONF_FP_MODEL</span><span class="p">,</span>
+    <span class="n">CONF_MAKE_ALL_BLOCK_LFPS_INDEPENDENT</span><span class="p">,</span>
+    <span class="n">CONF_FISSION_PRODUCT_LIBRARY_NAME</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="TestFissionProductModelLumpedFissionProducts"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.html#armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelLumpedFissionProducts">[docs]</a><span class="k">class</span> <span class="nc">TestFissionProductModelLumpedFissionProducts</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -247,7 +252,39 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Tests retrieval of the fission product names within all the lumped fission products of the core.&quot;&quot;&quot;</span>
         <span class="n">fissionProductNames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpModel</span><span class="o">.</span><span class="n">getAllFissionProductNames</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fissionProductNames</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;XE135&quot;</span><span class="p">,</span> <span class="n">fissionProductNames</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;XE135&quot;</span><span class="p">,</span> <span class="n">fissionProductNames</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestFissionProductModelLumpedFissionProducts.test_fpApplication"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.html#armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelLumpedFissionProducts.test_fpApplication">[docs]</a>    <span class="k">def</span> <span class="nf">test_fpApplication</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">loadTestReactor</span><span class="p">()</span>
+        <span class="n">fpModel</span> <span class="o">=</span> <span class="n">fissionProductModel</span><span class="o">.</span><span class="n">FissionProductModel</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
+        <span class="c1"># Set up the global LFPs and check that they are setup.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">fpModel</span><span class="o">.</span><span class="n">_useGlobalLFPs</span><span class="p">)</span>
+        <span class="n">fpModel</span><span class="o">.</span><span class="n">interactBOL</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">isFuel</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">_lumpedFissionProducts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">_lumpedFissionProducts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># now check if all depletable blocks do not have all nuclides if not detailedAxialExpansion</span>
+        <span class="n">fpModel</span><span class="o">.</span><span class="n">allBlocksNeedAllNucs</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">fpModel</span><span class="o">.</span><span class="n">interactBOL</span><span class="p">()</span>
+        <span class="n">allNucsInProblem</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">isDepletable</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">allNucsInProblem</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;All blocks have all nuclides!&quot;</span><span class="p">)</span>
+
+        <span class="c1"># now check if detailed axial expansion that all blocks have ALL nuclides</span>
+        <span class="n">fpModel</span><span class="o">.</span><span class="n">allBlocksNeedAllNucs</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">fpModel</span><span class="o">.</span><span class="n">interactBOL</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="n">nuclideList</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">nuc</span><span class="p">,</span> <span class="n">nuclideList</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">_lumpedFissionProducts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="TestFissionProductModelExplicitMC2Library"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.html#armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelExplicitMC2Library">[docs]</a><span class="k">class</span> <span class="nc">TestFissionProductModelExplicitMC2Library</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -258,8 +295,8 @@
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">loadTestReactor</span><span class="p">(</span>
             <span class="n">customSettings</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;fpModel&quot;</span><span class="p">:</span> <span class="s2">&quot;explicitFissionProducts&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;fpModelLibrary&quot;</span><span class="p">:</span> <span class="s2">&quot;MC2-3&quot;</span><span class="p">,</span>
+                <span class="n">CONF_FP_MODEL</span><span class="p">:</span> <span class="s2">&quot;explicitFissionProducts&quot;</span><span class="p">,</span>
+                <span class="n">CONF_FISSION_PRODUCT_LIBRARY_NAME</span><span class="p">:</span> <span class="s2">&quot;MC2-3&quot;</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
@@ -315,7 +352,16 @@
                 <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">byMcc3Id</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">nb</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">nuclideList</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">assertLess</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nuclideBases</span><span class="o">.</span><span class="n">byMcc3Id</span><span class="p">))</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertLess</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nuclideBases</span><span class="o">.</span><span class="n">byMcc3Id</span><span class="p">))</span>
+
+        <span class="c1"># now check if detailed axial expansion that all blocks have detailed nuclides</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fpModel</span><span class="o">.</span><span class="n">allBlocksNeedAllNucs</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fpModel</span><span class="o">.</span><span class="n">interactBOL</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="n">nuclideList</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">byMcc3Id</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">nb</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">nuclideList</span><span class="p">)</span></div></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -334,7 +380,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>

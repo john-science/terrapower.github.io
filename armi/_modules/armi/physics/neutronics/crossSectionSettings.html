@@ -210,14 +210,18 @@
 <span class="sd">See detailed docs in `:doc: Lattice Physics &lt;reference/physics/neutronics/latticePhysics/latticePhysics&gt;`.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">voluptuous</span> <span class="k">as</span> <span class="nn">vol</span>
 
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics</span> <span class="kn">import</span> <span class="n">crossSectionGroupManager</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.crossSectionGroupManager</span> <span class="kn">import</span> <span class="n">BLOCK_COLLECTIONS</span>
 <span class="kn">from</span> <span class="nn">armi.settings</span> <span class="kn">import</span> <span class="n">Setting</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">context</span>
+
+<span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="n">CONF_RUN_TYPE</span>
 
 <span class="n">CONF_BLOCK_REPRESENTATION</span> <span class="o">=</span> <span class="s2">&quot;blockRepresentation&quot;</span>
 <span class="n">CONF_BLOCKTYPES</span> <span class="o">=</span> <span class="s2">&quot;validBlockTypes&quot;</span>
@@ -234,20 +238,60 @@
 <span class="n">CONF_MESH_PER_CM</span> <span class="o">=</span> <span class="s2">&quot;meshSubdivisionsPerCm&quot;</span>
 <span class="n">CONF_REACTION_DRIVER</span> <span class="o">=</span> <span class="s2">&quot;nuclideReactionDriver&quot;</span>
 <span class="n">CONF_XSID</span> <span class="o">=</span> <span class="s2">&quot;xsID&quot;</span>
+<span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span> <span class="o">=</span> <span class="s2">&quot;xsExecuteExclusive&quot;</span>
+<span class="n">CONF_XS_PRIORITY</span> <span class="o">=</span> <span class="s2">&quot;xsPriority&quot;</span>
+<span class="n">CONF_XS_MAX_ATOM_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;xsMaxAtomNumber&quot;</span>
+<span class="n">CONF_MIN_DRIVER_DENSITY</span> <span class="o">=</span> <span class="s2">&quot;minDriverDensity&quot;</span>
 
-<span class="c1"># These may be used as arguments to ``latticePhysicsInterface._getGeomDependentWriters``.</span>
-<span class="c1"># This could be an ENUM later.</span>
+
+<div class="viewcode-block" id="XSGeometryTypes"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionSettings.html#armi.physics.neutronics.crossSectionSettings.XSGeometryTypes">[docs]</a><span class="k">class</span> <span class="nc">XSGeometryTypes</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data structure for storing the available geometry options</span>
+<span class="sd">    within the framework.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ZERO_DIMENSIONAL</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">ONE_DIMENSIONAL_SLAB</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">ONE_DIMENSIONAL_CYLINDER</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">TWO_DIMENSIONAL_HEX</span> <span class="o">=</span> <span class="mi">8</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_mapping</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">ZERO_DIMENSIONAL</span><span class="p">:</span> <span class="s2">&quot;0D&quot;</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_SLAB</span><span class="p">:</span> <span class="s2">&quot;1D slab&quot;</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_CYLINDER</span><span class="p">:</span> <span class="s2">&quot;1D cylinder&quot;</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">TWO_DIMENSIONAL_HEX</span><span class="p">:</span> <span class="s2">&quot;2D hex&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">mapping</span>
+
+<div class="viewcode-block" id="XSGeometryTypes.getStr"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionSettings.html#armi.physics.neutronics.crossSectionSettings.XSGeometryTypes.getStr">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">getStr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeSpec</span><span class="p">:</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a string representation of the given ``typeSpec``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        XSGeometryTypes.getStr(XSGeometryTypes.ZERO_DIMENSIONAL) == &quot;0D&quot;</span>
+<span class="sd">        XSGeometryTypes.getStr(XSGeometryTypes.TWO_DIMENSIONAL_HEX) == &quot;2D hex&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">geometryTypes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">typeSpec</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">geometryTypes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">typeSpec</span><span class="si">}</span><span class="s2"> not in </span><span class="si">{</span><span class="n">geometryTypes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_mapping</span><span class="p">()[</span><span class="bp">cls</span><span class="p">[</span><span class="n">typeSpec</span><span class="o">.</span><span class="n">name</span><span class="p">]]</span></div></div>
+
+
 <span class="n">XS_GEOM_TYPES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;0D&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;1D slab&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;1D cylinder&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;2D hex&quot;</span><span class="p">,</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ZERO_DIMENSIONAL</span><span class="p">),</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_SLAB</span><span class="p">),</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_CYLINDER</span><span class="p">),</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">TWO_DIMENSIONAL_HEX</span><span class="p">),</span>
 <span class="p">}</span>
 
 <span class="c1"># This dictionary defines the valid set of inputs based on</span>
 <span class="c1"># the geometry type within the ``XSModelingOptions``</span>
 <span class="n">_VALID_INPUTS_BY_GEOMETRY_TYPE</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;0D&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ZERO_DIMENSIONAL</span><span class="p">):</span> <span class="p">{</span>
         <span class="n">CONF_XSID</span><span class="p">,</span>
         <span class="n">CONF_GEOM</span><span class="p">,</span>
         <span class="n">CONF_BUCKLING</span><span class="p">,</span>
@@ -255,16 +299,23 @@
         <span class="n">CONF_BLOCKTYPES</span><span class="p">,</span>
         <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">,</span>
         <span class="n">CONF_EXTERNAL_FLUX_FILE_LOCATION</span><span class="p">,</span>
+        <span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span><span class="p">,</span>
+        <span class="n">CONF_XS_PRIORITY</span><span class="p">,</span>
+        <span class="n">CONF_XS_MAX_ATOM_NUMBER</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s2">&quot;1D slab&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_SLAB</span><span class="p">):</span> <span class="p">{</span>
         <span class="n">CONF_XSID</span><span class="p">,</span>
         <span class="n">CONF_GEOM</span><span class="p">,</span>
         <span class="n">CONF_MESH_PER_CM</span><span class="p">,</span>
         <span class="n">CONF_BLOCKTYPES</span><span class="p">,</span>
         <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">,</span>
         <span class="n">CONF_EXTERNAL_FLUX_FILE_LOCATION</span><span class="p">,</span>
+        <span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span><span class="p">,</span>
+        <span class="n">CONF_XS_PRIORITY</span><span class="p">,</span>
+        <span class="n">CONF_XS_MAX_ATOM_NUMBER</span><span class="p">,</span>
+        <span class="n">CONF_MIN_DRIVER_DENSITY</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s2">&quot;1D cylinder&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_CYLINDER</span><span class="p">):</span> <span class="p">{</span>
         <span class="n">CONF_XSID</span><span class="p">,</span>
         <span class="n">CONF_GEOM</span><span class="p">,</span>
         <span class="n">CONF_MERGE_INTO_CLAD</span><span class="p">,</span>
@@ -276,8 +327,12 @@
         <span class="n">CONF_BLOCKTYPES</span><span class="p">,</span>
         <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">,</span>
         <span class="n">CONF_EXTERNAL_FLUX_FILE_LOCATION</span><span class="p">,</span>
+        <span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span><span class="p">,</span>
+        <span class="n">CONF_XS_PRIORITY</span><span class="p">,</span>
+        <span class="n">CONF_XS_MAX_ATOM_NUMBER</span><span class="p">,</span>
+        <span class="n">CONF_MIN_DRIVER_DENSITY</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s2">&quot;2D hex&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">TWO_DIMENSIONAL_HEX</span><span class="p">):</span> <span class="p">{</span>
         <span class="n">CONF_XSID</span><span class="p">,</span>
         <span class="n">CONF_GEOM</span><span class="p">,</span>
         <span class="n">CONF_BUCKLING</span><span class="p">,</span>
@@ -287,6 +342,10 @@
         <span class="n">CONF_EXTERNAL_RINGS</span><span class="p">,</span>
         <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">,</span>
         <span class="n">CONF_EXTERNAL_FLUX_FILE_LOCATION</span><span class="p">,</span>
+        <span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span><span class="p">,</span>
+        <span class="n">CONF_XS_PRIORITY</span><span class="p">,</span>
+        <span class="n">CONF_XS_MAX_ATOM_NUMBER</span><span class="p">,</span>
+        <span class="n">CONF_MIN_DRIVER_DENSITY</span><span class="p">,</span>
     <span class="p">},</span>
 <span class="p">}</span>
 
@@ -311,6 +370,10 @@
         <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_XS_FILE_LOCATION</span><span class="p">):</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>
         <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_EXTERNAL_FLUX_FILE_LOCATION</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_MESH_PER_CM</span><span class="p">):</span> <span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span><span class="p">):</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_XS_PRIORITY</span><span class="p">):</span> <span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_XS_MAX_ATOM_NUMBER</span><span class="p">):</span> <span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+        <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_MIN_DRIVER_DENSITY</span><span class="p">):</span> <span class="n">vol</span><span class="o">.</span><span class="n">Coerce</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
     <span class="p">}</span>
 <span class="p">)</span>
 
@@ -435,7 +498,9 @@
                     <span class="s2">&quot;before attempting to add a new XS ID.&quot;</span>
                 <span class="p">)</span>
 
-        <span class="n">xsOpt</span> <span class="o">=</span> <span class="n">XSModelingOptions</span><span class="p">(</span><span class="n">xsID</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s2">&quot;0D&quot;</span><span class="p">)</span>
+        <span class="n">xsOpt</span> <span class="o">=</span> <span class="n">XSModelingOptions</span><span class="p">(</span>
+            <span class="n">xsID</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ZERO_DIMENSIONAL</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="n">xsOpt</span><span class="o">.</span><span class="n">setDefaults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_blockRepresentation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validBlockTypes</span><span class="p">)</span>
         <span class="n">xsOpt</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">xsOpt</span></div>
@@ -530,7 +595,25 @@
 <span class="sd">        This is a lattice physics configuration option that can be used to control</span>
 <span class="sd">        subregion meshing of the representative block in 1D problems.</span>
 
-<span class="sd">    Notes</span>
+<span class="sd">    xsExecuteExclusive : bool</span>
+<span class="sd">        The mpi task that results from this xsID will reserve a full processor and</span>
+<span class="sd">        no others will allocate to it. This is useful for time balancing when you</span>
+<span class="sd">        have one task that takes much longer than the others.</span>
+
+<span class="sd">    xsPriority:</span>
+<span class="sd">        The priority of the mpi tasks that results from this xsID. Lower priority</span>
+<span class="sd">        will execute first. starting longer jobs first is generally more efficient.</span>
+
+<span class="sd">    xsMaxAtomNumber : int</span>
+<span class="sd">        The maximum atom number to model for infinite dilute isotopes in lattice physics.</span>
+<span class="sd">        This is used to avoid modeling isotopes with a large atomic number</span>
+<span class="sd">        (e.g., fission products) as a depletion product of an isotope with a much</span>
+<span class="sd">        smaller atomic number.</span>
+
+<span class="sd">    minDriverDensity: float</span>
+<span class="sd">        The minimum number density for nuclides included in driver material for a 1D</span>
+<span class="sd">        lattice physics model.</span>
+
 <span class="sd">    -----</span>
 <span class="sd">    Not all default attributes may be useful for your specific application and you may</span>
 <span class="sd">    require other types of configuration options. These are provided as examples since</span>
@@ -556,6 +639,10 @@
         <span class="n">numExternalRings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">mergeIntoClad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">meshSubdivisionsPerCm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">xsExecuteExclusive</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">xsPriority</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">xsMaxAtomNumber</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">minDriverDensity</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">xsID</span> <span class="o">=</span> <span class="n">xsID</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">geometry</span>
@@ -575,6 +662,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">numExternalRings</span> <span class="o">=</span> <span class="n">numExternalRings</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mergeIntoClad</span> <span class="o">=</span> <span class="n">mergeIntoClad</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">meshSubdivisionsPerCm</span> <span class="o">=</span> <span class="n">meshSubdivisionsPerCm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xsMaxAtomNumber</span> <span class="o">=</span> <span class="n">xsMaxAtomNumber</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minDriverDensity</span> <span class="o">=</span> <span class="n">minDriverDensity</span>
+        <span class="c1"># these are related to execution</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xsExecuteExclusive</span> <span class="o">=</span> <span class="n">xsExecuteExclusive</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xsPriority</span> <span class="o">=</span> <span class="n">xsPriority</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xsIsPregenerated</span><span class="p">:</span>
@@ -708,43 +800,70 @@
 
         <span class="n">defaults</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">xsIsPregenerated</span><span class="p">:</span>
+            <span class="n">allowableBlockCollections</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">MEDIAN_BLOCK_COLLECTION</span><span class="p">,</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">FLUX_WEIGHTED_AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span>
+            <span class="p">]</span>
             <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="n">CONF_XS_FILE_LOCATION</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xsFileLocation</span><span class="p">,</span>
                 <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">blockRepresentation</span><span class="p">,</span>
             <span class="p">}</span>
 
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="s2">&quot;0D&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span><span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ZERO_DIMENSIONAL</span><span class="p">):</span>
+            <span class="n">allowableBlockCollections</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">MEDIAN_BLOCK_COLLECTION</span><span class="p">,</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">FLUX_WEIGHTED_AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span>
+            <span class="p">]</span>
             <span class="n">bucklingSearch</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxIsPregenerated</span> <span class="k">else</span> <span class="kc">True</span>
             <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="s2">&quot;0D&quot;</span><span class="p">,</span>
+                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span>
                 <span class="n">CONF_BUCKLING</span><span class="p">:</span> <span class="n">bucklingSearch</span><span class="p">,</span>
                 <span class="n">CONF_DRIVER</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
                 <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">blockRepresentation</span><span class="p">,</span>
                 <span class="n">CONF_BLOCKTYPES</span><span class="p">:</span> <span class="n">validBlockTypes</span><span class="p">,</span>
                 <span class="n">CONF_EXTERNAL_FLUX_FILE_LOCATION</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxFileLocation</span><span class="p">,</span>
             <span class="p">}</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="s2">&quot;1D slab&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span>
+            <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_SLAB</span>
+        <span class="p">):</span>
+            <span class="n">allowableBlockCollections</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">SLAB_COMPONENTS_BLOCK_COLLECTION</span><span class="p">,</span>
+            <span class="p">]</span>
             <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="s2">&quot;1D slab&quot;</span><span class="p">,</span>
+                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span>
                 <span class="n">CONF_MESH_PER_CM</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-                <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">blockRepresentation</span><span class="p">,</span>
+                <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">SLAB_COMPONENTS_BLOCK_COLLECTION</span><span class="p">,</span>
                 <span class="n">CONF_BLOCKTYPES</span><span class="p">:</span> <span class="n">validBlockTypes</span><span class="p">,</span>
             <span class="p">}</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="s2">&quot;1D cylinder&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span>
+            <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">ONE_DIMENSIONAL_CYLINDER</span>
+        <span class="p">):</span>
+            <span class="n">allowableBlockCollections</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">CYLINDRICAL_COMPONENTS_BLOCK_COLLECTION</span>
+            <span class="p">]</span>
             <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="s2">&quot;1D cylinder&quot;</span><span class="p">,</span>
+                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span>
                 <span class="n">CONF_DRIVER</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
                 <span class="n">CONF_MERGE_INTO_CLAD</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gap&quot;</span><span class="p">],</span>
                 <span class="n">CONF_MESH_PER_CM</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
                 <span class="n">CONF_INTERNAL_RINGS</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="n">CONF_EXTERNAL_RINGS</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="n">CONF_HOMOGBLOCK</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">blockRepresentation</span><span class="p">,</span>
+                <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">CYLINDRICAL_COMPONENTS_BLOCK_COLLECTION</span><span class="p">,</span>
                 <span class="n">CONF_BLOCKTYPES</span><span class="p">:</span> <span class="n">validBlockTypes</span><span class="p">,</span>
             <span class="p">}</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="s2">&quot;2D hex&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">==</span> <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">getStr</span><span class="p">(</span>
+            <span class="n">XSGeometryTypes</span><span class="o">.</span><span class="n">TWO_DIMENSIONAL_HEX</span>
+        <span class="p">):</span>
+            <span class="n">allowableBlockCollections</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">MEDIAN_BLOCK_COLLECTION</span><span class="p">,</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span>
+                <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">FLUX_WEIGHTED_AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span>
+            <span class="p">]</span>
             <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="s2">&quot;2D hex&quot;</span><span class="p">,</span>
+                <span class="n">CONF_GEOM</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span>
                 <span class="n">CONF_BUCKLING</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
                 <span class="n">CONF_EXTERNAL_DRIVER</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                 <span class="n">CONF_DRIVER</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -753,10 +872,21 @@
                 <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span> <span class="n">blockRepresentation</span><span class="p">,</span>
             <span class="p">}</span>
 
+        <span class="n">defaults</span><span class="p">[</span><span class="n">CONF_XS_EXECUTE_EXCLUSIVE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">defaults</span><span class="p">[</span><span class="n">CONF_XS_PRIORITY</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+
         <span class="k">for</span> <span class="n">attrName</span><span class="p">,</span> <span class="n">defaultValue</span> <span class="ow">in</span> <span class="n">defaults</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">currentValue</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrName</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">currentValue</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrName</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">attrName</span> <span class="o">==</span> <span class="n">CONF_BLOCK_REPRESENTATION</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">currentValue</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowableBlockCollections</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Invalid block collection type `</span><span class="si">{</span><span class="n">currentValue</span><span class="si">}</span><span class="s2">` assigned &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">xsID</span><span class="si">}</span><span class="s2">. Expected one of the &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;following: </span><span class="si">{</span><span class="n">allowableBlockCollections</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span></div></div>
 
@@ -874,7 +1004,7 @@
     <p>
         &#169; Copyright 2009-2023, TerraPower, LLC.
       <span class="lastupdated">
-        Last updated on 2023-02-15.
+        Last updated on 2023-05-16.
       </span>
 
     </p>
