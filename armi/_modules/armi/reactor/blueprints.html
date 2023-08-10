@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.reactor.blueprints &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.reactor.blueprints &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../reactor.html">armi.reactor</a> &raquo;</li>
-        
-      <li>armi.reactor.blueprints</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../reactor.html">armi.reactor</a></li>
+      <li class="breadcrumb-item active">armi.reactor.blueprints</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.reactor.blueprints</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -216,7 +136,6 @@
 
 <span class="sd">    custom isotopics: {} # optional</span>
 
-
 <span class="sd">    blocks:</span>
 <span class="sd">        name:</span>
 <span class="sd">            component name:</span>
@@ -238,19 +157,15 @@
 <span class="sd">            # optionally extra settings (note this is probably going to be a removed feature)</span>
 <span class="sd">            #    hotChannelFactors: TWRPclad</span>
 
-
 <span class="sd">Examples</span>
 <span class="sd">--------</span>
 <span class="sd">&gt;&gt;&gt; design = blueprints.Blueprints.load(self.yamlString)</span>
 <span class="sd">&gt;&gt;&gt; print(design.gridDesigns)</span>
 
-
 <span class="sd">Notes</span>
 <span class="sd">-----</span>
 <span class="sd">The blueprints system was built to enable round trip translations between</span>
 <span class="sd">text representations of input and objects in the code.</span>
-
-
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -268,14 +183,13 @@
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">getPluginManager</span><span class="p">,</span> <span class="n">getPluginManagerOrFail</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">plugins</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
-<span class="kn">from</span> <span class="nn">armi.utils.customExceptions</span> <span class="kn">import</span> <span class="n">InputError</span>
 <span class="kn">from</span> <span class="nn">armi.nucDirectory</span> <span class="kn">import</span> <span class="n">nuclideBases</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">assemblies</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">geometry</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">systemLayoutInput</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
 <span class="kn">from</span> <span class="nn">armi.scripts</span> <span class="kn">import</span> <span class="n">migration</span>
-
+<span class="kn">from</span> <span class="nn">armi.utils.customExceptions</span> <span class="kn">import</span> <span class="n">InputError</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">textProcessors</span>
 <span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">CONF_DETAILED_AXIAL_EXPANSION</span><span class="p">,</span>
@@ -290,13 +204,13 @@
 <span class="c1"># NOTE: using non-ARMI-standard imports because these are all a part of this package,</span>
 <span class="c1"># and using the module imports would make the attribute definitions extremely long</span>
 <span class="c1"># without adding detail</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.blueprints.reactorBlueprint</span> <span class="kn">import</span> <span class="n">Systems</span><span class="p">,</span> <span class="n">SystemBlueprint</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.blueprints</span> <span class="kn">import</span> <span class="n">isotopicOptions</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints.assemblyBlueprint</span> <span class="kn">import</span> <span class="n">AssemblyKeyedList</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints.blockBlueprint</span> <span class="kn">import</span> <span class="n">BlockKeyedList</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.blueprints.componentBlueprint</span> <span class="kn">import</span> <span class="n">ComponentKeyedList</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints.componentBlueprint</span> <span class="kn">import</span> <span class="n">ComponentGroups</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.blueprints</span> <span class="kn">import</span> <span class="n">isotopicOptions</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.blueprints.componentBlueprint</span> <span class="kn">import</span> <span class="n">ComponentKeyedList</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blueprints.gridBlueprint</span> <span class="kn">import</span> <span class="n">Grids</span><span class="p">,</span> <span class="n">Triplet</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.blueprints.reactorBlueprint</span> <span class="kn">import</span> <span class="n">Systems</span><span class="p">,</span> <span class="n">SystemBlueprint</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.converters</span> <span class="kn">import</span> <span class="n">axialExpansionChanger</span>
 
 <span class="n">context</span><span class="o">.</span><span class="n">BLUEPRINTS_IMPORTED</span> <span class="o">=</span> <span class="kc">True</span>
@@ -304,10 +218,7 @@
 
 
 <div class="viewcode-block" id="loadFromCs"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.loadFromCs">[docs]</a><span class="k">def</span> <span class="nf">loadFromCs</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">roundTrip</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Function to load Blueprints based on supplied ``CaseSettings``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># pylint: disable=import-outside-toplevel; circular import protection</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Function to load Blueprints based on supplied ``CaseSettings``.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">directoryChangers</span>
 
     <span class="k">with</span> <span class="n">directoryChangers</span><span class="o">.</span><span class="n">DirectoryChanger</span><span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="n">inputDirectory</span><span class="p">,</span> <span class="n">dumpOnException</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -338,7 +249,6 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="n">mcs</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
-        <span class="c1"># pylint: disable=no-member</span>
         <span class="n">pm</span> <span class="o">=</span> <span class="n">getPluginManager</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">pm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
@@ -392,8 +302,7 @@
         <span class="n">key</span><span class="o">=</span><span class="s2">&quot;component groups&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ComponentGroups</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">)</span>
 
-    <span class="c1"># These are used to set up new attributes that come from plugins. Defining its</span>
-    <span class="c1"># initial state here to make pylint happy</span>
+    <span class="c1"># These are used to set up new attributes that come from plugins.</span>
     <span class="n">_resolveFunctions</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
@@ -403,19 +312,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assemblies</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prepped</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_assembliesBySpecifier</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">allNuclidesInProblem</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">()</span>
-        <span class="p">)</span>  <span class="c1"># Better for performance since these are used for lookups</span>
+
+        <span class="c1"># Better for performance since these are used for lookups</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allNuclidesInProblem</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">activeNuclides</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inertNuclides</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nucsToForceInXsGen</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elementsToExpand</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># again, yamlize does not call __init__, instead we use Blueprints.load which</span>
+        <span class="c1"># Yamlize does not call __init__, instead we use Blueprints.load which</span>
         <span class="c1"># creates and instance of a Blueprints object and initializes it with values</span>
-        <span class="c1"># using setattr. Since the method is never called, it serves the purpose of</span>
-        <span class="c1"># preventing pylint from issuing warnings about attributes not existing.</span>
+        <span class="c1"># using setattr.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_assembliesBySpecifier</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prepped</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">systemDesigns</span> <span class="o">=</span> <span class="n">Systems</span><span class="p">()</span>
@@ -527,6 +436,7 @@
                 <span class="n">axialExpansionChanger</span><span class="o">.</span><span class="n">makeAssemsAbleToSnapToUniformMesh</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">assemblies</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_NON_UNIFORM_ASSEM_FLAGS</span><span class="p">]</span>
                 <span class="p">)</span>
+
             <span class="k">if</span> <span class="ow">not</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_INPUT_HEIGHTS_HOT</span><span class="p">]:</span>
                 <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span>
                     <span class="s2">&quot;=========== Axially expanding all assemblies from Tinput to Thot ===========&quot;</span>
@@ -547,7 +457,6 @@
                     <span class="n">cs</span><span class="p">[</span><span class="n">CONF_DETAILED_AXIAL_EXPANSION</span><span class="p">],</span>
                 <span class="p">)</span>
 
-            <span class="c1"># pylint: disable=no-member</span>
             <span class="n">getPluginManagerOrFail</span><span class="p">()</span><span class="o">.</span><span class="n">hook</span><span class="o">.</span><span class="n">afterConstructionOfAssemblies</span><span class="p">(</span>
                 <span class="n">assemblies</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assemblies</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">cs</span><span class="o">=</span><span class="n">cs</span>
             <span class="p">)</span>
@@ -581,46 +490,47 @@
 
         <span class="n">actives</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="n">inerts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="n">undefBurnChainActiveNuclides</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span> <span class="o">=</span> <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">genDefaultNucFlags</span><span class="p">()</span>
 
-        <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">autoUpdateNuclideFlags</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span><span class="p">)</span>
+        <span class="n">nuclideFlags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span> <span class="ow">or</span> <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">genDefaultNucFlags</span><span class="p">()</span>
 
+        <span class="n">nucsToForceInXsGen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="c1"># just expanding flags now. ndense gets expanded in comp blueprints</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elementsToExpand</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">nucFlag</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">nucFlag</span> <span class="ow">in</span> <span class="n">nuclideFlags</span><span class="p">:</span>
             <span class="c1"># this returns any nuclides that are flagged specifically for expansion by input</span>
-            <span class="n">expandedElements</span> <span class="o">=</span> <span class="n">nucFlag</span><span class="o">.</span><span class="n">fileAsActiveOrInert</span><span class="p">(</span>
-                <span class="n">actives</span><span class="p">,</span> <span class="n">inerts</span><span class="p">,</span> <span class="n">undefBurnChainActiveNuclides</span>
+            <span class="p">(</span>
+                <span class="n">expandedElements</span><span class="p">,</span>
+                <span class="n">undefBurnChainActiveNuclides</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">=</span> <span class="n">nucFlag</span><span class="o">.</span><span class="n">fileAsActiveOrInert</span><span class="p">(</span>
+                <span class="n">actives</span><span class="p">,</span>
+                <span class="n">inerts</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">elementsToExpand</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">expandedElements</span><span class="p">)</span>
 
         <span class="n">inerts</span> <span class="o">-=</span> <span class="n">actives</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">customIsotopics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">customIsotopics</span> <span class="ow">or</span> <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">CustomIsotopics</span><span class="p">()</span>
-        <span class="p">(</span>
-            <span class="n">elementalsToKeep</span><span class="p">,</span>
-            <span class="n">expansions</span><span class="p">,</span>
-        <span class="p">)</span> <span class="o">=</span> <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">autoSelectElementsToKeepFromSettings</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+        <span class="n">eleKeep</span><span class="p">,</span> <span class="n">eleExpand</span> <span class="o">=</span> <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">eleExpandInfoBasedOnCodeENDF</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
 
         <span class="c1"># Flag all elementals for expansion unless they&#39;ve been flagged otherwise by</span>
         <span class="c1"># user input or automatic lattice/datalib rules.</span>
-        <span class="k">for</span> <span class="n">elemental</span> <span class="ow">in</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">instances</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elemental</span><span class="p">,</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">NaturalNuclideBase</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">nucBase</span> <span class="ow">in</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">instances</span><span class="p">:</span>
+            <span class="n">isAlreadyIsotopic</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucBase</span><span class="p">,</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">NaturalNuclideBase</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">isAlreadyIsotopic</span><span class="p">:</span>
                 <span class="c1"># `elemental` may be a NaturalNuclideBase or a NuclideBase</span>
-                <span class="c1"># skip all NuclideBases</span>
+                <span class="c1"># skip all NuclideBases (isotopics)</span>
                 <span class="k">continue</span>
 
-            <span class="k">if</span> <span class="n">elemental</span> <span class="ow">in</span> <span class="n">elementalsToKeep</span><span class="p">:</span>
+            <span class="c1"># we now know its an elemental</span>
+            <span class="n">elemental</span> <span class="o">=</span> <span class="n">nucBase</span>
+            <span class="k">if</span> <span class="n">elemental</span> <span class="ow">in</span> <span class="n">eleKeep</span><span class="p">:</span>
                 <span class="k">continue</span>
 
             <span class="k">if</span> <span class="n">elemental</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">actives</span><span class="p">:</span>
                 <span class="n">currentSet</span> <span class="o">=</span> <span class="n">actives</span>
-                <span class="n">actives</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemental</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">elemental</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">inerts</span><span class="p">:</span>
                 <span class="n">currentSet</span> <span class="o">=</span> <span class="n">inerts</span>
-                <span class="n">inerts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemental</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># This was not specified in the nuclide flags at all.</span>
+                <span class="c1"># This was not specified in the nuclide flags at all as burn or xs.</span>
                 <span class="c1"># If a material with this in its composition is brought in</span>
                 <span class="c1"># it&#39;s nice from a user perspective to allow it.</span>
                 <span class="c1"># But current behavior is that all nuclides in problem</span>
@@ -630,20 +540,17 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">elementsToExpand</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span>
-                <span class="n">elemental</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span>
-                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span><span class="p">[</span><span class="n">elemental</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">expandTo</span>
+                <span class="n">elemental</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">nuclideFlags</span>
+                <span class="ow">and</span> <span class="n">nuclideFlags</span><span class="p">[</span><span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span><span class="p">]</span><span class="o">.</span><span class="n">expandTo</span>
             <span class="p">):</span>
-                <span class="c1"># user-input has precedence</span>
+                <span class="c1"># user-input expandTo has precedence</span>
                 <span class="n">newNuclides</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="n">nuclideBases</span><span class="o">.</span><span class="n">byName</span><span class="p">[</span><span class="n">nn</span><span class="p">]</span>
-                    <span class="k">for</span> <span class="n">nn</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span><span class="p">[</span><span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span><span class="p">]</span><span class="o">.</span><span class="n">expandTo</span>
+                    <span class="k">for</span> <span class="n">nn</span> <span class="ow">in</span> <span class="n">nuclideFlags</span><span class="p">[</span><span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span><span class="p">]</span><span class="o">.</span><span class="n">expandTo</span>
                 <span class="p">]</span>
-            <span class="k">elif</span> <span class="p">(</span>
-                <span class="n">elemental</span> <span class="ow">in</span> <span class="n">expansions</span>
-                <span class="ow">and</span> <span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span>
-            <span class="p">):</span>
-                <span class="c1"># code-specific expansion required</span>
-                <span class="n">newNuclides</span> <span class="o">=</span> <span class="n">expansions</span><span class="p">[</span><span class="n">elemental</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">elemental</span> <span class="ow">in</span> <span class="n">eleExpand</span> <span class="ow">and</span> <span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span> <span class="ow">in</span> <span class="n">nuclideFlags</span><span class="p">:</span>
+                <span class="c1"># code-specific expansion required based on code and ENDF</span>
+                <span class="n">newNuclides</span> <span class="o">=</span> <span class="n">eleExpand</span><span class="p">[</span><span class="n">elemental</span><span class="p">]</span>
                 <span class="c1"># overlay code details onto nuclideFlags for other parts of the code</span>
                 <span class="c1"># that will use them.</span>
                 <span class="c1"># TODO: would be better if nuclideFlags did this upon reading s.t.</span>
@@ -653,15 +560,24 @@
                 <span class="c1"># This must be updated because the operative expansion code just uses the flags</span>
                 <span class="c1">#</span>
                 <span class="c1"># Also, if this element is not in nuclideFlags at all, we just don&#39;t add it</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span><span class="p">[</span><span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span><span class="p">]</span><span class="o">.</span><span class="n">expandTo</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">nuclideFlags</span><span class="p">[</span><span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">symbol</span><span class="p">]</span><span class="o">.</span><span class="n">expandTo</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="n">nb</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">newNuclides</span>
                 <span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># expand to all possible natural isotopics</span>
                 <span class="n">newNuclides</span> <span class="o">=</span> <span class="n">elemental</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">getNaturalIsotopics</span><span class="p">()</span>
 
+            <span class="c1"># remove the elemental and add the isotopic</span>
+            <span class="n">currentSet</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemental</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">newNuclides</span><span class="p">:</span>
                 <span class="n">currentSet</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nb</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># force everything asked for in xsGen</span>
+        <span class="n">nucsToForceInXsGen</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">actives</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">inerts</span><span class="p">)))</span>
+
+        <span class="c1"># add all detailed isotopes in ENDF if requested</span>
+        <span class="n">isotopicOptions</span><span class="o">.</span><span class="n">autoUpdateNuclideFlags</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">nuclideFlags</span><span class="p">,</span> <span class="n">inerts</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nuclideFlags</span> <span class="o">=</span> <span class="n">nuclideFlags</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementsToExpand</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
@@ -675,6 +591,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">allNuclidesInProblem</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">(</span>
             <span class="nb">sorted</span><span class="p">(</span><span class="n">actives</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">inerts</span><span class="p">))</span>
         <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nucsToForceInXsGen</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="o">.</span><span class="n">OrderedSet</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nucsToForceInXsGen</span><span class="p">))</span>
 
         <span class="c1"># Inform user which nuclides are truncating the burn chain.</span>
         <span class="k">if</span> <span class="n">undefBurnChainActiveNuclides</span> <span class="ow">and</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">burnChainImposed</span><span class="p">:</span>
@@ -836,49 +753,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

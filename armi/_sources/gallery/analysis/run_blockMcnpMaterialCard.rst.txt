@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_gallery_analysis_run_blockMcnpMaterialCard.py>`
+        :ref:`Go to the end <sphx_glr_download_gallery_analysis_run_blockMcnpMaterialCard.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -26,7 +26,7 @@ MCNP material cards.
 
 Normally, code-specific utility code would belong in a code-specific ARMI
 plugin. But in this case, the need for MCNP materials cards is so pervasive
-that it made it into the framework.
+that it made it into the framework
 
 .. GENERATED FROM PYTHON SOURCE LINES 25-45
 
@@ -34,8 +34,6 @@ that it made it into the framework.
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -68,6 +66,9 @@ that it made it into the framework.
           96247 1.00000000e-15
 
     m2
+          11023 2.21665718e-02
+
+    m3
            6000 7.67941747e-04
           14028 3.78629407e-04
           14029 1.92249968e-05
@@ -98,9 +99,6 @@ that it made it into the framework.
           74183 1.97674630e-05
           74184 4.23253002e-05
           74186 3.92724649e-05
-
-    m3
-          11023 2.21665718e-02
 
     m4
            6000 7.68566498e-04
@@ -184,11 +182,11 @@ that it made it into the framework.
 
     # sphinx_gallery_thumbnail_path = '.static/armi-logo.png'
 
-    from armi.reactor.tests import test_reactors
-    from armi.reactor.flags import Flags
-    from armi.utils.densityTools import formatMaterialCard
+    from armi import configure
     from armi.nucDirectory import nuclideBases as nb
-    from armi import configure, runLog
+    from armi.reactor.flags import Flags
+    from armi.reactor.tests import test_reactors
+    from armi.utils.densityTools import formatMaterialCard
 
     # configure ARMI
     configure(permissive=True)
@@ -206,28 +204,25 @@ that it made it into the framework.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.607 seconds)
+   **Total running time of the script:** ( 0 minutes  0.909 seconds)
 
 
 .. _sphx_glr_download_gallery_analysis_run_blockMcnpMaterialCard.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
 
-  .. container:: sphx-glr-download sphx-glr-download-python
 
-     :download:`Download Python source code: run_blockMcnpMaterialCard.py <run_blockMcnpMaterialCard.py>`
+    .. container:: sphx-glr-download sphx-glr-download-python
 
+      :download:`Download Python source code: run_blockMcnpMaterialCard.py <run_blockMcnpMaterialCard.py>`
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: run_blockMcnpMaterialCard.ipynb <run_blockMcnpMaterialCard.ipynb>`
+      :download:`Download Jupyter notebook: run_blockMcnpMaterialCard.ipynb <run_blockMcnpMaterialCard.ipynb>`
 
 
 .. only:: html

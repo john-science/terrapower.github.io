@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.reactor.tests.test_components &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.reactor.tests.test_components &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../../reactor.html">armi.reactor</a> &raquo;</li>
-        
-      <li>armi.reactor.tests.test_components</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../../reactor.html">armi.reactor</a></li>
+      <li class="breadcrumb-item active">armi.reactor.tests.test_components</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.reactor.tests.test_components</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -196,16 +116,14 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Tests functionalities of components within ARMI</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># pylint: disable=missing-function-docstring,missing-class-docstring,abstract-method,protected-access,no-self-use,no-member,invalid-name</span>
+<span class="sd">&quot;&quot;&quot;Tests functionalities of components within ARMI.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
 
 <span class="kn">from</span> <span class="nn">armi.materials.material</span> <span class="kn">import</span> <span class="n">Material</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">components</span>
+<span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">flags</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.components</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Component</span><span class="p">,</span>
     <span class="n">UnshapedComponent</span><span class="p">,</span>
@@ -223,7 +141,6 @@
     <span class="n">SolidRectangle</span><span class="p">,</span>
     <span class="n">Square</span><span class="p">,</span>
     <span class="n">Triangle</span><span class="p">,</span>
-    <span class="n">Torus</span><span class="p">,</span>
     <span class="n">RadialSegment</span><span class="p">,</span>
     <span class="n">DifferentialRadialSegment</span><span class="p">,</span>
     <span class="n">DerivedShape</span><span class="p">,</span>
@@ -231,7 +148,6 @@
     <span class="n">ComponentType</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.components</span> <span class="kn">import</span> <span class="n">materials</span>
-<span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">units</span>
 
 
 <div class="viewcode-block" id="TestComponentFactory"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentFactory">[docs]</a><span class="k">class</span> <span class="nc">TestComponentFactory</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -279,9 +195,7 @@
         <span class="k">del</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
         <span class="k">del</span> <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;mult&quot;</span><span class="p">]</span>
 
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-            <span class="n">ComponentType</span><span class="o">.</span><span class="n">TYPES</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-        <span class="p">):</span>  <span class="c1"># pylint: disable=protected-access</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ComponentType</span><span class="o">.</span><span class="n">TYPES</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
             <span class="c1"># hack together a dictionary input</span>
             <span class="n">thisAttrs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="mf">1.0</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">klass</span><span class="o">.</span><span class="n">INIT_SIGNATURE</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">attrs</span><span class="p">)}</span>
             <span class="k">del</span> <span class="n">thisAttrs</span><span class="p">[</span><span class="s2">&quot;components&quot;</span><span class="p">]</span>
@@ -308,9 +222,9 @@
 
 <div class="viewcode-block" id="TestComponentFactory.test_invalidCoolantComponentAssignment"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentFactory.test_invalidCoolantComponentAssignment">[docs]</a>    <span class="k">def</span> <span class="nf">test_invalidCoolantComponentAssignment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">invalidComponentTypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Component</span><span class="p">,</span> <span class="n">NullComponent</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">ComponentType</span> <span class="ow">in</span> <span class="n">invalidComponentTypes</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">CompType</span> <span class="ow">in</span> <span class="n">invalidComponentTypes</span><span class="p">:</span>
             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-                <span class="n">_c</span> <span class="o">=</span> <span class="n">ComponentType</span><span class="p">(</span><span class="s2">&quot;coolant&quot;</span><span class="p">,</span> <span class="s2">&quot;Sodium&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div></div>
+                <span class="n">_c</span> <span class="o">=</span> <span class="n">CompType</span><span class="p">(</span><span class="s2">&quot;coolant&quot;</span><span class="p">,</span> <span class="s2">&quot;Sodium&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="TestGeneralComponents"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestGeneralComponents">[docs]</a><span class="k">class</span> <span class="nc">TestGeneralComponents</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -342,7 +256,7 @@
 
             <span class="n">derivedMustUpdate</span> <span class="o">=</span> <span class="kc">False</span>
 
-        <span class="k">if</span> <span class="n">component</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">component</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">component</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentCls</span><span class="p">(</span>
                 <span class="s2">&quot;TestComponent&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentMaterial</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">componentDims</span>
             <span class="p">)</span>
@@ -444,10 +358,10 @@
 
 
 <div class="viewcode-block" id="TestShapedComponent"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestShapedComponent">[docs]</a><span class="k">class</span> <span class="nc">TestShapedComponent</span><span class="p">(</span><span class="n">TestGeneralComponents</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract class for all shaped components&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract class for all shaped components.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TestShapedComponent.test_preserveMassDuringThermalExpansion"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestShapedComponent.test_preserveMassDuringThermalExpansion">[docs]</a>    <span class="k">def</span> <span class="nf">test_preserveMassDuringThermalExpansion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that when we thermally expand any arbirtray shape, mass is conserved</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that when we thermally expand any arbitrary shape, mass is conserved.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expand any arbitrary shape.</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_0</span>
@@ -513,7 +427,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Testing the Component density gets the correct 3D material density.&quot;&quot;&quot;</span>
 
         <span class="k">class</span> <span class="nc">StrangeMaterial</span><span class="p">(</span><span class="n">Material</span><span class="p">):</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;material designed to make the test easier to understand&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;material designed to make the test easier to understand.&quot;&quot;&quot;</span>
 
             <span class="k">def</span> <span class="nf">pseduoDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
                 <span class="k">return</span> <span class="mf">1.0</span>
@@ -581,7 +495,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestCircle.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a circle</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a circle.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a circle</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_2</span>
@@ -637,7 +551,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestCircle.test_badComponentName"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_badComponentName">[docs]</a>    <span class="k">def</span> <span class="nf">test_badComponentName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;This shows that resolveLinkedDims cannot support names with periods in them&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This shows that resolveLinkedDims cannot support names with periods in them.&quot;&quot;&quot;</span>
         <span class="n">nPins</span> <span class="o">=</span> <span class="mi">12</span>
         <span class="n">fuelDims</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Tinput&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span> <span class="s2">&quot;Thot&quot;</span><span class="p">:</span> <span class="mf">430.0</span><span class="p">,</span> <span class="s2">&quot;od&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;mult&quot;</span><span class="p">:</span> <span class="n">nPins</span><span class="p">}</span>
         <span class="n">cladDims</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Tinput&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span> <span class="s2">&quot;Thot&quot;</span><span class="p">:</span> <span class="mf">430.0</span><span class="p">,</span> <span class="s2">&quot;od&quot;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;mult&quot;</span><span class="p">:</span> <span class="n">nPins</span><span class="p">}</span>
@@ -698,7 +612,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">numberDensities</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;NA23&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;NA23&quot;</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">changeNDensByFactor</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;NA23&quot;</span><span class="p">),</span> <span class="mf">3.0</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;NA23&quot;</span><span class="p">),</span> <span class="mf">3.0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestCircle.test_fuelMass"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_fuelMass">[docs]</a>    <span class="k">def</span> <span class="nf">test_fuelMass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">nominalMass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getMass</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">flags</span><span class="o">.</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getFuelMass</span><span class="p">(),</span> <span class="n">nominalMass</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">flags</span><span class="o">.</span><span class="n">Flags</span><span class="o">.</span><span class="n">MODERATOR</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getFuelMass</span><span class="p">(),</span> <span class="mf">0.0</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="TestComponentExpansion"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentExpansion">[docs]</a><span class="k">class</span> <span class="nc">TestComponentExpansion</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -730,7 +651,7 @@
         <span class="n">circle2</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="s2">&quot;circle&quot;</span><span class="p">,</span> <span class="n">mat</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tCold</span> <span class="o">+</span> <span class="mi">200</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tHot</span><span class="p">,</span> <span class="n">hotterDim</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;od&quot;</span><span class="p">),</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;od&quot;</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">(),</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getArea</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">())</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span> <span class="n">circle2</span><span class="o">.</span><span class="n">density</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="TestComponentExpansion.expansionConservationHotHeightDefined"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentExpansion.expansionConservationHotHeightDefined">[docs]</a>    <span class="k">def</span> <span class="nf">expansionConservationHotHeightDefined</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">isotope</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -750,13 +671,13 @@
         <span class="c1"># all the number densities and atomic masses</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
             <span class="n">circle1</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">numberDensities</span><span class="p">[</span><span class="n">isotope</span><span class="p">]</span> <span class="o">/</span> <span class="n">circle2</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">numberDensities</span><span class="p">[</span><span class="n">isotope</span><span class="p">],</span>
-            <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">/</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+            <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">/</span> <span class="n">circle2</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
         <span class="p">)</span>
 
         <span class="c1"># the colder one has more because it is the same cold outer diameter</span>
         <span class="c1"># but it would be taller at the same temperature</span>
-        <span class="n">mass1</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
-        <span class="n">mass2</span> <span class="o">=</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
+        <span class="n">mass1</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
+        <span class="n">mass2</span> <span class="o">=</span> <span class="n">circle2</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle2</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">mass1</span><span class="p">,</span> <span class="n">mass2</span><span class="p">)</span>
 
         <span class="c1"># they are off by factor of thermal exp</span>
@@ -771,33 +692,33 @@
             <span class="c1"># 2D density is not equal after application of coldMatAxialExpansionFactor</span>
             <span class="c1"># which happens during construction</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertNotAlmostEqual</span><span class="p">(</span>
-                <span class="n">circle</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+                <span class="n">circle</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
                 <span class="n">circle</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">pseudoDensity</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">),</span>
             <span class="p">)</span>
             <span class="c1"># 2D density is off by the material thermal exp factor</span>
             <span class="n">percent</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">linearExpansionPercent</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">)</span>
             <span class="n">thermalExpansionFactorFromColdMatTemp</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">percent</span> <span class="o">/</span> <span class="mi">100</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-                <span class="n">circle</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">thermalExpansionFactorFromColdMatTemp</span><span class="p">,</span>
+                <span class="n">circle</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">thermalExpansionFactorFromColdMatTemp</span><span class="p">,</span>
                 <span class="n">circle</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">pseudoDensity</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">),</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-                <span class="n">circle</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+                <span class="n">circle</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
                 <span class="n">circle</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">),</span>
             <span class="p">)</span>
 
         <span class="c1"># brief 2D expansion with set temp to show mass is conserved</span>
         <span class="c1"># hot height would come from block value</span>
-        <span class="n">warmMass</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
+        <span class="n">warmMass</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
         <span class="n">circle1</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tHot</span><span class="p">)</span>
-        <span class="n">hotMass</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
+        <span class="n">hotMass</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">warmMass</span><span class="p">,</span> <span class="n">hotMass</span><span class="p">)</span>
         <span class="n">circle1</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tWarm</span><span class="p">)</span>
 
         <span class="c1"># Change temp to circle 2 temp  to show equal to circle2</span>
         <span class="c1"># and then change back to show recoverable to original values</span>
         <span class="n">oldArea</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span>
-        <span class="n">initialDens</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span>
+        <span class="n">initialDens</span> <span class="o">=</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span>
 
         <span class="c1"># when block.setHeight is called (which effectively changes component height)</span>
         <span class="c1"># component.setNumberDensity is called (for solid isotopes) to adjust the number</span>
@@ -809,18 +730,18 @@
 
         <span class="c1"># now its density is same as hot component</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-            <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
-            <span class="n">circle2</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+            <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
+            <span class="n">circle2</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
         <span class="p">)</span>
 
         <span class="c1"># show that mass is conserved after expansion</span>
         <span class="n">circle1NewHotHeight</span> <span class="o">=</span> <span class="n">hotHeight</span> <span class="o">*</span> <span class="n">heightFactor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-            <span class="n">mass1</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1NewHotHeight</span>
+            <span class="n">mass1</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1NewHotHeight</span>
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-            <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+            <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
             <span class="n">circle1</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle1</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">),</span>
         <span class="p">)</span>
         <span class="c1"># change back to old temp</span>
@@ -828,15 +749,13 @@
         <span class="n">circle1</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tWarm</span><span class="p">)</span>
 
         <span class="c1"># check for consistency</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">initialDens</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">initialDens</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">oldArea</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-            <span class="n">mass1</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span>
-        <span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">mass1</span><span class="p">,</span> <span class="n">circle1</span><span class="o">.</span><span class="n">density</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle1</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">hotHeight</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestComponentExpansion.expansionConservationColdHeightDefined"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentExpansion.expansionConservationColdHeightDefined">[docs]</a>    <span class="k">def</span> <span class="nf">expansionConservationColdHeightDefined</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Demonstrate that material is conserved at during expansion</span>
+<span class="sd">        Demonstrate that material is conserved at during expansion.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -855,15 +774,13 @@
         <span class="n">circle1AdjustTo2</span><span class="o">.</span><span class="n">adjustDensityForHeightExpansion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tHot</span><span class="p">)</span>
         <span class="n">circle1AdjustTo2</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tHot</span><span class="p">)</span>
         <span class="c1"># check that its like 2</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-            <span class="n">circle2</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span> <span class="n">circle1AdjustTo2</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">()</span>
-        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">circle2</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span> <span class="n">circle1AdjustTo2</span><span class="o">.</span><span class="n">density</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">circle2</span><span class="o">.</span><span class="n">getArea</span><span class="p">(),</span> <span class="n">circle1AdjustTo2</span><span class="o">.</span><span class="n">getArea</span><span class="p">())</span>
 
         <span class="k">for</span> <span class="n">circle</span> <span class="ow">in</span> <span class="p">[</span><span class="n">circle1</span><span class="p">,</span> <span class="n">circle2</span><span class="p">,</span> <span class="n">circle1AdjustTo2</span><span class="p">]:</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
-                <span class="n">circle</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+                <span class="n">circle</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
                 <span class="n">circle</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">),</span>
             <span class="p">)</span>
             <span class="c1"># total mass consistent between hot and cold</span>
@@ -873,7 +790,7 @@
                 <span class="n">coldHeight</span>
                 <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">getArea</span><span class="p">(</span><span class="n">cold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">circle</span><span class="o">.</span><span class="n">inputTemperatureInC</span><span class="p">),</span>
-                <span class="n">hotHeight</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">getMassDensity</span><span class="p">(),</span>
+                <span class="n">hotHeight</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
             <span class="p">)</span></div></div>
 
 
@@ -896,7 +813,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestTriangle.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestTriangle.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a triangle</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a triangle.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a triangle</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_3</span>
@@ -964,7 +881,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestRectangle.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestRectangle.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a rectangle</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a rectangle.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a rectangle</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_4</span>
@@ -1010,7 +927,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestSolidRectangle.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestSolidRectangle.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a solid rectangle</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a solid rectangle.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a solid rectangle</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_5</span>
@@ -1073,7 +990,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestSquare.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestSquare.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a square</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a square.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a square</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_6</span>
@@ -1138,7 +1055,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestCube.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCube.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a cube</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a cube.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a cube</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_7</span>
@@ -1177,7 +1094,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestHexagon.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHexagon.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a hexagon</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a hexagon.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a hexagon</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_8</span>
@@ -1241,7 +1158,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestHoledHexagon.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHoledHexagon.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a holed hexagon</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a holed hexagon.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a holed hexagon</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_9</span>
@@ -1292,7 +1209,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestHexHoledCircle.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHexHoledCircle.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a holed hexagon</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that ARMI can thermally expands a holed hexagon.</span>
 
 <span class="sd">        .. test:: Test that ARMI can thermally expands a holed hexagon</span>
 <span class="sd">           :id: TEST_REACTOR_THERMAL_EXPANSION_10</span>
@@ -1440,7 +1357,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">ref</span><span class="p">[</span><span class="n">i</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="TestHelix.test_validParameters"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHelix.test_validParameters">[docs]</a>    <span class="k">def</span> <span class="nf">test_validParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;testing the Helix class performs as expected with various inputs&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Testing the Helix class performs as expected with various inputs.&quot;&quot;&quot;</span>
         <span class="c1"># stupid/simple inputs</span>
         <span class="n">h</span> <span class="o">=</span> <span class="n">Helix</span><span class="p">(</span><span class="s2">&quot;thing&quot;</span><span class="p">,</span> <span class="s2">&quot;Cu&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;axialPitch&quot;</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
@@ -1501,24 +1418,6 @@
 
 <div class="viewcode-block" id="TestSphere.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestSphere.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">THERMAL_EXPANSION_DIMS</span><span class="p">)</span></div></div>
-
-
-<div class="viewcode-block" id="TestTorus"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestTorus">[docs]</a><span class="k">class</span> <span class="nc">TestTorus</span><span class="p">(</span><span class="n">TestShapedComponent</span><span class="p">):</span>
-    <span class="n">componentCls</span> <span class="o">=</span> <span class="n">Torus</span>
-    <span class="n">componentDims</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;Tinput&quot;</span><span class="p">:</span> <span class="mf">25.0</span><span class="p">,</span>
-        <span class="s2">&quot;Thot&quot;</span><span class="p">:</span> <span class="mf">430.0</span><span class="p">,</span>
-        <span class="s2">&quot;inner_minor_radius&quot;</span><span class="p">:</span> <span class="mf">28.73</span><span class="p">,</span>
-        <span class="s2">&quot;outer_minor_radius&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-        <span class="s2">&quot;major_radius&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<div class="viewcode-block" id="TestTorus.test_thermallyExpands"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestTorus.test_thermallyExpands">[docs]</a>    <span class="k">def</span> <span class="nf">test_thermallyExpands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">THERMAL_EXPANSION_DIMS</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="TestTorus.test_getVolume"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestTorus.test_getVolume">[docs]</a>    <span class="k">def</span> <span class="nf">test_getVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">expectedVolume</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">103060.323859</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span> <span class="o">/</span> <span class="n">expectedVolume</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="TestRadialSegment"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestRadialSegment">[docs]</a><span class="k">class</span> <span class="nc">TestRadialSegment</span><span class="p">(</span><span class="n">TestShapedComponent</span><span class="p">):</span>
@@ -1615,6 +1514,32 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="n">target35</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">getMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="n">target35</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="TestMaterialAdjustments.test_setMassFracOnComponentMaterial"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestMaterialAdjustments.test_setMassFracOnComponentMaterial">[docs]</a>    <span class="k">def</span> <span class="nf">test_setMassFracOnComponentMaterial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks for valid and invalid mass fraction assignments on a component&#39;s material.&quot;&quot;&quot;</span>
+        <span class="c1"># Negative value is not acceptable.</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">)</span>
+
+        <span class="c1"># Greater than 1.0 value is not acceptable.</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+
+        <span class="c1"># String is not acceptable.</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="c1"># `NoneType` is not acceptable.</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># Zero is acceptable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">getMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="c1"># One is acceptable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">setMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">getMassFrac</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="TestMaterialAdjustments.test_adjustMassFrac_invalid"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestMaterialAdjustments.test_adjustMassFrac_invalid">[docs]</a>    <span class="k">def</span> <span class="nf">test_adjustMassFrac_invalid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">adjustMassFrac</span><span class="p">(</span><span class="n">nuclideToAdjust</span><span class="o">=</span><span class="s2">&quot;ZR&quot;</span><span class="p">,</span> <span class="n">val</span><span class="o">=-</span><span class="mf">0.23</span><span class="p">)</span>
@@ -1692,57 +1617,35 @@
 <div class="viewcode-block" id="TestMaterialAdjustments.test_getEnrichment"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestMaterialAdjustments.test_getEnrichment">[docs]</a>    <span class="k">def</span> <span class="nf">test_getEnrichment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">adjustMassEnrichment</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fuel</span><span class="o">.</span><span class="n">getEnrichment</span><span class="p">(),</span> <span class="mf">0.3</span><span class="p">)</span></div></div>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="c1"># import sys; sys.argv = [&#39;&#39;, &#39;TestMaterialAdjustments.test_adjustMassFrac_U235&#39;]</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.utils.textProcessors &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.utils.textProcessors &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../utils.html">armi.utils</a> &raquo;</li>
-        
-      <li>armi.utils.textProcessors</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../utils.html">armi.utils</a></li>
+      <li class="breadcrumb-item active">armi.utils.textProcessors</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.utils.textProcessors</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -195,9 +115,7 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Utility classes and functions for manipulating text files.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Utility classes and functions for manipulating text files.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">io</span>
@@ -224,13 +142,10 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">FLOATING_PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[+-]?\d+\.*\d*&quot;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Matches 1, 100, 1.0, -1.2, +12.234</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Matches 1, 100, 1.0, -1.2, +12.234&quot;&quot;&quot;</span>
 
 <span class="n">DECIMAL_PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[+-]?\d*\.\d+&quot;</span>
-<span class="sd">&quot;&quot;&quot;matches .1, 1.213423, -23.2342, +.023</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Matches .1, 1.213423, -23.2342, +.023&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="FileMark"><a class="viewcode-back" href="../../../.apidocs/armi.utils.textProcessors.html#armi.utils.textProcessors.FileMark">[docs]</a><span class="k">class</span> <span class="nc">FileMark</span><span class="p">:</span>
@@ -247,10 +162,10 @@
 
 
 <span class="k">def</span> <span class="nf">_processIncludes</span><span class="p">(</span>
-    <span class="n">src</span><span class="p">,</span>
+    <span class="n">src</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">TextIO</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
     <span class="n">out</span><span class="p">,</span>
     <span class="n">includes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">FileMark</span><span class="p">]],</span>
-    <span class="n">root</span><span class="p">,</span>
+    <span class="n">root</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
     <span class="n">indentation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">currentFile</span><span class="o">=</span><span class="s2">&quot;&lt;stream&gt;&quot;</span><span class="p">,</span>
 <span class="p">):</span>
@@ -277,7 +192,13 @@
             <span class="k">return</span> <span class="mi">0</span>
 
     <span class="n">indentSpace</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">indentation</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">readlines</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="s2">&quot;getvalue&quot;</span><span class="p">):</span>
+        <span class="c1"># assume stringIO</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ln</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">src</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># assume file stream or TextIOBase, and it has a readlines attr</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
         <span class="n">leadingSpace</span> <span class="o">=</span> <span class="n">indentSpace</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">_INCLUDE_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
@@ -323,7 +244,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    src : TextIOBase or Path</span>
+<span class="sd">    src : StringIO or TextIOBase/Path</span>
 <span class="sd">        If a Path is provided, read text from there. If is stream is provided, consume</span>
 <span class="sd">        text from the stream. If a stream is provided, ``root`` must also be provided.</span>
 <span class="sd">    root : Optional Path</span>
@@ -405,7 +326,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">mark</span><span class="o">.</span><span class="n">relativeTo</span> <span class="o">/</span> <span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">root</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
-            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
                 <span class="c1"># Can&#39;t make a relative path. IMO, pathlib gives up a little too early,</span>
                 <span class="c1"># but we still probably want to decay to absolute paths if the files</span>
                 <span class="c1"># arent in the same tree.</span>
@@ -562,7 +483,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="k">except</span><span class="p">:</span>  <span class="c1"># pylint: disable=bare-except</span>
+            <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
                 <span class="c1"># We really don&#39;t care if anything fails here, plus an exception in exit is ignored anyway</span>
                 <span class="k">pass</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="kc">None</span>
@@ -660,7 +581,7 @@
 
 
 <div class="viewcode-block" id="SequentialStringIOReader"><a class="viewcode-back" href="../../../.apidocs/armi.utils.textProcessors.html#armi.utils.textProcessors.SequentialStringIOReader">[docs]</a><span class="k">class</span> <span class="nc">SequentialStringIOReader</span><span class="p">(</span><span class="n">SequentialReader</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fast sequential reader that must be used within a with statement.</span>
 
 <span class="sd">    Attributes</span>
@@ -710,7 +631,6 @@
 <span class="sd">    A general text processing object that extends python&#39;s abilities to scan through huge files.</span>
 
 <span class="sd">    Use this instead of a raw file object to read data out of output files, etc.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">scipat</span> <span class="o">=</span> <span class="n">SCIENTIFIC_PATTERN</span>
@@ -738,7 +658,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">SmartList</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TextProcessor.reset"><a class="viewcode-back" href="../../../.apidocs/armi.utils.textProcessors.html#armi.utils.textProcessors.TextProcessor.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;rewinds the file so you can search through it again&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Rewinds the file so you can search through it again.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -754,14 +674,13 @@
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Searches file f for pattern and displays msg when found. Returns line in which</span>
 <span class="sd">        pattern is found or FALSE if no pattern is found.</span>
-<span class="sd">        Stops searching if finds killOn first</span>
+<span class="sd">        Stops searching if finds killOn first.</span>
 
 <span class="sd">        If you specify textFlag=True, the search won&#39;t use a regular expression (and</span>
 <span class="sd">        can&#39;t). The basic result is you get less powerful matching capabilities at a</span>
 <span class="sd">        huge speedup (10x or so probably, but that&#39;s just a guess.) pattern and killOn</span>
 <span class="sd">        must be pure text if you do this.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">if</span> <span class="n">textFlag</span><span class="p">:</span>
@@ -805,7 +724,8 @@
 
 <div class="viewcode-block" id="SmartList"><a class="viewcode-back" href="../../../.apidocs/armi.utils.textProcessors.html#armi.utils.textProcessors.SmartList">[docs]</a><span class="k">class</span> <span class="nc">SmartList</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;A list that does stuff like files do i.e. remembers where it was, can seek, etc.</span>
-<span class="sd">    Actually this is pretty slow. so much for being smart. nice idea though.&quot;&quot;&quot;</span>
+<span class="sd">    Actually this is pretty slow. so much for being smart. nice idea though.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
@@ -842,49 +762,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

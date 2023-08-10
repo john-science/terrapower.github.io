@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.reactor.tests.test_reactors &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.reactor.tests.test_reactors &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../../reactor.html">armi.reactor</a> &raquo;</li>
-        
-      <li>armi.reactor.tests.test_reactors</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../../reactor.html">armi.reactor</a></li>
+      <li class="breadcrumb-item active">armi.reactor.tests.test_reactors</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.reactor.tests.test_reactors</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -195,11 +115,9 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">testing for reactors.py</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># pylint: disable=missing-function-docstring,missing-class-docstring,abstract-method,protected-access</span>
+<span class="sd">&quot;&quot;&quot;Testing for reactors.py.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
 
@@ -221,21 +139,22 @@
 <span class="kn">from</span> <span class="nn">armi.reactor.converters</span> <span class="kn">import</span> <span class="n">geometryConverters</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.converters.axialExpansionChanger</span> <span class="kn">import</span> <span class="n">AxialExpansionChanger</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
+<span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="n">CONF_ASSEM_FLAGS_SKIP_AXIAL_EXP</span>
+<span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="n">CONF_SORT_REACTOR</span>
 <span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">ARMI_RUN_PATH</span><span class="p">,</span> <span class="n">mockRunLogs</span><span class="p">,</span> <span class="n">TEST_ROOT</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">directoryChangers</span>
-<span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="n">CONF_ASSEM_FLAGS_SKIP_AXIAL_EXP</span>
 
 <span class="n">TEST_REACTOR</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># pickled string of test reactor (for fast caching)</span>
 
 
 <div class="viewcode-block" id="buildOperatorOfEmptyHexBlocks"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.buildOperatorOfEmptyHexBlocks">[docs]</a><span class="k">def</span> <span class="nf">buildOperatorOfEmptyHexBlocks</span><span class="p">(</span><span class="n">customSettings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Builds a operator w/ a reactor object with some hex assemblies and blocks, but all are empty</span>
+<span class="sd">    Builds a operator w/ a reactor object with some hex assemblies and blocks, but all are empty.</span>
 
 <span class="sd">    Doesn&#39;t depend on inputs and loads quickly.</span>
 
-<span class="sd">    Params</span>
-<span class="sd">    ------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
 <span class="sd">    customSettings : dict</span>
 <span class="sd">        Dictionary of off-default settings to update</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -265,19 +184,20 @@
     <span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
     <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">o</span></div>
 
 
 <div class="viewcode-block" id="buildOperatorOfEmptyCartesianBlocks"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.buildOperatorOfEmptyCartesianBlocks">[docs]</a><span class="k">def</span> <span class="nf">buildOperatorOfEmptyCartesianBlocks</span><span class="p">(</span><span class="n">customSettings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Builds a operator w/ a reactor object with some Cartesian assemblies and blocks, but all are empty</span>
+<span class="sd">    Builds a operator w/ a reactor object with some Cartesian assemblies and blocks, but all are empty.</span>
 
 <span class="sd">    Doesn&#39;t depend on inputs and loads quickly.</span>
 
-<span class="sd">    Params</span>
-<span class="sd">    ------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
 <span class="sd">    customSettings : dict</span>
-<span class="sd">        Dictionary of off-default settings to update</span>
+<span class="sd">        Off-default settings to update</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">settings</span><span class="o">.</span><span class="n">setMasterCs</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># clear</span>
     <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>  <span class="c1"># fetch new</span>
@@ -313,6 +233,7 @@
     <span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
     <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">o</span></div>
 
 
@@ -328,7 +249,7 @@
     <span class="n">customSettings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">inputFileName</span><span class="o">=</span><span class="s2">&quot;armiRun.yaml&quot;</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads a test reactor. Can be used in other test modules.</span>
 
 <span class="sd">    Parameters</span>
@@ -386,7 +307,7 @@
     <span class="c1"># put some stuff in the SFP too.</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">constructAssem</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;feed fuel&quot;</span><span class="p">)</span>
-        <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
     <span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">regenAssemblyLists</span><span class="p">()</span>
 
@@ -399,9 +320,10 @@
 
 
 <div class="viewcode-block" id="reduceTestReactorRings"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.reduceTestReactorRings">[docs]</a><span class="k">def</span> <span class="nf">reduceTestReactorRings</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">cs</span><span class="p">,</span> <span class="n">maxNumRings</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper method for the test reactor above</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper method for the test reactor above.</span>
+
 <span class="sd">    The goal is to reduce the size of the reactor for tests that don&#39;t neeed</span>
-<span class="sd">    such a large reactor, and would run much faster with a smaller one</span>
+<span class="sd">    such a large reactor, and would run much faster with a smaller one.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">maxRings</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">maxNumRings</span> <span class="o">&gt;</span> <span class="n">maxRings</span><span class="p">:</span>
@@ -433,6 +355,44 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">loadTestReactor</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">directoryChanger</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="n">customSettings</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;trackAssems&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
         <span class="p">)</span>
+
+<div class="viewcode-block" id="HexReactorTests.test_factorySortSetting"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_factorySortSetting">[docs]</a>    <span class="k">def</span> <span class="nf">test_factorySortSetting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># get a sorted Reactor (the default)</span>
+        <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">(</span><span class="n">fName</span><span class="o">=</span><span class="s2">&quot;armiRun.yaml&quot;</span><span class="p">)</span>
+        <span class="n">r0</span> <span class="o">=</span> <span class="n">reactors</span><span class="o">.</span><span class="n">loadFromCs</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+
+        <span class="c1"># get an unsorted Reactor (for whatever reason)</span>
+        <span class="n">customSettings</span> <span class="o">=</span> <span class="p">{</span><span class="n">CONF_SORT_REACTOR</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+        <span class="n">cs</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">modified</span><span class="p">(</span><span class="n">newSettings</span><span class="o">=</span><span class="n">customSettings</span><span class="p">)</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">reactors</span><span class="o">.</span><span class="n">loadFromCs</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+
+        <span class="c1"># the reactor / core should be the same size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r0</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">r1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r0</span><span class="o">.</span><span class="n">core</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">core</span><span class="p">))</span>
+
+        <span class="c1"># the reactor / core should be in a different order</span>
+        <span class="n">a0</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">r0</span><span class="o">.</span><span class="n">core</span><span class="p">]</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">r1</span><span class="o">.</span><span class="n">core</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_sortChildren"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_sortChildren">[docs]</a>    <span class="k">def</span> <span class="nf">test_sortChildren</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()),</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">_children</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">_children</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_sortAssemByRing"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_sortAssemByRing">[docs]</a>    <span class="k">def</span> <span class="nf">test_sortAssemByRing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Demonstrate ring/pos sorting.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sortAssemsByRing</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getRingPos</span><span class="p">())</span>
+        <span class="n">currentRing</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">currentPos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">:</span>
+            <span class="n">ring</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getRingPos</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreaterEqual</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">currentRing</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ring</span> <span class="o">&gt;</span> <span class="n">currentRing</span><span class="p">:</span>
+                <span class="n">ring</span> <span class="o">=</span> <span class="n">currentRing</span>
+                <span class="n">currentPos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">currentPos</span><span class="p">)</span>
+            <span class="n">currentPos</span> <span class="o">=</span> <span class="n">pos</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_getTotalParam"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getTotalParam">[docs]</a>    <span class="k">def</span> <span class="nf">test_getTotalParam</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># verify that the block params are being read.</span>
@@ -482,6 +442,32 @@
             <span class="p">[</span><span class="n">Flags</span><span class="o">.</span><span class="n">DUCT</span><span class="p">,</span> <span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">,</span> <span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">],</span> <span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">numControlBlocks</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_setB10VolOnCreation"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_setB10VolOnCreation">[docs]</a>    <span class="k">def</span> <span class="nf">test_setB10VolOnCreation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test the setting of b.p.initialB10ComponentVol.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">controlBlock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">CONTROL</span><span class="p">):</span>
+            <span class="n">controlComps</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">controlBlock</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;B10&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">controlComps</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">controlComp</span> <span class="o">=</span> <span class="n">controlComps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">startingVol</span> <span class="o">=</span> <span class="n">controlBlock</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">initialB10ComponentVol</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">startingVol</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+                <span class="n">controlComp</span><span class="o">.</span><span class="n">getArea</span><span class="p">(</span><span class="n">cold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">controlBlock</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(),</span> <span class="n">startingVol</span>
+            <span class="p">)</span>
+
+            <span class="c1"># input temp is same as hot temp, so change input temp to test that behavior</span>
+            <span class="n">controlComp</span><span class="o">.</span><span class="n">inputTemperatureInC</span> <span class="o">=</span> <span class="mi">30</span>
+
+            <span class="c1"># somewhat non-sensical since its hot, not cold but we just want to check the ratio</span>
+            <span class="n">controlBlock</span><span class="o">.</span><span class="n">setB10VolParam</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">startingVol</span><span class="p">,</span> <span class="n">controlBlock</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">initialB10ComponentVol</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+                <span class="n">startingVol</span> <span class="o">/</span> <span class="n">controlComp</span><span class="o">.</span><span class="n">getThermalExpansionFactor</span><span class="p">(),</span>
+                <span class="n">controlBlock</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">initialB10ComponentVol</span><span class="p">,</span>
+            <span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_countFuelAxialBlocks"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_countFuelAxialBlocks">[docs]</a>    <span class="k">def</span> <span class="nf">test_countFuelAxialBlocks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Tests that the users definition of fuel blocks is preserved.</span>
@@ -888,6 +874,8 @@
             <span class="p">)</span>
         <span class="p">)</span>
         <span class="n">loc</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">loaded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sortAssemsByRing</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sortAssemsByRing</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">loaded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">loaded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">childrenByLocator</span><span class="p">[</span><span class="n">loc</span><span class="p">],</span> <span class="n">loaded</span><span class="o">.</span><span class="n">core</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -923,12 +911,28 @@
         <span class="n">bLoc</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">spatialLocator</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">removeAssembly</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">aLoc</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">)</span>
 
         <span class="c1"># confirm only attached to removed assem</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">bLoc</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">spatialLocator</span><span class="p">)</span>  <span class="c1"># block location does not change</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">armiObject</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_removeAssemblyNoSfp"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssemblyNoSfp">[docs]</a>    <span class="k">def</span> <span class="nf">test_removeAssemblyNoSfp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">mockRunLogs</span><span class="o">.</span><span class="n">BufferLog</span><span class="p">()</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
+            <span class="c1"># we should start with a clean slate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">getStdout</span><span class="p">())</span>
+            <span class="n">runLog</span><span class="o">.</span><span class="n">LOG</span><span class="o">.</span><span class="n">startLog</span><span class="p">(</span><span class="s2">&quot;test_removeAssemblyNoSfp&quot;</span><span class="p">)</span>
+            <span class="n">runLog</span><span class="o">.</span><span class="n">LOG</span><span class="o">.</span><span class="n">setVerbosity</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+            <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># last assembly</span>
+            <span class="n">aLoc</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNotNone</span><span class="p">(</span><span class="n">aLoc</span><span class="o">.</span><span class="n">grid</span><span class="p">)</span>
+            <span class="n">core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span>
+            <span class="k">del</span> <span class="n">core</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">sfp</span>
+            <span class="n">core</span><span class="o">.</span><span class="n">removeAssembly</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;No Spent Fuel Pool&quot;</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">getStdout</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_removeAssembliesInRing"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssembliesInRing">[docs]</a>    <span class="k">def</span> <span class="nf">test_removeAssembliesInRing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">aLoc</span> <span class="o">=</span> <span class="p">[</span>
@@ -943,7 +947,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">removeAssembliesInRing</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assems</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">aLoc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_removeAssembliesInRingByCount"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssembliesInRingByCount">[docs]</a>    <span class="k">def</span> <span class="nf">test_removeAssembliesInRingByCount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(),</span> <span class="mi">9</span><span class="p">)</span>
@@ -1077,10 +1081,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">originalHeights</span><span class="p">,</span> <span class="n">heights</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_applyThermalExpansion_CoreConstruct"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_applyThermalExpansion_CoreConstruct">[docs]</a>    <span class="k">def</span> <span class="nf">test_applyThermalExpansion_CoreConstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;test that assemblies in core are correctly expanded.</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Test that assemblies in core are correctly expanded.</span>
 
-<span class="sd">        Notes:</span>
-<span class="sd">        ------</span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
 <span class="sd">        - all assertions skip the first block as it has no $\Delta T$ and does not expand</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">originalAssems</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">()</span>
@@ -1128,11 +1132,11 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">coldHeightP</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_updateBlockBOLHeights_DBLoad"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_updateBlockBOLHeights_DBLoad">[docs]</a>    <span class="k">def</span> <span class="nf">test_updateBlockBOLHeights_DBLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that blueprints assemblies are expanded in DB load.</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Test that blueprints assemblies are expanded in DB load.</span>
 
-<span class="sd">        Notes:</span>
-<span class="sd">        ------</span>
-<span class="sd">        - all assertions skip the first block as it has no $\Delta T$ and does not expand</span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        All assertions skip the first block as it has no $\Delta T$ and does not expand.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">originalAssems</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">assemblies</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
         <span class="n">nonEqualParameters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;heightBOL&quot;</span><span class="p">,</span> <span class="s2">&quot;molesHmBOL&quot;</span><span class="p">,</span> <span class="s2">&quot;massHmBOL&quot;</span><span class="p">]</span>
@@ -1212,11 +1216,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertSequenceEqual</span><span class="p">(</span><span class="n">actualAssemsInRing</span><span class="p">,</span> <span class="n">expectedAssemsInRing</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CartesianReactorTests.test_getNuclideCategoriesLogging"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.CartesianReactorTests.test_getNuclideCategoriesLogging">[docs]</a>    <span class="k">def</span> <span class="nf">test_getNuclideCategoriesLogging</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simplest possible test of the getNuclideCategories method and its logging&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simplest possible test of the getNuclideCategories method and its logging.&quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">mockRunLogs</span><span class="o">.</span><span class="n">BufferLog</span><span class="p">()</span>
 
         <span class="c1"># this strange namespace-stomping is used to the test to set the logger in reactors.Core</span>
-        <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">reactors</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+        <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">reactors</span>
 
         <span class="n">reactors</span><span class="o">.</span><span class="n">runLog</span> <span class="o">=</span> <span class="n">runLog</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">LOG</span> <span class="o">=</span> <span class="n">log</span>
@@ -1227,56 +1231,35 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;Nuclide categorization&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;Structure&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span></div></div>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

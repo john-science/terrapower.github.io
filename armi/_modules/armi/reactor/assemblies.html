@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.reactor.assemblies &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.reactor.assemblies &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../reactor.html">armi.reactor</a> &raquo;</li>
-        
-      <li>armi.reactor.assemblies</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../reactor.html">armi.reactor</a></li>
+      <li class="breadcrumb-item active">armi.reactor.assemblies</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.reactor.assemblies</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -312,7 +232,7 @@
 <span class="sd">        same grid. It may be beneficial in the future to maintain the more strict behavior</span>
 <span class="sd">        of ArmiObject&#39;s ``__lt__`` implementation once the SFP situation is cleared up.</span>
 
-<span class="sd">        See also</span>
+<span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        armi.reactor.composites.ArmiObject.__lt__</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -380,7 +300,7 @@
         <span class="n">obj</span><span class="o">.</span><span class="n">spatialLocator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Assembly.getNum"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getNum">[docs]</a>    <span class="k">def</span> <span class="nf">getNum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return unique integer for this assembly&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return unique integer for this assembly.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">assemNum</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Assembly.getLocation"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getLocation">[docs]</a>    <span class="k">def</span> <span class="nf">getLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -404,9 +324,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Assembly.coords"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.coords">[docs]</a>    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the location of the assembly in the plane using cartesian global coordinates.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the location of the assembly in the plane using cartesian global coordinates.&quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getGlobalCoordinates</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
 
@@ -499,9 +417,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">reestablishBlockOrder</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Assembly.adjustResolution"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.adjustResolution">[docs]</a>    <span class="k">def</span> <span class="nf">adjustResolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refA</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Split the blocks in this assembly to have the same mesh structure as refA.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Split the blocks in this assembly to have the same mesh structure as refA.&quot;&quot;&quot;</span>
         <span class="n">newBlockStack</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">newBlocks</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># number of new blocks we&#39;ve added so far.</span>
@@ -626,7 +542,7 @@
 
 <div class="viewcode-block" id="Assembly.getTotalHeight"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getTotalHeight">[docs]</a>    <span class="k">def</span> <span class="nf">getTotalHeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeSpec</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Determine the height of this assembly in cm</span>
+<span class="sd">        Determine the height of this assembly in cm.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -667,7 +583,7 @@
 
 <div class="viewcode-block" id="Assembly.getElevationBoundariesByBlockType"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getElevationBoundariesByBlockType">[docs]</a>    <span class="k">def</span> <span class="nf">getElevationBoundariesByBlockType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockType</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets of list of elevations, ordered from bottom to top of all boundaries of the block of specified type</span>
+<span class="sd">        Gets of list of elevations, ordered from bottom to top of all boundaries of the block of specified type.</span>
 
 <span class="sd">        Useful for determining location of the top of the upper grid plate or active</span>
 <span class="sd">        fuel, etc by using [0] to get the lowest boundary and [-1] to get highest</span>
@@ -721,7 +637,6 @@
 <span class="sd">        -------</span>
 <span class="sd">        heights : list</span>
 <span class="sd">            z-coordinates where the specified param takes the specified value</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">heights</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># loop from bottom to top</span>
@@ -750,7 +665,7 @@
         <span class="k">return</span> <span class="n">heights</span></div>
 
 <div class="viewcode-block" id="Assembly.getAge"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getAge">[docs]</a>    <span class="k">def</span> <span class="nf">getAge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;gets a height-averaged residence time of this assembly in days&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets a height-averaged residence time of this assembly in days.&quot;&quot;&quot;</span>
         <span class="n">at</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
             <span class="n">at</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">residence</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span>
@@ -758,7 +673,7 @@
 
 <div class="viewcode-block" id="Assembly.makeAxialSnapList"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.makeAxialSnapList">[docs]</a>    <span class="k">def</span> <span class="nf">makeAxialSnapList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refAssem</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refMesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates a list of block indices that should track axially with refAssem&#39;s</span>
+<span class="sd">        Creates a list of block indices that should track axially with refAssem&#39;s.</span>
 
 <span class="sd">        When axially expanding, the control rods, shields etc. need to maintain mesh</span>
 <span class="sd">        lines with the rest of the core. To do this, we&#39;ll just keep track of which</span>
@@ -801,7 +716,7 @@
 
     <span class="k">def</span> <span class="nf">_shouldMassBeConserved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">belowFuelColumn</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Determine from a rule set if the mass of a block should be conserved during axial expansion</span>
+<span class="sd">        Determine from a rule set if the mass of a block should be conserved during axial expansion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -828,7 +743,6 @@
 <span class="sd">        armi.assemblies.Assembly.setBlockMesh</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">):</span>
             <span class="c1"># fuel block</span>
             <span class="n">conserveMass</span> <span class="o">=</span> <span class="kc">True</span>
@@ -944,7 +858,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">setBlockMesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Assembly.dump"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pickle the assembly and write it to a file&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pickle the assembly and write it to a file.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">fName</span><span class="p">:</span>
             <span class="n">fName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.dump.pkl&quot;</span>
 
@@ -997,7 +911,6 @@
 <span class="sd">        for block, bottomZ in a.getBlocksAndZ(returnBottomZ=True):</span>
 <span class="sd">            print({0}&#39;s bottom mesh point is {1}&#39;.format(block, bottomZ))</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">returnBottomZ</span> <span class="ow">and</span> <span class="n">returnTopZ</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both returnTopZ and returnBottomZ are set to `True`&quot;</span><span class="p">)</span>
 
@@ -1044,7 +957,7 @@
 
 <div class="viewcode-block" id="Assembly.getBlockAtElevation"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getBlockAtElevation">[docs]</a>    <span class="k">def</span> <span class="nf">getBlockAtElevation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elevation</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the block at a specified axial dimension elevation (given in cm)</span>
+<span class="sd">        Returns the block at a specified axial dimension elevation (given in cm).</span>
 
 <span class="sd">        If height matches the exact top of the block, the block is considered at that</span>
 <span class="sd">        height.</span>
@@ -1088,7 +1001,6 @@
 <span class="sd">            The axial index (beginning with 0) of the ARMI block containing the</span>
 <span class="sd">            DIF3D node corresponding to zIndex.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">zIndexTot</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">for</span> <span class="n">bIndex</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="n">zIndexTot</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">axMesh</span>
@@ -1098,7 +1010,7 @@
 
 <div class="viewcode-block" id="Assembly.getBlocksBetweenElevations"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getBlocksBetweenElevations">[docs]</a>    <span class="k">def</span> <span class="nf">getBlocksBetweenElevations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zLower</span><span class="p">,</span> <span class="n">zUpper</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return block(s) between two axial elevations and their corresponding heights</span>
+<span class="sd">        Return block(s) between two axial elevations and their corresponding heights.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1220,7 +1132,7 @@
 
 <div class="viewcode-block" id="Assembly.getParamOfZFunction"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getParamOfZFunction">[docs]</a>    <span class="k">def</span> <span class="nf">getParamOfZFunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">interpType</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">fillValue</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">NaN</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Interpolates a param axially to find it at any value of elevation z</span>
+<span class="sd">        Interpolates a param axially to find it at any value of elevation z.</span>
 
 <span class="sd">        By default, assumes that all parameters are for the center of a block. So for</span>
 <span class="sd">        parameters such as THoutletTemperature that are defined on the top, this may be</span>
@@ -1345,7 +1257,7 @@
 
 <div class="viewcode-block" id="Assembly.countBlocksWithFlags"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.countBlocksWithFlags">[docs]</a>    <span class="k">def</span> <span class="nf">countBlocksWithFlags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockTypeSpec</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the number of blocks of a specified type</span>
+<span class="sd">        Returns the number of blocks of a specified type.</span>
 
 <span class="sd">        blockTypeSpec : Flags or list</span>
 <span class="sd">            Restrict to only these types of blocks. typeSpec is None, return all of the</span>
@@ -1365,7 +1277,6 @@
 
 <span class="sd">        Example: getDim(Flags.WIRE, &#39;od&#39;) will return a wire&#39;s OD in cm.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="c1"># prefer fuel blocks.</span>
         <span class="n">bList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">bList</span><span class="p">:</span>
@@ -1391,8 +1302,9 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        rad - float</span>
-<span class="sd">            number (in radians) specifying the angle of counter clockwise rotation&quot;&quot;&quot;</span>
+<span class="sd">        rad: float</span>
+<span class="sd">            number (in radians) specifying the angle of counter clockwise rotation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
             <span class="n">b</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span></div></div>
 
@@ -1409,7 +1321,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    RZAssembly are assemblies in RZ geometry; they need to be different objects than</span>
 <span class="sd">    HexAssembly because they use different locations and need to have Radial Meshes in</span>
-<span class="sd">    their setting</span>
+<span class="sd">    their setting.</span>
 
 <span class="sd">    note ThRZAssemblies should be a subclass of Assemblies (similar to Hex-Z) because</span>
 <span class="sd">    they should have a common place to put information about subdividing the global mesh</span>
@@ -1422,7 +1334,7 @@
 
 <div class="viewcode-block" id="RZAssembly.radialOuter"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.RZAssembly.radialOuter">[docs]</a>    <span class="k">def</span> <span class="nf">radialOuter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns the outer radial boundary of this assembly</span>
+<span class="sd">        returns the outer radial boundary of this assembly.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1470,7 +1382,8 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    This is a subclass of RZAssemblies, which is its a subclass of the Generics Assembly</span>
-<span class="sd">    Object&quot;&quot;&quot;</span>
+<span class="sd">    Object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assemType</span><span class="p">,</span> <span class="n">assemNum</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">RZAssembly</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assemType</span><span class="p">,</span> <span class="n">assemNum</span><span class="p">)</span>
@@ -1478,49 +1391,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.utils.reportPlotting &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.utils.reportPlotting &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../utils.html">armi.utils</a> &raquo;</li>
-        
-      <li>armi.utils.reportPlotting</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../utils.html">armi.utils</a></li>
+      <li class="breadcrumb-item active">armi.utils.reportPlotting</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.utils.reportPlotting</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -197,7 +117,7 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Plotting Utils specific to reports</span>
+<span class="sd">Plotting Utils specific to reports.</span>
 
 <span class="sd">This module makes heavy use of matplotlib. Beware that plots generated with matplotlib</span>
 <span class="sd">may not free their memory, even after the plot is closed, and excessive use of</span>
@@ -307,7 +227,7 @@
 
 <div class="viewcode-block" id="valueVsTime"><a class="viewcode-back" href="../../../.apidocs/armi.utils.reportPlotting.html#armi.utils.reportPlotting.valueVsTime">[docs]</a><span class="k">def</span> <span class="nf">valueVsTime</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">yaxis</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Plots a value vs. time with a standard graph format</span>
+<span class="sd">    Plots a value vs. time with a standard graph format.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -352,7 +272,7 @@
 
 <div class="viewcode-block" id="keffVsTime"><a class="viewcode-back" href="../../../.apidocs/armi.utils.reportPlotting.html#armi.utils.reportPlotting.keffVsTime">[docs]</a><span class="k">def</span> <span class="nf">keffVsTime</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">keff</span><span class="p">,</span> <span class="n">keffUnc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Plots core keff vs. time</span>
+<span class="sd">    Plots core keff vs. time.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -401,7 +321,7 @@
 
 <div class="viewcode-block" id="buVsTime"><a class="viewcode-back" href="../../../.apidocs/armi.utils.reportPlotting.html#armi.utils.reportPlotting.buVsTime">[docs]</a><span class="k">def</span> <span class="nf">buVsTime</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">scalars</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    produces a burnup and DPA vs. time plot for this case</span>
+<span class="sd">    produces a burnup and DPA vs. time plot for this case.</span>
 
 <span class="sd">    Will add a second axis containing DPA if the scalar column maxDPA exists.</span>
 
@@ -502,7 +422,7 @@
 
 <div class="viewcode-block" id="movesVsCycle"><a class="viewcode-back" href="../../../.apidocs/armi.utils.reportPlotting.html#armi.utils.reportPlotting.movesVsCycle">[docs]</a><span class="k">def</span> <span class="nf">movesVsCycle</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">scalars</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    make a bar chart showing the number of moves per cycle in the full core</span>
+<span class="sd">    make a bar chart showing the number of moves per cycle in the full core.</span>
 
 <span class="sd">    A move is defined as an assembly being picked up, moved, and put down. So if</span>
 <span class="sd">    two assemblies are swapped, that is 2 moves. Note that it does not count</span>
@@ -624,7 +544,8 @@
         <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
         <span class="n">size</span><span class="o">=</span><span class="s2">&quot;large&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;reactor_comparison.png&quot;</span><span class="p">)</span></div>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;reactor_comparison.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
 <span class="k">def</span> <span class="nf">_getNeutronicVals</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -648,7 +569,6 @@
     <span class="n">labels</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
         <span class="nb">zip</span><span class="p">(</span>
             <span class="o">*</span><span class="p">[</span>
-                <span class="p">(</span><span class="s2">&quot;Dilation&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">maxdilationTotal</span><span class="p">),</span>
                 <span class="p">(</span><span class="s2">&quot;Hold down&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
                 <span class="p">(</span><span class="s2">&quot;Distortion&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">),</span>
             <span class="p">]</span>
@@ -696,7 +616,6 @@
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">(</span><span class="s2">&quot;Max FCCI&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">maxcladFCCI</span><span class="p">),</span>
         <span class="p">(</span><span class="s2">&quot;Max BU&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">maxpercentBu</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;Residence&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">maxresidence</span><span class="p">),</span>
         <span class="p">(</span>
             <span class="s2">&quot;Smear dens.&quot;</span><span class="p">,</span>
             <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">calcAvgParam</span><span class="p">(</span><span class="s2">&quot;smearDensity&quot;</span><span class="p">,</span> <span class="n">generationNum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">typeSpec</span><span class="o">=</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">),</span>
@@ -735,7 +654,7 @@
 <span class="sd">    This function creates a RadarAxes projection and registers it.</span>
 
 <span class="sd">    Raises</span>
-<span class="sd">    -------</span>
+<span class="sd">    ------</span>
 <span class="sd">    ValueError</span>
 <span class="sd">        If value of the frame is unknown.</span>
 
@@ -745,7 +664,6 @@
 <span class="sd">        Number of variables for radar chart.</span>
 <span class="sd">    frame : {&#39;circle&#39; | &#39;polygon&#39;}</span>
 <span class="sd">        Shape of frame surrounding axes.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># calculate evenly-spaced axis angles</span>
     <span class="c1"># rotate theta such that the first axis is at the top</span>
@@ -765,8 +683,6 @@
     <span class="k">def</span> <span class="nf">close_line</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Closes the input line.&quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
-        <span class="c1"># pylint: disable=fixme</span>
-        <span class="c1"># FIXME: markers at x[0], y[0] get doubled-up</span>
         <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
@@ -790,12 +706,12 @@
         <span class="n">draw_patch</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">patchDict</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
 
         <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;Override fill so that line is closed by default&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Override fill so that line is closed by default.&quot;&quot;&quot;</span>
             <span class="n">closed</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;closed&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">_RadarAxes</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">closed</span><span class="o">=</span><span class="n">closed</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;Override plot so that line is closed by default&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Override plot so that line is closed by default.&quot;&quot;&quot;</span>
             <span class="n">lines</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">_RadarAxes</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
                 <span class="n">close_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -836,15 +752,12 @@
     <span class="n">verts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">x0</span><span class="p">,</span> <span class="n">r</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">y0</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">verts</span>
 
-    <span class="c1"># pylint: disable=differing-param-doc</span>
-    <span class="c1"># pylint: disable=differing-type-doc</span>
-
 
 <div class="viewcode-block" id="createPlotMetaData"><a class="viewcode-back" href="../../../.apidocs/armi.utils.reportPlotting.html#armi.utils.reportPlotting.createPlotMetaData">[docs]</a><span class="k">def</span> <span class="nf">createPlotMetaData</span><span class="p">(</span>
     <span class="n">title</span><span class="p">,</span> <span class="n">xLabel</span><span class="p">,</span> <span class="n">yLabel</span><span class="p">,</span> <span class="n">xMajorTicks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yMajorTicks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legendLabels</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create plot metadata (title, labels, ticks)</span>
+<span class="sd">    Create plot metadata (title, labels, ticks).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -955,49 +868,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

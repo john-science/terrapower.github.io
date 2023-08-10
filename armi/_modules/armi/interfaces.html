@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.interfaces &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.interfaces &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../_static/assets/jsonview_loader.js"></script>
         <script src="../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
@@ -110,75 +70,36 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../armi.html">armi</a> &raquo;</li>
-        
-      <li>armi.interfaces</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../armi.html">armi</a></li>
+      <li class="breadcrumb-item active">armi.interfaces</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.interfaces</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -217,12 +138,12 @@
 <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
 
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">getPluginManagerOrFail</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">utils</span>
-<span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">textProcessors</span>
-<span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">parameters</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
+<span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">parameters</span>
+<span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">textProcessors</span>
 
 
-<div class="viewcode-block" id="STACK_ORDER"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.STACK_ORDER">[docs]</a><span class="k">class</span> <span class="nc">STACK_ORDER</span><span class="p">:</span>  <span class="c1"># pylint: disable=invalid-name, too-few-public-methods</span>
+<div class="viewcode-block" id="STACK_ORDER"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.STACK_ORDER">[docs]</a><span class="k">class</span> <span class="nc">STACK_ORDER</span><span class="p">:</span>  <span class="c1"># noqa: invalid-class-name</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constants that help determine the order of modules in the interface stack.</span>
 
@@ -391,7 +312,7 @@
 
 <div class="viewcode-block" id="TightCoupler.getListDimension"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.TightCoupler.getListDimension">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">getListDimension</span><span class="p">(</span><span class="n">listToCheck</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;return the dimension of a python list</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the dimension of a python list.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -424,18 +345,14 @@
 <span class="sd">    :py:meth:`armi.operators.operator.Operator.createInterfaces`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># pylint: disable=too-many-instance-attributes,too-many-public-methods</span>
-
     <span class="c1"># list containing interfaceClass</span>
 <div class="viewcode-block" id="Interface.getDependencies"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.getDependencies">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">getDependencies</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="k">def</span> <span class="nf">getDependencies</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="Interface.getInputFiles"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.getInputFiles">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">getInputFiles</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a MergeableDict containing files that should be considered &quot;input&quot;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">getInputFiles</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a MergeableDict containing files that should be considered &quot;input&quot;.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">utils</span><span class="o">.</span><span class="n">MergeableDict</span><span class="p">()</span></div>
 
     <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -452,7 +369,7 @@
 <span class="sd">    interfaces.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Interface.Distribute"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.Distribute">[docs]</a>    <span class="k">class</span> <span class="nc">Distribute</span><span class="p">:</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
+<div class="viewcode-block" id="Interface.Distribute"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.Distribute">[docs]</a>    <span class="k">class</span> <span class="nc">Distribute</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Enum-like return flag for behavior on interface broadcasting with MPI.&quot;&quot;&quot;</span>
 
         <span class="n">DUPLICATE</span> <span class="o">=</span> <span class="mi">1</span>
@@ -495,7 +412,7 @@
         <span class="k">return</span> <span class="s2">&quot;&lt;Interface </span><span class="si">{0}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_checkSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Raises an exception if interface settings requirements are not met&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Raises an exception if interface settings requirements are not met.&quot;&quot;&quot;</span>
         <span class="k">pass</span>
 
 <div class="viewcode-block" id="Interface.nameContains"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.nameContains">[docs]</a>    <span class="k">def</span> <span class="nf">nameContains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -509,13 +426,12 @@
 <span class="sd">        -----</span>
 <span class="sd">        Cases where this isn&#39;t possible include the database interface,</span>
 <span class="sd">        where the SQL driver cannot be distributed.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Distribute</span><span class="o">.</span><span class="n">DUPLICATE</span></div>
 
-<div class="viewcode-block" id="Interface.preDistributeState"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.preDistributeState">[docs]</a>    <span class="k">def</span> <span class="nf">preDistributeState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pylint: disable=no-self-use</span>
+<div class="viewcode-block" id="Interface.preDistributeState"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.preDistributeState">[docs]</a>    <span class="k">def</span> <span class="nf">preDistributeState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Prepare for distribute state by returning all non-distributable attributes</span>
+<span class="sd">        Prepare for distribute state by returning all non-distributable attributes.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -523,13 +439,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{}</span></div>
 
-<div class="viewcode-block" id="Interface.postDistributeState"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.postDistributeState">[docs]</a>    <span class="k">def</span> <span class="nf">postDistributeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRestore</span><span class="p">):</span>  <span class="c1"># pylint: disable=no-self-use</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Restore non-distributable attributes after a distributeState&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Interface.postDistributeState"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.postDistributeState">[docs]</a>    <span class="k">def</span> <span class="nf">postDistributeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRestore</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Restore non-distributable attributes after a distributeState.&quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="Interface.attachReactor"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.attachReactor">[docs]</a>    <span class="k">def</span> <span class="nf">attachReactor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Set this interfaces&#39; reactor to the reactor passed in and sets default settings</span>
+<span class="sd">        Set this interfaces&#39; reactor to the reactor passed in and sets default settings.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -563,10 +479,8 @@
 <span class="sd">        -------</span>
 <span class="sd">        Interface</span>
 <span class="sd">            The deepcopy of this interface with detached reactor/operator/settings</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="c1"># temporarily remove references to the interface.  They will be reattached later</span>
+        <span class="c1"># temporarily remove references to the interface.  They will be reattached later.</span>
         <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">o</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -587,7 +501,7 @@
 
         <span class="k">return</span> <span class="n">newI</span></div>
 
-<div class="viewcode-block" id="Interface.getHistoryParams"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.getHistoryParams">[docs]</a>    <span class="k">def</span> <span class="nf">getHistoryParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pylint: disable=no-self-use</span>
+<div class="viewcode-block" id="Interface.getHistoryParams"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.getHistoryParams">[docs]</a>    <span class="k">def</span> <span class="nf">getHistoryParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add these params to the history tracker for designated assemblies.</span>
 
@@ -703,7 +617,7 @@
 
         <span class="k">return</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="Interface.workerOperate"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.workerOperate">[docs]</a>    <span class="k">def</span> <span class="nf">workerOperate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_cmd</span><span class="p">):</span>  <span class="c1"># pylint: disable=no-self-use</span>
+<div class="viewcode-block" id="Interface.workerOperate"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.workerOperate">[docs]</a>    <span class="k">def</span> <span class="nf">workerOperate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_cmd</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Receive an MPI command and do MPI work on worker nodes.</span>
 
@@ -714,13 +628,17 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="Interface.enabled"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.enabled">[docs]</a>    <span class="k">def</span> <span class="nf">enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># pylint: disable=inconsistent-return-statements</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Interface.enabled"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.enabled">[docs]</a>    <span class="k">def</span> <span class="nf">enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mechanism to allow interfaces to be attached but not running at the interaction points.</span>
 
 <span class="sd">        Must be implemented on the individual interface level hooks.</span>
 <span class="sd">        If given no arguments, returns status of enabled</span>
 <span class="sd">        If arguments, sets enabled to that flag. (True or False)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        These ``return`` statements are inconsistent, but not wrong.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">flag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enabled</span>
@@ -729,8 +647,8 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Non-bool passed to assign </span><span class="si">{}</span><span class="s2">.enable().&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Interface.bolForce"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.bolForce">[docs]</a>    <span class="k">def</span> <span class="nf">bolForce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># pylint: disable=inconsistent-return-statements</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Interface.bolForce"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.bolForce">[docs]</a>    <span class="k">def</span> <span class="nf">bolForce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run interactBOL even if this interface is disabled.</span>
 
 <span class="sd">        Parameters</span>
@@ -742,6 +660,10 @@
 <span class="sd">        -------</span>
 <span class="sd">        bool</span>
 <span class="sd">            true if should run at BOL. No return if you pass an input.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        These ``return`` statements are inconsistent, but not wrong.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">flag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bolForce</span>
@@ -781,7 +703,7 @@
 <span class="sd">        This existed before the advent of ARMI plugins. Perhaps it can be better served</span>
 <span class="sd">        as a plugin hook. Potential future work.</span>
 
-<span class="sd">        See also</span>
+<span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        armi.cases.Case.clone() : Main user of this interface.</span>
 
@@ -790,7 +712,6 @@
 <span class="sd">        cs : CaseSettings</span>
 <span class="sd">            The case settings for a particular Case</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># pylint: disable=unused-argument</span>
         <span class="k">return</span> <span class="p">{}</span></div>
 
 <div class="viewcode-block" id="Interface.updatePhysicsCouplingControl"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.Interface.updatePhysicsCouplingControl">[docs]</a>    <span class="k">def</span> <span class="nf">updatePhysicsCouplingControl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -832,7 +753,6 @@
 <span class="sd">    -----</span>
 <span class="sd">    Should ideally not require r, eci, and fname arguments</span>
 <span class="sd">    and would rather just have an apply(reactor) method.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">externalCodeInterface</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -915,7 +835,6 @@
 <span class="sd">        The case settings that activate relevant Interfaces</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">interfaceInfo</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c1"># pylint: disable = no-member</span>
     <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">getPluginManagerOrFail</span><span class="p">()</span><span class="o">.</span><span class="n">hook</span><span class="o">.</span><span class="n">exposeInterfaces</span><span class="p">(</span><span class="n">cs</span><span class="o">=</span><span class="n">cs</span><span class="p">):</span>
         <span class="n">interfaceInfo</span> <span class="o">+=</span> <span class="n">info</span>
 
@@ -929,10 +848,7 @@
 
 <div class="viewcode-block" id="isInterfaceActive"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.isInterfaceActive">[docs]</a><span class="k">def</span> <span class="nf">isInterfaceActive</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if the Interface klass is active.&quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">_kwargs</span> <span class="ow">in</span> <span class="n">getActiveInterfaceInfo</span><span class="p">(</span><span class="n">cs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">klass</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span></div>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">_kwargs</span> <span class="ow">in</span> <span class="n">getActiveInterfaceInfo</span><span class="p">(</span><span class="n">cs</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="InterfaceInfo"><a class="viewcode-back" href="../../.apidocs/armi.interfaces.html#armi.interfaces.InterfaceInfo">[docs]</a><span class="k">class</span> <span class="nc">InterfaceInfo</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
@@ -956,49 +872,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

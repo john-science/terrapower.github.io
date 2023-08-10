@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_gallery_framework_run_fuelManagement.py>`
+        :ref:`Go to the end <sphx_glr_download_gallery_framework_run_fuelManagement.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -18,8 +18,8 @@
 .. _sphx_glr_gallery_framework_run_fuelManagement.py:
 
 
-Fuel management in a LWR
-========================
+Fuel management in a LWR.
+=========================
 
 Demo of locating and swapping assemblies in a core with Cartesian geometry. Given a burnup
 distribution, this swaps high burnup assemblies with low ones.
@@ -33,7 +33,7 @@ flux/depletion results would need to be provided by a physics plugin before actu
 ARMI to do fuel management. Thus, this example applies a dummy burnup distribution for
 demonstration purposes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-77
+.. GENERATED FROM PYTHON SOURCE LINES 30-75
 
 
 
@@ -42,20 +42,20 @@ demonstration purposes.
 
     *
 
-      .. image:: /gallery/framework/images/sphx_glr_run_fuelManagement_001.png
-          :alt: run fuelManagement
-          :class: sphx-glr-multi-img
+      .. image-sg:: /gallery/framework/images/sphx_glr_run_fuelManagement_001.png
+         :alt: run fuelManagement
+         :srcset: /gallery/framework/images/sphx_glr_run_fuelManagement_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /gallery/framework/images/sphx_glr_run_fuelManagement_002.png
-          :alt: run fuelManagement
-          :class: sphx-glr-multi-img
+      .. image-sg:: /gallery/framework/images/sphx_glr_run_fuelManagement_002.png
+         :alt: run fuelManagement
+         :srcset: /gallery/framework/images/sphx_glr_run_fuelManagement_002.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -63,9 +63,9 @@ demonstration purposes.
     =========== Input File Information ===========
     =========== Reactor Cycle Information ===========
     =========== Constructing Reactor and Verifying Inputs ===========
-    =========== Adding Assemblies to <Core: core id:139893791480992> ===========
+    =========== Adding Assemblies to <Core: core id:140543138275920> ===========
     =========== Verifying Assembly Configurations ===========
-    =========== Summarizing Source of Material Data for <Core: core id:139893791480992> ===========
+    =========== Summarizing Source of Material Data for <Core: core id:140543138275920> ===========
     =========== Applying Geometry Modifications ===========
     =========== Initializing Mesh, Assembly Zones, and Nuclide Categories ===========
     =========== Creating Interfaces ===========
@@ -94,12 +94,11 @@ demonstration purposes.
     # sphinx_gallery_thumbnail_number = 2
     import math
 
+    from armi import configure
+    from armi.physics.fuelCycle import fuelHandlers
     from armi.reactor.flags import Flags
     from armi.reactor.tests import test_reactors
-    from armi.physics.fuelCycle import fuelHandlers
     from armi.utils import plotting
-
-    from armi import configure, runLog
 
     # configure ARMI
     configure(permissive=True)
@@ -140,28 +139,25 @@ demonstration purposes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.315 seconds)
+   **Total running time of the script:** ( 0 minutes  5.231 seconds)
 
 
 .. _sphx_glr_download_gallery_framework_run_fuelManagement.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
 
-  .. container:: sphx-glr-download sphx-glr-download-python
 
-     :download:`Download Python source code: run_fuelManagement.py <run_fuelManagement.py>`
+    .. container:: sphx-glr-download sphx-glr-download-python
 
+      :download:`Download Python source code: run_fuelManagement.py <run_fuelManagement.py>`
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: run_fuelManagement.ipynb <run_fuelManagement.ipynb>`
+      :download:`Download Jupyter notebook: run_fuelManagement.ipynb <run_fuelManagement.ipynb>`
 
 
 .. only:: html

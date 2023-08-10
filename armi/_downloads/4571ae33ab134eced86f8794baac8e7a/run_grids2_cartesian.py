@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """
-Make a Cartesian grid
-=====================
+Make a Cartesian grid.
+======================
 
 This builds a Cartesian grid with squares 1 cm square, with the z-coordinates
 provided explicitly. It is also offset in 3D space to X, Y, Z = 10, 5, 5 cm.
@@ -21,11 +21,11 @@ provided explicitly. It is also offset in 3D space to X, Y, Z = 10, 5, 5 cm.
 Learn more about :py:mod:`grids <armi.reactor.grids>`.
 """
 import itertools
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
-from armi.reactor import grids
+import matplotlib.pyplot as plt
+
 from armi import configure
+from armi.reactor import grids
 
 configure(permissive=True)
 

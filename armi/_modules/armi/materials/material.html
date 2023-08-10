@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.materials.material &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.materials.material &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../materials.html">armi.materials</a> &raquo;</li>
-        
-      <li>armi.materials.material</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../materials.html">armi.materials</a></li>
+      <li class="breadcrumb-item active">armi.materials.material</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.materials.material</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -201,7 +121,6 @@
 
 <span class="sd">Most temperatures may be specified in either K or C and the functions will convert for you.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># pylint: disable=unused-argument</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
@@ -246,9 +165,6 @@
     <span class="n">DATA_SOURCE</span> <span class="o">=</span> <span class="s2">&quot;ARMI&quot;</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Indication of where the material is loaded from (may be plugin name)&quot;&quot;&quot;</span>
 
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Material&quot;</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;String identifying the material&quot;&quot;&quot;</span>
-
     <span class="n">references</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The literature references {property : citation}&quot;&quot;&quot;</span>
 
@@ -273,15 +189,37 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">theoreticalDensityFrac</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cached</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_backupCache</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 
         <span class="c1"># call subclass implementations</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setDefaultMassFracs</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;Material: </span><span class="si">{0}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Material: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter for the private name attribute of this Material.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nomen</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the private name attribute of this Material.</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        Some code in ARMI expects the &quot;name&quot; of a meterial matches its</span>
+<span class="sd">        class name. So you use this method at your own risk.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        armi.materials.resolveMaterialClassByName</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">nomen</span>
 
 <div class="viewcode-block" id="Material.getName"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getName">[docs]</a>    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Duplicate of name property, kept for backwards compatibility.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span></div>
 
 <div class="viewcode-block" id="Material.getChildren"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getChildren">[docs]</a>    <span class="k">def</span> <span class="nf">getChildren</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">generationNum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">includeMaterials</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="kc">None</span>
@@ -321,7 +259,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cached</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 
 <div class="viewcode-block" id="Material.duplicate"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.duplicate">[docs]</a>    <span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;copy without needing a deepcopy.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Copy without needing a deepcopy.&quot;&quot;&quot;</span>
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">()</span>
 
         <span class="n">m</span><span class="o">.</span><span class="n">massFrac</span> <span class="o">=</span> <span class="p">{}</span>
@@ -335,8 +273,8 @@
         <span class="k">return</span> <span class="n">m</span></div>
 
 <div class="viewcode-block" id="Material.linearExpansion"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.linearExpansion">[docs]</a>    <span class="k">def</span> <span class="nf">linearExpansion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        the instantaneous linear expansion coefficient (dL/L)/dT</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The instantaneous linear expansion coefficient (dL/L)/dT.</span>
 
 <span class="sd">        This is used for reactivity coefficients, etc. but will not affect</span>
 <span class="sd">        density or dimensions.</span>
@@ -406,17 +344,38 @@
 <div class="viewcode-block" id="Material.getThermalExpansionDensityReduction"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getThermalExpansionDensityReduction">[docs]</a>    <span class="k">def</span> <span class="nf">getThermalExpansionDensityReduction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">prevTempInC</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">newTempInC</span><span class="p">:</span> <span class="nb">float</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the factor required to update thermal expansion going from temperatureInC to temperatureInCNew.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the factor required to update thermal expansion going from temperatureInC to temperatureInCNew.&quot;&quot;&quot;</span>
         <span class="n">dLL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linearExpansionFactor</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">newTempInC</span><span class="p">,</span> <span class="n">T0</span><span class="o">=</span><span class="n">prevTempInC</span><span class="p">)</span>
         <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">dLL</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span></div>
 
 <div class="viewcode-block" id="Material.setDefaultMassFracs"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.setDefaultMassFracs">[docs]</a>    <span class="k">def</span> <span class="nf">setDefaultMassFracs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;mass fractions&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Mass fractions.&quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="Material.setMassFrac"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.setMassFrac">[docs]</a>    <span class="k">def</span> <span class="nf">setMassFrac</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nucName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">massFrac</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assigns the mass fraction of a nuclide within the material.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This will try to convert the provided ``massFrac`` into a float</span>
+<span class="sd">        for assignment. If the conversion cannot occur then an error</span>
+<span class="sd">        will be thrown.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">massFrac</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">massFrac</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ee</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Error in converting the mass fraction of </span><span class="si">{</span><span class="n">massFrac</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;for nuclide </span><span class="si">{</span><span class="n">nucName</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> to a float. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Exception: </span><span class="si">{</span><span class="n">ee</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">massFrac</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">massFrac</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Mass fraction of </span><span class="si">{</span><span class="n">massFrac</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">nucName</span><span class="si">}</span><span class="s2"> is not between 0 and 1.&quot;</span>
+            <span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">massFrac</span><span class="p">[</span><span class="n">nucName</span><span class="p">]</span> <span class="o">=</span> <span class="n">massFrac</span></div>
 
 <div class="viewcode-block" id="Material.applyInputParams"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.applyInputParams">[docs]</a>    <span class="k">def</span> <span class="nf">applyInputParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -545,43 +504,44 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="Material.getTemperatureAtDensity"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getTemperatureAtDensity">[docs]</a>    <span class="k">def</span> <span class="nf">getTemperatureAtDensity</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">targetDensity</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">temperatureGuessInC</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">targetDensity</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">tempGuessInC</span><span class="p">:</span> <span class="nb">float</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the temperature at which the perturbed density occurs.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the temperature at which the perturbed density occurs (in Celcius).&quot;&quot;&quot;</span>
         <span class="c1"># 0 at tempertature of targetDensity</span>
         <span class="n">densFunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">temp</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">temp</span><span class="p">)</span> <span class="o">-</span> <span class="n">targetDensity</span>
         <span class="c1"># is a numpy array if fsolve is called</span>
-        <span class="n">tAtTargetDensity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">fsolve</span><span class="p">(</span><span class="n">densFunc</span><span class="p">,</span> <span class="n">temperatureGuessInC</span><span class="p">))</span>
+        <span class="n">tAtTargetDensity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">fsolve</span><span class="p">(</span><span class="n">densFunc</span><span class="p">,</span> <span class="n">tempGuessInC</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">tAtTargetDensity</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">liquidPorosity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fraction of the material that is liquid void (unitless).&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">liquidPorosity</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">gasPorosity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fraction of the material that is gas void (unitless).&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">gasPorosity</span>
 
 <div class="viewcode-block" id="Material.pseudoDensity"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.pseudoDensity">[docs]</a>    <span class="k">def</span> <span class="nf">pseudoDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return density that preserves mass when thermally expanded in 2D.</span>
+<span class="sd">        Return density that preserves mass when thermally expanded in 2D (in g/cm^3).</span>
 
 <span class="sd">        Warning</span>
 <span class="sd">        -------</span>
-<span class="sd">        This density will not agree with the component density since this method only expands in 2 dimensions.</span>
-<span class="sd">        The component has been manually expanded axially with the manually entered block hot height.</span>
-<span class="sd">        The density returned by this should be a factor of 1 + dLL higher than the density on the component.</span>
-<span class="sd">        density should be in agreement at both cold and hot temperatures as long as the block height is correct for</span>
-<span class="sd">        the specified temperature.</span>
-<span class="sd">        In the case of Fluids, density and density are the same as density is not driven by linear expansion, but</span>
-<span class="sd">        rather an explicit density function dependent on Temperature. linearExpansionPercent is zero for a fluid.</span>
+<span class="sd">        This will not typically agree with ``Material.density()`` or ``Component.density()``</span>
+<span class="sd">        since this method only expands in 2 dimensions. Depending on your use of</span>
+<span class="sd">        ``inputHeightsConsideredHot`` and ``Component.temperatureInC``, ``Material.psuedoDensity()``</span>
+<span class="sd">        may be a factor of (1+dLL) different than ``Material.density()`` or ``Component.density()``.</span>
+
+<span class="sd">        In the case of fluids, density and pseudoDensity are the same as density is not driven by</span>
+<span class="sd">        linear expansion, but  rather an explicit density function dependent on temperature.</span>
+<span class="sd">        ``Material.linearExpansionPercent()`` is zero for a fluid.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
-<span class="sd">        armi.materials.density:</span>
-<span class="sd">            component density should be in agreement with this density</span>
-<span class="sd">        armi.reactor.blueprints._applyBlockDesign:</span>
-<span class="sd">            2D expansion and axial density reduction occurs here.</span>
+<span class="sd">        density</span>
+<span class="sd">        armi.reactor.components.component.Component.density</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">Tk</span> <span class="o">=</span> <span class="n">getTk</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Tk</span><span class="p">)</span>
         <span class="n">dLL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linearExpansionPercent</span><span class="p">(</span><span class="n">Tk</span><span class="o">=</span><span class="n">Tk</span><span class="p">)</span>
@@ -594,22 +554,22 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">refDens</span> <span class="o">=</span> <span class="mf">0.0</span>
 
         <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">dLL</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">refDens</span> <span class="o">/</span> <span class="n">f</span>  <span class="c1"># g/cm^3</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">refDens</span> <span class="o">/</span> <span class="n">f</span></div>
 
 <div class="viewcode-block" id="Material.pseudoDensityKgM3"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.pseudoDensityKgM3">[docs]</a>    <span class="k">def</span> <span class="nf">pseudoDensityKgM3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return density that preserves mass when thermally expanded in 2D in units of kg/m^3</span>
+<span class="sd">        Return density that preserves mass when thermally expanded in 2D in units of kg/m^3.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
-<span class="sd">        armi.materials.density:</span>
+<span class="sd">        density:</span>
 <span class="sd">            Arguments are forwarded to the g/cc version</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pseudoDensity</span><span class="p">(</span><span class="n">Tk</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span></div>
 
 <div class="viewcode-block" id="Material.density"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.density">[docs]</a>    <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return density that preserves mass when thermally expanded in 3D.</span>
+<span class="sd">        Return density that preserves mass when thermally expanded in 3D (in g/cm^3).</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -637,29 +597,27 @@
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
-<span class="sd">        armi.materials.density:</span>
+<span class="sd">        density:</span>
 <span class="sd">            Arguments are forwarded to the g/cc version</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">Tk</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span></div>
 
 <div class="viewcode-block" id="Material.getCorrosionRate"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getCorrosionRate">[docs]</a>    <span class="k">def</span> <span class="nf">getCorrosionRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        given a temperature, get the corrosion rate of the material</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given a temperature, get the corrosion rate of the material (in microns/year).&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">0.0</span></div>
 
 <div class="viewcode-block" id="Material.yieldStrength"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.yieldStrength">[docs]</a>    <span class="k">def</span> <span class="nf">yieldStrength</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;returns yield strength at given T in MPa&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns yield strength at given T in MPa.&quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="Material.thermalConductivity"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.thermalConductivity">[docs]</a>    <span class="k">def</span> <span class="nf">thermalConductivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;thermal conductivity in given T in K&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Thermal conductivity for given T (in units of W/m/K).&quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="Material.getProperty"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getProperty">[docs]</a>    <span class="k">def</span> <span class="nf">getProperty</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">propName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;gets properties in a way that caches them.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets properties in a way that caches them.&quot;&quot;&quot;</span>
         <span class="n">Tk</span> <span class="o">=</span> <span class="n">getTk</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Tk</span><span class="p">)</span>
 
         <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getCached</span><span class="p">(</span><span class="n">propName</span><span class="p">)</span>
@@ -709,7 +667,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">massFrac</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nucName</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Material.clearMassFrac"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.clearMassFrac">[docs]</a>    <span class="k">def</span> <span class="nf">clearMassFrac</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;zero out all nuclide mass fractions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Zero out all nuclide mass fractions.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">massFrac</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Material.removeNucMassFrac"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.removeNucMassFrac">[docs]</a>    <span class="k">def</span> <span class="nf">removeNucMassFrac</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuc</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -724,7 +682,7 @@
         <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massFrac</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Material.checkPropertyTempRange"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.checkPropertyTempRange">[docs]</a>    <span class="k">def</span> <span class="nf">checkPropertyTempRange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Checks if the given property / value combination fall between the min and max valid</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks if the given property / value combination fall between the min and max valid</span>
 <span class="sd">        temperatures provided in the propertyValidTemperature object.</span>
 
 <span class="sd">        Parameters</span>
@@ -743,7 +701,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">checkTempRange</span><span class="p">(</span><span class="n">minT</span><span class="p">,</span> <span class="n">maxT</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Material.checkTempRange"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.checkTempRange">[docs]</a>    <span class="k">def</span> <span class="nf">checkTempRange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minT</span><span class="p">,</span> <span class="n">maxT</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if the given temperature (val) is between the minT and maxT temperature limits supplied.</span>
 <span class="sd">        Label identifies what material type or element is being evaluated in the check.</span>
 
@@ -773,14 +731,15 @@
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Material.densityTimesHeatCapacity"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.densityTimesHeatCapacity">[docs]</a>    <span class="k">def</span> <span class="nf">densityTimesHeatCapacity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return heat capacity * density at a temperature</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return heat capacity * density at a temperature.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        Tk : float, optional</span>
 <span class="sd">            Temperature in Kelvin.</span>
 <span class="sd">        Tc : float, optional</span>
-<span class="sd">            Temperature in degrees Celsius.</span>
+<span class="sd">            Temperature in degrees Celsius</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -820,19 +779,14 @@
         <span class="n">deltaT</span> <span class="o">=</span> <span class="n">linearChange</span> <span class="o">/</span> <span class="n">linearExpansion</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="s2">&quot;The linear expansion for </span><span class="si">{}</span><span class="s2"> at initial temperature of </span><span class="si">{}</span><span class="s2"> C is </span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">A change in density of </span><span class="si">{}</span><span class="s2"> &quot;</span>
-                <span class="s2">&quot;percent at would require a change in temperature of </span><span class="si">{}</span><span class="s2"> C.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span>
-                    <span class="n">Tc</span><span class="p">,</span>
-                    <span class="n">linearExpansion</span><span class="p">,</span>
-                    <span class="p">(</span><span class="n">densityFrac</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">,</span>
-                    <span class="n">deltaT</span><span class="p">,</span>
-                <span class="p">),</span>
+                <span class="sa">f</span><span class="s2">&quot;The linear expansion for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span><span class="si">}</span><span class="s2"> at initial temperature of </span><span class="si">{</span><span class="n">Tc</span><span class="si">}</span><span class="s2"> C is </span><span class="si">{</span><span class="n">linearExpansion</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;A change in density of </span><span class="si">{</span><span class="p">(</span><span class="n">densityFrac</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">100.0</span><span class="si">}</span><span class="s2"> percent at would require a change in temperature of </span><span class="si">{</span><span class="n">deltaT</span><span class="si">}</span><span class="s2"> C.&quot;</span><span class="p">,</span>
                 <span class="n">single</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">deltaT</span></div>
 
 <div class="viewcode-block" id="Material.heatCapacity"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.heatCapacity">[docs]</a>    <span class="k">def</span> <span class="nf">heatCapacity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns heat capacity in units of J/kg/C.&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Material </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not implement heatCapacity&quot;</span>
         <span class="p">)</span></div>
@@ -850,12 +804,8 @@
 <div class="viewcode-block" id="Fluid"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Fluid">[docs]</a><span class="k">class</span> <span class="nc">Fluid</span><span class="p">(</span><span class="n">Material</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A material that fills its container. Could also be a gas.&quot;&quot;&quot;</span>
 
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fluid&quot;</span>
-
 <div class="viewcode-block" id="Fluid.getThermalExpansionDensityReduction"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Fluid.getThermalExpansionDensityReduction">[docs]</a>    <span class="k">def</span> <span class="nf">getThermalExpansionDensityReduction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prevTempInC</span><span class="p">,</span> <span class="n">newTempInC</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the factor required to update thermal expansion going from temperatureInC to temperatureInCNew.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the factor required to update thermal expansion going from temperatureInC to temperatureInCNew.&quot;&quot;&quot;</span>
         <span class="n">rho0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pseudoDensity</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="n">prevTempInC</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">rho0</span><span class="p">:</span>
             <span class="k">return</span> <span class="mf">1.0</span>
@@ -863,8 +813,9 @@
         <span class="k">return</span> <span class="n">rho1</span> <span class="o">/</span> <span class="n">rho0</span></div>
 
 <div class="viewcode-block" id="Fluid.linearExpansion"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Fluid.linearExpansion">[docs]</a>    <span class="k">def</span> <span class="nf">linearExpansion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;for void, lets just not allow temperature changes to change dimensions</span>
-<span class="sd">        since it is a liquid it will fill its space.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;For void, lets just not allow temperature changes to change dimensions</span>
+<span class="sd">        since it is a liquid it will fill its space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">0.0</span></div>
 
 <div class="viewcode-block" id="Fluid.getTempChangeForDensityChange"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Fluid.getTempChangeForDensityChange">[docs]</a>    <span class="k">def</span> <span class="nf">getTempChangeForDensityChange</span><span class="p">(</span>
@@ -887,7 +838,7 @@
 
 <div class="viewcode-block" id="Fluid.density"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Fluid.density">[docs]</a>    <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the density at the specified temperature for 3D expansion.</span>
+<span class="sd">        Return the density at the specified temperature for 3D expansion (in g/cm^3).</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -898,7 +849,7 @@
 
 <div class="viewcode-block" id="SimpleSolid"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.SimpleSolid">[docs]</a><span class="k">class</span> <span class="nc">SimpleSolid</span><span class="p">(</span><span class="n">Material</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Base material for a simple material that primarily defines density</span>
+<span class="sd">    Base material for a simple material that primarily defines density.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -944,12 +895,13 @@
             <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">((</span><span class="n">density1</span> <span class="o">/</span> <span class="n">density2</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleSolid.density"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.SimpleSolid.density">[docs]</a>    <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Material density (in g/cm^3).&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">0.0</span></div>
 
 <div class="viewcode-block" id="SimpleSolid.pseudoDensity"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.SimpleSolid.pseudoDensity">[docs]</a>    <span class="k">def</span> <span class="nf">pseudoDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The same method as the parent class, but with the ability to apply a</span>
-<span class="sd">        non-unity theoretical density.</span>
+<span class="sd">        non-unity theoretical density (in g/cm^3).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Material</span><span class="o">.</span><span class="n">pseudoDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="n">Tk</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTD</span><span class="p">()</span></div></div>
 
@@ -1030,7 +982,7 @@
         <span class="n">densityTools</span><span class="o">.</span><span class="n">applyIsotopicsMix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class1Isotopics</span><span class="p">,</span> <span class="n">class2Isotopics</span><span class="p">)</span>
 
 <div class="viewcode-block" id="FuelMaterial.duplicate"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.FuelMaterial.duplicate">[docs]</a>    <span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;copy without needing a deepcopy.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Copy without needing a deepcopy.&quot;&quot;&quot;</span>
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">()</span>
 
         <span class="n">m</span><span class="o">.</span><span class="n">massFrac</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1052,49 +1004,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

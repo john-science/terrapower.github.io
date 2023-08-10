@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.utils.units &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.utils.units &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../utils.html">armi.utils</a> &raquo;</li>
-        
-      <li>armi.utils.units</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../utils.html">armi.utils</a></li>
+      <li class="breadcrumb-item active">armi.utils.units</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.utils.units</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -195,23 +115,53 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-
-<span class="c1"># pylint: disable=too-many-lines, invalid-name</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">The units module contains unit conversion functions and constants.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;The units module contains unit conversion functions and constants.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
 <span class="kn">import</span> <span class="nn">scipy.constants</span>
 
 
-<span class="c1"># Names</span>
-<span class="n">DEGC</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">176</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;C&quot;</span>
-<span class="n">MICRONS</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">181</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;m&quot;</span>
-<span class="n">NOT_APPLICABLE</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span>
+<span class="c1"># Units (misc)</span>
+<span class="n">DPA</span> <span class="o">=</span> <span class="s2">&quot;dpa&quot;</span>
+<span class="n">FIMA</span> <span class="o">=</span> <span class="s2">&quot;FIMA&quot;</span>
+<span class="n">PERCENT_FIMA</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;</span><span class="si">%F</span><span class="s2">IMA&quot;</span>
+<span class="n">MB</span> <span class="o">=</span> <span class="s2">&quot;MB&quot;</span>  <span class="c1"># megabytes</span>
+<span class="n">MOLES</span> <span class="o">=</span> <span class="s2">&quot;mole&quot;</span>
+<span class="n">MWD</span> <span class="o">=</span> <span class="s2">&quot;MWd&quot;</span>
+<span class="n">PASCALS</span> <span class="o">=</span> <span class="s2">&quot;Pa&quot;</span>
+<span class="n">PERCENT</span> <span class="o">=</span> <span class="s2">&quot;%&quot;</span>
 <span class="n">UNITLESS</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">USD</span> <span class="o">=</span> <span class="s2">&quot;USD&quot;</span>  <span class="c1"># US currency (the dollar)</span>
+<span class="c1"># Units (angles)</span>
+<span class="n">DEGREES</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
+<span class="n">RADIANS</span> <span class="o">=</span> <span class="s2">&quot;radians&quot;</span>
+<span class="c1"># Units (energy)</span>
+<span class="n">EV</span> <span class="o">=</span> <span class="s2">&quot;eV&quot;</span>
+<span class="n">MW</span> <span class="o">=</span> <span class="s2">&quot;MW&quot;</span>
+<span class="n">WATTS</span> <span class="o">=</span> <span class="s2">&quot;W&quot;</span>
+<span class="c1"># Units (length)</span>
+<span class="n">CM</span> <span class="o">=</span> <span class="s2">&quot;cm&quot;</span>
+<span class="n">METERS</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+<span class="n">MICRONS</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">181</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;m&quot;</span>
+<span class="c1"># Units (mass)</span>
+<span class="n">GRAMS</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span>
+<span class="n">KG</span> <span class="o">=</span> <span class="s2">&quot;kg&quot;</span>
+<span class="n">MT</span> <span class="o">=</span> <span class="s2">&quot;MT&quot;</span>
+<span class="c1"># Units (reactivity)</span>
+<span class="n">CENTS</span> <span class="o">=</span> <span class="s2">&quot;cents&quot;</span>  <span class="c1"># 1/100th of a dollar</span>
+<span class="n">DOLLARS</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span>  <span class="c1"># (dk/k/k&#39;) / beta</span>
+<span class="n">PCM</span> <span class="o">=</span> <span class="s2">&quot;pcm&quot;</span>
+<span class="n">REACTIVITY</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">916</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;k/k/k&#39;&quot;</span>
+<span class="c1"># Units (temperature)</span>
+<span class="n">DEGC</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">176</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;C&quot;</span>
+<span class="n">DEGK</span> <span class="o">=</span> <span class="s2">&quot;K&quot;</span>
+<span class="c1"># Units (time)</span>
+<span class="n">DAYS</span> <span class="o">=</span> <span class="s2">&quot;days&quot;</span>
+<span class="n">MINUTES</span> <span class="o">=</span> <span class="s2">&quot;min&quot;</span>
+<span class="n">SECONDS</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
+<span class="n">YEARS</span> <span class="o">=</span> <span class="s2">&quot;yr&quot;</span>
 
-<span class="c1"># conversions</span>
+<span class="c1"># Unit conversions</span>
 <span class="n">C_TO_K</span> <span class="o">=</span> <span class="mf">273.15</span>
 <span class="n">BOLTZMAN_CONSTANT</span> <span class="o">=</span> <span class="mf">8.6173324e-11</span>  <span class="c1"># boltzmann constant in MeV/K</span>
 <span class="n">AVOGADROS_NUMBER</span> <span class="o">=</span> <span class="mf">6.0221415e23</span>
@@ -264,7 +214,7 @@
 <span class="n">MIN_FUEL_HM_MOLES_PER_CC</span> <span class="o">=</span> <span class="mf">1e-10</span>
 
 <span class="c1"># More than 10 decimals can create floating point comparison problems in MCNP and DIF3D</span>
-<span class="n">FLOAT_DIMENSION_DECIMALS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">FLOAT_DIMENSION_DECIMALS</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">EFFECTIVELY_ZERO</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">FLOAT_DIMENSION_DECIMALS</span><span class="p">)</span>
 
 <span class="c1">#</span>
@@ -294,7 +244,7 @@
 
 <div class="viewcode-block" id="getTk"><a class="viewcode-back" href="../../../.apidocs/armi.utils.units.html#armi.utils.units.getTk">[docs]</a><span class="k">def</span> <span class="nf">getTk</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return a temperature in Kelvin, given a temperature in Celsius or Kelvin</span>
+<span class="sd">    Return a temperature in Kelvin, given a temperature in Celsius or Kelvin.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -316,7 +266,7 @@
 
 <div class="viewcode-block" id="getTc"><a class="viewcode-back" href="../../../.apidocs/armi.utils.units.html#armi.utils.units.getTc">[docs]</a><span class="k">def</span> <span class="nf">getTc</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return a temperature in Celcius, given a temperature in Celsius or Kelvin</span>
+<span class="sd">    Return a temperature in Celsius, given a temperature in Celsius or Kelvin.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -338,7 +288,7 @@
 
 <div class="viewcode-block" id="getTf"><a class="viewcode-back" href="../../../.apidocs/armi.utils.units.html#armi.utils.units.getTf">[docs]</a><span class="k">def</span> <span class="nf">getTf</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return a temperature in Fahrenheit, given a temperature in Celsius or Kelvin</span>
+<span class="sd">    Return a temperature in Fahrenheit, given a temperature in Celsius or Kelvin.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -355,7 +305,7 @@
 
 <div class="viewcode-block" id="getTemperature"><a class="viewcode-back" href="../../../.apidocs/armi.utils.units.html#armi.utils.units.getTemperature">[docs]</a><span class="k">def</span> <span class="nf">getTemperature</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tempUnits</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns the temperature in the prescribed temperature units</span>
+<span class="sd">    Returns the temperature in the prescribed temperature units.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -470,7 +420,7 @@
 
 <div class="viewcode-block" id="getXYLineParameters"><a class="viewcode-back" href="../../../.apidocs/armi.utils.units.html#armi.utils.units.getXYLineParameters">[docs]</a><span class="k">def</span> <span class="nf">getXYLineParameters</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    returns parameters A B C D for a plane in the XY direction</span>
+<span class="sd">    returns parameters A B C D for a plane in the XY direction.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -527,49 +477,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

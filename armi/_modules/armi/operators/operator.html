@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.operators.operator &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.operators.operator &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../operators.html">armi.operators</a> &raquo;</li>
-        
-      <li>armi.operators.operator</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../operators.html">armi.operators</a></li>
+      <li class="breadcrumb-item active">armi.operators.operator</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.operators.operator</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -225,6 +145,9 @@
 <span class="kn">from</span> <span class="nn">armi.operators</span> <span class="kn">import</span> <span class="n">settingsValidation</span>
 <span class="kn">from</span> <span class="nn">armi.operators.runTypes</span> <span class="kn">import</span> <span class="n">RunTypes</span>
 <span class="kn">from</span> <span class="nn">armi.physics.fuelCycle.settings</span> <span class="kn">import</span> <span class="n">CONF_SHUFFLE_LOGIC</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.globalFlux.globalFluxInterface</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GlobalFluxInterfaceUsingExecuters</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">CONF_TIGHT_COUPLING</span><span class="p">,</span>
     <span class="n">CONF_TIGHT_COUPLING_MAX_ITERS</span><span class="p">,</span>
@@ -243,7 +166,7 @@
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="Operator"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator">[docs]</a><span class="k">class</span> <span class="nc">Operator</span><span class="p">:</span>  <span class="c1"># pylint: disable=too-many-public-methods</span>
+<div class="viewcode-block" id="Operator"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator">[docs]</a><span class="k">class</span> <span class="nc">Operator</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Orchestrates an ARMI run, building all the pieces, looping through the interfaces, and manipulating the reactor.</span>
 
@@ -396,7 +319,7 @@
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_initFastPath</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create the FAST_PATH directory for fast local operations</span>
+<span class="sd">        Create the FAST_PATH directory for fast local operations.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -512,9 +435,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_mainOperate</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_mainOperate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Main loop for a standard ARMI run. Steps through time interacting with the interfaces.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Main loop for a standard ARMI run. Steps through time interacting with the interfaces.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interactAllBOL</span><span class="p">()</span>
         <span class="n">startingCycle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span>  <span class="c1"># may be starting at t != 0 in restarts</span>
         <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">startingCycle</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;nCycles&quot;</span><span class="p">]):</span>
@@ -570,7 +491,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_performTightCoupling</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">timeNode</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_performTightCoupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timeNode</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">writeDB</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;if requested, perform tight coupling and write out database</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;If requested, perform tight coupling and write out database.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -775,7 +696,7 @@
         <span class="n">activeInterfaces</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">ii</span>
             <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">ii</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span> <span class="ow">or</span> <span class="n">ii</span><span class="o">.</span><span class="n">bolForce</span><span class="p">())</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ii</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">excludedInterfaceNames</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ii</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span> <span class="ow">or</span> <span class="n">ii</span><span class="o">.</span><span class="n">bolForce</span><span class="p">())</span> <span class="ow">and</span> <span class="n">ii</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">excludedInterfaceNames</span>
         <span class="p">]</span>
         <span class="n">activeInterfaces</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">ii</span>
@@ -871,7 +792,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkTightCouplingConvergence</span><span class="p">(</span><span class="n">activeInterfaces</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_checkTightCouplingConvergence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activeInterfaces</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;check if interfaces are converged</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if interfaces are converged.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -880,7 +801,8 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        This is split off from self.interactAllCoupled to accomodate testing&quot;&quot;&quot;</span>
+<span class="sd">        This is split off from self.interactAllCoupled to accomodate testing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Summarize the coupled results and the convergence status.</span>
         <span class="n">converged</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">interface</span> <span class="ow">in</span> <span class="n">activeInterfaces</span><span class="p">:</span>
@@ -969,7 +891,6 @@
 <span class="sd">            If an interface of the same name or function is already attached to the</span>
 <span class="sd">            Operator.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
                 <span class="s2">&quot;An interface with name </span><span class="si">{0}</span><span class="s2"> is already attached.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -1050,7 +971,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Interface dependency resolution did not converge.&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Operator.removeAllInterfaces"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator.removeAllInterfaces">[docs]</a>    <span class="k">def</span> <span class="nf">removeAllInterfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes all of the interfaces&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes all of the interfaces.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span>
             <span class="n">interface</span><span class="o">.</span><span class="n">detachReactor</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span> <span class="o">=</span> <span class="p">[]</span></div>
@@ -1071,7 +992,6 @@
 <span class="sd">        success : boolean</span>
 <span class="sd">            True if the interface was removed</span>
 <span class="sd">            False if it was not (because it wasn&#39;t there to be removed)</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">interfaceName</span><span class="p">:</span>
             <span class="n">interface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="n">interfaceName</span><span class="p">)</span>
@@ -1191,7 +1111,6 @@
 <span class="sd">        -----</span>
 <span class="sd">        This allows the ARMI to do the same shuffles that it did last time, assuming fuel management logic</span>
 <span class="sd">        has not changed. Note, it would be better if the moves were just read from a table in the database.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">restartName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span> <span class="o">+</span> <span class="s2">&quot;.restart.dat&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">restartName</span><span class="p">):</span>
@@ -1233,9 +1152,9 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">timeNode</span><span class="p">,</span> <span class="n">timeStepName</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">fileName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">updateMassFractions</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Convenience method reroute to the database interface state reload method</span>
+<span class="sd">        Convenience method reroute to the database interface state reload method.</span>
 
-<span class="sd">        See also</span>
+<span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        armi.bookeeping.db.loadOperator:</span>
 <span class="sd">            A method for loading an operator given a database. loadOperator does not</span>
@@ -1259,7 +1178,7 @@
 
         <span class="n">dbi</span><span class="o">.</span><span class="n">loadState</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">timeNode</span><span class="p">,</span> <span class="n">timeStepName</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Operator.snapshotRequest"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator.snapshotRequest">[docs]</a>    <span class="k">def</span> <span class="nf">snapshotRequest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<div class="viewcode-block" id="Operator.snapshotRequest"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator.snapshotRequest">[docs]</a>    <span class="k">def</span> <span class="nf">snapshotRequest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process a snapshot request at this time.</span>
 
@@ -1273,7 +1192,6 @@
 <span class="sd">        of snapshots has evolved with respect to the</span>
 <span class="sd">        :py:class:`~armi.operators.snapshots.OperatorSnapshots`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># pylint: disable=import-outside-toplevel # avoid cyclic import</span>
         <span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="n">CONF_LOADING_FILE</span>
 
         <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Producing snapshot for cycle </span><span class="si">{0}</span><span class="s2"> node </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
@@ -1299,28 +1217,40 @@
         <span class="k">for</span> <span class="n">fileName</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
             <span class="k">if</span> <span class="s2">&quot;mcc&quot;</span> <span class="ow">in</span> <span class="n">fileName</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[A-Z]AF?\d?.inp&quot;</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
                 <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">iteration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">newFile</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_</span><span class="si">{1:03d}</span><span class="s2">_</span><span class="si">{2:d}</span><span class="s2">_</span><span class="si">{4}{3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">base</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ext</span><span class="p">,</span> <span class="n">iteration</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">newFile</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_</span><span class="si">{1:03d}</span><span class="s2">_</span><span class="si">{2:d}{3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
                 <span class="c1"># add the cycle and timenode to the XS input file names so that a rx-coeff case that runs</span>
                 <span class="c1"># in here won&#39;t overwrite them.</span>
-                <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span>
-                    <span class="n">fileName</span><span class="p">,</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                        <span class="n">newFolder</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">_</span><span class="si">{1:03d}</span><span class="s2">_</span><span class="si">{2:d}{3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
-                    <span class="p">),</span>
-                <span class="p">)</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">newFolder</span><span class="p">,</span> <span class="n">newFile</span><span class="p">))</span>
             <span class="k">if</span> <span class="s2">&quot;rzmflx&quot;</span> <span class="ow">in</span> <span class="n">fileName</span><span class="p">:</span>
                 <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span><span class="s2">&quot;rzmflx for snapshot&quot;</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">newFolder</span><span class="p">)</span>
 
-        <span class="n">isoFName</span> <span class="o">=</span> <span class="s2">&quot;ISOTXS-c</span><span class="si">{0}</span><span class="s2">n</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">isoFName</span><span class="p">):</span>
-            <span class="n">isoFName</span> <span class="o">=</span> <span class="s2">&quot;ISOTXS-c</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+        <span class="n">fileNamePossibilities</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;ISOTXS-c</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s2">n</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;ISOTXS-c</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">iteration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fileNamePossibilities</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s2">&quot;ISOTXS-c</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s2">n</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">i</span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">]</span> <span class="o">+</span> <span class="n">fileNamePossibilities</span>
+
+        <span class="k">for</span> <span class="n">isoFName</span> <span class="ow">in</span> <span class="n">fileNamePossibilities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">isoFName</span><span class="p">):</span>
+                <span class="k">break</span>
         <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span>
             <span class="s2">&quot;ISOTXS for snapshot&quot;</span><span class="p">,</span> <span class="n">isoFName</span><span class="p">,</span> <span class="n">pathTools</span><span class="o">.</span><span class="n">armiAbsPath</span><span class="p">(</span><span class="n">newFolder</span><span class="p">,</span> <span class="s2">&quot;ISOTXS&quot;</span><span class="p">)</span>
         <span class="p">)</span>
-        <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span>
-            <span class="s2">&quot;DIF3D output for snapshot&quot;</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{0:03d}</span><span class="s2">.out&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cycle</span><span class="p">),</span>
-            <span class="n">newFolder</span><span class="p">,</span>
+        <span class="n">globalFluxLabel</span> <span class="o">=</span> <span class="n">GlobalFluxInterfaceUsingExecuters</span><span class="o">.</span><span class="n">getLabel</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">iteration</span>
         <span class="p">)</span>
+        <span class="n">globalFluxInput</span> <span class="o">=</span> <span class="n">globalFluxLabel</span> <span class="o">+</span> <span class="s2">&quot;.inp&quot;</span>
+        <span class="n">globalFluxOutput</span> <span class="o">=</span> <span class="n">globalFluxLabel</span> <span class="o">+</span> <span class="s2">&quot;.out&quot;</span>
+        <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span><span class="s2">&quot;DIF3D input for snapshot&quot;</span><span class="p">,</span> <span class="n">globalFluxInput</span><span class="p">,</span> <span class="n">newFolder</span><span class="p">)</span>
+        <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span><span class="s2">&quot;DIF3D output for snapshot&quot;</span><span class="p">,</span> <span class="n">globalFluxOutput</span><span class="p">,</span> <span class="n">newFolder</span><span class="p">)</span>
         <span class="n">pathTools</span><span class="o">.</span><span class="n">copyOrWarn</span><span class="p">(</span>
             <span class="s2">&quot;Shuffle logic for snapshot&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_SHUFFLE_LOGIC</span><span class="p">],</span> <span class="n">newFolder</span>
         <span class="p">)</span>
@@ -1343,7 +1273,7 @@
 
 <div class="viewcode-block" id="Operator.setStateToDefault"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator.setStateToDefault">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">setStateToDefault</span><span class="p">(</span><span class="n">cs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the state of ARMI to fit the kind of run this operator manages&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the state of ARMI to fit the kind of run this operator manages.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cs</span><span class="o">.</span><span class="n">modified</span><span class="p">(</span><span class="n">newSettings</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;runType&quot;</span><span class="p">:</span> <span class="n">RunTypes</span><span class="o">.</span><span class="n">STANDARD</span><span class="p">})</span></div>
 
 <div class="viewcode-block" id="Operator.couplingIsActive"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator.couplingIsActive">[docs]</a>    <span class="k">def</span> <span class="nf">couplingIsActive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1352,49 +1282,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

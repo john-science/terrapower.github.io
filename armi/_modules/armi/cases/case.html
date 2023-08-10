@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.cases.case &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.cases.case &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,75 +70,36 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-      <li>armi.cases.case</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+      <li class="breadcrumb-item active">armi.cases.case</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.cases.case</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -196,7 +117,7 @@
 
 <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">The ``Case`` object is responsible for running, and executing a set of user inputs.  Many</span>
-<span class="sd">entry points redirect into ``Case`` methods, such as ``clone``, ``compare``, and ``run``</span>
+<span class="sd">entry points redirect into ``Case`` methods, such as ``clone``, ``compare``, and ``run``.</span>
 
 <span class="sd">The ``Case`` object provides an abstraction around ARMI inputs to allow for manipulation and</span>
 <span class="sd">collection of cases.</span>
@@ -394,7 +315,7 @@
 
 <div class="viewcode-block" id="Case.addExplicitDependency"><a class="viewcode-back" href="../../../.apidocs/armi.cases.case.html#armi.cases.case.Case.addExplicitDependency">[docs]</a>    <span class="k">def</span> <span class="nf">addExplicitDependency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">case</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Register an explicit dependency</span>
+<span class="sd">        Register an explicit dependency.</span>
 
 <span class="sd">        When evaluating the ``dependency`` property, dynamic dependencies are probed</span>
 <span class="sd">        using the current case settings and plugin hooks. Sometimes, it is necessary to</span>
@@ -436,7 +357,6 @@
 
     <span class="k">def</span> <span class="nf">_getPotentialDependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dirName</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a parent case based on a directory and case title.&quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">dirName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">dirName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">dirName</span><span class="p">):</span>
@@ -497,7 +417,7 @@
 
 <span class="sd">        This accounts for whether or not the dependency is enabled.</span>
 
-<span class="sd">        Note</span>
+<span class="sd">        TODO</span>
 <span class="sd">        ----</span>
 <span class="sd">        This is a leftover from before the release of the ARMI framework. The API of the</span>
 <span class="sd">        proprietary cluster communication library is being used here. This should either</span>
@@ -507,8 +427,6 @@
             <span class="k">return</span>
         <span class="k">for</span> <span class="n">dependency</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dependencies</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">dependency</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
-                <span class="c1"># pylint: disable=protected-access; dependency should</span>
-                <span class="c1"># also be a Case, so it&#39;s not really &quot;protected&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add_parent</span><span class="p">(</span><span class="n">dependency</span><span class="o">.</span><span class="n">_tasks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="Case.run"><a class="viewcode-back" href="../../../.apidocs/armi.cases.case.html#armi.cases.case.Case.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -641,7 +559,7 @@
         <span class="n">covFile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">covRcDir</span><span class="p">,</span> <span class="s2">&quot;.coveragerc&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
             <span class="n">covFileWin</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">covRcDir</span><span class="p">,</span> <span class="s2">&quot;coveragerc&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">makeCopy</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">makeCopy</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="c1"># Make a copy of the file without the dot in the name</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">covFile</span><span class="p">,</span> <span class="n">covFileWin</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">covFileWin</span>
@@ -840,7 +758,6 @@
 <span class="sd">        ------</span>
 <span class="sd">        RuntimeError</span>
 <span class="sd">            If the source and destination are the same</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cloneCS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
 
@@ -866,7 +783,7 @@
         <span class="n">clone</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">writeToYamlFile</span><span class="p">(</span><span class="n">clone</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">writeStyle</span><span class="p">,</span> <span class="n">fromFile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">&quot;finished writing </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clone</span><span class="o">.</span><span class="n">cs</span><span class="p">))</span>
 
-        <span class="n">fromPath</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">fname</span><span class="p">:</span> <span class="n">pathTools</span><span class="o">.</span><span class="n">armiAbsPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">inputDirectory</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+        <span class="n">fromPath</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">pathTools</span><span class="o">.</span><span class="n">armiAbsPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">inputDirectory</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">inputFileSetting</span> <span class="ow">in</span> <span class="p">[</span><span class="n">CONF_LOADING_FILE</span><span class="p">,</span> <span class="s2">&quot;geomFile&quot;</span><span class="p">]:</span>
             <span class="n">fileName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">inputFileSetting</span><span class="p">]</span>
@@ -994,8 +911,8 @@
         <span class="p">):</span>
             <span class="c1"># trick: these seemingly no-ops load the bp and geom via properties if</span>
             <span class="c1"># they are not yet initialized.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">bp</span>  <span class="c1"># pylint: disable=pointless-statement</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">geom</span>  <span class="c1"># pylint: disable=pointless-statement</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bp</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">geom</span>
 
             <span class="n">newSettings</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="n">newSettings</span><span class="p">[</span><span class="n">CONF_LOADING_FILE</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;-blueprints.yaml&quot;</span>
@@ -1103,7 +1020,6 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-
 <span class="sd">    Regarding the handling of relative file paths: In the future this could be</span>
 <span class="sd">    simplified by adding a concept for a suite root directory, below which it is safe</span>
 <span class="sd">    to copy files without needing to update settings that point with a relative path</span>
@@ -1186,49 +1102,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

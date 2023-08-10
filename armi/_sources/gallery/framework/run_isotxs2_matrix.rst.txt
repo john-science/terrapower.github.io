@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_gallery_framework_run_isotxs2_matrix.py>`
+        :ref:`Go to the end <sphx_glr_download_gallery_framework_run_isotxs2_matrix.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -18,8 +18,8 @@
 .. _sphx_glr_gallery_framework_run_isotxs2_matrix.py:
 
 
-Plotting a multi-group scatter matrix
-=====================================
+Plotting a multi-group scatter matrix.
+======================================
 
 Here we plot scatter matrices from an ISOTXS microscopic cross section library.
 We plot the inelastic scatter cross section of U235 as well as the (n,2n) source
@@ -27,24 +27,9 @@ matrix.
 
 See Also: :py:mod:`ISOTXS <armi.nuclearDataIO.isotxs>` format.
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-42
+.. GENERATED FROM PYTHON SOURCE LINES 24-40
 
 
-
-.. rst-class:: sphx-glr-horizontal
-
-
-    *
-
-      .. image:: /gallery/framework/images/sphx_glr_run_isotxs2_matrix_001.png
-          :alt: U-235 inelastic scattering XS
-          :class: sphx-glr-multi-img
-
-    *
-
-      .. image:: /gallery/framework/images/sphx_glr_run_isotxs2_matrix_002.png
-          :alt: U-235 n,2n src scattering XS
-          :class: sphx-glr-multi-img
 
 
 
@@ -54,11 +39,10 @@ See Also: :py:mod:`ISOTXS <armi.nuclearDataIO.isotxs>` format.
 
     import matplotlib.pyplot as plt
 
-    from armi.utils import units
-    from armi.tests import ISOAA_PATH
-    from armi.nuclearDataIO.cccc import isotxs
-    from armi.nuclearDataIO import xsNuclides
     from armi import configure
+    from armi.nuclearDataIO import xsNuclides
+    from armi.nuclearDataIO.cccc import isotxs
+    from armi.tests import ISOAA_PATH
 
     configure(permissive=True)
 
@@ -73,28 +57,25 @@ See Also: :py:mod:`ISOTXS <armi.nuclearDataIO.isotxs>` format.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.366 seconds)
+   **Total running time of the script:** ( 0 minutes  0.249 seconds)
 
 
 .. _sphx_glr_download_gallery_framework_run_isotxs2_matrix.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
 
-  .. container:: sphx-glr-download sphx-glr-download-python
 
-     :download:`Download Python source code: run_isotxs2_matrix.py <run_isotxs2_matrix.py>`
+    .. container:: sphx-glr-download sphx-glr-download-python
 
+      :download:`Download Python source code: run_isotxs2_matrix.py <run_isotxs2_matrix.py>`
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: run_isotxs2_matrix.ipynb <run_isotxs2_matrix.ipynb>`
+      :download:`Download Jupyter notebook: run_isotxs2_matrix.ipynb <run_isotxs2_matrix.ipynb>`
 
 
 .. only:: html

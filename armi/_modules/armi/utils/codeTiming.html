@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.utils.codeTiming &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.utils.codeTiming &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../utils.html">armi.utils</a> &raquo;</li>
-        
-      <li>armi.utils.codeTiming</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../utils.html">armi.utils</a></li>
+      <li class="breadcrumb-item active">armi.utils.codeTiming</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.utils.codeTiming</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -195,13 +115,11 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Utilities related to profiling code.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Utilities related to profiling code.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 
 <div class="viewcode-block" id="timed"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.timed">[docs]</a><span class="k">def</span> <span class="nf">timed</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -219,7 +137,6 @@
 <span class="sd">        @timed(&#39;call my timer this instead&#39;)</span>
 <span class="sd">        def mymethod2(stuff)</span>
 <span class="sd">           do even more stuff</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">time_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -256,10 +173,9 @@
 
 
 <div class="viewcode-block" id="getMasterTimer"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.getMasterTimer">[docs]</a><span class="k">def</span> <span class="nf">getMasterTimer</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Duplicate function to the MasterTimer.getMasterTimer method</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Duplicate function to the MasterTimer.getMasterTimer method.</span>
 
 <span class="sd">    Provided for convenience and developer preference of which to use</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span></div>
 
@@ -290,10 +206,9 @@
 
 <div class="viewcode-block" id="MasterTimer.getTimer"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.getTimer">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">getTimer</span><span class="p">(</span><span class="n">event_name</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a timer with no special action take</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a timer with no special action take.</span>
 
 <span class="sd">        ``with timer: ...`` friendly!</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
@@ -305,10 +220,9 @@
 
 <div class="viewcode-block" id="MasterTimer.startTimer"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.startTimer">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">startTimer</span><span class="p">(</span><span class="n">event_name</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a timer with a start call, or a newly made started timer</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a timer with a start call, or a newly made started timer.</span>
 
 <span class="sd">        ``with timer: ...`` unfriendly!</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
@@ -321,10 +235,9 @@
 
 <div class="viewcode-block" id="MasterTimer.endTimer"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.endTimer">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">endTimer</span><span class="p">(</span><span class="n">event_name</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a timer with a stop call, or a newly made unstarted timer</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a timer with a stop call, or a newly made unstarted timer.</span>
 
 <span class="sd">        ``with timer: ...`` unfriendly!</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
@@ -337,7 +250,7 @@
 
 <div class="viewcode-block" id="MasterTimer.time"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.time">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">time</span><span class="p">():</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;System time offset by when this master timer was initialized&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;System time offset by when this master timer was initialized.&quot;&quot;&quot;</span>
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">master</span><span class="o">.</span><span class="n">end_time</span><span class="p">:</span>
@@ -347,7 +260,7 @@
 
 <div class="viewcode-block" id="MasterTimer.startAll"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.startAll">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">startAll</span><span class="p">():</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Starts all timers, won&#39;t work after a stopAll command&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Starts all timers, won&#39;t work after a stopAll command.&quot;&quot;&quot;</span>
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
         <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">master</span><span class="o">.</span><span class="n">timers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
@@ -355,14 +268,14 @@
 
 <div class="viewcode-block" id="MasterTimer.stopAll"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.stopAll">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">stopAll</span><span class="p">():</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Kills the timer run, can&#39;t easily be restarted&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Kills the timer run, can&#39;t easily be restarted.&quot;&quot;&quot;</span>
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
         <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">master</span><span class="o">.</span><span class="n">timers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">timer</span><span class="o">.</span><span class="n">over_start</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># deal with what recursion may have caused</span>
             <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
-        <span class="n">_Timer</span><span class="o">.</span><span class="n">_frozen</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># pylint: disable=protected-access</span>
+        <span class="n">_Timer</span><span class="o">.</span><span class="n">_frozen</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="n">master</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span></div>
 
@@ -375,7 +288,7 @@
 <div class="viewcode-block" id="MasterTimer.report"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.report">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">report</span><span class="p">(</span><span class="n">inclusion_cutoff</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">total_time</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Write a string report of the timers</span>
+<span class="sd">        Write a string report of the timers.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -388,7 +301,6 @@
 <span class="sd">        --------</span>
 <span class="sd">        armi.utils.codeTiming._Timer.__str__ : prints out the results for each individual line item</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">master</span> <span class="o">=</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">getMasterTimer</span><span class="p">()</span>
 
         <span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
@@ -415,7 +327,7 @@
 
 <div class="viewcode-block" id="MasterTimer.timeline"><a class="viewcode-back" href="../../../.apidocs/armi.utils.codeTiming.html#armi.utils.codeTiming.MasterTimer.timeline">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">timeline</span><span class="p">(</span><span class="n">base_file_name</span><span class="p">,</span> <span class="n">inclusion_cutoff</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">total_time</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produces a timeline graphic of the timers</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produces a timeline graphic of the timers.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -426,7 +338,6 @@
 <span class="sd">            Will not show results that have less than this fraction of the total time.</span>
 <span class="sd">        total_time : bool, optional</span>
 <span class="sd">            Use either the ratio of total time or time since last report for consideration against the cutoff</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
         <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -497,14 +408,14 @@
         <span class="c1"># done</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">base_file_name</span> <span class="o">+</span> <span class="s2">&quot;.code-timeline.png&quot;</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">filename</span><span class="p">)</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">_Timer</span><span class="p">:</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Code timer to call at various points to measure performance</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Code timer to call at various points to measure performance.</span>
 
 <span class="sd">    see MasterTimer.getTimer() for construction</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_frozen</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># if the master timer stops, all timers must freeze, with no thaw (how would that make sense in a run?)</span>
@@ -537,9 +448,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">pauses</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">isActive</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reportedTotal</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
-        <span class="p">)</span>  <span class="c1"># needs to come after str generation because it resets the timeSinceReport</span>
+        <span class="c1"># needs to come after str generation because it resets the timeSinceReport</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reportedTotal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
         <span class="k">return</span> <span class="n">str_</span>
 
     <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -553,24 +463,23 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_active</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">pauses</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-    <span class="p">):</span>  <span class="c1"># if this number seems high remember .start() twice in a row adds a pause</span>
+    <span class="k">def</span> <span class="nf">pauses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;If this number seems high remember .start() twice in a row adds a pause.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_times</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_times</span> <span class="k">else</span> <span class="mi">0</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Total time value&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Total time value.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">])</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">timeSinceReport</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;The elapsed time since this timer was asked to report itself&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The elapsed time since this timer was asked to report itself.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">reportedTotal</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of time start and stop pairs, if active the current time is used as the last stop&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of time start and stop pairs, if active the current time is used as the last stop.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isActive</span><span class="p">:</span>
             <span class="n">times</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_times</span><span class="p">)</span>
             <span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">MasterTimer</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
@@ -616,49 +525,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.physics.neutronics.globalFlux.globalFluxInterface &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.physics.neutronics.globalFlux.globalFluxInterface &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../../neutronics.html">armi.physics.neutronics</a> &raquo;</li>
-        
-      <li>armi.physics.neutronics.globalFlux.globalFluxInterface</li>
-    
-    
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../../neutronics.html">armi.physics.neutronics</a></li>
+      <li class="breadcrumb-item active">armi.physics.neutronics.globalFlux.globalFluxInterface</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.physics.neutronics.globalFlux.globalFluxInterface</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -196,9 +116,7 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">The Global flux interface provide a base class for all neutronics tools that compute the neutron and/or photon flux.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;The Global flux interface provide a base class for all neutronics tools that compute the neutron and/or photon flux.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
 
@@ -216,27 +134,15 @@
 <span class="kn">from</span> <span class="nn">armi.reactor.converters</span> <span class="kn">import</span> <span class="n">geometryConverters</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.converters</span> <span class="kn">import</span> <span class="n">uniformMesh</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
+<span class="kn">from</span> <span class="nn">armi.settings.caseSettings</span> <span class="kn">import</span> <span class="n">Settings</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">units</span><span class="p">,</span> <span class="n">codeTiming</span><span class="p">,</span> <span class="n">getMaxBurnSteps</span>
-<span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">CONF_BOUNDARIES</span><span class="p">,</span>
-    <span class="n">CONF_DPA_PER_FLUENCE</span><span class="p">,</span>
-    <span class="n">CONF_EIGEN_PROB</span><span class="p">,</span>
-    <span class="n">CONF_NEUTRONICS_KERNEL</span><span class="p">,</span>
-    <span class="n">CONF_RESTART_NEUTRONICS</span><span class="p">,</span>
-    <span class="n">CONF_ACLP_DOSE_LIMIT</span><span class="p">,</span>
-    <span class="n">CONF_DPA_XS_SET</span><span class="p">,</span>
-    <span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">,</span>
-    <span class="n">CONF_LOAD_PAD_ELEVATION</span><span class="p">,</span>
-    <span class="n">CONF_LOAD_PAD_LENGTH</span><span class="p">,</span>
-    <span class="n">CONF_XS_KERNEL</span><span class="p">,</span>
-<span class="p">)</span>
 
 <span class="n">ORDER</span> <span class="o">=</span> <span class="n">interfaces</span><span class="o">.</span><span class="n">STACK_ORDER</span><span class="o">.</span><span class="n">FLUX</span>
 
 <span class="n">RX_ABS_MICRO_LABELS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;nGamma&quot;</span><span class="p">,</span> <span class="s2">&quot;fission&quot;</span><span class="p">,</span> <span class="s2">&quot;nalph&quot;</span><span class="p">,</span> <span class="s2">&quot;np&quot;</span><span class="p">,</span> <span class="s2">&quot;nd&quot;</span><span class="p">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">]</span>
 <span class="n">RX_PARAM_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rateCap&quot;</span><span class="p">,</span> <span class="s2">&quot;rateFis&quot;</span><span class="p">,</span> <span class="s2">&quot;rateProdN2n&quot;</span><span class="p">,</span> <span class="s2">&quot;rateProdFis&quot;</span><span class="p">,</span> <span class="s2">&quot;rateAbs&quot;</span><span class="p">]</span>
 
-<span class="c1"># pylint: disable=too-many-public-methods</span>
+
 <div class="viewcode-block" id="GlobalFluxInterface"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterface">[docs]</a><span class="k">class</span> <span class="nc">GlobalFluxInterface</span><span class="p">(</span><span class="n">interfaces</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A general abstract interface for global flux-calculating modules.</span>
@@ -263,7 +169,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_setTightCouplingDefaults</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_setTightCouplingDefaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;enable tight coupling defaults for the interface</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enable tight coupling defaults for the interface.</span>
 
 <span class="sd">        - allows users to set tightCoupling: true in settings without</span>
 <span class="sd">          having to specify the specific tightCouplingSettings for this interface.</span>
@@ -386,7 +292,7 @@
 
 <div class="viewcode-block" id="GlobalFluxInterface.calculateKeff"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterface.calculateKeff">[docs]</a>    <span class="k">def</span> <span class="nf">calculateKeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;keff&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Runs neutronics tool and returns keff without applying it to the reactor</span>
+<span class="sd">        Runs neutronics tool and returns keff without applying it to the reactor.</span>
 
 <span class="sd">        Used for things like direct-eigenvalue reactivity coefficients and CR worth iterations.</span>
 <span class="sd">        For anything more complicated than getting keff, clients should</span>
@@ -434,7 +340,7 @@
         <span class="n">GlobalFluxInterface</span><span class="o">.</span><span class="n">interactCoupled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iteration</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="GlobalFluxInterfaceUsingExecuters.getTightCouplingValue"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterfaceUsingExecuters.getTightCouplingValue">[docs]</a>    <span class="k">def</span> <span class="nf">getTightCouplingValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the parameter value&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the parameter value.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;keff&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">keff</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;power&quot;</span><span class="p">:</span>
@@ -479,7 +385,7 @@
 
 <div class="viewcode-block" id="GlobalFluxInterfaceUsingExecuters.getExecuter"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterfaceUsingExecuters.getExecuter">[docs]</a>    <span class="k">def</span> <span class="nf">getExecuter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get executer object for performing custom client calcs</span>
+<span class="sd">        Get executer object for performing custom client calcs.</span>
 
 <span class="sd">        This allows plugins to update options in a somewhat generic</span>
 <span class="sd">        way. For example, reactivity coefficients plugin may want to</span>
@@ -509,7 +415,7 @@
 <div class="viewcode-block" id="GlobalFluxInterfaceUsingExecuters.getLabel"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterfaceUsingExecuters.getLabel">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">getLabel</span><span class="p">(</span><span class="n">caseTitle</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Make a label (input/output file name) for the executer based on cycle, node, iteration</span>
+<span class="sd">        Make a label (input/output file name) for the executer based on cycle, node, iteration.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -529,62 +435,129 @@
 
 
 <div class="viewcode-block" id="GlobalFluxOptions"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions">[docs]</a><span class="k">class</span> <span class="nc">GlobalFluxOptions</span><span class="p">(</span><span class="n">executers</span><span class="o">.</span><span class="n">ExecutionOptions</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Data structure representing common options in Global Flux Solvers&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Data structure representing common options in Global Flux Solvers.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    adjoint : bool</span>
+<span class="sd">        True if the ``CONF_NEUTRONICS_TYPE`` setting is set to ``adjoint`` or ``real``.</span>
+<span class="sd">    calcReactionRatesOnMeshConversion : bool</span>
+<span class="sd">        This option is used to recalculate reaction rates after a mesh</span>
+<span class="sd">        conversion and remapping of neutron flux. This can be disabled</span>
+<span class="sd">        in certain global flux implementations if reaction rates are not</span>
+<span class="sd">        required, but by default it is enabled.</span>
+<span class="sd">    eigenvalueProblem : bool</span>
+<span class="sd">        Whether this is a eigenvalue problem or a fixed source problem</span>
+<span class="sd">    includeFixedSource : bool</span>
+<span class="sd">        This can happen in eig if Fredholm Alternative satisfied.</span>
+<span class="sd">    photons : bool</span>
+<span class="sd">        Run the photon/gamma uniform mesh converter?</span>
+<span class="sd">    real : bool</span>
+<span class="sd">        True if  ``CONF_NEUTRONICS_TYPE`` setting is set to ``real``.</span>
+<span class="sd">    aclpDoseLimit : float</span>
+<span class="sd">        Dose limit in dpa used to position the above-core load pad (if one exists)</span>
+<span class="sd">    boundaries : str</span>
+<span class="sd">        External Neutronic Boundary Conditions. Reflective does not include axial.</span>
+<span class="sd">    cs : Settings</span>
+<span class="sd">        Settings for this run</span>
+<span class="sd">    detailedAxialExpansion : bool</span>
+<span class="sd">        Turn on detailed axial expansion? from settings</span>
+<span class="sd">    dpaPerFluence : float</span>
+<span class="sd">        A quick and dirty conversion that is used to get dpaPeak by multiplying</span>
+<span class="sd">        the factor and fastFluencePeak</span>
+<span class="sd">    energyDepoCalcMethodStep : str</span>
+<span class="sd">        For gamma transport/normalization</span>
+<span class="sd">    epsEigenvalue : float</span>
+<span class="sd">        Convergence criteria for calculating the eigenvalue in the global flux solver</span>
+<span class="sd">    epsFissionSourceAvg : float</span>
+<span class="sd">        Convergence criteria for average fission source, from settings</span>
+<span class="sd">    epsFissionSourcePoint : float</span>
+<span class="sd">        Convergence criteria for point fission source, from settings</span>
+<span class="sd">    geomType : geometry.GeomType</span>
+<span class="sd">        Reactor Core geometry type (HEX, RZ, RZT, etc)</span>
+<span class="sd">    hasNonUniformAssems: bool</span>
+<span class="sd">        Has any non-uniform assembly flags, from settings</span>
+<span class="sd">    isRestart : bool</span>
+<span class="sd">        Restart global flux case using outputs from last time as a guess</span>
+<span class="sd">    kernelName : str</span>
+<span class="sd">        The neutronics / depletion solver for global flux solve.</span>
+<span class="sd">    loadPadElevation : float</span>
+<span class="sd">        The elevation of the bottom of the above-core load pad (ACLP) from</span>
+<span class="sd">        the bottom of the upper grid plate (in cm).</span>
+<span class="sd">    loadPadLength : float</span>
+<span class="sd">        The length of the load pad. Used to compute average and peak dose.</span>
+<span class="sd">    maxOuters : int</span>
+<span class="sd">        XY and Axial partial current sweep max outer iterations.</span>
+<span class="sd">    savePhysicsFilesList : bool</span>
+<span class="sd">        Is this timestamp in the list of savePhysicsFiles in the settings?</span>
+<span class="sd">    symmetry : str</span>
+<span class="sd">        Reactor symmetry: full core, third-core, etc</span>
+<span class="sd">    xsKernel : str</span>
+<span class="sd">        Lattice Physics Kernel, from settings</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="n">executers</span><span class="o">.</span><span class="n">ExecutionOptions</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">adjoint</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">neutrons</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">photons</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">boundaryConditions</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">epsFissionSourceAvg</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">epsFissionSourcePoint</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">epsEigenvalue</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maxOuters</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># can happen in eig if Fredholm Alternative satisfied</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">includeFixedSource</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">eigenvalueProblem</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">kernelName</span><span class="p">:</span> <span class="nb">str</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">isRestart</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">energyDepoCalcMethodStep</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># for gamma transport/normalization</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">detailedAxialExpansion</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># have defaults</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjoint</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calcReactionRatesOnMeshConversion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eigenvalueProblem</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">includeFixedSource</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">photons</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">boundaries</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">xsKernel</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># no defaults</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aclpDoseLimit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boundaries</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Settings</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">detailedAxialExpansion</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dpaPerFluence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">energyDepoCalcMethodStep</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsEigenvalue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsFissionSourceAvg</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsFissionSourcePoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geomType</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">geometry</span><span class="o">.</span><span class="n">GeomType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hasNonUniformAssems</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isRestart</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernelName</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadElevation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadLength</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxOuters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">savePhysicsFilesList</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symmetry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xsKernel</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">dpaPerFluence</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">aclpDoseLimit</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadElevation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loadPadLength</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">savePhysicsFilesList</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_geomType</span><span class="p">:</span> <span class="n">geometry</span><span class="o">.</span><span class="n">GeomType</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">symmetry</span><span class="p">:</span> <span class="nb">str</span>
-
-        <span class="c1"># This option is used to recalculate reaction</span>
-        <span class="c1"># rates after a mesh conversion and remapping</span>
-        <span class="c1"># of neutron flux. This can be disabled</span>
-        <span class="c1"># in certain global flux implementations</span>
-        <span class="c1"># if reaction rates are not required, but</span>
-        <span class="c1"># by default it is enabled.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">calcReactionRatesOnMeshConversion</span> <span class="o">=</span> <span class="kc">True</span>
-
-<div class="viewcode-block" id="GlobalFluxOptions.fromUserSettings"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions.fromUserSettings">[docs]</a>    <span class="k">def</span> <span class="nf">fromUserSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
+<div class="viewcode-block" id="GlobalFluxOptions.fromUserSettings"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions.fromUserSettings">[docs]</a>    <span class="k">def</span> <span class="nf">fromUserSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">Settings</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Map user input settings from cs to a set of specific global flux options.</span>
 
 <span class="sd">        This is not required; these options can alternatively be set programmatically.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">CONF_ACLP_DOSE_LIMIT</span><span class="p">,</span>
+            <span class="n">CONF_BOUNDARIES</span><span class="p">,</span>
+            <span class="n">CONF_DPA_PER_FLUENCE</span><span class="p">,</span>
+            <span class="n">CONF_EIGEN_PROB</span><span class="p">,</span>
+            <span class="n">CONF_LOAD_PAD_ELEVATION</span><span class="p">,</span>
+            <span class="n">CONF_LOAD_PAD_LENGTH</span><span class="p">,</span>
+            <span class="n">CONF_NEUTRONICS_KERNEL</span><span class="p">,</span>
+            <span class="n">CONF_RESTART_NEUTRONICS</span><span class="p">,</span>
+            <span class="n">CONF_XS_KERNEL</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="kn">from</span> <span class="nn">armi.settings.fwSettings.globalSettings</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">CONF_PHYSICS_FILES</span><span class="p">,</span>
+            <span class="n">CONF_NON_UNIFORM_ASSEM_FLAGS</span><span class="p">,</span>
+            <span class="n">CONF_DETAILED_AXIAL_EXPANSION</span><span class="p">,</span>
+        <span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">kernelName</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_NEUTRONICS_KERNEL</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setRunDirFromCaseTitle</span><span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="n">caseTitle</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">isRestart</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_RESTART_NEUTRONICS</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">adjoint</span> <span class="o">=</span> <span class="n">neutronics</span><span class="o">.</span><span class="n">adjointCalculationRequested</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">neutronics</span><span class="o">.</span><span class="n">realCalculationRequested</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">detailedAxialExpansion</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;detailedAxialExpansion&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">detailedAxialExpansion</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_DETAILED_AXIAL_EXPANSION</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hasNonUniformAssems</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">Flags</span><span class="o">.</span><span class="n">fromStringIgnoreErrors</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;nonUniformAssemFlags&quot;</span><span class="p">]]</span>
+            <span class="p">[</span><span class="n">Flags</span><span class="o">.</span><span class="n">fromStringIgnoreErrors</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_NON_UNIFORM_ASSEM_FLAGS</span><span class="p">]]</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eigenvalueProblem</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_EIGEN_PROB</span><span class="p">]</span>
 
@@ -596,7 +569,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">boundaries</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_BOUNDARIES</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">xsKernel</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_XS_KERNEL</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="n">cs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">savePhysicsFilesList</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;savePhysicsFiles&quot;</span><span class="p">]</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">savePhysicsFilesList</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_PHYSICS_FILES</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="GlobalFluxOptions.fromReactor"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions.fromReactor">[docs]</a>    <span class="k">def</span> <span class="nf">fromReactor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reactor</span><span class="p">:</span> <span class="n">reactors</span><span class="o">.</span><span class="n">Reactor</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">geomType</span> <span class="o">=</span> <span class="n">reactor</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">geomType</span>
@@ -645,7 +618,7 @@
     <span class="nd">@codeTiming</span><span class="o">.</span><span class="n">timed</span>
     <span class="k">def</span> <span class="nf">_performGeometryTransformations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">makePlots</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Apply geometry conversions to make reactor work in neutronics</span>
+<span class="sd">        Apply geometry conversions to make reactor work in neutronics.</span>
 
 <span class="sd">        There are two conditions where things must happen:</span>
 
@@ -723,7 +696,7 @@
         <span class="k">if</span> <span class="n">meshConverter</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">applyResultsToReactor</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">hasNonUniformAssems</span><span class="p">:</span>
                 <span class="n">meshConverter</span><span class="o">.</span><span class="n">applyStateToOriginal</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">meshConverter</span><span class="o">.</span><span class="n">_sourceReactor</span>  <span class="c1"># pylint: disable=protected-access;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">meshConverter</span><span class="o">.</span><span class="n">_sourceReactor</span>
 
             <span class="c1"># Resets the stored attributes on the converter to</span>
             <span class="c1"># ensure that there is state data that is long-lived on the</span>
@@ -736,7 +709,7 @@
 
 <div class="viewcode-block" id="GlobalFluxExecuter.edgeAssembliesAreNeeded"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxExecuter.edgeAssembliesAreNeeded">[docs]</a>    <span class="k">def</span> <span class="nf">edgeAssembliesAreNeeded</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        True if edge assemblies are needed in this calculation</span>
+<span class="sd">        True if edge assemblies are needed in this calculation.</span>
 
 <span class="sd">        We only need them in finite difference cases that are not full core.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -764,9 +737,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="GlobalFluxResultMapper.clearFlux"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper.clearFlux">[docs]</a>    <span class="k">def</span> <span class="nf">clearFlux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Delete flux on all blocks. Needed to prevent stale flux when partially reloading.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete flux on all blocks. Needed to prevent stale flux when partially reloading.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">mgFlux</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">adjMgFlux</span> <span class="o">=</span> <span class="p">[]</span>
@@ -844,6 +815,11 @@
 <span class="sd">        -------</span>
 <span class="sd">            list : cross section values</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">CONF_DPA_XS_SET</span><span class="p">,</span>
+            <span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">,</span>
+        <span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">]</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">GRID_PLATE</span><span class="p">):</span>
             <span class="n">dpaXsSetName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_GRID_PLATE_DPA_XS_SET</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -858,7 +834,7 @@
 
 <div class="viewcode-block" id="GlobalFluxResultMapper.getBurnupPeakingFactor"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper.getBurnupPeakingFactor">[docs]</a>    <span class="k">def</span> <span class="nf">getBurnupPeakingFactor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Block</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the radial peaking factor to be applied to burnup and DPA for a Block</span>
+<span class="sd">        Get the radial peaking factor to be applied to burnup and DPA for a Block.</span>
 
 <span class="sd">        This may be informed by previous runs which used</span>
 <span class="sd">        detailed pin reconstruction and rotation. In that case,</span>
@@ -882,13 +858,15 @@
             <span class="n">burnupPeakingFactor</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fluxPeak</span> <span class="o">/</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flux</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="n">burnupPeakingFactor</span><span class="p">:</span>
             <span class="c1"># no peak available. Finite difference model?</span>
-            <span class="n">burnupPeakingFactor</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="c1"># Use 0.0 for peaking so that there isn&#39;t misuse of peaking values that don&#39;t actually have peaking applied.</span>
+            <span class="c1"># Uet self.cs[&quot;burnupPeakingFactor&quot;] or b.p.fluxPeak for different behavior</span>
+            <span class="n">burnupPeakingFactor</span> <span class="o">=</span> <span class="mf">0.0</span>
 
         <span class="k">return</span> <span class="n">burnupPeakingFactor</span></div>
 
 <div class="viewcode-block" id="GlobalFluxResultMapper.updateDpaRate"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper.updateDpaRate">[docs]</a>    <span class="k">def</span> <span class="nf">updateDpaRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockList</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Update state parameters that can be known right after the flux is computed</span>
+<span class="sd">        Update state parameters that can be known right after the flux is computed.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1003,7 +981,7 @@
 
 <div class="viewcode-block" id="DoseResultsMapper.updateFluenceAndDpa"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.DoseResultsMapper.updateFluenceAndDpa">[docs]</a>    <span class="k">def</span> <span class="nf">updateFluenceAndDpa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stepTimeInSeconds</span><span class="p">,</span> <span class="n">blockList</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Updates the fast fluence and the DPA of the blocklist</span>
+<span class="sd">        Updates the fast fluence and the DPA of the blocklist.</span>
 
 <span class="sd">        The dpa rate from the previous timestep is used to compute the dpa here.</span>
 
@@ -1036,24 +1014,20 @@
             <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blockList</span><span class="p">:</span>
-            <span class="n">burnupPeakingFactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBurnupPeakingFactor</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">residence</span> <span class="o">+=</span> <span class="n">stepTimeInSeconds</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">SECONDS_PER_DAY</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fluence</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flux</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fastFluence</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flux</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fastFluxFr</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fastFluencePeak</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fluxPeak</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fastFluxFr</span>
 
             <span class="c1"># update detailed DPA based on dpa rate computed at LAST timestep.</span>
-            <span class="n">dpaRateThisStep</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaRate</span>
-            <span class="n">newDpaThisStep</span> <span class="o">=</span> <span class="n">dpaRateThisStep</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span>
-            <span class="n">newDPAPeak</span> <span class="o">=</span> <span class="n">newDpaThisStep</span> <span class="o">*</span> <span class="n">burnupPeakingFactor</span>
-            <span class="c1"># track incremental increase for duct distortion interface (and eq)</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPA</span> <span class="o">=</span> <span class="n">newDpaThisStep</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPAPeak</span> <span class="o">=</span> <span class="n">newDPAPeak</span>
+            <span class="c1"># new incremental DPA increase for duct distortion interface (and eq)</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPA</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaRate</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPAPeak</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaPeakRate</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span>
+
             <span class="c1"># use = here instead of += because we need the param system to notice the change for syncronization.</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpa</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpa</span> <span class="o">+</span> <span class="n">newDpaThisStep</span>
-            <span class="c1"># add assembly peaking</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaPeak</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaPeak</span> <span class="o">+</span> <span class="n">newDPAPeak</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaThisCycle</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaThisCycle</span> <span class="o">+</span> <span class="n">newDpaThisStep</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpa</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpa</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPA</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaPeak</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaPeak</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPAPeak</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaThisCycle</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">detailedDpaThisCycle</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">newDPA</span>
 
             <span class="c1"># increment point dpas</span>
             <span class="c1"># this is specific to hex geometry, but they are general neutronics block parameters</span>
@@ -1077,9 +1051,33 @@
                     <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">fastFluencePeak</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">dpaPerFluence</span>
                 <span class="p">)</span>
 
-            <span class="c1"># also set the burnup peaking. Requires burnup to be up-to-date</span>
+            <span class="c1"># Set burnup peaking</span>
+            <span class="c1"># b.p.percentBu/buRatePeak is expected to have been updated elsewhere (depletion)</span>
             <span class="c1"># (this should run AFTER burnup has been updated)</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBuPeak</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBu</span> <span class="o">*</span> <span class="n">burnupPeakingFactor</span>
+            <span class="c1"># try to find the peak rate first</span>
+            <span class="n">peakRate</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">buRatePeak</span><span class="p">:</span>
+                <span class="c1"># best case scenario, we have peak burnup rate</span>
+                <span class="n">peakRate</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">buRatePeak</span>
+            <span class="k">elif</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">buRate</span><span class="p">:</span>
+                <span class="c1"># use whatever peaking factor we can find if just have rate</span>
+                <span class="n">peakRate</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">buRate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBurnupPeakingFactor</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+            <span class="c1"># If peak rate found, use to calc peak burnup; otherwise scale burnup</span>
+            <span class="k">if</span> <span class="n">peakRate</span><span class="p">:</span>
+                <span class="c1"># peakRate is in per day</span>
+                <span class="n">peakRatePerSecond</span> <span class="o">=</span> <span class="n">peakRate</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">SECONDS_PER_DAY</span>
+                <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBuPeak</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBuPeak</span> <span class="o">+</span> <span class="n">peakRatePerSecond</span> <span class="o">*</span> <span class="n">stepTimeInSeconds</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># No rate, make bad assumption.... assumes peaking is same at each position through shuffling/irradiation history...</span>
+                <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;Scaling burnup by current peaking factor... This assumes peaking &quot;</span>
+                    <span class="s2">&quot;factor was constant through shuffling/irradiation history.&quot;</span><span class="p">,</span>
+                    <span class="n">single</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBuPeak</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBurnupPeakingFactor</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">():</span>
             <span class="n">a</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">daysSinceLastMove</span> <span class="o">+=</span> <span class="n">stepTimeInSeconds</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">SECONDS_PER_DAY</span>
@@ -1089,13 +1087,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">updateLoadpadDose</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="DoseResultsMapper.updateCycleDoseParams"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.DoseResultsMapper.updateCycleDoseParams">[docs]</a>    <span class="k">def</span> <span class="nf">updateCycleDoseParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Updates reactor params based on the amount of dose (detailedDpa) accrued this cycle</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Updates reactor params based on the amount of dose (detailedDpa) accrued this cycle.</span>
+
 <span class="sd">        Params updated include:</span>
 
-<span class="sd">        maxDetailedDpaThisCycle</span>
-<span class="sd">        dpaFullWidthHalfMax</span>
-<span class="sd">        elevationOfACLP3Cycles</span>
-<span class="sd">        elevationOfACLP7Cycles</span>
+<span class="sd">        * maxDetailedDpaThisCycle</span>
+<span class="sd">        * dpaFullWidthHalfMax</span>
+<span class="sd">        * elevationOfACLP3Cycles</span>
+<span class="sd">        * elevationOfACLP7Cycles</span>
 
 <span class="sd">        These parameters are left as zeroes at BOC because no dose has been accumulated yet.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1267,7 +1266,7 @@
 
 <div class="viewcode-block" id="computeDpaRate"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.computeDpaRate">[docs]</a><span class="k">def</span> <span class="nf">computeDpaRate</span><span class="p">(</span><span class="n">mgFlux</span><span class="p">,</span> <span class="n">dpaXs</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute the DPA rate incurred by exposure of a certain flux spectrum</span>
+<span class="sd">    Compute the DPA rate incurred by exposure of a certain flux spectrum.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1346,7 +1345,7 @@
 
 <div class="viewcode-block" id="calcReactionRates"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.calcReactionRates">[docs]</a><span class="k">def</span> <span class="nf">calcReactionRates</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">keff</span><span class="p">,</span> <span class="n">lib</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute 1-group reaction rates for this object (usually a block.)</span>
+<span class="sd">    Compute 1-group reaction rates for this object (usually a block).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1389,7 +1388,6 @@
 <span class="sd">    .. math::</span>
 
 <span class="sd">        \sigma_g = \frac{\int_{E g}^{E_{g+1}} \phi(E)  \sigma(E) dE}{\int_{E_g}^{E_{g+1}} \phi(E) dE}</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">simple</span> <span class="ow">in</span> <span class="n">RX_PARAM_NAMES</span><span class="p">:</span>
@@ -1442,49 +1440,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

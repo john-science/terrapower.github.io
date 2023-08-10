@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.physics.fuelCycle.tests.test_fuelHandlers &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.physics.fuelCycle.tests.test_fuelHandlers &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../../fuelCycle.html">armi.physics.fuelCycle</a> &raquo;</li>
-        
-      <li>armi.physics.fuelCycle.tests.test_fuelHandlers</li>
-    
-    
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../../fuelCycle.html">armi.physics.fuelCycle</a></li>
+      <li class="breadcrumb-item active">armi.physics.fuelCycle.tests.test_fuelHandlers</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.physics.fuelCycle.tests.test_fuelHandlers</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -201,7 +121,6 @@
 <span class="sd">This test is high enough level that it requires input files to be present. The ones to use</span>
 <span class="sd">are called armiRun.yaml which is located in armi.tests</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># pylint: disable=missing-function-docstring,missing-class-docstring,protected-access,invalid-name,no-self-use,no-method-argument,import-outside-toplevel</span>
 <span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
@@ -209,15 +128,23 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">armi.physics.fuelCycle</span> <span class="kn">import</span> <span class="n">fuelHandlers</span><span class="p">,</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">armi.physics.fuelCycle.settings</span> <span class="kn">import</span> <span class="n">CONF_ASSEM_ROTATION_STATIONARY</span>
-<span class="kn">from</span> <span class="nn">armi.physics.fuelCycle.settings</span> <span class="kn">import</span> <span class="n">CONF_PLOT_SHUFFLE_ARROWS</span>
+<span class="kn">from</span> <span class="nn">armi.physics.fuelCycle.settings</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CONF_ASSEM_ROTATION_STATIONARY</span><span class="p">,</span>
+    <span class="n">CONF_PLOT_SHUFFLE_ARROWS</span><span class="p">,</span>
+    <span class="n">CONF_RUN_LATTICE_BEFORE_SHUFFLING</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.crossSectionGroupManager</span> <span class="kn">import</span> <span class="n">CrossSectionGroupManager</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.latticePhysics.latticePhysicsInterface</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LatticePhysicsInterface</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">assemblies</span><span class="p">,</span> <span class="n">blocks</span><span class="p">,</span> <span class="n">components</span><span class="p">,</span> <span class="n">grids</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.tests</span> <span class="kn">import</span> <span class="n">test_reactors</span>
 <span class="kn">from</span> <span class="nn">armi.settings</span> <span class="kn">import</span> <span class="n">caseSettings</span>
-<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">ArmiTestHelper</span><span class="p">,</span> <span class="n">TEST_ROOT</span>
-<span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">directoryChangers</span>
+<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">ArmiTestHelper</span>
 <span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">mockRunLogs</span>
+<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">TEST_ROOT</span>
+<span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">directoryChangers</span>
 
 
 <div class="viewcode-block" id="FuelHandlerTestHelper"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.FuelHandlerTestHelper">[docs]</a><span class="k">class</span> <span class="nc">FuelHandlerTestHelper</span><span class="p">(</span><span class="n">ArmiTestHelper</span><span class="p">):</span>
@@ -235,9 +162,10 @@
         <span class="bp">cls</span><span class="o">.</span><span class="n">directoryChanger</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Build a dummy reactor without using input files. There are some igniters and feeds</span>
-<span class="sd">        but none of these have any number densities.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a dummy reactor without using input files.</span>
+
+<span class="sd">        There are some igniters and feeds but none of these have any number densities.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">test_reactors</span><span class="o">.</span><span class="n">loadTestReactor</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">directoryChanger</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span>
@@ -251,7 +179,7 @@
                 <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBu</span> <span class="o">=</span> <span class="mf">30.0</span> <span class="o">*</span> <span class="n">bi</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">blockList</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nfeed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FEED</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nigniter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">IGNITER</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nSfp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nSfp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="p">)</span>
 
         <span class="c1"># generate a reactor with assemblies</span>
         <span class="c1"># generate components with materials</span>
@@ -306,7 +234,41 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">directoryChanger</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
+<div class="viewcode-block" id="MockLatticePhysicsInterface"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.MockLatticePhysicsInterface">[docs]</a><span class="k">class</span> <span class="nc">MockLatticePhysicsInterface</span><span class="p">(</span><span class="n">LatticePhysicsInterface</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A mock lattice physics interface that does nothing for interactBOC.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MockLatticePhysicsInterface&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_getExecutablePath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;/mock/&quot;</span>
+
+<div class="viewcode-block" id="MockLatticePhysicsInterface.interactBOC"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.MockLatticePhysicsInterface.interactBOC">[docs]</a>    <span class="k">def</span> <span class="nf">interactBOC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="MockXSGM"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.MockXSGM">[docs]</a><span class="k">class</span> <span class="nc">MockXSGM</span><span class="p">(</span><span class="n">CrossSectionGroupManager</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A mock cross section group manager that does nothing for interactBOC.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MockXSGM.interactBOC"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.MockXSGM.interactBOC">[docs]</a>    <span class="k">def</span> <span class="nf">interactBOC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
 <div class="viewcode-block" id="TestFuelHandler"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler">[docs]</a><span class="k">class</span> <span class="nc">TestFuelHandler</span><span class="p">(</span><span class="n">FuelHandlerTestHelper</span><span class="p">):</span>
+<div class="viewcode-block" id="TestFuelHandler.test_interactBOC"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_interactBOC">[docs]</a>    <span class="k">def</span> <span class="nf">test_interactBOC</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># set up mock interface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">addInterface</span><span class="p">(</span><span class="n">MockLatticePhysicsInterface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">removeInterface</span><span class="p">(</span><span class="n">interfaceName</span><span class="o">=</span><span class="s2">&quot;xsGroups&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">addInterface</span><span class="p">(</span><span class="n">MockXSGM</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">))</span>
+        <span class="c1"># adjust case settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_RUN_LATTICE_BEFORE_SHUFFLING</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># run fhi.interactBOC</span>
+        <span class="n">fhi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="s2">&quot;fuelHandler&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">mockRunLogs</span><span class="o">.</span><span class="n">BufferLog</span><span class="p">()</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
+            <span class="n">fhi</span><span class="o">.</span><span class="n">interactBOC</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+                <span class="s2">&quot;lattice physics before fuel management due to the&quot;</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">_outputStream</span>
+            <span class="p">)</span></div>
+
 <div class="viewcode-block" id="TestFuelHandler.test_findHighBu"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_findHighBu">[docs]</a>    <span class="k">def</span> <span class="nf">test_findHighBu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">getLocatorFromRingAndPos</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
         <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">childrenByLocator</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
@@ -411,7 +373,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestFuelHandler.test_findMany"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_findMany">[docs]</a>    <span class="k">def</span> <span class="nf">test_findMany</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tests the findMany and type aspects of the fuel handler&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tests the ``findMany`` and type aspects of the fuel handler.&quot;&quot;&quot;</span>
         <span class="n">fh</span> <span class="o">=</span> <span class="n">fuelHandlers</span><span class="o">.</span><span class="n">FuelHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">)</span>
 
         <span class="n">igniters</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">findAssembly</span><span class="p">(</span><span class="n">typeSpec</span><span class="o">=</span><span class="n">Flags</span><span class="o">.</span><span class="n">IGNITER</span> <span class="o">|</span> <span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">,</span> <span class="n">findMany</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -440,7 +402,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestFuelHandler.test_findInSFP"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_findInSFP">[docs]</a>    <span class="k">def</span> <span class="nf">test_findInSFP</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tests ability to pull from the spent fuel pool&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tests ability to pull from the spent fuel pool.&quot;&quot;&quot;</span>
         <span class="n">fh</span> <span class="o">=</span> <span class="n">fuelHandlers</span><span class="o">.</span><span class="n">FuelHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">)</span>
         <span class="n">spent</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">findAssembly</span><span class="p">(</span>
             <span class="n">findMany</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -468,6 +430,7 @@
 <div class="viewcode-block" id="TestFuelHandler.test_findByCoords"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_findByCoords">[docs]</a>    <span class="k">def</span> <span class="nf">test_findByCoords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">fh</span> <span class="o">=</span> <span class="n">fuelHandlers</span><span class="o">.</span><span class="n">FuelHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">)</span>
         <span class="n">assem</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">findAssembly</span><span class="p">(</span><span class="n">coords</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sortAssemsByRing</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">assem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="TestFuelHandler.test_findWithMinMax"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_findWithMinMax">[docs]</a>    <span class="k">def</span> <span class="nf">test_findWithMinMax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -517,7 +480,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span> <span class="o">=</span> <span class="n">cycle</span>
             <span class="n">fh</span><span class="o">.</span><span class="n">cycle</span> <span class="o">=</span> <span class="n">cycle</span>
             <span class="n">fh</span><span class="o">.</span><span class="n">manageFuel</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">(),</span> <span class="s2">&quot;SFP&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">kgHM</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;b.p.kgHM not populated!&quot;</span><span class="p">)</span>
@@ -526,7 +489,7 @@
         <span class="n">fh</span><span class="o">.</span><span class="n">interactEOL</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="TestFuelHandler.test_repeatShuffles"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_repeatShuffles">[docs]</a>    <span class="k">def</span> <span class="nf">test_repeatShuffles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Builds a dummy core. Does some shuffles. Repeats the shuffles. Checks that it was a perfect repeat.</span>
 
 <span class="sd">        Checks some other things in the meantime</span>
@@ -536,7 +499,7 @@
 <span class="sd">        runShuffling : creates the shuffling file to be read in.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># check labels before shuffling:</span>
-        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">(),</span> <span class="s2">&quot;SFP&quot;</span><span class="p">)</span>
 
         <span class="c1"># do some shuffles.</span>
@@ -570,12 +533,12 @@
         <span class="c1"># make sure the shuffle was repeated perfectly.</span>
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="n">firstPassResults</span><span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">()])</span>
-        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">(),</span> <span class="s2">&quot;SFP&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestFuelHandler.test_readMoves"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_readMoves">[docs]</a>    <span class="k">def</span> <span class="nf">test_readMoves</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Depends on the shuffleLogic created by repeatShuffles</span>
+<span class="sd">        Depends on the ``shuffleLogic`` created by ``repeatShuffles``.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -773,7 +736,7 @@
                             <span class="k">for</span> <span class="n">sbf</span> <span class="ow">in</span> <span class="n">sBFList</span>
                         <span class="p">)</span>
                     <span class="p">)</span>
-                <span class="k">except</span><span class="p">:</span>
+                <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
                     <span class="n">a1</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span>
                         <span class="n">a1</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">sBFList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="p">)</span>
@@ -820,15 +783,13 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;top elevation of stationary&quot;</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">getStdout</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="TestFuelHandler.test_dischargeSwap"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_dischargeSwap">[docs]</a>    <span class="k">def</span> <span class="nf">test_dischargeSwap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Test the dischargeSwap method.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test the dischargeSwap method.&quot;&quot;&quot;</span>
         <span class="c1"># grab stationary block flags</span>
         <span class="n">sBFList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">stationaryBlockFlagsList</span>
 
         <span class="c1"># grab an arbitrary fuel assembly from the core and from the SFP</span>
         <span class="n">a1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># grab the stationary blocks pre swap</span>
         <span class="n">a1PreSwapStationaryBlocks</span> <span class="o">=</span> <span class="p">[</span>
@@ -877,7 +838,7 @@
 
         <span class="c1"># grab an arbitrary fuel assembly from the core and from the SFP</span>
         <span class="n">a1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># change a block in assembly 1 to be flagged as a stationary block</span>
         <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">a1</span><span class="p">:</span>
@@ -896,7 +857,7 @@
         <span class="c1"># re-initialize assemblies</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
         <span class="n">a1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="o">.</span><span class="n">getChildren</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># move location of a stationary flag in assembly 1</span>
         <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">a1</span><span class="p">:</span>
@@ -917,7 +878,7 @@
                             <span class="k">for</span> <span class="n">sbf</span> <span class="ow">in</span> <span class="n">sBFList</span>
                         <span class="p">)</span>
                     <span class="p">)</span>
-                <span class="k">except</span><span class="p">:</span>
+                <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
                     <span class="n">a1</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span>
                         <span class="n">a1</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">sBFList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="p">)</span>
@@ -949,56 +910,35 @@
 <div class="viewcode-block" id="addSomeDetailAssemblies"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.addSomeDetailAssemblies">[docs]</a><span class="k">def</span> <span class="nf">addSomeDetailAssemblies</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">assems</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assems</span><span class="p">:</span>
         <span class="n">hist</span><span class="o">.</span><span class="n">detailAssemblyNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span></div>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

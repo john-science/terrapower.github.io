@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.utils.tests.test_mathematics &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.utils.tests.test_mathematics &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../../utils.html">armi.utils</a> &raquo;</li>
-        
-      <li>armi.utils.tests.test_mathematics</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../../utils.html">armi.utils</a></li>
+      <li class="breadcrumb-item active">armi.utils.tests.test_mathematics</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.utils.tests.test_mathematics</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2022 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -195,9 +115,7 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="sa">r</span><span class="sd">&quot;&quot;&quot; Testing mathematics utilities</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># pylint: disable=missing-function-docstring,missing-class-docstring,abstract-method,protected-access,no-member,disallowed-name,invalid-name</span>
+<span class="sd">&quot;&quot;&quot;Testing mathematics utilities.&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
 
@@ -226,7 +144,7 @@
 
 
 <div class="viewcode-block" id="TestMath"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath">[docs]</a><span class="k">class</span> <span class="nc">TestMath</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests for various math utilities&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests for various math utilities.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TestMath.test_average1DWithinTolerance"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_average1DWithinTolerance">[docs]</a>    <span class="k">def</span> <span class="nf">test_average1DWithinTolerance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])])</span>
@@ -380,7 +298,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">relErr</span><span class="p">(</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">),</span> <span class="o">-</span><span class="mf">1e99</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg0"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg0">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when in and out bins match&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when in and out bins match.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.76</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">,</span> <span class="o">-</span><span class="mf">123.456</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
@@ -393,7 +311,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mf">123.456</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg1"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg1">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for one arbitrary case&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for one arbitrary case.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -406,7 +324,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg2"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg2">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for another arbitrary case&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for another arbitrary case.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -419,7 +337,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mf">3.6666666666666665</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg3"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg3">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for another arbitrary case&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for another arbitrary case.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -432,7 +350,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mf">3.8</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg4"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg4">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for matching, but uneven intervals&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for matching, but uneven intervals.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">6.777</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">6.777</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
@@ -446,7 +364,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">3.4</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg5"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg5">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for almost matching intervals&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging for almost matching intervals.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">6.777</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
@@ -458,7 +376,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">4.21889400921659</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg6"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg6">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg6</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when the intervals don&#39;t line up&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when the intervals don&#39;t line up.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -472,7 +390,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvg7"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvg7">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvg7</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when the intervals don&#39;t line up&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when the intervals don&#39;t line up.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -487,7 +405,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mi">11</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum0"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum0">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when in and out bins match&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when in and out bins match.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.76</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">,</span> <span class="o">-</span><span class="mf">123.456</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
@@ -501,7 +419,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yin</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">yout</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum1"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum1">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for one arbitrary case&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for one arbitrary case.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -515,7 +433,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yin</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">yout</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum2"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum2">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for another arbitrary case&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for another arbitrary case.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -529,7 +447,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yin</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">yout</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum3"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum3">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for another arbitrary case&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for another arbitrary case.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -543,7 +461,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yin</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">yout</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum4"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum4">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for matching, but uneven intervals&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for matching, but uneven intervals.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">6.777</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">6.777</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
@@ -558,7 +476,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yin</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">yout</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum5"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum5">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for almost matching intervals&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing for almost matching intervals.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">6.777</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">9.123</span><span class="p">]</span>
@@ -571,7 +489,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yin</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">yout</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum6"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum6">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum6</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when the intervals don&#39;t line up&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when the intervals don&#39;t line up.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -585,7 +503,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSum7"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSum7">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSum7</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when the intervals don&#39;t line up&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when the intervals don&#39;t line up.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -600,7 +518,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mi">11</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvgAllNones"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvgAllNones">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgAllNones</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when the inputs are all None&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when the inputs are all None.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
@@ -613,7 +531,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvgOneNone"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvgOneNone">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgOneNone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when one input is None&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when one input is None.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
@@ -626,7 +544,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSumAllNones"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSumAllNones">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSumAllNones</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when the inputs are all None&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when the inputs are all None.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
@@ -639,7 +557,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseSumOneNone"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseSumOneNone">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseSumOneNone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when one inputs is None&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when one inputs is None.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">13.3</span><span class="p">]</span>
@@ -652,7 +570,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMath.test_resampleStepwiseAvgComplicatedNone"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvgComplicatedNone">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgComplicatedNone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging with a None value, when the intervals don&#39;t line up&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging with a None value, when the intervals don&#39;t line up.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
@@ -667,8 +585,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="mf">38.5</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgNpArray</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when some of the values are arrays&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TestMath.test_resampleStepwiseAvgNpArray"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvgNpArray">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgNpArray</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() averaging when some of the values are arrays.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
@@ -681,10 +599,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mf">23.0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">yout</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TestMath.test_resampleStepwiseAvgNpArray"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvgNpArray">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgNpArray</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when some of the values are arrays&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TestMath.test_resampleStepwiseAvgNpArrayAverage"><a class="viewcode-back" href="../../../../.apidocs/armi.utils.tests.test_mathematics.html#armi.utils.tests.test_mathematics.TestMath.test_resampleStepwiseAvgNpArrayAverage">[docs]</a>    <span class="k">def</span> <span class="nf">test_resampleStepwiseAvgNpArrayAverage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test resampleStepwise() summing when some of the values are arrays.&quot;&quot;&quot;</span>
         <span class="n">xin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
         <span class="n">yin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="mi">44</span><span class="p">]</span>
         <span class="n">xout</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
@@ -718,56 +636,35 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">yr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">xr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">yr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">)</span></div></div>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,107 +1,67 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>armi.reactor.blocks &mdash; ARMI 0.2.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_fixes.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
-
-  
-  
+  <title>armi.reactor.blocks &mdash; ARMI 0.2.8 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/assets/jsonview.bundle.js"></script>
         <script src="../../../_static/assets/jsonview_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
         <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #233C5B" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> ARMI
           
-
-          
-            
-            <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
-          
+          <a href="../../../index.html" class="icon icon-home">
+            ARMI
+              <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
-                0.2.6
+                0.2.8
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
@@ -110,77 +70,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../requirements/index.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #233C5B" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">ARMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../../armi.html">armi</a> &raquo;</li>
-        
-          <li><a href="../reactor.html">armi.reactor</a> &raquo;</li>
-        
-      <li>armi.reactor.blocks</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../armi.html">armi</a></li>
+          <li class="breadcrumb-item"><a href="../reactor.html">armi.reactor</a></li>
+      <li class="breadcrumb-item active">armi.reactor.blocks</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for armi.reactor.blocks</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
@@ -211,19 +131,20 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span>
 
+<span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">nuclideBases</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
 <span class="kn">from</span> <span class="nn">armi.bookkeeping</span> <span class="kn">import</span> <span class="n">report</span>
-<span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">nuclideBases</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics</span> <span class="kn">import</span> <span class="n">GAMMA</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics</span> <span class="kn">import</span> <span class="n">NEUTRON</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.components</span> <span class="kn">import</span> <span class="n">basicShapes</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">blockParameters</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">components</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.components.basicShapes</span> <span class="kn">import</span> <span class="n">Hexagon</span><span class="p">,</span> <span class="n">Circle</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">composites</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">geometry</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">grids</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">parameters</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.components</span> <span class="kn">import</span> <span class="n">basicShapes</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.components.basicShapes</span> <span class="kn">import</span> <span class="n">Hexagon</span><span class="p">,</span> <span class="n">Circle</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.components.complexShapes</span> <span class="kn">import</span> <span class="n">Helix</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.parameters</span> <span class="kn">import</span> <span class="n">ParamLocation</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">densityTools</span>
@@ -264,7 +185,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Builds a new ARMI block</span>
+<span class="sd">        Builds a new ARMI block.</span>
 
 <span class="sd">        name : str</span>
 <span class="sd">            The name of this block</span>
@@ -301,7 +222,6 @@
             <span class="s2">&quot;displacementX&quot;</span><span class="p">,</span>
             <span class="s2">&quot;displacementY&quot;</span><span class="p">,</span>
             <span class="s2">&quot;fluxAdj&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;bu&quot;</span><span class="p">,</span>
             <span class="s2">&quot;buRate&quot;</span><span class="p">,</span>
             <span class="s2">&quot;eqRegion&quot;</span><span class="p">,</span>
             <span class="s2">&quot;fissileFraction&quot;</span><span class="p">,</span>
@@ -343,7 +263,7 @@
 
     <span class="k">def</span> <span class="nf">_createHomogenizedCopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pinSpatialLocators</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create a copy of a block</span>
+<span class="sd">        Create a copy of a block.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -384,7 +304,6 @@
 <span class="sd">        ValueError</span>
 <span class="sd">            If the parent of the block&#39;s ``core`` is not an ``armi.reactor.reactors.Reactor``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="kn">from</span> <span class="nn">armi.reactor.reactors</span> <span class="kn">import</span> <span class="n">Reactor</span>
 
         <span class="n">core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span>
@@ -443,7 +362,7 @@
 <span class="sd">        inner cladding area.</span>
 
 <span class="sd">        Parameters</span>
-<span class="sd">        -----------</span>
+<span class="sd">        ----------</span>
 <span class="sd">        cold : bool, optional</span>
 <span class="sd">            If false, returns the smear density at hot temperatures</span>
 
@@ -531,7 +450,7 @@
 
 <div class="viewcode-block" id="Block.getMgFlux"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getMgFlux">[docs]</a>    <span class="k">def</span> <span class="nf">getMgFlux</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adjoint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the multigroup neutron flux in [n/cm^2/s]</span>
+<span class="sd">        Returns the multigroup neutron flux in [n/cm^2/s].</span>
 
 <span class="sd">        The first entry is the first energy group (fastest neutrons). Each additional</span>
 <span class="sd">        group is the next energy group, as set in the ISOTXS library.</span>
@@ -569,7 +488,7 @@
 
 <div class="viewcode-block" id="Block.setPinMgFluxes"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.setPinMgFluxes">[docs]</a>    <span class="k">def</span> <span class="nf">setPinMgFluxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fluxes</span><span class="p">,</span> <span class="n">adjoint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Store the pin-detailed multi-group neutron flux</span>
+<span class="sd">        Store the pin-detailed multi-group neutron flux.</span>
 
 <span class="sd">        The [g][i] indexing is transposed to be a list of lists, one for each pin. This makes it</span>
 <span class="sd">        simple to do depletion for each pin, etc.</span>
@@ -648,7 +567,7 @@
             <span class="k">return</span> <span class="n">xsType</span> <span class="o">+</span> <span class="n">bu</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">xsType</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">ord</span><span class="p">(</span><span class="n">bu</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Use of multiple burnup groups is not allowed with multi-character xs groups!&quot;</span>
+                <span class="s2">&quot;Use of multiple burnup groups is not allowed with multi-character xs groups!&quot;</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">xsType</span></div>
@@ -740,7 +659,7 @@
 
 <div class="viewcode-block" id="Block.adjustUEnrich"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.adjustUEnrich">[docs]</a>    <span class="k">def</span> <span class="nf">adjustUEnrich</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newEnrich</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adjust U-235/U-238 mass ratio to a mass enrichment</span>
+<span class="sd">        Adjust U-235/U-238 mass ratio to a mass enrichment.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -984,8 +903,13 @@
             <span class="n">bolBlock</span> <span class="o">=</span> <span class="bp">self</span>
 
         <span class="n">hmDens</span> <span class="o">=</span> <span class="n">bolBlock</span><span class="o">.</span><span class="n">getHMDens</span><span class="p">()</span>  <span class="c1"># total homogenized heavy metal number density</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">molesHmBOL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getHMMoles</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">nHMAtBOL</span> <span class="o">=</span> <span class="n">hmDens</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">molesHmBOL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getHMMoles</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">puFrac</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getPuMoles</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">molesHmBOL</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">molesHmBOL</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="p">)</span>
+
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># non-pinned reactors (or ones without cladding) will not use smear density</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">smearDensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSmearDensity</span><span class="p">()</span>
@@ -994,16 +918,55 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">enrichmentBOL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFissileMassEnrich</span><span class="p">()</span>
         <span class="n">massHmBOL</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">sf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSymmetryFactor</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterComponents</span><span class="p">():</span>
-            <span class="n">child</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">massHmBOL</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">getHMMass</span><span class="p">()</span> <span class="o">*</span> <span class="n">sf</span>  <span class="c1"># scale to full block</span>
-            <span class="n">massHmBOL</span> <span class="o">+=</span> <span class="n">child</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">massHmBOL</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">puFrac</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">getPuMoles</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">molesHmBOL</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">molesHmBOL</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
-                <span class="k">else</span> <span class="mf">0.0</span>
-            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">hmMass</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">getHMMass</span><span class="p">()</span> <span class="o">*</span> <span class="n">sf</span>
+            <span class="n">massHmBOL</span> <span class="o">+=</span> <span class="n">hmMass</span>
+            <span class="c1"># Components have a massHmBOL parameter but not every composite will</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">components</span><span class="o">.</span><span class="n">Component</span><span class="p">):</span>
+                <span class="n">child</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">massHmBOL</span> <span class="o">=</span> <span class="n">hmMass</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">massHmBOL</span> <span class="o">=</span> <span class="n">massHmBOL</span>
         <span class="k">return</span> <span class="n">hmDens</span></div>
+
+<div class="viewcode-block" id="Block.setB10VolParam"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.setB10VolParam">[docs]</a>    <span class="k">def</span> <span class="nf">setB10VolParam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heightHot</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the b.p.initialB10ComponentVol param according to the volume of boron-10 containing components.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        heightHot : Boolean</span>
+<span class="sd">            True if self.height() is cold height</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># exclude fuel components since they could have slight B10 impurity and</span>
+        <span class="c1"># this metric is not relevant for fuel.</span>
+        <span class="n">b10Comps</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;B10&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">c</span><span class="o">.</span><span class="n">isFuel</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">b10Comps</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># get the highest density comp dont want to sum all because some</span>
+        <span class="c1"># comps might have very small impurities of boron and adding this</span>
+        <span class="c1"># volume wont be conservative for captures per cc.</span>
+        <span class="n">b10Comp</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">b10Comps</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;B10&quot;</span><span class="p">))[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b10Comps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;More than one boron10-containing component found  in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Only </span><span class="si">{</span><span class="n">b10Comp</span><span class="si">}</span><span class="s2"> will be considered for calculation of initialB10ComponentVol &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Since adding multiple volumes is not conservative for captures/cc.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;All compos found </span><span class="si">{</span><span class="n">b10Comps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">single</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isFuel</span><span class="p">():</span>
+            <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has both fuel and initial b10. &quot;</span>
+                <span class="s2">&quot;b10 volume may not be conserved with axial expansion.&quot;</span><span class="p">,</span>
+                <span class="n">single</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># calc volume of boron components</span>
+        <span class="n">coldArea</span> <span class="o">=</span> <span class="n">b10Comp</span><span class="o">.</span><span class="n">getArea</span><span class="p">(</span><span class="n">cold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">coldFactor</span> <span class="o">=</span> <span class="n">b10Comp</span><span class="o">.</span><span class="n">getThermalExpansionFactor</span><span class="p">()</span> <span class="k">if</span> <span class="n">heightHot</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="n">coldHeight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">/</span> <span class="n">coldFactor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">initialB10ComponentVol</span> <span class="o">=</span> <span class="n">coldArea</span> <span class="o">*</span> <span class="n">coldHeight</span></div>
 
 <div class="viewcode-block" id="Block.replaceBlockWithBlock"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.replaceBlockWithBlock">[docs]</a>    <span class="k">def</span> <span class="nf">replaceBlockWithBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bReplacement</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1220,7 +1183,7 @@
 
 <div class="viewcode-block" id="Block.mergeWithBlock"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.mergeWithBlock">[docs]</a>    <span class="k">def</span> <span class="nf">mergeWithBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otherBlock</span><span class="p">,</span> <span class="n">fraction</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Turns this block into a mixture of this block and some other block</span>
+<span class="sd">        Turns this block into a mixture of this block and some other block.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1240,7 +1203,6 @@
 <span class="sd">        when a control rod is specified as a certain length but that length does not fit exactly</span>
 <span class="sd">        into a full block.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">numDensities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">()</span>
         <span class="n">otherBlockDensities</span> <span class="o">=</span> <span class="n">otherBlock</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">()</span>
         <span class="n">newDensities</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1263,7 +1225,7 @@
 <span class="sd">            Component types to look up</span>
 
 <span class="sd">        Examples</span>
-<span class="sd">        ---------</span>
+<span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; b.getComponentAreaFrac(Flags.CLAD)</span>
 <span class="sd">        0.15</span>
 
@@ -1433,7 +1395,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">maxDim</span> <span class="o">=</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
         <span class="n">largestComponent</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterComponents</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">dimVal</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="n">dimension</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">parameters</span><span class="o">.</span><span class="n">ParameterError</span><span class="p">:</span>
@@ -1540,7 +1502,7 @@
 
 <div class="viewcode-block" id="Block.updateComponentDims"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.updateComponentDims">[docs]</a>    <span class="k">def</span> <span class="nf">updateComponentDims</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        This method updates all the dimensions of the components</span>
+<span class="sd">        This method updates all the dimensions of the components.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -1555,7 +1517,6 @@
 <span class="sd">        armi.reactor.components.Parameters</span>
 <span class="sd">        armi.physics.optimize.OptimizationInterface.modifyCase (look up &#39;ThRZReflectorThickness&#39;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponentsInLinkedOrder</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">c</span><span class="o">.</span><span class="n">updateDims</span><span class="p">()</span>
@@ -1590,9 +1551,9 @@
             <span class="s2">&quot;Creating </span><span class="si">{}</span><span class="s2"> individual </span><span class="si">{}</span><span class="s2"> components on </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nPins</span><span class="p">,</span> <span class="n">fuel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="p">)</span>
 
-        <span class="c1"># handle all other components that may be linked to the fuel multiplicity.</span>
-        <span class="c1"># by unlinking them and setting them directly</span>
-        <span class="c1"># XXX: what about other (actual) dimensions? This is a limitation in that only fuel</span>
+        <span class="c1"># Handle all other components that may be linked to the fuel multiplicity</span>
+        <span class="c1"># by unlinking them and setting them directly.</span>
+        <span class="c1"># TODO: What about other (actual) dimensions? This is a limitation in that only fuel</span>
         <span class="c1"># compuents are duplicated, and not the entire pin. It is also a reasonable assumption with</span>
         <span class="c1"># current/historical usage of ARMI.</span>
         <span class="k">for</span> <span class="n">comp</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponentsThatAreLinkedTo</span><span class="p">(</span><span class="n">fuel</span><span class="p">,</span> <span class="s2">&quot;mult&quot;</span><span class="p">):</span>
@@ -1639,7 +1600,6 @@
 <span class="sd">        integratedFlux : numpy.array</span>
 <span class="sd">            multigroup neutron tracklength in [n-cm/s]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">adjoint</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">gamma</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Adjoint gamma flux is currently unsupported.&quot;</span><span class="p">)</span>
@@ -1677,7 +1637,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="Block.setAxialExpTargetComp"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.setAxialExpTargetComp">[docs]</a>    <span class="k">def</span> <span class="nf">setAxialExpTargetComp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targetComponent</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;sets the targetComponent for the axial expansion changer</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the targetComponent for the axial expansion changer.</span>
 
 <span class="sd">        Parameter</span>
 <span class="sd">        ---------</span>
@@ -1765,7 +1725,6 @@
 <span class="sd">        --------</span>
 <span class="sd">        armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.makeAssemWithUniformMesh</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">getHeight</span><span class="p">())</span>
         <span class="n">b</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getType</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span>
 
@@ -2175,9 +2134,7 @@
         <span class="k">return</span> <span class="n">pinToDuctGap</span></div>
 
 <div class="viewcode-block" id="HexBlock.getRotationNum"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getRotationNum">[docs]</a>    <span class="k">def</span> <span class="nf">getRotationNum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get index 0 through 5 indicating number of rotations counterclockwise around the z-axis.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get index 0 through 5 indicating number of rotations counterclockwise around the z-axis.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="n">numpy</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">orientation</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mf">360.0</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span> <span class="o">%</span> <span class="mi">6</span>
         <span class="p">)</span>  <span class="c1"># assume rotation only in Z</span></div>
@@ -2204,10 +2161,9 @@
 
 <span class="sd">        If this block is not in any grid at all, then there can be no symmetry so return 1.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">try</span><span class="p">:</span>
             <span class="n">symmetry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">symmetry</span>
-        <span class="k">except</span><span class="p">:</span>
+        <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
             <span class="k">return</span> <span class="mf">1.0</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">symmetry</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">THIRD_CORE</span>
@@ -2352,7 +2308,6 @@
 
 <div class="viewcode-block" id="HexBlock.getWettedPerimeter"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getWettedPerimeter">[docs]</a>    <span class="k">def</span> <span class="nf">getWettedPerimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the total wetted perimeter of the block in cm.&quot;&quot;&quot;</span>
-
         <span class="c1"># flags pertaining to hexagon components where the interior of the hexagon is wetted</span>
         <span class="n">wettedHollowHexagonComponentFlags</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">Flags</span><span class="o">.</span><span class="n">DUCT</span><span class="p">,</span>
@@ -2395,11 +2350,19 @@
                 <span class="mi">6</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;ip&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span> <span class="k">else</span> <span class="mf">0.0</span>
             <span class="p">)</span>
 
-        <span class="c1"># solid circle = od * pi</span>
-        <span class="c1"># NOTE: since these are pin components, multiply by the number of pins</span>
+        <span class="c1"># solid circle = NumPins * pi * (Comp Diam + Wire Diam)</span>
         <span class="n">wettedPinPerimeter</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">wettedPinComponents</span><span class="p">:</span>
-            <span class="n">wettedPinPerimeter</span> <span class="o">+=</span> <span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;od&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span> <span class="k">else</span> <span class="mf">0.0</span>
+            <span class="n">correctionFactor</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">Helix</span><span class="p">):</span>
+                <span class="c1"># account for the helical wire wrap</span>
+                <span class="n">correctionFactor</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span>
+                    <span class="mf">1.0</span><span class="p">,</span>
+                    <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+                    <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;helixDiameter&quot;</span><span class="p">)</span>
+                    <span class="o">/</span> <span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;axialPitch&quot;</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="n">wettedPinPerimeter</span> <span class="o">+=</span> <span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;od&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="n">correctionFactor</span>
         <span class="n">wettedPinPerimeter</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNumPins</span><span class="p">()</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
 
         <span class="c1"># hollow circle = (id + od) * pi</span>
@@ -2417,9 +2380,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexBlock.getFlowArea"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getFlowArea">[docs]</a>    <span class="k">def</span> <span class="nf">getFlowArea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the total flowing coolant area of the block in cm^2.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the total flowing coolant area of the block in cm^2.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">COOLANT</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="HexBlock.getHydraulicDiameter"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getHydraulicDiameter">[docs]</a>    <span class="k">def</span> <span class="nf">getHydraulicDiameter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2472,9 +2433,7 @@
         <span class="k">return</span> <span class="mf">1.0</span></div>
 
 <div class="viewcode-block" id="CartesianBlock.getPinCenterFlatToFlat"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.CartesianBlock.getPinCenterFlatToFlat">[docs]</a>    <span class="k">def</span> <span class="nf">getPinCenterFlatToFlat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cold</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the flat-to-flat distance between the centers of opposing pins in the outermost ring.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the flat-to-flat distance between the centers of opposing pins in the outermost ring.&quot;&quot;&quot;</span>
         <span class="n">clad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">CLAD</span><span class="p">)</span>
         <span class="n">nRings</span> <span class="o">=</span> <span class="n">hexagon</span><span class="o">.</span><span class="n">numRingsToHoldNumCells</span><span class="p">(</span><span class="n">clad</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;mult&quot;</span><span class="p">))</span>
         <span class="n">pinPitch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPinPitch</span><span class="p">(</span><span class="n">cold</span><span class="o">=</span><span class="n">cold</span><span class="p">)</span>
@@ -2528,49 +2487,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">
-        Last updated on 2023-05-16.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2023-08-10.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
