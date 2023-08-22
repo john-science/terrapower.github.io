@@ -23,8 +23,8 @@
       <link rel="stylesheet" href="../_static/assets/jsonview.bundle.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/common.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/layouts.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-needs/layouts.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/armiicon_16x16.ico"/>
   <!--[if lt IE 9]>
@@ -180,10 +180,12 @@
 <li><p>The Spent Fuel Pool (<code class="docutils literal notranslate"><span class="pre">sfp</span></code>) was moved from the <code class="docutils literal notranslate"><span class="pre">Core</span></code> out to the <code class="docutils literal notranslate"><span class="pre">Reactor</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1336">PR#1336</a>)</p></li>
 <li><p>Broad cleanup of <code class="docutils literal notranslate"><span class="pre">Parameters</span></code>: filled in all empty units and descriptions, removed unused params. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1345">PR#1345</a>)</p></li>
 <li><p>Removed redundant <code class="docutils literal notranslate"><span class="pre">Material.name</span></code> variable. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1335">PR#1335</a>)</p></li>
+<li><p>Moved the <code class="docutils literal notranslate"><span class="pre">Reactor</span></code> assembly number from the global scope to a <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1383">PR#1383</a>)</p></li>
 <li><p>Added SHA1 hashes of XS control files to the welcome text. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1334">PR#1334</a>)</p></li>
 <li><p>Add python 3.11 to ARMI’s CI testing GH actions! (<a class="reference external" href="https://github.com/terrapower/armi/pull/1341">PR#1341</a>)</p></li>
 <li><p>Put back <code class="docutils literal notranslate"><span class="pre">avgFuelTemp</span></code> block parameter. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1362">PR#1362</a>)</p></li>
 <li><p>Make cylindrical component block collection less strict about pre-homogenization checks. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1347">PR#1347</a>)</p></li>
+<li><p>Updated some parameter definitions and defaults. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1355">PR#1355</a>)</p></li>
 <li><p>TBD</p></li>
 </ol>
 </section>
@@ -502,7 +504,7 @@ slow down. This release is a stake in the ground on a stable API.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-08-17.
+      <span class="lastupdated">Last updated on 2023-08-22.
       </span></p>
   </div>
 

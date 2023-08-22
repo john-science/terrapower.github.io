@@ -23,8 +23,8 @@
       <link rel="stylesheet" href="../_static/assets/jsonview.bundle.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/common.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/layouts.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-needs/layouts.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/armiicon_16x16.ico"/>
   <!--[if lt IE 9]>
@@ -323,7 +323,6 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 <li class="toctree-l4"><a class="reference internal" href="armi.bookkeeping.db.html#armi.bookkeeping.db.Permissions"><code class="docutils literal notranslate"><span class="pre">Permissions</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.bookkeeping.db.html#armi.bookkeeping.db.convertDatabase"><code class="docutils literal notranslate"><span class="pre">convertDatabase()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.bookkeeping.db.html#armi.bookkeeping.db.loadOperator"><code class="docutils literal notranslate"><span class="pre">loadOperator()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.bookkeeping.db.html#armi.bookkeeping.db.updateGlobalAssemblyNum"><code class="docutils literal notranslate"><span class="pre">updateGlobalAssemblyNum()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.bookkeeping.db.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.bookkeeping.db.html#submodules">Submodules</a></li>
 </ul>
@@ -1009,10 +1008,6 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.assemblies.html">armi.reactor.assemblies module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.incrementAssemNum"><code class="docutils literal notranslate"><span class="pre">incrementAssemNum()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.getAssemNum"><code class="docutils literal notranslate"><span class="pre">getAssemNum()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.resetAssemNumCounter"><code class="docutils literal notranslate"><span class="pre">resetAssemNumCounter()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.setAssemNumCounter"><code class="docutils literal notranslate"><span class="pre">setAssemNumCounter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly"><code class="docutils literal notranslate"><span class="pre">Assembly</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.HexAssembly"><code class="docutils literal notranslate"><span class="pre">HexAssembly</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.CartesianAssembly"><code class="docutils literal notranslate"><span class="pre">CartesianAssembly</span></code></a></li>
@@ -1056,7 +1051,6 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.flags.html">armi.reactor.flags module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.flags.html#armi.reactor.flags.Flags"><code class="docutils literal notranslate"><span class="pre">Flags</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.flags.html#armi.reactor.flags.InvalidFlagsError"><code class="docutils literal notranslate"><span class="pre">InvalidFlagsError</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.flags.html#armi.reactor.flags.registerPluginFlags"><code class="docutils literal notranslate"><span class="pre">registerPluginFlags()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.geometry.html">armi.reactor.geometry module</a><ul>
@@ -1533,6 +1527,7 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 <li class="toctree-l3"><a class="reference internal" href="armi.apps.html#armi.apps.App.pluginManager"><code class="docutils literal notranslate"><span class="pre">App.pluginManager</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.apps.html#armi.apps.App.getSettings"><code class="docutils literal notranslate"><span class="pre">App.getSettings()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.apps.html#armi.apps.App.getParamRenames"><code class="docutils literal notranslate"><span class="pre">App.getParamRenames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.apps.html#armi.apps.App.registerPluginFlags"><code class="docutils literal notranslate"><span class="pre">App.registerPluginFlags()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.apps.html#armi.apps.App.registerUserPlugins"><code class="docutils literal notranslate"><span class="pre">App.registerUserPlugins()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.apps.html#armi.apps.App.splashText"><code class="docutils literal notranslate"><span class="pre">App.splashText</span></code></a></li>
 </ul>
@@ -1769,7 +1764,7 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-08-17.
+      <span class="lastupdated">Last updated on 2023-08-22.
       </span></p>
   </div>
 
