@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.operators.operator &mdash; ARMI 0.2.8 documentation</title>
+  <title>armi.operators.operator &mdash; ARMI 0.2.9 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -11,12 +11,6 @@
       <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/assets/jsonview.bundle.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sphinx-needs/common.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sphinx-needs/layouts.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sphinx-needs/styles.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/armiicon_16x16.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
@@ -29,11 +23,6 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="../../../_static/assets/jsonview.bundle.js"></script>
-        <script src="../../../_static/assets/jsonview_loader.js"></script>
-        <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js"></script>
-        <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
-        <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -52,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.8
+                0.2.9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -127,19 +116,18 @@
 <span class="sd">the end of plant life.</span>
 
 <span class="sd">.. impl:: ARMI controls the time flow of the reactor, by running a sequence of Interfaces at each time step.</span>
-<span class="sd">   :id: IMPL_EVOLVING_STATE_0</span>
-<span class="sd">   :links: REQ_EVOLVING_STATE</span>
+<span class="sd">   :id: I_EVOLVING_STATE_0</span>
+<span class="sd">   :links: R_EVOLVING_STATE</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">collections</span>
 
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">context</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">interfaces</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
-<span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">settings</span>
 <span class="kn">from</span> <span class="nn">armi.bookkeeping</span> <span class="kn">import</span> <span class="n">memoryProfiler</span>
 <span class="kn">from</span> <span class="nn">armi.bookkeeping.report</span> <span class="kn">import</span> <span class="n">reportingUtils</span>
 <span class="kn">from</span> <span class="nn">armi.operators</span> <span class="kn">import</span> <span class="n">settingsValidation</span>
@@ -588,8 +576,6 @@
                     <span class="p">)</span>
                 <span class="p">)</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">_checkCsConsistency</span><span class="p">()</span>
-
         <span class="n">runLog</span><span class="o">.</span><span class="n">header</span><span class="p">(</span>
             <span class="s2">&quot;===========  Completed </span><span class="si">{}</span><span class="s2"> Event ===========</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">interactionName</span> <span class="o">+</span> <span class="n">cycleNodeTag</span>
@@ -667,23 +653,6 @@
             <span class="p">)</span>
 
             <span class="n">db</span><span class="o">.</span><span class="n">writeToDB</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">statePointName</span><span class="o">=</span><span class="n">statePointName</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_checkCsConsistency</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Debugging check to verify that CS objects are not unexpectedly multiplying.&quot;&quot;&quot;</span>
-        <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">getMasterCs</span><span class="p">()</span>
-        <span class="n">wrong</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">cs</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">((</span><span class="n">i</span><span class="o">.</span><span class="n">cs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">cs</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">wrong</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Primary cs ID is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">cs</span><span class="p">))]</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span>
-                <span class="n">msg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:30s}</span><span class="s2"> has cs ID: </span><span class="si">{:12d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">cs</span><span class="p">)))</span>
-            <span class="n">msg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:30s}</span><span class="s2"> has cs ID: </span><span class="si">{:12d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">)))</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
-
-        <span class="n">runLog</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-            <span class="s2">&quot;Reactors, operators, and interfaces all share primary cs: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="nb">id</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="p">)</span>
 
 <div class="viewcode-block" id="Operator.interactAllInit"><a class="viewcode-back" href="../../../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator.interactAllInit">[docs]</a>    <span class="k">def</span> <span class="nf">interactAllInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Call interactInit on all interfaces in the stack after they are initialized.&quot;&quot;&quot;</span>
@@ -1292,7 +1261,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-09-26.
+      <span class="lastupdated">Last updated on 2023-10-10.
       </span></p>
   </div>
 

@@ -12,7 +12,7 @@
 <meta name="description" content="Settings are various key-value pairs that determine a bunch of modeling and simulation behaviors. They are one of the key inputs to an ARMI run. They say which modules to run and which modeling app..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.settings package &mdash; ARMI 0.2.8 documentation</title>
+  <title>armi.settings package &mdash; ARMI 0.2.9 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -20,12 +20,6 @@
       <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/assets/jsonview.bundle.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/libs/html/datatables.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/common.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/layouts.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/styles.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-needs/modern.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/armiicon_16x16.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -38,11 +32,6 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="../_static/assets/jsonview.bundle.js"></script>
-        <script src="../_static/assets/jsonview_loader.js"></script>
-        <script src="../_static/sphinx-needs/libs/html/datatables.min.js"></script>
-        <script src="../_static/sphinx-needs/libs/html/datatables_loader.js"></script>
-        <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -63,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.8
+                0.2.9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -155,22 +144,22 @@ availability fraction and things like that. The ARMI Framework itself has many s
 of its own, and plugins typically register some of their own settings as well.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="armi.settings.isBoolSetting">
-<span class="sig-prename descclassname"><span class="pre">armi.settings.</span></span><span class="sig-name descname"><span class="pre">isBoolSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="armi.settings.setting.html#armi.settings.setting.Setting" title="armi.settings.setting.Setting"><span class="pre">Setting</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/armi/settings.html#isBoolSetting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.settings.isBoolSetting" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">armi.settings.</span></span><span class="sig-name descname"><span class="pre">isBoolSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="armi.settings.setting.html#armi.settings.setting.Setting" title="armi.settings.setting.Setting"><span class="pre">Setting</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/armi/settings.html#isBoolSetting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.settings.isBoolSetting" title="Permalink to this definition"></a></dt>
 <dd><p>Return whether the passed setting represents a boolean value.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="armi.settings.recursivelyLoadSettingsFiles">
-<span class="sig-prename descclassname"><span class="pre">armi.settings.</span></span><span class="sig-name descname"><span class="pre">recursivelyLoadSettingsFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignorePatterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handleInvalids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/settings.html#recursivelyLoadSettingsFiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.settings.recursivelyLoadSettingsFiles" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">armi.settings.</span></span><span class="sig-name descname"><span class="pre">recursivelyLoadSettingsFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignorePatterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handleInvalids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/settings.html#recursivelyLoadSettingsFiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.settings.recursivelyLoadSettingsFiles" title="Permalink to this definition"></a></dt>
 <dd><p>Scans path for valid xml files and returns their paths.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rootDir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The base path to scan for settings files</p></li>
-<li><p><strong>patterns</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – file patterns to match file names</p></li>
-<li><p><strong>recursive</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> (</em><em>optional</em><em>)</em>) – load files recursively</p></li>
-<li><p><strong>ignorePatterns</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> (</em><em>optional</em><em>)</em>) – list of filename patterns to ignore</p></li>
-<li><p><strong>handleInvalids</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – option to suppress errors generated when finding files that appear to be settings files but fail to load. This
+<li><p><strong>rootDir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The base path to scan for settings files</p></li>
+<li><p><strong>patterns</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – file patterns to match file names</p></li>
+<li><p><strong>recursive</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> (</em><em>optional</em><em>)</em>) – load files recursively</p></li>
+<li><p><strong>ignorePatterns</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> (</em><em>optional</em><em>)</em>) – list of filename patterns to ignore</p></li>
+<li><p><strong>handleInvalids</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – option to suppress errors generated when finding files that appear to be settings files but fail to load. This
 may happen when old settings are present.</p></li>
 </ul>
 </dd>
@@ -178,7 +167,7 @@ may happen when old settings are present.</p></li>
 <dd class="field-even"><p><strong>csFiles</strong> – list of <a class="reference internal" href="armi.settings.caseSettings.html#armi.settings.caseSettings.Settings" title="armi.settings.caseSettings.Settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a> objects.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -189,33 +178,9 @@ may happen when old settings are present.</p></li>
 <dd><p>Allows the user to select an ARMI input from the input files in the directory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>choice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The item in the list of valid YAML files to load</p>
+<dd class="field-odd"><p><strong>choice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>, </em><em>optional</em>) – The item in the list of valid YAML files to load</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="armi.settings.getMasterCs">
-<span class="sig-prename descclassname"><span class="pre">armi.settings.</span></span><span class="sig-name descname"><span class="pre">getMasterCs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/settings.html#getMasterCs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.settings.getMasterCs" title="Permalink to this definition"></a></dt>
-<dd><p>Return the global case-settings object (cs).</p>
-<p>This can be called at any time to create or obtain the primary Cs, a module-level CS
-intended to be shared by many other objects.</p>
-<p>It can have multiple instances in multiprocessing cases.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cs</strong> – The loaded cs object</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Settings</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="armi.settings.setMasterCs">
-<span class="sig-prename descclassname"><span class="pre">armi.settings.</span></span><span class="sig-name descname"><span class="pre">setMasterCs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/settings.html#setMasterCs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.settings.setMasterCs" title="Permalink to this definition"></a></dt>
-<dd><p>Set the primary Cs to be the one that is passed in.</p>
-<p>These are kept track of independently on a PID basis to allow independent multiprocessing.</p>
 </dd></dl>
 
 <section id="subpackages">
@@ -284,7 +249,6 @@ intended to be shared by many other objects.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="armi.settings.caseSettings.html">armi.settings.caseSettings module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="armi.settings.caseSettings.html#armi.settings.caseSettings.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="armi.settings.caseSettings.html#armi.settings.caseSettings.Settings.instance"><code class="docutils literal notranslate"><span class="pre">Settings.instance</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.settings.caseSettings.html#armi.settings.caseSettings.Settings.defaultCaseTitle"><code class="docutils literal notranslate"><span class="pre">Settings.defaultCaseTitle</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.settings.caseSettings.html#armi.settings.caseSettings.Settings.inputDirectory"><code class="docutils literal notranslate"><span class="pre">Settings.inputDirectory</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.settings.caseSettings.html#armi.settings.caseSettings.Settings.caseTitle"><code class="docutils literal notranslate"><span class="pre">Settings.caseTitle</span></code></a></li>
@@ -391,7 +355,7 @@ intended to be shared by many other objects.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-09-26.
+      <span class="lastupdated">Last updated on 2023-10-10.
       </span></p>
   </div>
 
