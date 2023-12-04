@@ -111,13 +111,6 @@
 
 <span class="sd">Many reactor components can be described in 2D by circles, hexagons, rectangles, etc. These</span>
 <span class="sd">are defined in this subpackage.</span>
-
-<span class="sd">.. impl:: ARMI supports a reasonable set of basic shapes.</span>
-<span class="sd">   :id: I_REACTOR_SHAPES_0</span>
-<span class="sd">   :links: R_REACTOR_SHAPES</span>
-
-<span class="sd">   Here ARMI implements its support for: Circles, Hexagons, Rectangles, Solid Rectangles,</span>
-<span class="sd">   Squares, and Triangles.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
@@ -126,7 +119,12 @@
 
 
 <div class="viewcode-block" id="Circle"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.components.basicShapes.html#armi.reactor.components.basicShapes.Circle">[docs]</a><span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="n">ShapedComponent</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A Circle.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A Circle.</span>
+
+<span class="sd">    .. impl:: Circle shaped component</span>
+<span class="sd">        :id: I_ARMI_COMP_SHAPES0</span>
+<span class="sd">        :implements: R_ARMI_COMP_SHAPES</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">is3D</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -185,7 +183,12 @@
 
 
 <div class="viewcode-block" id="Hexagon"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.components.basicShapes.html#armi.reactor.components.basicShapes.Hexagon">[docs]</a><span class="k">class</span> <span class="nc">Hexagon</span><span class="p">(</span><span class="n">ShapedComponent</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A Hexagon.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A Hexagon.</span>
+
+<span class="sd">    .. impl:: Hexagon shaped component</span>
+<span class="sd">        :id: I_ARMI_COMP_SHAPES1</span>
+<span class="sd">        :implements: R_ARMI_COMP_SHAPES</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">is3D</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -265,7 +268,12 @@
 
 
 <div class="viewcode-block" id="Rectangle"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.components.basicShapes.html#armi.reactor.components.basicShapes.Rectangle">[docs]</a><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">ShapedComponent</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A rectangle component.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A Rectangle.</span>
+
+<span class="sd">    .. impl:: Rectangle shaped component</span>
+<span class="sd">        :id: I_ARMI_COMP_SHAPES2</span>
+<span class="sd">        :implements: R_ARMI_COMP_SHAPES</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">is3D</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -405,7 +413,12 @@
 
 
 <div class="viewcode-block" id="Square"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.components.basicShapes.html#armi.reactor.components.basicShapes.Square">[docs]</a><span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Square component that can be solid or hollow.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Square component that can be solid or hollow.</span>
+
+<span class="sd">    .. impl:: Square shaped component</span>
+<span class="sd">        :id: I_ARMI_COMP_SHAPES3</span>
+<span class="sd">        :implements: R_ARMI_COMP_SHAPES</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">is3D</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -478,6 +491,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Triangle with defined base and height.</span>
 
+<span class="sd">    .. impl:: Triangle shaped component</span>
+<span class="sd">        :id: I_ARMI_COMP_SHAPES4</span>
+<span class="sd">        :implements: R_ARMI_COMP_SHAPES</span>
+
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    The exact angles of the triangle are undefined. The exact side lenths and angles</span>
@@ -535,7 +552,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

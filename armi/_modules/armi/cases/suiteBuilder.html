@@ -137,6 +137,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class for constructing a CaseSuite from combinations of modifications on base inputs.</span>
 
+<span class="sd">    .. impl:: A generic tool to modify user inputs on multiple cases.</span>
+<span class="sd">        :id: I_ARMI_CASE_MOD0</span>
+<span class="sd">        :implements: R_ARMI_CASE_MOD</span>
+
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    baseCase : armi.cases.case.Case</span>
@@ -292,7 +296,7 @@
 <span class="sd">                    self.value = value</span>
 
 <span class="sd">                def __call__(self, cs, bp, geom):</span>
-<span class="sd">                    cs = cs.modified(newSettings={settignName: value})</span>
+<span class="sd">                    cs = cs.modified(newSettings={self.settingName: self.value})</span>
 <span class="sd">                    return cs, bp, geom</span>
 
 <span class="sd">            builder = FullFactorialSuiteBuilder(someCase)</span>
@@ -338,7 +342,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">noiseFraction</span> <span class="o">=</span> <span class="n">noiseFraction</span>
 
 <div class="viewcode-block" id="FullFactorialSuiteBuilderNoisy.addDegreeOfFreedom"><a class="viewcode-back" href="../../../.apidocs/armi.cases.suiteBuilder.html#armi.cases.suiteBuilder.FullFactorialSuiteBuilderNoisy.addDegreeOfFreedom">[docs]</a>    <span class="k">def</span> <span class="nf">addDegreeOfFreedom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputModifiers</span><span class="p">):</span>
-
         <span class="n">new</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">newMod</span> <span class="ow">in</span> <span class="n">inputModifiers</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">existingModSet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modifierSets</span><span class="p">:</span>
@@ -379,7 +382,7 @@
 <span class="sd">                    self.value = value</span>
 
 <span class="sd">                def __call__(self, cs, bp, geom):</span>
-<span class="sd">                    cs = cs.modified(newSettings={settignName: value})</span>
+<span class="sd">                    cs = cs.modified(newSettings={self.settignName: self.value})</span>
 <span class="sd">                    return cs, bp, geom</span>
 
 <span class="sd">            builder = SeparateEffectsSuiteBuilder(someCase)</span>
@@ -541,7 +544,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

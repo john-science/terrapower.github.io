@@ -88,12 +88,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -218,13 +218,15 @@
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.</span></span><span class="sig-name descname"><span class="pre">TestGlobalFluxOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxOptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Tests for GlobalFluxOptions.</p>
 <p>Create an instance of the class that will use the named test
 method when executed. Raises a ValueError if the instance does
 not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions.test_readFromSettings">
 <span class="sig-name descname"><span class="pre">test_readFromSettings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxOptions.test_readFromSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions.test_readFromSettings" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test reading global flux options.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions.test_readFromReactors">
@@ -246,6 +248,12 @@ not have a method with the specified name.</p>
 method when executed. Raises a ValueError if the instance does
 not have a method with the specified name.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_computeDpaRate">
+<span class="sig-name descname"><span class="pre">test_computeDpaRate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxInterface.test_computeDpaRate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_computeDpaRate" title="Permalink to this definition"></a></dt>
+<dd><p>Compute DPA and DPA rates from multi-group neutron flux and cross sections.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_interaction">
 <span class="sig-name descname"><span class="pre">test_interaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxInterface.test_interaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_interaction" title="Permalink to this definition"></a></dt>
 <dd><p>Ensure the basic interaction hooks work.</p>
@@ -265,7 +273,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_checkEnergyBalance">
 <span class="sig-name descname"><span class="pre">test_checkEnergyBalance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxInterface.test_checkEnergyBalance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_checkEnergyBalance" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test energy balance check.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -280,7 +289,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecuters.test_executerInteraction">
 <span class="sig-name descname"><span class="pre">test_executerInteraction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxInterfaceWithExecuters.test_executerInteraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecuters.test_executerInteraction" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Run the global flux interface and executer though one time now.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecuters.test_calculateKeff">
@@ -317,7 +327,10 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecutersNonUniform.test_executerInteractionNonUniformAssems">
 <span class="sig-name descname"><span class="pre">test_executerInteractionNonUniformAssems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxInterfaceWithExecutersNonUniform.test_executerInteractionNonUniformAssems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecutersNonUniform.test_executerInteractionNonUniformAssems" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Run the global flux interface with non-uniform assemblies.</p>
+<p>This will serve as a broad end-to-end test of the interface, and also
+stress test the mesh issues with non-uniform assemblies.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecutersNonUniform.test_calculateKeff">
@@ -377,6 +390,10 @@ not have a method with the specified name.</p>
 <dt class="sig sig-object py" id="armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxUtils.test_calcReactionRates">
 <span class="sig-name descname"><span class="pre">test_calcReactionRates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/neutronics/globalFlux/tests/test_globalFluxInterface.html#TestGlobalFluxUtils.test_calcReactionRates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxUtils.test_calcReactionRates" title="Permalink to this definition"></a></dt>
 <dd><p>Test that the reaction rate code executes and sets a param &gt; 0.0.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This does not validate the reaction rate calculation.</p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -401,7 +418,7 @@ not have a method with the specified name.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

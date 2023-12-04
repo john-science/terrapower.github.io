@@ -88,12 +88,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -525,8 +525,9 @@ simulation. It contains definitions of the reactor, assemblies, blocks, componen
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.loadTestBlock"><code class="docutils literal notranslate"><span class="pre">loadTestBlock()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.applyDummyData"><code class="docutils literal notranslate"><span class="pre">applyDummyData()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.getComponentData"><code class="docutils literal notranslate"><span class="pre">getComponentData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestDetailedNDensUpdate"><code class="docutils literal notranslate"><span class="pre">TestDetailedNDensUpdate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase"><code class="docutils literal notranslate"><span class="pre">Block_TestCase</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Test_NegativeVolume"><code class="docutils literal notranslate"><span class="pre">Test_NegativeVolume</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestNegativeVolume"><code class="docutils literal notranslate"><span class="pre">TestNegativeVolume</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.ThRZBlock_TestCase"><code class="docutils literal notranslate"><span class="pre">ThRZBlock_TestCase</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.CartesianBlock_TestCase"><code class="docutils literal notranslate"><span class="pre">CartesianBlock_TestCase</span></code></a></li>
@@ -605,8 +606,8 @@ simulation. It contains definitions of the reactor, assemblies, blocks, componen
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html">armi.reactor.tests.test_rz_reactors module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor_modern"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor_modern</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor"><code class="docutils literal notranslate"><span class="pre">TestRZTReactor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactorModern"><code class="docutils literal notranslate"><span class="pre">TestRZTReactorModern</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_zones.html">armi.reactor.tests.test_zones module</a><ul>
@@ -743,6 +744,7 @@ simulation. It contains definitions of the reactor, assemblies, blocks, componen
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.PITCH_DIMENSION"><code class="docutils literal notranslate"><span class="pre">Block.PITCH_DIMENSION</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.PITCH_COMPONENT_TYPE"><code class="docutils literal notranslate"><span class="pre">Block.PITCH_COMPONENT_TYPE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.pDefs"><code class="docutils literal notranslate"><span class="pre">Block.pDefs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.createHomogenizedCopy"><code class="docutils literal notranslate"><span class="pre">Block.createHomogenizedCopy()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.core"><code class="docutils literal notranslate"><span class="pre">Block.core</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.r"><code class="docutils literal notranslate"><span class="pre">Block.r</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.Block.makeName"><code class="docutils literal notranslate"><span class="pre">Block.makeName()</span></code></a></li>
@@ -808,6 +810,7 @@ simulation. It contains definitions of the reactor, assemblies, blocks, componen
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock"><code class="docutils literal notranslate"><span class="pre">HexBlock</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.PITCH_COMPONENT_TYPE"><code class="docutils literal notranslate"><span class="pre">HexBlock.PITCH_COMPONENT_TYPE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.coords"><code class="docutils literal notranslate"><span class="pre">HexBlock.coords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.createHomogenizedCopy"><code class="docutils literal notranslate"><span class="pre">HexBlock.createHomogenizedCopy()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getMaxArea"><code class="docutils literal notranslate"><span class="pre">HexBlock.getMaxArea()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getDuctIP"><code class="docutils literal notranslate"><span class="pre">HexBlock.getDuctIP()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getDuctOP"><code class="docutils literal notranslate"><span class="pre">HexBlock.getDuctOP()</span></code></a></li>
@@ -1303,7 +1306,7 @@ simulation. It contains definitions of the reactor, assemblies, blocks, componen
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

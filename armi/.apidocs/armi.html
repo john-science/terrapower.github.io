@@ -88,12 +88,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -713,6 +713,36 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="armi.migration.html">armi.migration package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="armi.migration.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.migration.tests.html">armi.migration.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.tests.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="armi.migration.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.migration.base.html">armi.migration.base module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.base.html#armi.migration.base.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.base.html#armi.migration.base.BlueprintsMigration"><code class="docutils literal notranslate"><span class="pre">BlueprintsMigration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.base.html#armi.migration.base.SettingsMigration"><code class="docutils literal notranslate"><span class="pre">SettingsMigration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.base.html#armi.migration.base.DatabaseMigration"><code class="docutils literal notranslate"><span class="pre">DatabaseMigration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="armi.migration.m0_1_3.html">armi.migration.m0_1_3 module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.m0_1_3.html#armi.migration.m0_1_3.RemoveCentersFromBlueprints"><code class="docutils literal notranslate"><span class="pre">RemoveCentersFromBlueprints</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.m0_1_3.html#armi.migration.m0_1_3.UpdateElementalNuclides"><code class="docutils literal notranslate"><span class="pre">UpdateElementalNuclides</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="armi.migration.m0_1_6.html">armi.migration.m0_1_6 module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.m0_1_6.html#armi.migration.m0_1_6.ConvertAlphanumLocationSettingsToNum"><code class="docutils literal notranslate"><span class="pre">ConvertAlphanumLocationSettingsToNum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.m0_1_6.html#armi.migration.m0_1_6.getIndicesFromDIF3DStyleLocatorLabel"><code class="docutils literal notranslate"><span class="pre">getIndicesFromDIF3DStyleLocatorLabel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="armi.nucDirectory.html#elements">Elements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.nucDirectory.html#nuclide-bases">Nuclide Bases</a><ul>
@@ -778,6 +808,9 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.getDepletableNuclides"><code class="docutils literal notranslate"><span class="pre">getDepletableNuclides()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.imposeBurnChain"><code class="docutils literal notranslate"><span class="pre">imposeBurnChain()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.factory"><code class="docutils literal notranslate"><span class="pre">factory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.addNuclideBases"><code class="docutils literal notranslate"><span class="pre">addNuclideBases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.readMCCNuclideData"><code class="docutils literal notranslate"><span class="pre">readMCCNuclideData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.updateNuclideBasesForSpecialCases"><code class="docutils literal notranslate"><span class="pre">updateNuclideBasesForSpecialCases()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.addGlobalNuclide"><code class="docutils literal notranslate"><span class="pre">addGlobalNuclide()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.destroyGlobalNuclides"><code class="docutils literal notranslate"><span class="pre">destroyGlobalNuclides()</span></code></a></li>
 </ul>
@@ -922,7 +955,6 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.physics.safety.html">armi.physics.safety package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.safety.html#armi.physics.safety.SafetyPlugin"><code class="docutils literal notranslate"><span class="pre">SafetyPlugin</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.physics.safety.html#submodules">Submodules</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.physics.tests.html">armi.physics.tests package</a><ul>
@@ -1080,17 +1112,6 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="armi.scripts.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="armi.scripts.migration.html">armi.scripts.migration package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.migration.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.migration.html#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="armi.settings.html">armi.settings package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="armi.settings.html#armi.settings.isBoolSetting"><code class="docutils literal notranslate"><span class="pre">isBoolSetting()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.settings.html#armi.settings.recursivelyLoadSettingsFiles"><code class="docutils literal notranslate"><span class="pre">recursivelyLoadSettingsFiles()</span></code></a></li>
@@ -1162,7 +1183,7 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.test_apps.html#armi.tests.test_apps.TestPlugin3"><code class="docutils literal notranslate"><span class="pre">TestPlugin3</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.test_apps.html#armi.tests.test_apps.TestPlugin4"><code class="docutils literal notranslate"><span class="pre">TestPlugin4</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.test_apps.html#armi.tests.test_apps.TestApps"><code class="docutils literal notranslate"><span class="pre">TestApps</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.tests.test_apps.html#armi.tests.test_apps.TestArmi"><code class="docutils literal notranslate"><span class="pre">TestArmi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.tests.test_apps.html#armi.tests.test_apps.TestArmiHighLevel"><code class="docutils literal notranslate"><span class="pre">TestArmiHighLevel</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.tests.test_armiTestHelper.html">armi.tests.test_armiTestHelper module</a><ul>
@@ -1207,6 +1228,7 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.tests.test_plugins.html">armi.tests.test_plugins module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="armi.tests.test_plugins.html#armi.tests.test_plugins.TestPluginBasics"><code class="docutils literal notranslate"><span class="pre">TestPluginBasics</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.test_plugins.html#armi.tests.test_plugins.TestPlugin"><code class="docutils literal notranslate"><span class="pre">TestPlugin</span></code></a></li>
 </ul>
 </li>
@@ -1216,7 +1238,7 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.tests.test_tests.html">armi.tests.test_tests module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="armi.tests.test_tests.html#armi.tests.test_tests.Test_CompareFiles"><code class="docutils literal notranslate"><span class="pre">Test_CompareFiles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.tests.test_tests.html#armi.tests.test_tests.TestCompareFiles"><code class="docutils literal notranslate"><span class="pre">TestCompareFiles</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="armi.tests.test_user_plugins.html">armi.tests.test_user_plugins module</a><ul>
@@ -1652,7 +1674,6 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="armi.plugins.html">armi.plugins module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="armi.plugins.html#other-customization-points">Other customization points</a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.plugins.html#armi.plugins.ArmiPlugin"><code class="docutils literal notranslate"><span class="pre">ArmiPlugin</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.plugins.html#armi.plugins.ArmiPlugin.exposeInterfaces"><code class="docutils literal notranslate"><span class="pre">ArmiPlugin.exposeInterfaces()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.plugins.html#armi.plugins.ArmiPlugin.defineParameters"><code class="docutils literal notranslate"><span class="pre">ArmiPlugin.defineParameters()</span></code></a></li>
@@ -1741,7 +1762,7 @@ See <a class="reference external" href="https://bugs.python.org/issue37373">http
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

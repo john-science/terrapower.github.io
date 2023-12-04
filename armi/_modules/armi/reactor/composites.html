@@ -156,7 +156,6 @@
 <span class="sd">    sequence of enough uint8 elements to represent all flags. These constitute a</span>
 <span class="sd">    dimension of a 2-D numpy array containing all Flags for all objects provided to the</span>
 <span class="sd">    ``pack()`` function.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
@@ -390,6 +389,10 @@
 <span class="sd">        specialized subclasses (Block, Assembly) in preparation for this next step.</span>
 <span class="sd">        As a result, the public API on this method should be considered unstable.</span>
 
+<span class="sd">    .. impl:: Parameters are accessible throughout the armi tree.</span>
+<span class="sd">        :id: I_ARMI_PARAM_PART</span>
+<span class="sd">        :implements: R_ARMI_PARAM_PART</span>
+
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
@@ -530,11 +533,8 @@
 <span class="sd">        to be considered non-zero even if they don&#39;t have any blocks. This is important</span>
 <span class="sd">        for parent resolution, etc. If one of these objects exists, it is non-zero,</span>
 <span class="sd">        regardless of its contents.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="kc">True</span>
-
-    <span class="n">__nonzero__</span> <span class="o">=</span> <span class="fm">__bool__</span>  <span class="c1"># Python 2 compatibility</span>
 
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of all children in this and another object.&quot;&quot;&quot;</span>
@@ -717,6 +717,10 @@
 <span class="sd">        created and associated. So, we use this top-level class method to dig</span>
 <span class="sd">        dynamically down to the underlying parameter collection type.</span>
 
+<span class="sd">        .. impl:: Composites (and all ARMI objects) have parameter collections.</span>
+<span class="sd">            :id: I_ARMI_CMP_PARAMS</span>
+<span class="sd">            :implements: R_ARMI_CMP_PARAMS</span>
+
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        :py:meth:`armi.reactor.parameters.parameterCollections.ParameterCollection.__reduce__`</span>
@@ -746,6 +750,12 @@
             <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">name</span></div>
 
 <div class="viewcode-block" id="ArmiObject.getName"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.getName">[docs]</a>    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get composite name.</span>
+
+<span class="sd">        .. impl:: Composite name is accessible.</span>
+<span class="sd">            :id: I_ARMI_CMP_GET_NAME</span>
+<span class="sd">            :implements: R_ARMI_CMP_GET_NAME</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
 
 <div class="viewcode-block" id="ArmiObject.setName"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.setName">[docs]</a>    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -754,6 +764,10 @@
 <div class="viewcode-block" id="ArmiObject.hasFlags"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.hasFlags">[docs]</a>    <span class="k">def</span> <span class="nf">hasFlags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeID</span><span class="p">:</span> <span class="n">TypeSpec</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Determine if this object is of a certain type.</span>
+
+<span class="sd">        .. impl:: Composites have queriable flags.</span>
+<span class="sd">            :id: I_ARMI_CMP_FLAG</span>
+<span class="sd">            :implements: R_ARMI_CMP_FLAG</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -959,6 +973,10 @@
 <div class="viewcode-block" id="ArmiObject.getMass"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.getMass">[docs]</a>    <span class="k">def</span> <span class="nf">getMass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuclideNames</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Determine the mass in grams of nuclide(s) and/or elements in this object.</span>
+
+<span class="sd">        .. impl:: Return mass of composite.</span>
+<span class="sd">            :id: I_ARMI_CMP_GET_MASS</span>
+<span class="sd">            :implements: R_ARMI_CMP_GET_MASS</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1303,6 +1321,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the number density of a nuclide in atoms/barn-cm.</span>
 
+<span class="sd">        .. impl:: Get number density for a specific nuclide</span>
+<span class="sd">            :id: I_ARMI_CMP_NUC0</span>
+<span class="sd">            :implements: R_ARMI_CMP_NUC</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        This can get called very frequently and has to do volume computations so should</span>
@@ -1318,7 +1340,12 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNuclideNumberDensities</span><span class="p">([</span><span class="n">nucName</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ArmiObject.getNuclideNumberDensities"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.getNuclideNumberDensities">[docs]</a>    <span class="k">def</span> <span class="nf">getNuclideNumberDensities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nucNames</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of number densities in atoms/barn-cm for the nuc names requested.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of number densities in atoms/barn-cm for the nuc names requested.</span>
+
+<span class="sd">        .. impl:: Get number densities for specific nuclides.</span>
+<span class="sd">            :id: I_ARMI_CMP_NUC1</span>
+<span class="sd">            :implements: R_ARMI_CMP_NUC</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">volumes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
             <span class="p">[</span>
                 <span class="n">c</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">getSymmetryFactor</span><span class="p">()</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">parent</span> <span class="k">else</span> <span class="mf">1.0</span><span class="p">)</span>
@@ -1354,6 +1381,10 @@
 <div class="viewcode-block" id="ArmiObject.getNumberDensities"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.getNumberDensities">[docs]</a>    <span class="k">def</span> <span class="nf">getNumberDensities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expandFissionProducts</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve the number densities in atoms/barn-cm of all nuclides (or those requested) in the object.</span>
+
+<span class="sd">        .. impl:: Number density of composite is retrievable.</span>
+<span class="sd">            :id: I_ARMI_CMP_GET_NDENS</span>
+<span class="sd">            :implements: R_ARMI_CMP_GET_NDENS</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2510,6 +2541,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets a particular component from this object, based on its name.</span>
 
+<span class="sd">        .. impl:: Get child component by name.</span>
+<span class="sd">            :id: I_ARMI_CMP_BY_NAME</span>
+<span class="sd">            :implements: R_ARMI_CMP_BY_NAME</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        name : str</span>
@@ -2721,6 +2756,10 @@
 <span class="sd">    mixed with siblings in a grid. This allows mixing grid-representation with</span>
 <span class="sd">    explicit representation, often useful in advanced assemblies and thermal</span>
 <span class="sd">    reactors.</span>
+
+<span class="sd">    .. impl:: Composites are a physical part of the reactor in a hierarchical data model.</span>
+<span class="sd">        :id: I_ARMI_CMP</span>
+<span class="sd">        :implements: R_ARMI_CMP</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -2825,6 +2864,10 @@
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the children objects of this composite.</span>
+
+<span class="sd">        .. impl:: Composites have children, in the hierarchical data model.</span>
+<span class="sd">            :id: I_ARMI_CMP_CHILDREN</span>
+<span class="sd">            :implements: R_ARMI_CMP_CHILDREN</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2939,6 +2982,10 @@
 
 <span class="sd">        In parallelized runs, if each process has its own copy of the entire reactor</span>
 <span class="sd">        hierarchy, this method synchronizes the state of all parameters on all objects.</span>
+
+<span class="sd">        .. impl:: Composites can be synchronized across MPI threads.</span>
+<span class="sd">            :id: I_ARMI_CMP_MPI</span>
+<span class="sd">            :implements: R_ARMI_CMP_MPI</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -3462,7 +3509,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

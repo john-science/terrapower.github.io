@@ -230,10 +230,6 @@
 
 <span class="sd">    * Unit step calculations use dot products and must not be polluted by the bound</span>
 <span class="sd">      indices. Thus we reduce the size of the unitSteps tuple accordingly.</span>
-
-<span class="sd">    .. impl:: ARMI supports a number of structured mesh options.</span>
-<span class="sd">       :id: I_REACTOR_MESH_0</span>
-<span class="sd">       :links: R_REACTOR_MESH</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -388,7 +384,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bounds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backup</span></div>
 
 <div class="viewcode-block" id="StructuredGrid.getCoordinates"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.structuredgrid.html#armi.reactor.grids.structuredgrid.StructuredGrid.getCoordinates">[docs]</a>    <span class="k">def</span> <span class="nf">getCoordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">nativeCoords</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the coordinates of the center of the mesh cell at the given given indices in cm.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the coordinates of the center of the mesh cell at the given indices in cm.</span>
+
+<span class="sd">        .. impl:: Get the coordinates from a location in a grid.</span>
+<span class="sd">            :id: I_ARMI_GRID_GLOBAL_POS</span>
+<span class="sd">            :implements: R_ARMI_GRID_GLOBAL_POS</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">indices</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluateMesh</span><span class="p">(</span>
             <span class="n">indices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_centroidBySteps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_centroidByBounds</span>
@@ -593,7 +594,6 @@
 <span class="sd">        -------</span>
 <span class="sd">        float or tuple of (float, float)</span>
 <span class="sd">            Grid spacing in cm</span>
-
 <span class="sd">        &quot;&quot;&quot;</span></div>
 
 
@@ -615,7 +615,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

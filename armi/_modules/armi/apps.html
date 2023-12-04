@@ -117,8 +117,7 @@
 <span class="sd">    otherwise be global state. The ARMI Framework has historically made heavy use of</span>
 <span class="sd">    global state (e.g., :py:mod:`armi.nucDirectory.nuclideBases`), and it will take</span>
 <span class="sd">    quite a bit of effort to refactor the code to access such things through an App</span>
-<span class="sd">    object. We are planning to do this, but for now this App class is somewhat</span>
-<span class="sd">    rudimentary.</span>
+<span class="sd">    object.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># ruff: noqa: E402</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
@@ -148,6 +147,10 @@
 <span class="sd">    pain, as the results returned by the individual plugins may need to be merged and/or</span>
 <span class="sd">    checked for errors. Adding that logic here reduces boilerplate throughout the rest</span>
 <span class="sd">    of the code.</span>
+
+<span class="sd">    .. impl:: An App has a plugin manager.</span>
+<span class="sd">        :id: I_ARMI_APP_PLUGINS</span>
+<span class="sd">        :implements: R_ARMI_APP_PLUGINS</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;armi&quot;</span>
@@ -213,7 +216,13 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pm</span>
 
 <div class="viewcode-block" id="App.getSettings"><a class="viewcode-back" href="../../.apidocs/armi.apps.html#armi.apps.App.getSettings">[docs]</a>    <span class="k">def</span> <span class="nf">getSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Setting</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a dictionary containing all Settings defined by the framework and all plugins.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a dictionary containing all Settings defined by the framework and all plugins.</span>
+
+<span class="sd">        .. impl:: Applications will not allow duplicate settings.</span>
+<span class="sd">            :id: I_ARMI_SETTINGS_UNIQUE</span>
+<span class="sd">            :implements: R_ARMI_SETTINGS_UNIQUE</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Start with framework settings</span>
         <span class="n">settingDefs</span> <span class="o">=</span> <span class="p">{</span>
             <span class="n">setting</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">setting</span> <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="n">fwSettings</span><span class="o">.</span><span class="n">getFrameworkSettings</span><span class="p">()</span>
@@ -500,7 +509,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

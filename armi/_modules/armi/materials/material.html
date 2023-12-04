@@ -110,7 +110,6 @@
 
 <span class="sd">Most temperatures may be specified in either K or C and the functions will convert for you.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
@@ -129,6 +128,14 @@
 <div class="viewcode-block" id="Material"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material">[docs]</a><span class="k">class</span> <span class="nc">Material</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A material is made up of elements or isotopes. It has bulk properties like mass density.</span>
+
+<span class="sd">    .. impl:: The abstract material class.</span>
+<span class="sd">        :id: I_ARMI_MAT_PROPERTIES</span>
+<span class="sd">        :implements: R_ARMI_MAT_PROPERTIES</span>
+
+<span class="sd">    .. impl:: Materials generate nuclide mass fractions at instantiation.</span>
+<span class="sd">        :id: I_ARMI_MAT_FRACS</span>
+<span class="sd">        :implements: R_ARMI_MAT_FRACS</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -188,7 +195,13 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter for the private name attribute of this Material.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Getter for the private name attribute of this Material.</span>
+
+<span class="sd">        .. impl:: The name of a material is accessible.</span>
+<span class="sd">            :id: I_ARMI_MAT_NAME</span>
+<span class="sd">            :implements: R_ARMI_MAT_NAME</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
 
     <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
@@ -667,9 +680,6 @@
             <span class="c1"># the nuc isn&#39;t in the mass Frac vector</span>
             <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Material.getMassFracCopy"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.getMassFracCopy">[docs]</a>    <span class="k">def</span> <span class="nf">getMassFracCopy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massFrac</span><span class="p">)</span></div>
-
 <div class="viewcode-block" id="Material.checkPropertyTempRange"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Material.checkPropertyTempRange">[docs]</a>    <span class="k">def</span> <span class="nf">checkPropertyTempRange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks if the given property / value combination fall between the min and max valid</span>
 <span class="sd">        temperatures provided in the propertyValidTemperature object.</span>
@@ -804,6 +814,10 @@
 <div class="viewcode-block" id="Fluid.linearExpansion"><a class="viewcode-back" href="../../../.apidocs/armi.materials.material.html#armi.materials.material.Fluid.linearExpansion">[docs]</a>    <span class="k">def</span> <span class="nf">linearExpansion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;For void, lets just not allow temperature changes to change dimensions</span>
 <span class="sd">        since it is a liquid it will fill its space.</span>
+
+<span class="sd">        .. impl:: Fluid materials are not thermally expandable.</span>
+<span class="sd">            :id: I_ARMI_MAT_FLUID</span>
+<span class="sd">            :implements: R_ARMI_MAT_FLUID</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">0.0</span></div>
 
@@ -1000,7 +1014,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

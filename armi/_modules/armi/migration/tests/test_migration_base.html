@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.safety.settings &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.migration.tests.test_migration_base &mdash; ARMI 0.2.9 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -78,8 +78,7 @@
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="../../../armi.html">armi</a></li>
-          <li class="breadcrumb-item"><a href="../safety.html">armi.physics.safety</a></li>
-      <li class="breadcrumb-item active">armi.physics.safety.settings</li>
+      <li class="breadcrumb-item active">armi.migration.tests.test_migration_base</li>
   <li class="wy-breadcrumbs-aside">
     
   </li>
@@ -90,8 +89,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for armi.physics.safety.settings</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
+  <h1>Source code for armi.migration.tests.test_migration_base</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 TerraPower, LLC</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -104,11 +103,35 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;Test base migration classes.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">armi.migration.base</span> <span class="kn">import</span> <span class="n">Migration</span>
+<span class="kn">from</span> <span class="nn">armi.migration.base</span> <span class="kn">import</span> <span class="n">SettingsMigration</span>
+<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">TEST_ROOT</span>
 
 
-<div class="viewcode-block" id="defineSettings"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.safety.settings.html#armi.physics.safety.settings.defineSettings">[docs]</a><span class="k">def</span> <span class="nf">defineSettings</span><span class="p">():</span>
-    <span class="n">settings</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">return</span> <span class="n">settings</span></div>
+<div class="viewcode-block" id="TestMigrationBases"><a class="viewcode-back" href="../../../../.apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestMigrationBases">[docs]</a><span class="k">class</span> <span class="nc">TestMigrationBases</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestMigrationBases.test_basic_validation"><a class="viewcode-back" href="../../../../.apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestMigrationBases.test_basic_validation">[docs]</a>    <span class="k">def</span> <span class="nf">test_basic_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+            <span class="n">_m</span> <span class="o">=</span> <span class="n">Migration</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+            <span class="n">_m</span> <span class="o">=</span> <span class="n">Migration</span><span class="p">(</span><span class="s2">&quot;fake_stream&quot;</span><span class="p">,</span> <span class="s2">&quot;fake_path&quot;</span><span class="p">)</span>
+
+        <span class="n">Migration</span><span class="p">(</span><span class="s2">&quot;fake_stream&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">Migration</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;fake_path&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">_loadStreamFromPath</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="TestSettingsMigration"><a class="viewcode-back" href="../../../../.apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestSettingsMigration">[docs]</a><span class="k">class</span> <span class="nc">TestSettingsMigration</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestSettingsMigration.test_loadStreamFromPath"><a class="viewcode-back" href="../../../../.apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestSettingsMigration.test_loadStreamFromPath">[docs]</a>    <span class="k">def</span> <span class="nf">test_loadStreamFromPath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TEST_ROOT</span><span class="p">,</span> <span class="s2">&quot;armiRun.yaml&quot;</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">SettingsMigration</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">_loadStreamFromPath</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNotNone</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">stream</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -119,7 +142,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

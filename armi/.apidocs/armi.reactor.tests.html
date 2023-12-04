@@ -88,12 +88,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -204,6 +204,8 @@
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_pinPlenumVolume"><code class="docutils literal notranslate"><span class="pre">Assembly_TestCase.test_pinPlenumVolume()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_averagePlenumTemperature"><code class="docutils literal notranslate"><span class="pre">Assembly_TestCase.test_averagePlenumTemperature()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_rotate"><code class="docutils literal notranslate"><span class="pre">Assembly_TestCase.test_rotate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_assem_block_types"><code class="docutils literal notranslate"><span class="pre">Assembly_TestCase.test_assem_block_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_assem_hex_type"><code class="docutils literal notranslate"><span class="pre">Assembly_TestCase.test_assem_hex_type()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.AssemblyInReactor_TestCase"><code class="docutils literal notranslate"><span class="pre">AssemblyInReactor_TestCase</span></code></a><ul>
@@ -222,6 +224,10 @@
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.loadTestBlock"><code class="docutils literal notranslate"><span class="pre">loadTestBlock()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.applyDummyData"><code class="docutils literal notranslate"><span class="pre">applyDummyData()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.getComponentData"><code class="docutils literal notranslate"><span class="pre">getComponentData()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestDetailedNDensUpdate"><code class="docutils literal notranslate"><span class="pre">TestDetailedNDensUpdate</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestDetailedNDensUpdate.test_updateDetailedNdens"><code class="docutils literal notranslate"><span class="pre">TestDetailedNDensUpdate.test_updateDetailedNdens()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase"><code class="docutils literal notranslate"><span class="pre">Block_TestCase</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_getSmearDensity"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_getSmearDensity()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_getSmearDensityMultipleLiner"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_getSmearDensityMultipleLiner()</span></code></a></li>
@@ -285,6 +291,7 @@
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_expandElementalToIsotopics"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_expandElementalToIsotopics()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_expandAllElementalsToIsotopics"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_expandAllElementalsToIsotopics()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setPitch"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_setPitch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setImportantParams"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_setImportantParams()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_getMfp"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_getMfp()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_consistentMassDensityVolumeBetweenColdBlockAndColdComponents"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_consistentMassDensityVolumeBetweenColdBlockAndColdComponents()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_consistentMassDensityVolumeBetweenHotBlockAndHotComponents"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_consistentMassDensityVolumeBetweenHotBlockAndHotComponents()</span></code></a></li>
@@ -299,14 +306,16 @@
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_getReactionRates"><code class="docutils literal notranslate"><span class="pre">Block_TestCase.test_getReactionRates()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Test_NegativeVolume"><code class="docutils literal notranslate"><span class="pre">Test_NegativeVolume</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Test_NegativeVolume.test_negativeVolume"><code class="docutils literal notranslate"><span class="pre">Test_NegativeVolume.test_negativeVolume()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestNegativeVolume"><code class="docutils literal notranslate"><span class="pre">TestNegativeVolume</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestNegativeVolume.test_negativeVolume"><code class="docutils literal notranslate"><span class="pre">TestNegativeVolume.test_negativeVolume()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_getArea"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_getArea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_component_type"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_component_type()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_coords"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_coords()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_getNumPins"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_getNumPins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_block_dims"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_block_dims()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_symmetryFactor"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_symmetryFactor()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_retainState"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_retainState()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_getPinCoords"><code class="docutils literal notranslate"><span class="pre">HexBlock_TestCase.test_getPinCoords()</span></code></a></li>
@@ -368,7 +377,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent"><code class="docutils literal notranslate"><span class="pre">TestComponent</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.componentCls"><code class="docutils literal notranslate"><span class="pre">TestComponent.componentCls</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_initializeComponent"><code class="docutils literal notranslate"><span class="pre">TestComponent.test_initializeComponent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_initializeComponentMaterial"><code class="docutils literal notranslate"><span class="pre">TestComponent.test_initializeComponentMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_setNumberDensity"><code class="docutils literal notranslate"><span class="pre">TestComponent.test_setNumberDensity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_setNumberDensities"><code class="docutils literal notranslate"><span class="pre">TestComponent.test_setNumberDensities()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_solid_material"><code class="docutils literal notranslate"><span class="pre">TestComponent.test_solid_material()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestNullComponent"><code class="docutils literal notranslate"><span class="pre">TestNullComponent</span></code></a><ul>
@@ -384,6 +396,7 @@
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestUnshapedComponent.componentDims"><code class="docutils literal notranslate"><span class="pre">TestUnshapedComponent.componentDims</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestUnshapedComponent.test_getComponentArea"><code class="docutils literal notranslate"><span class="pre">TestUnshapedComponent.test_getComponentArea()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestUnshapedComponent.test_getBoundingCircleOuterDiameter"><code class="docutils literal notranslate"><span class="pre">TestUnshapedComponent.test_getBoundingCircleOuterDiameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestUnshapedComponent.test_component_less_than"><code class="docutils literal notranslate"><span class="pre">TestUnshapedComponent.test_component_less_than()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestUnshapedComponent.test_fromComponent"><code class="docutils literal notranslate"><span class="pre">TestUnshapedComponent.test_fromComponent()</span></code></a></li>
 </ul>
 </li>
@@ -399,6 +412,7 @@
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape.componentMaterial"><code class="docutils literal notranslate"><span class="pre">TestDerivedShape.componentMaterial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape.componentDims"><code class="docutils literal notranslate"><span class="pre">TestDerivedShape.componentDims</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape.test_getBoundingCircleOuterDiameter"><code class="docutils literal notranslate"><span class="pre">TestDerivedShape.test_getBoundingCircleOuterDiameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape.test_computeVolume"><code class="docutils literal notranslate"><span class="pre">TestDerivedShape.test_computeVolume()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle"><code class="docutils literal notranslate"><span class="pre">TestCircle</span></code></a><ul>
@@ -606,9 +620,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_Composite"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_Composite()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_composite"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_composite()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_iterComponents"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_iterComponents()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_getChildren"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_getChildren()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_getName"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_getName()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_sort"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_sort()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_areChildernOfType"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_areChildernOfType()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_containsAtLeastOneChildOfType"><code class="docutils literal notranslate"><span class="pre">TestCompositePattern.test_containsAtLeastOneChildOfType()</span></code></a></li>
@@ -666,6 +681,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods"><code class="docutils literal notranslate"><span class="pre">TestMiscMethods</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_setMass"><code class="docutils literal notranslate"><span class="pre">TestMiscMethods.test_setMass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getNumberDensities"><code class="docutils literal notranslate"><span class="pre">TestMiscMethods.test_getNumberDensities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_dimensionReport"><code class="docutils literal notranslate"><span class="pre">TestMiscMethods.test_dimensionReport()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_printDensities"><code class="docutils literal notranslate"><span class="pre">TestMiscMethods.test_printDensities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getAtomicWeight"><code class="docutils literal notranslate"><span class="pre">TestMiscMethods.test_getAtomicWeight()</span></code></a></li>
@@ -683,7 +699,7 @@
 <li class="toctree-l1"><a class="reference internal" href="armi.reactor.tests.test_flags.html">armi.reactor.tests.test_flags module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags"><code class="docutils literal notranslate"><span class="pre">TestFlags</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_fromString"><code class="docutils literal notranslate"><span class="pre">TestFlags.test_fromString()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_toString"><code class="docutils literal notranslate"><span class="pre">TestFlags.test_toString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_flagsToAndFromString"><code class="docutils literal notranslate"><span class="pre">TestFlags.test_flagsToAndFromString()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_fromStringStrict"><code class="docutils literal notranslate"><span class="pre">TestFlags.test_fromStringStrict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_lookup"><code class="docutils literal notranslate"><span class="pre">TestFlags.test_lookup()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_convertsStringsWithNonFlags"><code class="docutils literal notranslate"><span class="pre">TestFlags.test_convertsStringsWithNonFlags()</span></code></a></li>
@@ -733,6 +749,8 @@
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.MockCompositeChild"><code class="docutils literal notranslate"><span class="pre">MockCompositeChild</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests"><code class="docutils literal notranslate"><span class="pre">ParameterTests</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_mutableDefaultsNotSupported"><code class="docutils literal notranslate"><span class="pre">ParameterTests.test_mutableDefaultsNotSupported()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_writeSomeParamsToDB"><code class="docutils literal notranslate"><span class="pre">ParameterTests.test_writeSomeParamsToDB()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_serializer_pack_unpack"><code class="docutils literal notranslate"><span class="pre">ParameterTests.test_serializer_pack_unpack()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_paramPropertyDoesNotConflict"><code class="docutils literal notranslate"><span class="pre">ParameterTests.test_paramPropertyDoesNotConflict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_paramPropertyDoesNotConflictWithNoneDefault"><code class="docutils literal notranslate"><span class="pre">ParameterTests.test_paramPropertyDoesNotConflictWithNoneDefault()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_getWithoutDefaultRaisesParameterError"><code class="docutils literal notranslate"><span class="pre">ParameterTests.test_getWithoutDefaultRaisesParameterError()</span></code></a></li>
@@ -780,7 +798,9 @@
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.reduceTestReactorRings"><code class="docutils literal notranslate"><span class="pre">reduceTestReactorRings()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.ReactorTests"><code class="docutils literal notranslate"><span class="pre">ReactorTests</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests"><code class="docutils literal notranslate"><span class="pre">HexReactorTests</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_coreSfp"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_coreSfp()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_factorySortSetting"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_factorySortSetting()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getSetParameters"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getSetParameters()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_sortChildren"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_sortChildren()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_sortAssemByRing"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_sortAssemByRing()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getTotalParam"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getTotalParam()</span></code></a></li>
@@ -807,9 +827,11 @@
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_genAssembliesAddedThisCycle"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_genAssembliesAddedThisCycle()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyPitch"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getAssemblyPitch()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumAssembliesWithAllRingsFilledOut"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getNumAssembliesWithAllRingsFilledOut()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumAssembliesWithAllRingsFilledOutBipass"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getNumAssembliesWithAllRingsFilledOutBipass()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumEnergyGroups"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getNumEnergyGroups()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getMinimumPercentFluxInFuel"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getMinimumPercentFluxInFuel()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembly"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getAssembly()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithLoc"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getAssemblyWithLoc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithName"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getAssemblyWithName()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_restoreReactor"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_restoreReactor()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_differentNuclideModels"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_differentNuclideModels()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getDominantMaterial"><code class="docutils literal notranslate"><span class="pre">HexReactorTests.test_getDominantMaterial()</span></code></a></li>
@@ -854,13 +876,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html">armi.reactor.tests.test_rz_reactors module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor.test_loadRZT"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor.test_loadRZT()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor.test_findAllMeshPoints"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor.test_findAllMeshPoints()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor"><code class="docutils literal notranslate"><span class="pre">TestRZTReactor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor.test_loadRZT"><code class="docutils literal notranslate"><span class="pre">TestRZTReactor.test_loadRZT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor.test_findAllMeshPoints"><code class="docutils literal notranslate"><span class="pre">TestRZTReactor.test_findAllMeshPoints()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor_modern"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor_modern</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor_modern.test_loadRZT_reactor"><code class="docutils literal notranslate"><span class="pre">Test_RZT_Reactor_modern.test_loadRZT_reactor()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactorModern"><code class="docutils literal notranslate"><span class="pre">TestRZTReactorModern</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactorModern.test_loadRZT_reactor"><code class="docutils literal notranslate"><span class="pre">TestRZTReactorModern.test_loadRZT_reactor()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -908,7 +930,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

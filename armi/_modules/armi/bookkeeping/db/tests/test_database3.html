@@ -149,6 +149,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TestDatabase3.test_writeToDB"><a class="viewcode-back" href="../../../../../.apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_writeToDB">[docs]</a>    <span class="k">def</span> <span class="nf">test_writeToDB</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test writing to the database.</span>
+
+<span class="sd">        .. test:: Write a single time step of data to the database.</span>
+<span class="sd">            :id: T_ARMI_DB_TIME</span>
+<span class="sd">            :tests: R_ARMI_DB_TIME</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycleLength</span> <span class="o">=</span> <span class="mi">0</span>
@@ -161,6 +167,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">writeToDB</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">h5db</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="p">[</span><span class="s2">&quot;c00n00&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">])</span>
 
+        <span class="c1"># check the keys for a single time step</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span>
             <span class="s2">&quot;Circle&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Core&quot;</span><span class="p">,</span>
@@ -189,6 +196,13 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestDatabase3.test_getH5File"><a class="viewcode-back" href="../../../../../.apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_getH5File">[docs]</a>    <span class="k">def</span> <span class="nf">test_getH5File</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the h5 file for the database, because that file format is language-agnostic.</span>
+
+<span class="sd">        .. test:: Show the database is H5-formatted.</span>
+<span class="sd">            :id: T_ARMI_DB_H5</span>
+<span class="sd">            :tests: R_ARMI_DB_H5</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
             <span class="n">_getH5File</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
@@ -279,6 +293,10 @@
 <span class="sd">        above. In that cs, `reloadDBName` is set to &#39;reloadingDB.h5&#39;, `startCycle` = 1,</span>
 <span class="sd">        and `startNode` = 2. The nonexistent &#39;reloadingDB.h5&#39; must first be</span>
 <span class="sd">        created here for this test.</span>
+
+<span class="sd">        .. test:: Runs can be restarted from a snapshot.</span>
+<span class="sd">            :id: T_ARMI_SNAPSHOT_RESTART</span>
+<span class="sd">            :tests: R_ARMI_SNAPSHOT_RESTART</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># first successfully call to prepRestartRun</span>
         <span class="n">o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">loadTestReactor</span><span class="p">(</span>
@@ -428,6 +446,12 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestDatabase3.test_load"><a class="viewcode-back" href="../../../../../.apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_load">[docs]</a>    <span class="k">def</span> <span class="nf">test_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load a reactor at different time steps, from the database.</span>
+
+<span class="sd">        .. test:: Load the reactor from the database.</span>
+<span class="sd">            :id: T_ARMI_DB_R_LOAD</span>
+<span class="sd">            :tests: R_ARMI_DB_R_LOAD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">makeShuffleHistory</span><span class="p">()</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
             <span class="n">_r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -684,14 +708,26 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">fileName</span><span class="p">),</span> <span class="s2">&quot;thing.h5&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestDatabase3.test_readInputsFromDB"><a class="viewcode-back" href="../../../../../.apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_readInputsFromDB">[docs]</a>    <span class="k">def</span> <span class="nf">test_readInputsFromDB</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test that we can read inputs from the database.</span>
+
+<span class="sd">        .. test:: Save and retrieve settings from the database.</span>
+<span class="sd">            :id: T_ARMI_DB_CS</span>
+<span class="sd">            :tests: R_ARMI_DB_CS</span>
+
+<span class="sd">        .. test:: Save and retrieve blueprints from the database.</span>
+<span class="sd">            :id: T_ARMI_DB_BP</span>
+<span class="sd">            :tests: R_ARMI_DB_BP</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">readInputsFromDB</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
+        <span class="c1"># settings</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">100</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;settings:&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">0</span><span class="p">)</span>
 
+        <span class="c1"># blueprints</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">100</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;custom isotopics:&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;blocks:&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
@@ -725,7 +761,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

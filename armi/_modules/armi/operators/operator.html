@@ -114,10 +114,6 @@
 <span class="sd">This is analogous to a real reactor operating over some period of time,</span>
 <span class="sd">often from initial startup, through the various cycles, and out to</span>
 <span class="sd">the end of plant life.</span>
-
-<span class="sd">.. impl:: ARMI controls the time flow of the reactor, by running a sequence of Interfaces at each time step.</span>
-<span class="sd">   :id: I_EVOLVING_STATE_0</span>
-<span class="sd">   :links: R_EVOLVING_STATE</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -169,6 +165,14 @@
 <span class="sd">    **Figure 1.** The computational flow of the interface hooks in a Standard Operator</span>
 
 <span class="sd">    .. note:: The :doc:`/developer/guide` has some additional narrative on this topic.</span>
+
+<span class="sd">    .. impl:: An operator will have a reactor object to communicate between plugins.</span>
+<span class="sd">        :id: I_ARMI_OPERATOR_COMM</span>
+<span class="sd">        :implements: R_ARMI_OPERATOR_COMM</span>
+
+<span class="sd">    .. impl:: An operator is built from user settings.</span>
+<span class="sd">        :id: I_ARMI_OPERATOR_SETTINGS</span>
+<span class="sd">        :implements: R_ARMI_OPERATOR_SETTINGS</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -262,6 +266,13 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">stepLengths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate step lengths.</span>
+
+<span class="sd">        .. impl:: Calculate step lengths from cycles and burn steps.</span>
+<span class="sd">            :id: I_ARMI_FW_HISTORY</span>
+<span class="sd">            :implements: R_ARMI_FW_HISTORY</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stepLengths</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_stepLengths</span> <span class="o">=</span> <span class="n">getStepLengths</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stepLengths</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;nCycles&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -702,7 +713,6 @@
 <span class="sd">            The time node that is currently being run (0 for BOC, etc.)</span>
 <span class="sd">        excludedInterfaceNames : list, optional</span>
 <span class="sd">            Names of interface names that will not be interacted with.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">excludedInterfaceNames</span> <span class="o">=</span> <span class="n">excludedInterfaceNames</span> <span class="ow">or</span> <span class="p">()</span>
         <span class="n">activeInterfaces</span> <span class="o">=</span> <span class="p">[</span>
@@ -748,6 +758,10 @@
 <span class="sd">        This is distinct from loose coupling, which would simply uses the temperature values from the previous timestep</span>
 <span class="sd">        in the current flux solution. It&#39;s also distinct from full coupling where all fields are solved simultaneously.</span>
 <span class="sd">        ARMI supports tight and loose coupling.</span>
+
+<span class="sd">        .. impl:: Physics coupling is driven from Operator.</span>
+<span class="sd">            :id: I_ARMI_OPERATOR_PHYSICS1</span>
+<span class="sd">            :implements: R_ARMI_OPERATOR_PHYSICS</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">activeInterfaces</span> <span class="o">=</span> <span class="p">[</span><span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span> <span class="k">if</span> <span class="n">ii</span><span class="o">.</span><span class="n">enabled</span><span class="p">()]</span>
 
@@ -1021,6 +1035,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get list of interfaces in interface stack.</span>
 
+<span class="sd">        .. impl:: An operator will expose an ordered list of interfaces.</span>
+<span class="sd">            :id: I_ARMI_OPERATOR_INTERFACES</span>
+<span class="sd">            :implements: R_ARMI_OPERATOR_INTERFACES</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        Returns a copy so you can manipulate the list in an interface, like dependencies.</span>
@@ -1261,7 +1279,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

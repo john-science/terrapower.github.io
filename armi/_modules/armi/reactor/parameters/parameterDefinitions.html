@@ -241,10 +241,14 @@
 <span class="sd">        Defining a Serializer for a Parameter in part defines the underlying</span>
 <span class="sd">        representation of the data within a database file; the data stored in a database</span>
 <span class="sd">        are sensitive to the code that wrote them. Changing the method that a Serializer</span>
-<span class="sd">        uses to pack or unpack data may break compatibility with old databse files.</span>
-<span class="sd">        Therefore, Serializers should be dilligent about signalling changes by updating</span>
+<span class="sd">        uses to pack or unpack data may break compatibility with old database files.</span>
+<span class="sd">        Therefore, Serializers should be diligent about signalling changes by updating</span>
 <span class="sd">        their version. It is also good practice, whenever possible, to support reading</span>
 <span class="sd">        old versions so that database files written by old versions can still be read.</span>
+
+<span class="sd">    .. impl:: Users can define custom parameter serializers.</span>
+<span class="sd">        :id: I_ARMI_PARAM_SERIALIZE</span>
+<span class="sd">        :implements: R_ARMI_PARAM_SERIALIZE</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -264,7 +268,7 @@
 <span class="sd">        Given unpacked data, return packed data and a dictionary of attributes needed to</span>
 <span class="sd">        unpack it.</span>
 
-<span class="sd">        The should perform the fundamental packing operation, returning the packed data</span>
+<span class="sd">        This should perform the fundamental packing operation, returning the packed data</span>
 <span class="sd">        and any metadata (&quot;attributes&quot;) that would be necessary to unpack the data. The</span>
 <span class="sd">        class&#39;s version is always stored, so no need to provide it as an attribute.</span>
 
@@ -430,6 +434,10 @@
 <div class="viewcode-block" id="Parameter.setter"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.Parameter.setter">[docs]</a>    <span class="k">def</span> <span class="nf">setter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">setter</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Decorator method for assigning setter.</span>
 
+<span class="sd">        .. impl:: Provide a way to signal if a parameter needs updating across processes.</span>
+<span class="sd">            :id: I_ARMI_PARAM_PARALLEL</span>
+<span class="sd">            :implements: R_ARMI_PARAM_PARALLEL</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        Unlike the traditional Python ``property`` class, this does not return a new</span>
@@ -551,7 +559,7 @@
         <span class="k">return</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <div class="viewcode-block" id="ParameterDefinitionCollection.add"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paramDef</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add a :py:class:`Parameter` to this collection.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a :py:class:`Parameter` to this collection.&quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_locked</span><span class="p">,</span> <span class="s2">&quot;This ParameterDefinitionCollection has been locked.&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_paramDefs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">paramDef</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_paramDefDict</span><span class="p">[</span><span class="n">paramDef</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">paramDef</span><span class="o">.</span><span class="n">collectionType</span><span class="p">]</span> <span class="o">=</span> <span class="n">paramDef</span>
@@ -613,7 +621,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">pd</span><span class="p">:</span> <span class="ow">not</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">assigned</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="ParameterDefinitionCollection.forType"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection.forType">[docs]</a>    <span class="k">def</span> <span class="nf">forType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compositeType</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a :py:class:`ParameterDefinitionCollection` that contains definitions for a</span>
 <span class="sd">        specific composite type.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -639,16 +647,16 @@
             <span class="n">pd</span><span class="o">.</span><span class="n">assigned</span> <span class="o">|=</span> <span class="n">mask</span></div>
 
 <div class="viewcode-block" id="ParameterDefinitionCollection.byNameAndType"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection.byNameAndType">[docs]</a>    <span class="k">def</span> <span class="nf">byNameAndType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">compositeType</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Get a :py:class:`Parameter` by compositeType and name.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a :py:class:`Parameter` by compositeType and name.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_paramDefDict</span><span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">compositeType</span><span class="o">.</span><span class="n">paramCollectionType</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ParameterDefinitionCollection.byNameAndCollectionType"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection.byNameAndCollectionType">[docs]</a>    <span class="k">def</span> <span class="nf">byNameAndCollectionType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">collectionType</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Get a :py:class:`Parameter` by collectionType and name.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a :py:class:`Parameter` by collectionType and name.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_paramDefDict</span><span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">collectionType</span><span class="p">]</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">categories</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Get the categories of all the :py:class:`~Parameter` instances within this collection.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the categories of all the :py:class:`~Parameter` instances within this collection.&quot;&quot;&quot;</span>
         <span class="n">categories</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">paramDef</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
             <span class="n">categories</span> <span class="o">|=</span> <span class="n">paramDef</span><span class="o">.</span><span class="n">categories</span>
@@ -668,6 +676,10 @@
 <div class="viewcode-block" id="ParameterDefinitionCollection.toWriteToDB"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection.toWriteToDB">[docs]</a>    <span class="k">def</span> <span class="nf">toWriteToDB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assignedMask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of acceptable parameters to store to the database for a level of the data model.</span>
+
+<span class="sd">        .. impl:: Filter parameters to write to DB.</span>
+<span class="sd">            :id: I_ARMI_PARAM_DB</span>
+<span class="sd">            :implements: R_ARMI_PARAM_DB</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -839,7 +851,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

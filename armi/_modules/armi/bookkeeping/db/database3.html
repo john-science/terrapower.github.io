@@ -203,6 +203,10 @@
 <span class="sd">    handles the packing and unpacking of the structure of the objects, their</span>
 <span class="sd">    relationships, and their non-parameter attributes.</span>
 
+<span class="sd">    .. impl:: The database files are H5, and thus language agnostic.</span>
+<span class="sd">        :id: I_ARMI_DB_H51</span>
+<span class="sd">        :implements: R_ARMI_DB_H5</span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    `doc/user/outputs/database` for more details.</span>
@@ -517,6 +521,7 @@
 <div class="viewcode-block" id="Database3.loadGeometry"><a class="viewcode-back" href="../../../../.apidocs/armi.bookkeeping.db.database3.html#armi.bookkeeping.db.Database3.loadGeometry">[docs]</a>    <span class="k">def</span> <span class="nf">loadGeometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This is primarily just used for migrations.</span>
+
 <span class="sd">        The &quot;geometry files&quot; were replaced by ``systems:`` and ``grids:`` sections of ``Blueprints``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">geom</span> <span class="o">=</span> <span class="n">systemLayoutInput</span><span class="o">.</span><span class="n">SystemLayoutInput</span><span class="p">()</span>
@@ -530,6 +535,14 @@
 <span class="sd">        This is not DRY on purpose. The goal is that any particular Database</span>
 <span class="sd">        implementation should be very stable, so we dont want it to be easy to change</span>
 <span class="sd">        one Database implementation&#39;s behavior when trying to change another&#39;s.</span>
+
+<span class="sd">        .. impl:: The run settings are saved the settings file.</span>
+<span class="sd">            :id: I_ARMI_DB_CS</span>
+<span class="sd">            :implements: R_ARMI_DB_CS</span>
+
+<span class="sd">        .. impl:: The reactor blueprints are saved the settings file.</span>
+<span class="sd">            :id: I_ARMI_DB_BP</span>
+<span class="sd">            :implements: R_ARMI_DB_BP</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -744,8 +757,6 @@
         <span class="n">bp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">statePointName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">allowMissing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">updateGlobalAssemNum</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">updateMasterCs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Load a new reactor from (cycle, node).</span>
 
@@ -754,6 +765,10 @@
 <span class="sd">        or where it is expected to use results from a run using different settings and</span>
 <span class="sd">        continue with new settings (or if blueprints are not on the database).</span>
 <span class="sd">        Geometry is read from the database itself.</span>
+
+<span class="sd">        .. impl:: Users can load a reactor from a DB.</span>
+<span class="sd">            :id: I_ARMI_DB_R_LOAD</span>
+<span class="sd">            :implements: R_ARMI_DB_R_LOAD</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -771,10 +786,6 @@
 <span class="sd">        allowMissing : bool, optional</span>
 <span class="sd">            Whether to emit a warning, rather than crash if reading a database</span>
 <span class="sd">            with undefined parameters. Default False.</span>
-<span class="sd">        updateGlobalAssemNum : bool, optional</span>
-<span class="sd">            DeprecationWarning: This is unused.</span>
-<span class="sd">        updateMasterCs : bool, optional</span>
-<span class="sd">            TODO: Deprecated. Slated for removal.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -815,12 +826,6 @@
             <span class="n">parameterCollections</span><span class="o">.</span><span class="n">GLOBAL_SERIAL_NUM</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">serialNum</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
         <span class="p">)</span>
         <span class="n">root</span> <span class="o">=</span> <span class="n">comps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">updateGlobalAssemNum</span><span class="p">:</span>
-            <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s2">&quot;The method input `updateGlobalAssemNum` is no longer used.&quot;</span><span class="p">,</span>
-                <span class="n">single</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="p">)</span>
 
         <span class="c1"># return a Reactor object</span>
         <span class="k">if</span> <span class="n">cs</span><span class="p">[</span><span class="n">CONF_SORT_REACTOR</span><span class="p">]:</span>
@@ -1564,7 +1569,6 @@
 <span class="sd">      ``None`` with a magical value that shouldn&#39;t be encountered in realistic</span>
 <span class="sd">      scenarios.</span>
 
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    data</span>
@@ -1716,7 +1720,6 @@
 <span class="sd">        An ndarray containing the closest possible representation of the data that was</span>
 <span class="sd">        originally written to the database.</span>
 
-
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    packSpecialData</span>
@@ -1803,7 +1806,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

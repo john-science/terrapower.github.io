@@ -90,12 +90,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -157,6 +157,15 @@ unaligned axial meshes in a way that conserves nuclide mass</p></li>
 <li><p>For neutronics cases, all neutronics-related block params should be translated, as
 well as the multigroup real and adjoint flux.</p></li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This procedure can cause numerical diffusion in some cases. For example,
+if a control rod tip block has a large coolant block below it, things like peak
+absorption rate can get lost into it. We recalculate some but not all
+reaction rates in the re-mapping process based on a flux remapping. To avoid this,
+finer meshes will help. Always perform mesh sensitivity studies to ensure appropriate
+convergence for your needs.</p>
+</div>
 <p class="rubric">Examples</p>
 <p>converter = uniformMesh.NeutronicsUniformMeshConverter()
 converter.convert(reactor)
@@ -191,7 +200,7 @@ and just provide the result of <code class="docutils literal notranslate"><span 
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>r</strong> (<a class="reference internal" href="armi.reactor.reactors.html#armi.reactor.reactors.Reactor" title="armi.reactor.reactors.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a> object.) – Reactor for which a common mesh is generated</p></li>
 <li><p><strong>minimumMeshSize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>optional</em>) – Minimum allowed separation between axial mesh points in cm
-If no miminmum mesh size is provided, no “decusping” is performed</p></li>
+If no minimum mesh size is provided, no “decusping” is performed</p></li>
 </ul>
 </dd>
 </dl>
@@ -280,7 +289,8 @@ parameters to be mapped in each direction.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.applyStateToOriginal">
 <span class="sig-name descname"><span class="pre">applyStateToOriginal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/converters/uniformMesh.html#UniformMeshGeometryConverter.applyStateToOriginal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.applyStateToOriginal" title="Permalink to this definition"></a></dt>
-<dd><p>Apply the state of the converted reactor back to the original reactor, mapping number densities and block parameters.</p>
+<dd><p>Apply the state of the converted reactor back to the original reactor,
+mapping number densities and block parameters.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -545,7 +555,7 @@ heights <span class="math notranslate nohighlight">\(h_i\)</span>, the following
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

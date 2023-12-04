@@ -240,6 +240,8 @@
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.isotopicDepletion.crossSectionTable.html#armi.physics.neutronics.isotopicDepletion.crossSectionTable.CrossSectionTable.addMultiGroupXS">addMultiGroupXS() (armi.physics.neutronics.isotopicDepletion.crossSectionTable.CrossSectionTable method)</a>
 </li>
+      <li><a href=".apidocs/armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.addNuclideBases">addNuclideBases() (in module armi.nucDirectory.nuclideBases)</a>
+</li>
       <li><a href=".apidocs/armi.settings.setting.html#armi.settings.setting.Setting.addOption">addOption() (armi.settings.setting.Setting method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.visualization.entryPoint.html#armi.bookkeeping.visualization.entryPoint.VisFileEntryPoint.addOptions">addOptions() (armi.bookkeeping.visualization.entryPoint.VisFileEntryPoint method)</a>
@@ -399,15 +401,13 @@
       <li><a href=".apidocs/armi.interfaces.html#armi.interfaces.OutputReader.apply">apply() (armi.interfaces.OutputReader method)</a>
 
       <ul>
+        <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.Migration.apply">(armi.migration.base.Migration method)</a>
+</li>
         <li><a href=".apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.DoseResultsMapper.apply">(armi.physics.neutronics.globalFlux.globalFluxInterface.DoseResultsMapper method)</a>
 </li>
         <li><a href=".apidocs/armi.reactor.blueprints.isotopicOptions.html#armi.reactor.blueprints.isotopicOptions.CustomIsotopic.apply">(armi.reactor.blueprints.isotopicOptions.CustomIsotopic method)</a>
 </li>
         <li><a href=".apidocs/armi.reactor.blueprints.isotopicOptions.html#armi.reactor.blueprints.isotopicOptions.CustomIsotopics.apply">(armi.reactor.blueprints.isotopicOptions.CustomIsotopics method)</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.Migration.apply">(armi.scripts.migration.base.Migration method)</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_0_newDbFormat.html#armi.scripts.migration.m0_1_0_newDbFormat.ConvertDB2toDB3.apply">(armi.scripts.migration.m0_1_0_newDbFormat.ConvertDB2toDB3 method)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.reactor.parameters.parameterCollections.html#armi.reactor.parameters.parameterCollections.applyAllParameters">applyAllParameters() (in module armi.reactor.parameters.parameterCollections)</a>
@@ -1454,6 +1454,55 @@
 </li>
       </ul></li>
       <li>
+    armi.migration
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.html#module-armi.migration">module</a>
+</li>
+      </ul></li>
+      <li>
+    armi.migration.base
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.base.html#module-armi.migration.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    armi.migration.m0_1_3
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.m0_1_3.html#module-armi.migration.m0_1_3">module</a>
+</li>
+      </ul></li>
+      <li>
+    armi.migration.m0_1_6
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.m0_1_6.html#module-armi.migration.m0_1_6">module</a>
+</li>
+      </ul></li>
+      <li>
+    armi.migration.tests
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.tests.html#module-armi.migration.tests">module</a>
+</li>
+      </ul></li>
+      <li>
+    armi.migration.tests.test_m0_1_6
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.tests.test_m0_1_6.html#module-armi.migration.tests.test_m0_1_6">module</a>
+</li>
+      </ul></li>
+      <li>
+    armi.migration.tests.test_migration_base
+
+      <ul>
+        <li><a href=".apidocs/armi.migration.tests.test_migration_base.html#module-armi.migration.tests.test_migration_base">module</a>
+</li>
+      </ul></li>
+      <li>
     armi.mpiActions
 
       <ul>
@@ -1803,6 +1852,8 @@
         <li><a href=".apidocs/armi.nuclearDataIO.xsLibraries.html#module-armi.nuclearDataIO.xsLibraries">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     armi.nuclearDataIO.xsNuclides
 
@@ -1859,8 +1910,6 @@
         <li><a href=".apidocs/armi.operators.tests.html#module-armi.operators.tests">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     armi.operators.tests.test_inspectors
 
@@ -2314,13 +2363,6 @@
 
       <ul>
         <li><a href=".apidocs/armi.physics.safety.html#module-armi.physics.safety">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.physics.safety.settings
-
-      <ul>
-        <li><a href=".apidocs/armi.physics.safety.settings.html#module-armi.physics.safety.settings">module</a>
 </li>
       </ul></li>
       <li>
@@ -2926,69 +2968,6 @@
 </li>
       </ul></li>
       <li>
-    armi.scripts
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.html#module-armi.scripts">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.html#module-armi.scripts.migration">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.base
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.base.html#module-armi.scripts.migration.base">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.crossSectionBlueprintsToSettings
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.crossSectionBlueprintsToSettings.html#module-armi.scripts.migration.crossSectionBlueprintsToSettings">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.m0_1_0_newDbFormat
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_0_newDbFormat.html#module-armi.scripts.migration.m0_1_0_newDbFormat">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.m0_1_3
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#module-armi.scripts.migration.m0_1_3">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.m0_1_6_locationLabels
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_6_locationLabels.html#module-armi.scripts.migration.m0_1_6_locationLabels">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.tests
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.tests.html#module-armi.scripts.migration.tests">module</a>
-</li>
-      </ul></li>
-      <li>
-    armi.scripts.migration.tests.test_m0_1_6_locationLabels
-
-      <ul>
-        <li><a href=".apidocs/armi.scripts.migration.tests.test_m0_1_6_locationLabels.html#module-armi.scripts.migration.tests.test_m0_1_6_locationLabels">module</a>
-</li>
-      </ul></li>
-      <li>
     armi.settings
 
       <ul>
@@ -3367,6 +3346,13 @@
 </li>
       </ul></li>
       <li>
+    armi.utils.tests.test_hexagon
+
+      <ul>
+        <li><a href=".apidocs/armi.utils.tests.test_hexagon.html#module-armi.utils.tests.test_hexagon">module</a>
+</li>
+      </ul></li>
+      <li>
     armi.utils.tests.test_iterables
 
       <ul>
@@ -3545,7 +3531,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.assemblyLists.html#armi.reactor.assemblyLists.AssemblyList">AssemblyList (class in armi.reactor.assemblyLists)</a>
 </li>
-      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory.assert_contains_only">assert_contains_only() (armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory method)</a>
+      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory.assert_contains_only">assert_contains_only() (armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.SynchronizationTests.assertEqual">assertEqual() (armi.reactor.tests.test_parameters.SynchronizationTests method)</a>
 </li>
@@ -3775,7 +3761,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.Blueprints">Blueprints (class in armi.reactor.blueprints)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.BlueprintsMigration">BlueprintsMigration (class in armi.scripts.migration.base)</a>
+      <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.BlueprintsMigration">BlueprintsMigration (class in armi.migration.base)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositeTree.blueprintYaml">blueprintYaml (armi.reactor.tests.test_composites.TestCompositeTree attribute)</a>
 </li>
@@ -4002,6 +3988,8 @@
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestInputHeightsConsideredHot.checkColdHeightBlockMass">checkColdHeightBlockMass() (armi.reactor.converters.tests.test_axialExpansionChanger.TestInputHeightsConsideredHot method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.zones.html#armi.reactor.zones.Zones.checkDuplicates">checkDuplicates() (armi.reactor.zones.Zones method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterface.checkEnergyBalance">checkEnergyBalance() (armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxInterface method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.textProcessors.html#armi.utils.textProcessors.TextProcessor.checkErrors">checkErrors() (armi.utils.textProcessors.TextProcessor method)</a>
 </li>
@@ -4437,7 +4425,7 @@
         <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.convert">(armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_6_locationLabels.html#armi.scripts.migration.m0_1_6_locationLabels.ConvertAlphanumLocationSettingsToNum">ConvertAlphanumLocationSettingsToNum (class in armi.scripts.migration.m0_1_6_locationLabels)</a>
+      <li><a href=".apidocs/armi.migration.m0_1_6.html#armi.migration.m0_1_6.ConvertAlphanumLocationSettingsToNum">ConvertAlphanumLocationSettingsToNum (class in armi.migration.m0_1_6)</a>
 </li>
       <li><a href=".apidocs/armi.utils.units.html#armi.utils.units.convertAtmToPascal">convertAtmToPascal() (in module armi.utils.units)</a>
 </li>
@@ -4446,8 +4434,6 @@
       <li><a href=".apidocs/armi.bookkeeping.db.html#armi.bookkeeping.db.convertDatabase">convertDatabase() (in module armi.bookkeeping.db)</a>
 </li>
       <li><a href=".apidocs/armi.cli.database.html#armi.cli.database.ConvertDB">ConvertDB (class in armi.cli.database)</a>
-</li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_0_newDbFormat.html#armi.scripts.migration.m0_1_0_newDbFormat.ConvertDB2toDB3">ConvertDB2toDB3 (class in armi.scripts.migration.m0_1_0_newDbFormat)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.converterFactory">converterFactory() (in module armi.reactor.converters.uniformMesh)</a>
 </li>
@@ -4559,6 +4545,12 @@
 </li>
       <li><a href=".apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.createFreshFeed">createFreshFeed() (armi.reactor.reactors.Core method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.createHomogenizedCopy">createHomogenizedCopy() (armi.reactor.blocks.Block method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.createHomogenizedCopy">(armi.reactor.blocks.HexBlock method)</a>
+</li>
+      </ul></li>
       <li><a href=".apidocs/armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.HexToRZThetaConverter.createHomogenizedRZTBlock">createHomogenizedRZTBlock() (armi.reactor.converters.geometryConverters.HexToRZThetaConverter method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.properties.html#armi.utils.properties.createImmutableProperty">createImmutableProperty() (in module armi.utils.properties)</a>
@@ -4709,7 +4701,7 @@
         <li><a href=".apidocs/armi.bookkeeping.db.databaseInterface.html#armi.bookkeeping.db.databaseInterface.DatabaseInterface">(class in armi.bookkeeping.db.databaseInterface)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.DatabaseMigration">DatabaseMigration (class in armi.scripts.migration.base)</a>
+      <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.DatabaseMigration">DatabaseMigration (class in armi.migration.base)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.cccc.html#armi.nuclearDataIO.cccc.cccc.DataContainer">DataContainer (class in armi.nuclearDataIO.cccc.cccc)</a>
 </li>
@@ -4832,6 +4824,8 @@
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestPluginForCopyInterfacesMultipleFiles.defineSettings">defineSettings() (armi.cases.tests.test_cases.TestPluginForCopyInterfacesMultipleFiles static method)</a>
 
       <ul>
+        <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestPluginWithDuplicateSetting.defineSettings">(armi.cases.tests.test_cases.TestPluginWithDuplicateSetting static method)</a>
+</li>
         <li><a href=".apidocs/armi.physics.fuelCycle.html#armi.physics.fuelCycle.FuelHandlerPlugin.defineSettings">(armi.physics.fuelCycle.FuelHandlerPlugin static method)</a>
 </li>
         <li><a href=".apidocs/armi.physics.fuelPerformance.plugin.html#armi.physics.fuelPerformance.plugin.FuelPerformancePlugin.defineSettings">(armi.physics.fuelPerformance.plugin.FuelPerformancePlugin static method)</a>
@@ -4846,9 +4840,9 @@
 </li>
         <li><a href=".apidocs/armi.plugins.html#armi.plugins.UserPlugin.defineSettings">(armi.plugins.UserPlugin static method)</a>
 </li>
-        <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummyPlugin1.defineSettings">(armi.settings.tests.test_settings.DummyPlugin1 static method)</a>
+        <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummySettingPlugin1.defineSettings">(armi.settings.tests.test_settings.DummySettingPlugin1 static method)</a>
 </li>
-        <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummyPlugin2.defineSettings">(armi.settings.tests.test_settings.DummyPlugin2 static method)</a>
+        <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummySettingPlugin2.defineSettings">(armi.settings.tests.test_settings.DummySettingPlugin2 static method)</a>
 </li>
         <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.PluginAddsOptions.defineSettings">(armi.settings.tests.test_settings.PluginAddsOptions static method)</a>
 </li>
@@ -4859,8 +4853,6 @@
         <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.fissionProductModelSettings.html#armi.physics.neutronics.fissionProductModel.fissionProductModelSettings.defineSettings">(in module armi.physics.neutronics.fissionProductModel.fissionProductModelSettings)</a>
 </li>
         <li><a href=".apidocs/armi.physics.neutronics.settings.html#armi.physics.neutronics.settings.defineSettings">(in module armi.physics.neutronics.settings)</a>
-</li>
-        <li><a href=".apidocs/armi.physics.safety.settings.html#armi.physics.safety.settings.defineSettings">(in module armi.physics.safety.settings)</a>
 </li>
         <li><a href=".apidocs/armi.physics.thermalHydraulics.settings.html#armi.physics.thermalHydraulics.settings.defineSettings">(in module armi.physics.thermalHydraulics.settings)</a>
 </li>
@@ -4903,7 +4895,7 @@
 </li>
       <li><a href=".apidocs/armi.utils.outputCache.html#armi.utils.outputCache.deleteCache">deleteCache() (in module armi.utils.outputCache)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.UpdateElementalNuclides.deletions">deletions (armi.scripts.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
+      <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.UpdateElementalNuclides.deletions">deletions (armi.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.isotopicOptions.html#armi.reactor.blueprints.isotopicOptions.CustomIsotopic.density">density (armi.reactor.blueprints.isotopicOptions.CustomIsotopic property)</a>
 </li>
@@ -4951,6 +4943,8 @@
         <li><a href=".apidocs/armi.reactor.components.component.html#armi.reactor.components.component.Component.density">(armi.reactor.components.component.Component method)</a>
 </li>
         <li><a href=".apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.density">(armi.reactor.composites.ArmiObject method)</a>
+</li>
+        <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestMaterialIgnoreFake.density">(armi.utils.tests.test_densityTools.TestMaterialIgnoreFake method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -5141,6 +5135,8 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.dlayxs.html#armi.nuclearDataIO.cccc.dlayxs.Dlayxs">Dlayxs (class in armi.nuclearDataIO.cccc.dlayxs)</a>
 </li>
+      <li><a href=".apidocs/armi.nuclearDataIO.cccc.dlayxs.html#armi.nuclearDataIO.cccc.dlayxs.DlayxsIO">DlayxsIO (class in armi.nuclearDataIO.cccc.dlayxs)</a>
+</li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_dlayxs.html#armi.nuclearDataIO.cccc.tests.test_dlayxs.DlayxsTests">DlayxsTests (class in armi.nuclearDataIO.cccc.tests.test_dlayxs)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.doChildrenHaveFlags">doChildrenHaveFlags() (armi.reactor.composites.ArmiObject method)</a>
@@ -5177,9 +5173,9 @@
 </li>
       <li><a href=".apidocs/armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.DummyNuclideBase">DummyNuclideBase (class in armi.nucDirectory.nuclideBases)</a>
 </li>
-      <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummyPlugin1">DummyPlugin1 (class in armi.settings.tests.test_settings)</a>
+      <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummySettingPlugin1">DummySettingPlugin1 (class in armi.settings.tests.test_settings)</a>
 </li>
-      <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummyPlugin2">DummyPlugin2 (class in armi.settings.tests.test_settings)</a>
+      <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.DummySettingPlugin2">DummySettingPlugin2 (class in armi.settings.tests.test_settings)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.crossSectionSettings.html#armi.physics.neutronics.crossSectionSettings.XSSettingDef.dump">dump() (armi.physics.neutronics.crossSectionSettings.XSSettingDef method)</a>
 
@@ -5623,16 +5619,14 @@
         <li><a href=".apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions.fromUserSettings">(armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxOptions method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.Migration.fromVersion">fromVersion (armi.scripts.migration.base.Migration attribute)</a>
+      <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.Migration.fromVersion">fromVersion (armi.migration.base.Migration attribute)</a>
 
       <ul>
-        <li><a href=".apidocs/armi.scripts.migration.crossSectionBlueprintsToSettings.html#armi.scripts.migration.crossSectionBlueprintsToSettings.MoveCrossSectionsFromBlueprints.fromVersion">(armi.scripts.migration.crossSectionBlueprintsToSettings.MoveCrossSectionsFromBlueprints attribute)</a>
+        <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.RemoveCentersFromBlueprints.fromVersion">(armi.migration.m0_1_3.RemoveCentersFromBlueprints attribute)</a>
 </li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.RemoveCentersFromBlueprints.fromVersion">(armi.scripts.migration.m0_1_3.RemoveCentersFromBlueprints attribute)</a>
+        <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.UpdateElementalNuclides.fromVersion">(armi.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
 </li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.UpdateElementalNuclides.fromVersion">(armi.scripts.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_6_locationLabels.html#armi.scripts.migration.m0_1_6_locationLabels.ConvertAlphanumLocationSettingsToNum.fromVersion">(armi.scripts.migration.m0_1_6_locationLabels.ConvertAlphanumLocationSettingsToNum attribute)</a>
+        <li><a href=".apidocs/armi.migration.m0_1_6.html#armi.migration.m0_1_6.ConvertAlphanumLocationSettingsToNum.fromVersion">(armi.migration.m0_1_6.ConvertAlphanumLocationSettingsToNum attribute)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.utils.textProcessors.html#armi.utils.textProcessors.TextProcessor.fsearch">fsearch() (armi.utils.textProcessors.TextProcessor method)</a>
@@ -5788,8 +5782,6 @@
       <li><a href=".apidocs/armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.GeometryChanger">GeometryChanger (class in armi.reactor.converters.geometryConverters)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.GeometryConverter">GeometryConverter (class in armi.reactor.converters.geometryConverters)</a>
-</li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.GeomMigration">GeomMigration (class in armi.scripts.migration.base)</a>
 </li>
       <li><a href=".apidocs/armi.cases.inputModifiers.tests.test_inputModifiers.html#armi.cases.inputModifiers.tests.test_inputModifiers.MockGeom.geomType">geomType (armi.cases.inputModifiers.tests.test_inputModifiers.MockGeom attribute)</a>
 
@@ -6483,7 +6475,7 @@
       </ul></li>
       <li><a href=".apidocs/armi.reactor.grids.structuredgrid.html#armi.reactor.grids.structuredgrid.StructuredGrid.getIndexBounds">getIndexBounds() (armi.reactor.grids.structuredgrid.StructuredGrid method)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_6_locationLabels.html#armi.scripts.migration.m0_1_6_locationLabels.getIndicesFromDIF3DStyleLocatorLabel">getIndicesFromDIF3DStyleLocatorLabel() (in module armi.scripts.migration.m0_1_6_locationLabels)</a>
+      <li><a href=".apidocs/armi.migration.m0_1_6.html#armi.migration.m0_1_6.getIndicesFromDIF3DStyleLocatorLabel">getIndicesFromDIF3DStyleLocatorLabel() (in module armi.migration.m0_1_6)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.grids.axial.html#armi.reactor.grids.axial.AxialGrid.getIndicesFromRingAndPos">getIndicesFromRingAndPos() (armi.reactor.grids.axial.AxialGrid static method)</a>
 
@@ -6641,8 +6633,6 @@
         <li><a href=".apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.getMassFrac">(armi.reactor.composites.ArmiObject method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.materials.material.html#armi.materials.material.Material.getMassFracCopy">getMassFracCopy() (armi.materials.material.Material method)</a>
-</li>
       <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.LumpedFissionProduct.getMassFracDenom">getMassFracDenom() (armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.LumpedFissionProduct method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.mox.html#armi.materials.mox.MOX.getMassFracPuO2">getMassFracPuO2() (armi.materials.mox.MOX method)</a>
@@ -8045,6 +8035,8 @@
         <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.Isotxs_merge_Tests">(class in armi.nuclearDataIO.tests.test_xsLibraries)</a>
 </li>
       </ul></li>
+      <li><a href=".apidocs/armi.nuclearDataIO.cccc.isotxs.html#armi.nuclearDataIO.cccc.isotxs.IsotxsIO">IsotxsIO (class in armi.nuclearDataIO.cccc.isotxs)</a>
+</li>
       <li><a href=".apidocs/armi.nuclearDataIO.xsLibraries.html#armi.nuclearDataIO.xsLibraries.IsotxsLibrary">IsotxsLibrary (class in armi.nuclearDataIO.xsLibraries)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.isPlenumPin">isPlenumPin() (armi.reactor.blocks.Block method)</a>
@@ -8719,11 +8711,9 @@
         <li><a href=".apidocs/armi.reactor.blueprints.html#armi.reactor.blueprints.migrate">(in module armi.reactor.blueprints)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.scripts.migration.crossSectionBlueprintsToSettings.html#armi.scripts.migration.crossSectionBlueprintsToSettings.migrateCrossSectionsFromBlueprints">migrateCrossSectionsFromBlueprints() (in module armi.scripts.migration.crossSectionBlueprintsToSettings)</a>
-</li>
       <li><a href=".apidocs/armi.cli.migrateInputs.html#armi.cli.migrateInputs.MigrateInputs">MigrateInputs (class in armi.cli.migrateInputs)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.Migration">Migration (class in armi.scripts.migration.base)</a>
+      <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.Migration">Migration (class in armi.migration.base)</a>
 </li>
       <li><a href=".apidocs/armi.utils.mathematics.html#armi.utils.mathematics.minimizeScalarFunc">minimizeScalarFunc() (in module armi.utils.mathematics)</a>
 </li>
@@ -8752,11 +8742,7 @@
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.MockCoreParams">MockCoreParams (class in armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface)</a>
-
-      <ul>
-        <li><a href=".apidocs/armi.physics.tests.test_executers.html#armi.physics.tests.test_executers.MockCoreParams">(class in armi.physics.tests.test_executers)</a>
 </li>
-      </ul></li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.MockEntryPoint">MockEntryPoint (class in armi.settings.tests.test_settingsIO)</a>
 </li>
       <li><a href=".apidocs/armi.cases.inputModifiers.tests.test_inputModifiers.html#armi.cases.inputModifiers.tests.test_inputModifiers.MockGeom">MockGeom (class in armi.cases.inputModifiers.tests.test_inputModifiers)</a>
@@ -8777,6 +8763,8 @@
 </li>
       <li><a href=".apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.MockLatticePhysicsInterface">MockLatticePhysicsInterface (class in armi.physics.fuelCycle.tests.test_fuelHandlers)</a>
 </li>
+      <li><a href=".apidocs/armi.physics.tests.test_executers.html#armi.physics.tests.test_executers.MockParams">MockParams (class in armi.physics.tests.test_executers)</a>
+</li>
       <li><a href=".apidocs/armi.bookkeeping.tests.test_snapshot.html#armi.bookkeeping.tests.test_snapshot.MockReactor">MockReactor (class in armi.bookkeeping.tests.test_snapshot)</a>
 
       <ul>
@@ -8791,8 +8779,6 @@
 
       <ul>
         <li><a href=".apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.MockReactorParams">(class in armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface)</a>
-</li>
-        <li><a href=".apidocs/armi.physics.tests.test_executers.html#armi.physics.tests.test_executers.MockReactorParams">(class in armi.physics.tests.test_executers)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.MockSyncPC">MockSyncPC (class in armi.reactor.tests.test_parameters)</a>
@@ -9113,6 +9099,20 @@
 </li>
         <li><a href=".apidocs/armi.meta.html#module-armi.meta">armi.meta</a>
 </li>
+        <li><a href=".apidocs/armi.migration.html#module-armi.migration">armi.migration</a>
+</li>
+        <li><a href=".apidocs/armi.migration.base.html#module-armi.migration.base">armi.migration.base</a>
+</li>
+        <li><a href=".apidocs/armi.migration.m0_1_3.html#module-armi.migration.m0_1_3">armi.migration.m0_1_3</a>
+</li>
+        <li><a href=".apidocs/armi.migration.m0_1_6.html#module-armi.migration.m0_1_6">armi.migration.m0_1_6</a>
+</li>
+        <li><a href=".apidocs/armi.migration.tests.html#module-armi.migration.tests">armi.migration.tests</a>
+</li>
+        <li><a href=".apidocs/armi.migration.tests.test_m0_1_6.html#module-armi.migration.tests.test_m0_1_6">armi.migration.tests.test_m0_1_6</a>
+</li>
+        <li><a href=".apidocs/armi.migration.tests.test_migration_base.html#module-armi.migration.tests.test_migration_base">armi.migration.tests.test_migration_base</a>
+</li>
         <li><a href=".apidocs/armi.mpiActions.html#module-armi.mpiActions">armi.mpiActions</a>
 </li>
         <li><a href=".apidocs/armi.nucDirectory.html#module-armi.nucDirectory">armi.nucDirectory</a>
@@ -9359,8 +9359,6 @@
 </li>
         <li><a href=".apidocs/armi.physics.safety.html#module-armi.physics.safety">armi.physics.safety</a>
 </li>
-        <li><a href=".apidocs/armi.physics.safety.settings.html#module-armi.physics.safety.settings">armi.physics.safety.settings</a>
-</li>
         <li><a href=".apidocs/armi.physics.tests.html#module-armi.physics.tests">armi.physics.tests</a>
 </li>
         <li><a href=".apidocs/armi.physics.tests.test_executers.html#module-armi.physics.tests.test_executers">armi.physics.tests.test_executers</a>
@@ -9533,24 +9531,6 @@
 </li>
         <li><a href=".apidocs/armi.runLog.html#module-armi.runLog">armi.runLog</a>
 </li>
-        <li><a href=".apidocs/armi.scripts.html#module-armi.scripts">armi.scripts</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.html#module-armi.scripts.migration">armi.scripts.migration</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.base.html#module-armi.scripts.migration.base">armi.scripts.migration.base</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.crossSectionBlueprintsToSettings.html#module-armi.scripts.migration.crossSectionBlueprintsToSettings">armi.scripts.migration.crossSectionBlueprintsToSettings</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_0_newDbFormat.html#module-armi.scripts.migration.m0_1_0_newDbFormat">armi.scripts.migration.m0_1_0_newDbFormat</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#module-armi.scripts.migration.m0_1_3">armi.scripts.migration.m0_1_3</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_6_locationLabels.html#module-armi.scripts.migration.m0_1_6_locationLabels">armi.scripts.migration.m0_1_6_locationLabels</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.tests.html#module-armi.scripts.migration.tests">armi.scripts.migration.tests</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.tests.test_m0_1_6_locationLabels.html#module-armi.scripts.migration.tests.test_m0_1_6_locationLabels">armi.scripts.migration.tests.test_m0_1_6_locationLabels</a>
-</li>
         <li><a href=".apidocs/armi.settings.html#module-armi.settings">armi.settings</a>
 </li>
         <li><a href=".apidocs/armi.settings.caseSettings.html#module-armi.settings.caseSettings">armi.settings.caseSettings</a>
@@ -9659,6 +9639,8 @@
 </li>
         <li><a href=".apidocs/armi.utils.tests.test_flags.html#module-armi.utils.tests.test_flags">armi.utils.tests.test_flags</a>
 </li>
+        <li><a href=".apidocs/armi.utils.tests.test_hexagon.html#module-armi.utils.tests.test_hexagon">armi.utils.tests.test_hexagon</a>
+</li>
         <li><a href=".apidocs/armi.utils.tests.test_iterables.html#module-armi.utils.tests.test_iterables">armi.utils.tests.test_iterables</a>
 </li>
         <li><a href=".apidocs/armi.utils.tests.test_mathematics.html#module-armi.utils.tests.test_mathematics">armi.utils.tests.test_mathematics</a>
@@ -9699,8 +9681,6 @@
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Molybdenum_TestCase">Molybdenum_TestCase (class in armi.materials.tests.test_materials)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.flags.html#armi.reactor.flags.Flags.MOVEABLE">MOVEABLE (armi.reactor.flags.Flags attribute)</a>
-</li>
-      <li><a href=".apidocs/armi.scripts.migration.crossSectionBlueprintsToSettings.html#armi.scripts.migration.crossSectionBlueprintsToSettings.MoveCrossSectionsFromBlueprints">MoveCrossSectionsFromBlueprints (class in armi.scripts.migration.crossSectionBlueprintsToSettings)</a>
 </li>
       <li><a href=".apidocs/armi.utils.directoryChangers.html#armi.utils.directoryChangers.DirectoryChanger.moveFiles">moveFiles() (armi.utils.directoryChangers.DirectoryChanger method)</a>
 </li>
@@ -10414,10 +10394,10 @@
 </li>
       <li><a href=".apidocs/armi.utils.plotting.html#armi.utils.plotting.plotBlockFlux">plotBlockFlux() (in module armi.utils.plotting)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href=".apidocs/armi.nuclearDataIO.xsNuclides.html#armi.nuclearDataIO.xsNuclides.plotCompareScatterMatrix">plotCompareScatterMatrix() (in module armi.nuclearDataIO.xsNuclides)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href=".apidocs/armi.reactor.converters.blockConverters.html#armi.reactor.converters.blockConverters.BlockAvgToCylConverter.plotConvertedBlock">plotConvertedBlock() (armi.reactor.converters.blockConverters.BlockAvgToCylConverter method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.HexToRZThetaConverter.plotConvertedReactor">plotConvertedReactor() (armi.reactor.converters.geometryConverters.HexToRZThetaConverter method)</a>
@@ -10445,7 +10425,7 @@
       <li><a href=".apidocs/armi.physics.fuelPerformance.tests.test_fuelPerformancePlugin.html#armi.physics.fuelPerformance.tests.test_fuelPerformancePlugin.TestFuelPerformancePlugin.plugin">plugin (armi.physics.fuelPerformance.tests.test_fuelPerformancePlugin.TestFuelPerformancePlugin attribute)</a>
 
       <ul>
-        <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin.plugin">(armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin attribute)</a>
+        <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin.plugin">(armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin attribute)</a>
 </li>
         <li><a href=".apidocs/armi.tests.test_plugins.html#armi.tests.test_plugins.TestPlugin.plugin">(armi.tests.test_plugins.TestPlugin attribute)</a>
 </li>
@@ -10457,6 +10437,8 @@
       <li><a href=".apidocs/armi.apps.html#armi.apps.App.pluginManager">pluginManager (armi.apps.App property)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.Pmatrx_merge_Tests">Pmatrx_merge_Tests (class in armi.nuclearDataIO.tests.test_xsLibraries)</a>
+</li>
+      <li><a href=".apidocs/armi.nuclearDataIO.cccc.pmatrx.html#armi.nuclearDataIO.cccc.pmatrx.PmatrxIO">PmatrxIO (class in armi.nuclearDataIO.cccc.pmatrx)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.flags.html#armi.reactor.flags.Flags.POISON">POISON (armi.reactor.flags.Flags attribute)</a>
 </li>
@@ -10691,6 +10673,8 @@
 </li>
         <li><a href=".apidocs/armi.materials.water.html#armi.materials.water.Water.pseudoDensity">(armi.materials.water.Water method)</a>
 </li>
+        <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestMaterialIgnoreFake.pseudoDensity">(armi.utils.tests.test_densityTools.TestMaterialIgnoreFake method)</a>
+</li>
       </ul></li>
       <li><a href=".apidocs/armi.materials.material.html#armi.materials.material.Material.pseudoDensityKgM3">pseudoDensityKgM3() (armi.materials.material.Material method)</a>
 </li>
@@ -10866,6 +10850,8 @@
         <li><a href=".apidocs/armi.bookkeeping.db.database3.html#armi.bookkeeping.db.database3.Database3.readInputsFromDB">(armi.bookkeeping.db.database3.Database3 method)</a>
 </li>
       </ul></li>
+      <li><a href=".apidocs/armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.readMCCNuclideData">readMCCNuclideData() (in module armi.nucDirectory.nuclideBases)</a>
+</li>
       <li><a href=".apidocs/armi.physics.fuelCycle.fuelHandlers.html#armi.physics.fuelCycle.fuelHandlers.FuelHandler.readMoves">readMoves() (armi.physics.fuelCycle.fuelHandlers.FuelHandler static method)</a>
 </li>
       <li><a href=".apidocs/armi.interfaces.html#armi.interfaces.Interface.readOutput">readOutput() (armi.interfaces.Interface method)</a>
@@ -10875,13 +10861,19 @@
       <ul>
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.dif3d.html#armi.nuclearDataIO.cccc.dif3d.Dif3dStream.readWrite">(armi.nuclearDataIO.cccc.dif3d.Dif3dStream method)</a>
 </li>
+        <li><a href=".apidocs/armi.nuclearDataIO.cccc.dlayxs.html#armi.nuclearDataIO.cccc.dlayxs.DlayxsIO.readWrite">(armi.nuclearDataIO.cccc.dlayxs.DlayxsIO method)</a>
+</li>
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.fixsrc.html#armi.nuclearDataIO.cccc.fixsrc.FIXSRC.readWrite">(armi.nuclearDataIO.cccc.fixsrc.FIXSRC method)</a>
 </li>
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.geodst.html#armi.nuclearDataIO.cccc.geodst.GeodstStream.readWrite">(armi.nuclearDataIO.cccc.geodst.GeodstStream method)</a>
 </li>
+        <li><a href=".apidocs/armi.nuclearDataIO.cccc.isotxs.html#armi.nuclearDataIO.cccc.isotxs.IsotxsIO.readWrite">(armi.nuclearDataIO.cccc.isotxs.IsotxsIO method)</a>
+</li>
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.labels.html#armi.nuclearDataIO.cccc.labels.LabelsStream.readWrite">(armi.nuclearDataIO.cccc.labels.LabelsStream method)</a>
 </li>
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.nhflux.html#armi.nuclearDataIO.cccc.nhflux.NhfluxStream.readWrite">(armi.nuclearDataIO.cccc.nhflux.NhfluxStream method)</a>
+</li>
+        <li><a href=".apidocs/armi.nuclearDataIO.cccc.pmatrx.html#armi.nuclearDataIO.cccc.pmatrx.PmatrxIO.readWrite">(armi.nuclearDataIO.cccc.pmatrx.PmatrxIO method)</a>
 </li>
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.pwdint.html#armi.nuclearDataIO.cccc.pwdint.PwdintStream.readWrite">(armi.nuclearDataIO.cccc.pwdint.PwdintStream method)</a>
 </li>
@@ -11012,7 +11004,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.removeAssembly">removeAssembly() (armi.reactor.reactors.Core method)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.RemoveCentersFromBlueprints">RemoveCentersFromBlueprints (class in armi.scripts.migration.m0_1_3)</a>
+      <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.RemoveCentersFromBlueprints">RemoveCentersFromBlueprints (class in armi.migration.m0_1_3)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.EdgeAssemblyChanger.removeEdgeAssemblies">removeEdgeAssemblies() (armi.reactor.converters.geometryConverters.EdgeAssemblyChanger method)</a>
 </li>
@@ -11028,12 +11020,12 @@
 </li>
       <li><a href=".apidocs/armi.reactor.zones.html#armi.reactor.zones.Zone.removeLocs">removeLocs() (armi.reactor.zones.Zone method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href=".apidocs/armi.reactor.composites.html#armi.reactor.composites.ArmiObject.removeMass">removeMass() (armi.reactor.composites.ArmiObject method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.material.html#armi.materials.material.Material.removeNucMassFrac">removeNucMassFrac() (armi.materials.material.Material method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href=".apidocs/armi.reactor.zones.html#armi.reactor.zones.Zones.removeZone">removeZone() (armi.reactor.zones.Zones method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.zones.html#armi.reactor.zones.Zones.removeZones">removeZones() (armi.reactor.zones.Zones method)</a>
@@ -11676,6 +11668,8 @@
 </li>
       <li><a href=".apidocs/armi.utils.customExceptions.html#armi.utils.customExceptions.SettingException">SettingException</a>
 </li>
+      <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.SettingModifier">SettingModifier (class in armi.cases.tests.test_suiteBuilder)</a>
+</li>
       <li><a href=".apidocs/armi.settings.setting.html#armi.settings.setting.Default.settingName">settingName (armi.settings.setting.Default attribute)</a>
 
       <ul>
@@ -11732,7 +11726,7 @@
       </ul></li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsFailureTests">SettingsFailureTests (class in armi.settings.tests.test_settingsIO)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.SettingsMigration">SettingsMigration (class in armi.scripts.migration.base)</a>
+      <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.SettingsMigration">SettingsMigration (class in armi.migration.base)</a>
 </li>
       <li><a href=".apidocs/armi.cases.inputModifiers.inputModifiers.html#armi.cases.inputModifiers.inputModifiers.SettingsModifier">SettingsModifier (class in armi.cases.inputModifiers.inputModifiers)</a>
 
@@ -11954,7 +11948,7 @@
 </li>
       <li><a href=".apidocs/armi.physics.fuelCycle.fuelHandlers.html#armi.physics.fuelCycle.fuelHandlers.FuelHandler.swapCascade">swapCascade() (armi.physics.fuelCycle.fuelHandlers.FuelHandler method)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.UpdateElementalNuclides.swaps">swaps (armi.scripts.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
+      <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.UpdateElementalNuclides.swaps">swaps (armi.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.grids.grid.html#armi.reactor.grids.grid.Grid.symmetry">symmetry (armi.reactor.grids.grid.Grid property)</a>
 
@@ -12158,7 +12152,7 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_dif3d.html#armi.nuclearDataIO.cccc.tests.test_dif3d.TestDif3dSimpleHexz.test__rwFileID">test__rwFileID() (armi.nuclearDataIO.cccc.tests.test_dif3d.TestDif3dSimpleHexz method)</a>
 </li>
-      <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.test_getAAAZZZSId.test_AAAZZZSNameGenerator">test_AAAZZZSNameGenerator() (armi.nucDirectory.tests.test_nuclideBases.test_getAAAZZZSId method)</a>
+      <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestAAAZZZSId.test_AAAZZZSNameGenerator">test_AAAZZZSNameGenerator() (armi.nucDirectory.tests.test_nuclideBases.TestAAAZZZSId method)</a>
 </li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_elements.html#armi.nucDirectory.tests.test_elements.TestElement.test_abundancesAddToOne">test_abundancesAddToOne() (armi.nucDirectory.tests.test_elements.TestElement method)</a>
 </li>
@@ -12202,7 +12196,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_geometryConverters.html#armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters.test_addRing">test_addRing() (armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_addXsGroupsFromBlocks">test_addXsGroupsFromBlocks() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_addXsGroupsFromBlocks">test_addXsGroupsFromBlocks() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_rtflux.html#armi.nuclearDataIO.cccc.tests.test_rtflux.Testrtflux.test_adjoint">test_adjoint() (armi.nuclearDataIO.cccc.tests.test_rtflux.Testrtflux method)</a>
 </li>
@@ -12264,7 +12258,7 @@
         <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.UraniumOxide_TestCase.test_applyInputParams">(armi.materials.tests.test_materials.UraniumOxide_TestCase method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_applyIsotopicsMix">test_applyIsotopicsMix() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_applyIsotopicsMix">test_applyIsotopicsMix() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestGammaUniformMesh.test_applyStateToOriginal">test_applyStateToOriginal() (armi.reactor.converters.tests.test_uniformMesh.TestGammaUniformMesh method)</a>
 
@@ -12281,6 +12275,10 @@
       <li><a href=".apidocs/armi.reactor.tests.test_geometry.html#armi.reactor.tests.test_geometry.TestSystemLayoutInput.test_asciimap">test_asciimap() (armi.reactor.tests.test_geometry.TestSystemLayoutInput method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_compxs.html#armi.nuclearDataIO.cccc.tests.test_compxs.TestCompxs.test_asciiRW">test_asciiRW() (armi.nuclearDataIO.cccc.tests.test_compxs.TestCompxs method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_assem_block_types">test_assem_block_types() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_assem_hex_type">test_assem_hex_type() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions.test_AssemblyAxialExpansionException">test_AssemblyAxialExpansionException() (armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions method)</a>
 </li>
@@ -12320,6 +12318,8 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_geometry.html#armi.reactor.tests.test_geometry.TestSymmetryType.test_baseConstructor">test_baseConstructor() (armi.reactor.tests.test_geometry.TestSymmetryType method)</a>
 </li>
+      <li><a href=".apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestMigrationBases.test_basic_validation">test_basic_validation() (armi.migration.tests.test_migration_base.TestMigrationBases method)</a>
+</li>
       <li><a href=".apidocs/armi.tests.test_mpiFeatures.html#armi.tests.test_mpiFeatures.MpiOperatorTests.test_basicOperatorMPI">test_basicOperatorMPI() (armi.tests.test_mpiFeatures.MpiOperatorTests method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsReaderTests.test_basicSettingsReader">test_basicSettingsReader() (armi.settings.tests.test_settingsIO.SettingsReaderTests method)</a>
@@ -12329,6 +12329,8 @@
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_compxs.html#armi.nuclearDataIO.cccc.tests.test_compxs.TestCompxs.test_binaryRW">test_binaryRW() (armi.nuclearDataIO.cccc.tests.test_compxs.TestCompxs method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_flags.html#armi.utils.tests.test_flags.TestFlag.test_bitwise">test_bitwise() (armi.utils.tests.test_flags.TestFlag method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_block_dims">test_block_dims() (armi.reactor.tests.test_blocks.HexBlock_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blockBlueprints.html#armi.reactor.blueprints.tests.test_blockBlueprints.TestGriddedBlock.test_blockLattice">test_blockLattice() (armi.reactor.blueprints.tests.test_blockBlueprints.TestGriddedBlock method)</a>
 </li>
@@ -12364,11 +12366,19 @@
 </li>
       <li><a href=".apidocs/armi.physics.fuelCycle.tests.test_hexAssemblyFuelMgmtUtils.html#armi.physics.fuelCycle.tests.test_hexAssemblyFuelMgmtUtils.TestHexAssemMgmtTools.test_buildRingSchedule">test_buildRingSchedule() (armi.physics.fuelCycle.tests.test_hexAssemblyFuelMgmtUtils.TestHexAssemMgmtTools method)</a>
 </li>
-      <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestLatinHyperCubeSuiteBuilder.test_buildSuite">test_buildSuite() (armi.cases.tests.test_suiteBuilder.TestLatinHyperCubeSuiteBuilder method)</a>
+      <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestFullFactorialSuiteBuilder.test_buildSuite">test_buildSuite() (armi.cases.tests.test_suiteBuilder.TestFullFactorialSuiteBuilder method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestLatinHyperCubeSuiteBuilder.test_buildSuite">(armi.cases.tests.test_suiteBuilder.TestLatinHyperCubeSuiteBuilder method)</a>
 </li>
+        <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestSeparateEffectsBuilder.test_buildSuite">(armi.cases.tests.test_suiteBuilder.TestSeparateEffectsBuilder method)</a>
+</li>
+      </ul></li>
       <li><a href=".apidocs/armi.physics.fuelCycle.tests.test_assemblyRotationAlgorithms.html#armi.physics.fuelCycle.tests.test_assemblyRotationAlgorithms.TestFuelHandlerMgmtTools.test_buReducingAssemblyRotation">test_buReducingAssemblyRotation() (armi.physics.fuelCycle.tests.test_assemblyRotationAlgorithms.TestFuelHandlerMgmtTools method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_reportPlotting.html#armi.utils.tests.test_reportPlotting.TestRadar.test_buVsTime">test_buVsTime() (armi.utils.tests.test_reportPlotting.TestRadar method)</a>
+</li>
+      <li><a href=".apidocs/armi.materials.tests.test_uZr.html#armi.materials.tests.test_uZr.UZR_TestCase.test_cache">test_cache() (armi.materials.tests.test_uZr.UZR_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_calcAvgParam">test_calcAvgParam() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
@@ -12384,11 +12394,11 @@
         <li><a href=".apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecutersNonUniform.test_calculateKeff">(armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecutersNonUniform method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_calculateNumberDensity">test_calculateNumberDensity() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_calculateNumberDensity">test_calculateNumberDensity() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_calculateZCoords">test_calculateZCoords() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_calcWeightedBurnup">test_calcWeightedBurnup() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_calcWeightedBurnup">test_calcWeightedBurnup() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_inspectors.html#armi.operators.tests.test_inspectors.TestInspector.test_callableCorrectionCheck">test_callableCorrectionCheck() (armi.operators.tests.test_inspectors.TestInspector method)</a>
 </li>
@@ -12434,7 +12444,7 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.visualization.tests.test_vis.html#armi.bookkeeping.visualization.tests.test_vis.TestVisDump.test_cartesianMesh">test_cartesianMesh() (armi.bookkeeping.visualization.tests.test_vis.TestVisDump method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings.test_caseSettings">test_caseSettings() (armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings.test_caseSettings">test_caseSettings() (armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_categories">test_categories() (armi.reactor.tests.test_parameters.ParameterTests method)</a>
 </li>
@@ -12445,6 +12455,8 @@
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_changeNumberDensities">test_changeNumberDensities() (armi.reactor.tests.test_components.TestCircle method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_inspectors.html#armi.operators.tests.test_inspectors.TestInspector.test_changeOfCS">test_changeOfCS() (armi.operators.tests.test_inspectors.TestInspector method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionAverage.test_checkBlockSimilarity">test_checkBlockSimilarity() (armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionAverage method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_materialModifications.html#armi.reactor.blueprints.tests.test_materialModifications.TestMaterialModifications.test_checkByComponentMaterialInput">test_checkByComponentMaterialInput() (armi.reactor.blueprints.tests.test_materialModifications.TestMaterialModifications method)</a>
 </li>
@@ -12463,6 +12475,8 @@
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestCheckInputEntryPoint.test_checkInputEntryPointBasics">test_checkInputEntryPointBasics() (armi.cli.tests.test_runEntryPoint.TestCheckInputEntryPoint method)</a>
 </li>
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestCheckInputEntryPoint.test_checkInputEntryPointInvoke">test_checkInputEntryPointInvoke() (armi.cli.tests.test_runEntryPoint.TestCheckInputEntryPoint method)</a>
+</li>
+      <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestCaseSuiteDependencies.test_checkInputs">test_checkInputs() (armi.cases.tests.test_cases.TestCaseSuiteDependencies method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_assemblyBlueprints.html#armi.reactor.blueprints.tests.test_assemblyBlueprints.TestMaterialModifications.test_checkParamConsistency">test_checkParamConsistency() (armi.reactor.blueprints.tests.test_assemblyBlueprints.TestMaterialModifications method)</a>
 </li>
@@ -12514,6 +12528,8 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestNullComponent.test_cmp">test_cmp() (armi.reactor.tests.test_components.TestNullComponent method)</a>
 </li>
+      <li><a href=".apidocs/armi.utils.tests.test_utils.html#armi.utils.tests.test_utils.TestGeneralUtils.test_codeTiming">test_codeTiming() (armi.utils.tests.test_utils.TestGeneralUtils method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestInputHeightsConsideredHot.test_coldAssemblyExpansion">test_coldAssemblyExpansion() (armi.reactor.converters.tests.test_axialExpansionChanger.TestInputHeightsConsideredHot method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.MassConservationTests.test_coldMass">test_coldMass() (armi.reactor.tests.test_blocks.MassConservationTests method)</a>
@@ -12524,7 +12540,9 @@
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsRenameTests.test_collidingRenames">test_collidingRenames() (armi.settings.tests.test_settingsIO.SettingsRenameTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_flags.html#armi.utils.tests.test_flags.TestFlag.test_collision">test_collision() (armi.utils.tests.test_flags.TestFlag method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_flags.html#armi.utils.tests.test_flags.TestFlag.test_collision_creation">test_collision_creation() (armi.utils.tests.test_flags.TestFlag method)</a>
+</li>
+      <li><a href=".apidocs/armi.utils.tests.test_flags.html#armi.utils.tests.test_flags.TestFlag.test_collision_extension">test_collision_extension() (armi.utils.tests.test_flags.TestFlag method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingArgsTests.test_commandLineSetting">test_commandLineSetting() (armi.settings.tests.test_settingsIO.SettingArgsTests method)</a>
 </li>
@@ -12544,9 +12562,7 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary.test_compareDifferentComponentsOfAnXSLibrary">test_compareDifferentComponentsOfAnXSLibrary() (armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary method)</a>
 </li>
-      <li><a href=".apidocs/armi.tests.test_tests.html#armi.tests.test_tests.Test_CompareFiles.test_compareFileLine">test_compareFileLine() (armi.tests.test_tests.Test_CompareFiles method)</a>
-</li>
-      <li><a href=".apidocs/armi.tests.test_tests.html#armi.tests.test_tests.Test_CompareFiles">Test_CompareFiles (class in armi.tests.test_tests)</a>
+      <li><a href=".apidocs/armi.tests.test_tests.html#armi.tests.test_tests.TestCompareFiles.test_compareFileLine">test_compareFileLine() (armi.tests.test_tests.TestCompareFiles method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_armiTestHelper.html#armi.tests.test_armiTestHelper.TestArmiTestHelper.test_compareFilesFail">test_compareFilesFail() (armi.tests.test_armiTestHelper.TestArmiTestHelper method)</a>
 </li>
@@ -12565,6 +12581,10 @@
       <li><a href=".apidocs/armi.tests.test_mpiFeatures.html#armi.tests.test_mpiFeatures.MpiDistributeStateTests.test_compileResults">test_compileResults() (armi.tests.test_mpiFeatures.MpiDistributeStateTests method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_completeInitialLoading">test_completeInitialLoading() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestUnshapedComponent.test_component_less_than">test_component_less_than() (armi.reactor.tests.test_components.TestUnshapedComponent method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.HexBlock_TestCase.test_component_type">test_component_type() (armi.reactor.tests.test_blocks.HexBlock_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionComponentAverage1DCylinder.test_ComponentAverage1DCylinder">test_ComponentAverage1DCylinder() (armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionComponentAverage1DCylinder method)</a>
 </li>
@@ -12592,15 +12612,19 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blueprints.html#armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema.test_components">test_components() (armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_Composite">test_Composite() (armi.reactor.tests.test_composites.TestCompositePattern method)</a>
+      <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_composite">test_composite() (armi.reactor.tests.test_composites.TestCompositePattern method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestUniformMeshGenerator.test_computeAverageAxialMesh">test_computeAverageAxialMesh() (armi.reactor.converters.tests.test_uniformMesh.TestUniformMeshGenerator method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_computeDpaRate">test_computeDpaRate() (armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_computeParents">test_computeParents() (armi.bookkeeping.db.tests.test_database3.TestDatabase3 method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_computeThermalExpansionFactors">test_computeThermalExpansionFactors() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.TestTightCoupling.test_computeTightCouplingConvergence">test_computeTightCouplingConvergence() (armi.operators.tests.test_operators.TestTightCoupling method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape.test_computeVolume">test_computeVolume() (armi.reactor.tests.test_components.TestDerivedShape method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_runLog.html#armi.tests.test_runLog.TestRunLog.test_concatenateLogs">test_concatenateLogs() (armi.tests.test_runLog.TestRunLog method)</a>
 </li>
@@ -12686,13 +12710,15 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_copyParamsToChildren">test_copyParamsToChildren() (armi.reactor.tests.test_composites.TestMiscMethods method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_copyPregeneratedFiles">test_copyPregeneratedFiles() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_copyPregeneratedFiles">test_copyPregeneratedFiles() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_iterables.html#armi.utils.tests.test_iterables.TestIterables.test_copySequence">test_copySequence() (armi.utils.tests.test_iterables.TestIterables method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestSettings2.test_copySetting">test_copySetting() (armi.settings.tests.test_settings.TestSettings2 method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestSettings2.test_copySettingNotDefault">test_copySettingNotDefault() (armi.settings.tests.test_settings.TestSettings2 method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_coreSfp">test_coreSfp() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_inspectors.html#armi.operators.tests.test_inspectors.TestInspector.test_correctCyclesToZeroBurnup">test_correctCyclesToZeroBurnup() (armi.operators.tests.test_inspectors.TestInspector method)</a>
 </li>
@@ -12732,6 +12758,8 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsCollections.html#armi.nuclearDataIO.tests.test_xsCollections.TestXsCollections.test_createMacrosFromMicros">test_createMacrosFromMicros() (armi.nuclearDataIO.tests.test_xsCollections.TestXsCollections method)</a>
 </li>
+      <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.TestCreateOperator.test_createOperator">test_createOperator() (armi.operators.tests.test_operators.TestCreateOperator method)</a>
+</li>
       <li><a href=".apidocs/armi.utils.tests.test_reportPlotting.html#armi.utils.tests.test_reportPlotting.TestRadar.test_createPlotMetaData">test_createPlotMetaData() (armi.utils.tests.test_reportPlotting.TestRadar method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_inspectors.html#armi.operators.tests.test_inspectors.TestInspector.test_createQueryRevertBadPathToDefault">test_createQueryRevertBadPathToDefault() (armi.operators.tests.test_inspectors.TestInspector method)</a>
@@ -12746,17 +12774,17 @@
         <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionMedian.test_createRepresentativeBlock">(armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionMedian method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_createRepresentativeBlocksUsingExistingBlocks">test_createRepresentativeBlocksUsingExistingBlocks() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionAverage.test_createRepresentativeBlockDissimilar">test_createRepresentativeBlockDissimilar() (armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionAverage method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_createRepresentativeBlocksUsingExistingBlocks">test_createRepresentativeBlocksUsingExistingBlocks() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_dochelpers.html#armi.utils.tests.test_dochelpers.TestDocHelpers.test_createTable">test_createTable() (armi.utils.tests.test_dochelpers.TestDocHelpers method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager">Test_CrossSectionGroupManager (class in armi.physics.neutronics.tests.test_crossSectionManager)</a>
-</li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestCrossSectionSettings.test_crossSections">test_crossSections() (armi.physics.neutronics.tests.test_crossSectionSettings.TestCrossSectionSettings method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings.test_csBlockRepresentation">test_csBlockRepresentation() (armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings.test_csBlockRepresentation">test_csBlockRepresentation() (armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings.test_csBlockRepresentationFileLocation">test_csBlockRepresentationFileLocation() (armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings.test_csBlockRepresentationFileLocation">test_csBlockRepresentationFileLocation() (armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestSettings2.test_csWorks">test_csWorks() (armi.settings.tests.test_settings.TestSettings2 method)</a>
 </li>
@@ -12766,9 +12794,9 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blueprints.html#armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema.test_customIsotopics">test_customIsotopics() (armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin.test_customSettingObjectIO">test_customSettingObjectIO() (armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin.test_customSettingObjectIO">test_customSettingObjectIO() (armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin.test_customSettingRoundTrip">test_customSettingRoundTrip() (armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin.test_customSettingRoundTrip">test_customSettingRoundTrip() (armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_dlayxs.html#armi.nuclearDataIO.cccc.tests.test_dlayxs.DlayxsTests.test_decayConstants">test_decayConstants() (armi.nuclearDataIO.cccc.tests.test_dlayxs.DlayxsTests method)</a>
 </li>
@@ -12785,6 +12813,8 @@
       <li><a href=".apidocs/armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_defaultLocation">test_defaultLocation() (armi.reactor.tests.test_parameters.ParameterTests method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_plugins.html#armi.tests.test_plugins.TestPlugin.test_defineBlueprintsSections">test_defineBlueprintsSections() (armi.tests.test_plugins.TestPlugin method)</a>
+</li>
+      <li><a href=".apidocs/armi.tests.test_plugins.html#armi.tests.test_plugins.TestPluginBasics.test_defineParameters">test_defineParameters() (armi.tests.test_plugins.TestPluginBasics method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_outputCache.html#armi.utils.tests.test_outputCache.TestOutputCache.test_deleteCache">test_deleteCache() (armi.utils.tests.test_outputCache.TestOutputCache method)</a>
 </li>
@@ -12816,13 +12846,13 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blockBlueprints.html#armi.reactor.blueprints.tests.test_blockBlueprints.TestGriddedBlock.test_densityConsistentWithComponentConstructor">test_densityConsistentWithComponentConstructor() (armi.reactor.blueprints.tests.test_blockBlueprints.TestGriddedBlock method)</a>
 </li>
+      <li><a href=".apidocs/armi.materials.tests.test_uZr.html#armi.materials.tests.test_uZr.UZR_TestCase.test_densityKgM3">test_densityKgM3() (armi.materials.tests.test_uZr.UZR_TestCase method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_customIsotopics.html#armi.reactor.blueprints.tests.test_customIsotopics.TestCustomIsotopics_ErrorConditions.test_densityMustBePositive">test_densityMustBePositive() (armi.reactor.blueprints.tests.test_customIsotopics.TestCustomIsotopics_ErrorConditions method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Copper_TestCase.test_densityNeverChanges">test_densityNeverChanges() (armi.materials.tests.test_materials.Copper_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.UraniumOxide_TestCase.test_densityTimesHeatCapactiy">test_densityTimesHeatCapactiy() (armi.materials.tests.test_materials.UraniumOxide_TestCase method)</a>
-</li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools">Test_densityTools (class in armi.utils.tests.test_densityTools)</a>
 </li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestCaseSuiteDependencies.test_dependenciesWithObscurePaths">test_dependenciesWithObscurePaths() (armi.cases.tests.test_cases.TestCaseSuiteDependencies method)</a>
 </li>
@@ -12917,6 +12947,8 @@
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.UraniumOxide_TestCase.test_duplicate">test_duplicate() (armi.materials.tests.test_materials.UraniumOxide_TestCase method)</a>
 
       <ul>
+        <li><a href=".apidocs/armi.materials.tests.test_uZr.html#armi.materials.tests.test_uZr.UZR_TestCase.test_duplicate">(armi.materials.tests.test_uZr.UZR_TestCase method)</a>
+</li>
         <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.TestLumpedFissionProductCollection.test_duplicate">(armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.TestLumpedFissionProductCollection method)</a>
 </li>
         <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_duplicate">(armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
@@ -13004,13 +13036,13 @@
         <li><a href=".apidocs/armi.reactor.blueprints.tests.test_customIsotopics.html#armi.reactor.blueprints.tests.test_customIsotopics.TestNuclideFlagsExpansion.test_expandedNatural">(armi.reactor.blueprints.tests.test_customIsotopics.TestNuclideFlagsExpansion method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_expandElement">test_expandElement() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_expandElement">test_expandElement() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_expandElementalMassFracsToNuclides">test_expandElementalMassFracsToNuclides() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_expandElementalMassFracsToNuclides">test_expandElementalMassFracsToNuclides() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_expandElementalToIsotopics">test_expandElementalToIsotopics() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_expandElementalZeroMassFrac">test_expandElementalZeroMassFrac() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_expandElementalZeroMassFrac">test_expandElementalZeroMassFrac() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_expandLFPs">test_expandLFPs() (armi.reactor.tests.test_composites.TestCompositePattern method)</a>
 </li>
@@ -13023,7 +13055,11 @@
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blockBlueprints.html#armi.reactor.blueprints.tests.test_blockBlueprints.TestGriddedBlock.test_explicitFlags">test_explicitFlags() (armi.reactor.blueprints.tests.test_blockBlueprints.TestGriddedBlock method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_plugins.html#armi.tests.test_plugins.TestPlugin.test_exposeInterfaces">test_exposeInterfaces() (armi.tests.test_plugins.TestPlugin method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.tests.test_plugins.html#armi.tests.test_plugins.TestPluginBasics.test_exposeInterfaces">(armi.tests.test_plugins.TestPluginBasics method)</a>
 </li>
+      </ul></li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_extend">test_extend() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 
       <ul>
@@ -13039,6 +13075,8 @@
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponentFactory.test_factoryBadShapeName">test_factoryBadShapeName() (armi.reactor.tests.test_components.TestComponentFactory method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_factorySortSetting">test_factorySortSetting() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
+</li>
+      <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestCopyInterfaceInputs.test_failOnDuplicateSetting">test_failOnDuplicateSetting() (armi.cases.tests.test_cases.TestCopyInterfaceInputs method)</a>
 </li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_thermalScattering.html#armi.nucDirectory.tests.test_thermalScattering.TestThermalScattering.test_failOnMultiple">test_failOnMultiple() (armi.nucDirectory.tests.test_thermalScattering.TestThermalScattering method)</a>
 </li>
@@ -13066,7 +13104,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_findAllAziMeshPoints">test_findAllAziMeshPoints() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor.test_findAllMeshPoints">test_findAllMeshPoints() (armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor method)</a>
+      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor.test_findAllMeshPoints">test_findAllMeshPoints() (armi.reactor.tests.test_rz_reactors.TestRZTReactor method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_findAllRadMeshPoints">test_findAllRadMeshPoints() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
@@ -13104,6 +13142,8 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestFlagSerializer.test_flagSerialization">test_flagSerialization() (armi.reactor.tests.test_composites.TestFlagSerializer method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_flagsToAndFromString">test_flagsToAndFromString() (armi.reactor.tests.test_flags.TestFlags method)</a>
+</li>
       <li><a href=".apidocs/armi.utils.tests.test_asciimaps.html#armi.utils.tests.test_asciimaps.TestAsciiMaps.test_flatHexBases">test_flatHexBases() (armi.utils.tests.test_asciimaps.TestAsciiMaps method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_iterables.html#armi.utils.tests.test_iterables.TestIterables.test_flatten">test_flatten() (armi.utils.tests.test_iterables.TestIterables method)</a>
@@ -13114,7 +13154,7 @@
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_nhflux.html#armi.nuclearDataIO.cccc.tests.test_nhflux.TestNhfluxVariant.test_fluxMoments">(armi.nuclearDataIO.cccc.tests.test_nhflux.TestNhfluxVariant method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_formatMaterialCard">test_formatMaterialCard() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_formatMaterialCard">test_formatMaterialCard() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.html#armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelLumpedFissionProducts.test_fpApplication">test_fpApplication() (armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelLumpedFissionProducts method)</a>
 </li>
@@ -13174,8 +13214,6 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_geomType">test_geomType() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.test_getAAAZZZSId">test_getAAAZZZSId (class in armi.nucDirectory.tests.test_nuclideBases)</a>
-</li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_getAge">test_getAge() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.html#armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelLumpedFissionProducts.test_getAllFissionProductNames">test_getAllFissionProductNames() (armi.physics.neutronics.fissionProductModel.tests.test_fissionProductModel.TestFissionProductModelLumpedFissionProducts method)</a>
@@ -13234,8 +13272,6 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembliesOnSymmetryLine">test_getAssembliesOnSymmetryLine() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembly">test_getAssembly() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
-</li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.CartesianReactorTests.test_getAssemblyPitch">test_getAssemblyPitch() (armi.reactor.tests.test_reactors.CartesianReactorTests method)</a>
 
       <ul>
@@ -13243,6 +13279,10 @@
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blueprints.html#armi.reactor.blueprints.tests.test_blueprints.TestBlueprints.test_getAssemblyTypeBySpecifier">test_getAssemblyTypeBySpecifier() (armi.reactor.blueprints.tests.test_blueprints.TestBlueprints method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithLoc">test_getAssemblyWithLoc() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithName">test_getAssemblyWithName() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getAtomicWeight">test_getAtomicWeight() (armi.reactor.tests.test_composites.TestMiscMethods method)</a>
 </li>
@@ -13252,6 +13292,14 @@
         <li><a href=".apidocs/armi.utils.tests.test_utils.html#armi.utils.tests.test_utils.CyclesSettingsTests.test_getAvailabilityFactors">(armi.utils.tests.test_utils.CyclesSettingsTests method)</a>
 </li>
       </ul></li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging.test_getAverageComponentNumberDensities">test_getAverageComponentNumberDensities() (armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging.test_getAverageComponentTemperature">test_getAverageComponentTemperature() (armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging.test_getAverageComponentTemperatureNoMass">test_getAverageComponentTemperatureNoMass() (armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging.test_getAverageComponentTemperatureVariedWeights">test_getAverageComponentTemperatureVariedWeights() (armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging method)</a>
+</li>
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.html#armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.TestLatticePhysicsWriter.test_getAvgNuclideTemperatureInC">test_getAvgNuclideTemperatureInC() (armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.TestLatticePhysicsWriter method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAvgTemp">test_getAvgTemp() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
@@ -13314,7 +13362,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.CartesianBlock_TestCase.test_getCartesianGrid">test_getCartesianGrid() (armi.reactor.tests.test_blocks.CartesianBlock_TestCase method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_getChemicals">test_getChemicals() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_getChemicals">test_getChemicals() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Copper_TestCase.test_getChildren">test_getChildren() (armi.materials.tests.test_materials.Copper_TestCase method)</a>
 
@@ -13392,7 +13440,7 @@
 </li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestNuclide.test_getDecay">test_getDecay() (armi.nucDirectory.tests.test_nuclideBases.TestNuclide method)</a>
 </li>
-      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmi.test_getDefaultPlugMan">test_getDefaultPlugMan() (armi.tests.test_apps.TestArmi method)</a>
+      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmiHighLevel.test_getDefaultPluginManager">test_getDefaultPluginManager() (armi.tests.test_apps.TestArmiHighLevel method)</a>
 </li>
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.UraniumOxide_TestCase.test_getDensityExpansion3D">test_getDensityExpansion3D() (armi.materials.tests.test_materials.UraniumOxide_TestCase method)</a>
 </li>
@@ -13443,6 +13491,8 @@
       <li><a href=".apidocs/armi.physics.fuelCycle.tests.test_fuelHandlers.html#armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler.test_getFactorList">test_getFactorList() (armi.physics.fuelCycle.tests.test_fuelHandlers.TestFuelHandler method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestSettings2.test_getFailures">test_getFailures() (armi.settings.tests.test_settings.TestSettings2 method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_energyGroups.html#armi.physics.neutronics.tests.test_energyGroups.TestEnergyGroups.test_getFastFluxGroupCutoff">test_getFastFluxGroupCutoff() (armi.physics.neutronics.tests.test_energyGroups.TestEnergyGroups method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_getFirstBlock">test_getFirstBlock() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
@@ -13508,11 +13558,9 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_isotxs.html#armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs.test_getISOTXSFileName">test_getISOTXSFileName() (armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs method)</a>
 </li>
-      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory">Test_GetISOTXSFilesInWorkingDirectory (class in armi.nuclearDataIO.tests.test_xsLibraries)</a>
+      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory.test_getISOTXSFilesWithLibrarySuffix">test_getISOTXSFilesWithLibrarySuffix() (armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory method)</a>
 </li>
-      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory.test_getISOTXSFilesWithLibrarySuffix">test_getISOTXSFilesWithLibrarySuffix() (armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory method)</a>
-</li>
-      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory.test_getISOTXSFilesWithoutLibrarySuffix">test_getISOTXSFilesWithoutLibrarySuffix() (armi.nuclearDataIO.tests.test_xsLibraries.Test_GetISOTXSFilesInWorkingDirectory method)</a>
+      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory.test_getISOTXSFilesWithoutLibrarySuffix">test_getISOTXSFilesWithoutLibrarySuffix() (armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_flags.html#armi.utils.tests.test_flags.TestFlag.test_getitem">test_getitem() (armi.utils.tests.test_flags.TestFlag method)</a>
 </li>
@@ -13538,9 +13586,9 @@
 </li>
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.MOX_TestCase.test_getMassFracPuO2">test_getMassFracPuO2() (armi.materials.tests.test_materials.MOX_TestCase method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_getMassFractions">test_getMassFractions() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_getMassFractions">test_getMassFractions() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_getMassInGrams">test_getMassInGrams() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_getMassInGrams">test_getMassInGrams() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getMaxAssembliesInHexRing">test_getMaxAssembliesInHexRing() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
@@ -13575,10 +13623,16 @@
       <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.MOX_TestCase.test_getMolFracPuO2">test_getMolFracPuO2() (armi.materials.tests.test_materials.MOX_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_getName">test_getName() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_getName">(armi.reactor.tests.test_composites.TestCompositePattern method)</a>
+</li>
+      </ul></li>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_getNDensFromMasses">test_getNDensFromMasses() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositeTree.test_getNeutronEnergyDepositionConstants">test_getNeutronEnergyDepositionConstants() (armi.reactor.tests.test_composites.TestCompositeTree method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_getNextAvailableXsType">test_getNextAvailableXsType() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_getNextAvailableXsType">test_getNextAvailableXsType() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_utils.html#armi.utils.tests.test_utils.CyclesSettingsTests.test_getNodesPerCycle">test_getNodesPerCycle() (armi.utils.tests.test_utils.CyclesSettingsTests method)</a>
 </li>
@@ -13596,10 +13650,14 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumAssembliesWithAllRingsFilledOut">test_getNumAssembliesWithAllRingsFilledOut() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumAssembliesWithAllRingsFilledOutBipass">test_getNumAssembliesWithAllRingsFilledOutBipass() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
+</li>
       <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.TestLumpedFissionProductCollection.test_getNumberDensities">test_getNumberDensities() (armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.TestLumpedFissionProductCollection method)</a>
 
       <ul>
         <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_getNumberDensities">(armi.reactor.tests.test_components.TestCircle method)</a>
+</li>
+        <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getNumberDensities">(armi.reactor.tests.test_composites.TestMiscMethods method)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_getNumberDensity">test_getNumberDensity() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
@@ -13668,13 +13726,15 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.tests.test_memoryProfiler.html#armi.bookkeeping.tests.test_memoryProfiler.TestMemoryProfiler.test_getReferrers">test_getReferrers() (armi.bookkeeping.tests.test_memoryProfiler.TestMemoryProfiler method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_getRepresentativeBlocks">test_getRepresentativeBlocks() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_getRepresentativeBlocks">test_getRepresentativeBlocks() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getScalarEvolution">test_getScalarEvolution() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_isotxs.html#armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs.test_getScatteringWeights">test_getScatteringWeights() (armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_isotxs.html#armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs.test_getScatterWeights">test_getScatterWeights() (armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getSetParameters">test_getSetParameters() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestApps.test_getSettings">test_getSettings() (armi.tests.test_apps.TestApps method)</a>
 </li>
@@ -13693,6 +13753,8 @@
       <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.CyclesSettingsTests.test_getStepLengths">test_getStepLengths() (armi.operators.tests.test_operators.CyclesSettingsTests method)</a>
 
       <ul>
+        <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.TestTightCoupling.test_getStepLengths">(armi.operators.tests.test_operators.TestTightCoupling method)</a>
+</li>
         <li><a href=".apidocs/armi.utils.tests.test_utils.html#armi.utils.tests.test_utils.CyclesSettingsTests.test_getStepLengths">(armi.utils.tests.test_utils.CyclesSettingsTests method)</a>
 </li>
       </ul></li>
@@ -13854,6 +13916,8 @@
       </ul></li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.MassConservationTests.test_heightExpansionDifferences">test_heightExpansionDifferences() (armi.reactor.tests.test_blocks.MassConservationTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.utils.tests.test_hexagon.html#armi.utils.tests.test_hexagon.TestHexagon.test_hexagon_area">test_hexagon_area() (armi.utils.tests.test_hexagon.TestHexagon method)</a>
+</li>
       <li><a href=".apidocs/armi.utils.tests.test_asciimaps.html#armi.utils.tests.test_asciimaps.TestAsciiMaps.test_hexFull">test_hexFull() (armi.utils.tests.test_asciimaps.TestAsciiMaps method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_asciimaps.html#armi.utils.tests.test_asciimaps.TestAsciiMaps.test_hexFullFlat">test_hexFullFlat() (armi.utils.tests.test_asciimaps.TestAsciiMaps method)</a>
@@ -13886,6 +13950,8 @@
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_pathTools.html#armi.utils.tests.test_pathTools.PathToolsTests.test_importCustomModule">test_importCustomModule() (armi.utils.tests.test_pathTools.PathToolsTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_includeGammaXS">test_includeGammaXS() (armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
+</li>
       <li><a href=".apidocs/armi.utils.tests.test_flags.html#armi.utils.tests.test_flags.TestFlag.test_inclusion">test_inclusion() (armi.utils.tests.test_flags.TestFlag method)</a>
 </li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestArmiCase.test_independentVariables">test_independentVariables() (armi.cases.tests.test_cases.TestArmiCase method)</a>
@@ -13894,7 +13960,7 @@
 </li>
       <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestLatinHyperCubeSuiteBuilder.test_initialize">test_initialize() (armi.cases.tests.test_suiteBuilder.TestLatinHyperCubeSuiteBuilder method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_initializeComponent">test_initializeComponent() (armi.reactor.tests.test_components.TestComponent method)</a>
+      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_initializeComponentMaterial">test_initializeComponentMaterial() (armi.reactor.tests.test_components.TestComponent method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_geometryConverters.html#armi.reactor.converters.tests.test_geometryConverters.TestThirdCoreHexToFullCoreChanger.test_initNewFullReactor">test_initNewFullReactor() (armi.reactor.converters.tests.test_geometryConverters.TestThirdCoreHexToFullCoreChanger method)</a>
 </li>
@@ -13908,7 +13974,7 @@
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_interactAll">test_interactAll() (armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactAllCoupled">test_interactAllCoupled() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_interactAllCoupled">test_interactAllCoupled() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.report.tests.test_report.html#armi.bookkeeping.report.tests.test_report.TestReportInterface.test_interactBOC">test_interactBOC() (armi.bookkeeping.report.tests.test_report.TestReportInterface method)</a>
 
@@ -13917,7 +13983,7 @@
 </li>
         <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_interactBOC">(armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
 </li>
-        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactBOC">(armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_interactBOC">(armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_databaseInterface.html#armi.bookkeeping.db.tests.test_databaseInterface.TestDatabaseInterface.test_interactBOL">test_interactBOL() (armi.bookkeeping.db.tests.test_databaseInterface.TestDatabaseInterface method)</a>
@@ -13925,7 +13991,7 @@
       <ul>
         <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_interactBOL">(armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
 </li>
-        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactBOL">(armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_interactBOL">(armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.bookkeeping.report.tests.test_report.html#armi.bookkeeping.report.tests.test_report.TestReportInterface.test_interactBOLReportInt">test_interactBOLReportInt() (armi.bookkeeping.report.tests.test_report.TestReportInterface method)</a>
@@ -13943,7 +14009,7 @@
 </li>
         <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_interactEveryNode">(armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
 </li>
-        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactEveryNode">(armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_interactEveryNode">(armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_interactEveryNodeAll">test_interactEveryNodeAll() (armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
@@ -13955,7 +14021,7 @@
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_interactFirstCoupledIteration">test_interactFirstCoupledIteration() (armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
 
       <ul>
-        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_interactFirstCoupledIteration">(armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+        <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_interactFirstCoupledIteration">(armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_interaction">test_interaction() (armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface method)</a>
@@ -14010,6 +14076,8 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary.test_isotxsLibraryAttributes">test_isotxsLibraryAttributes() (armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary method)</a>
 </li>
+      <li><a href=".apidocs/armi.materials.tests.test_uZr.html#armi.materials.tests.test_uZr.UZR_TestCase.test_isPicklable">test_isPicklable() (armi.materials.tests.test_uZr.UZR_TestCase method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_isPickleable">test_isPickleable() (armi.reactor.tests.test_flags.TestFlags method)</a>
 
       <ul>
@@ -14048,7 +14116,7 @@
         <li><a href=".apidocs/armi.reactor.tests.test_geometry.html#armi.reactor.tests.test_geometry.TestSymmetryType.test_label">(armi.reactor.tests.test_geometry.TestSymmetryType method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_LatticePhysicsInterface">test_LatticePhysicsInterface() (armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.html#armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface.test_latticePhysicsInterface">test_latticePhysicsInterface() (armi.physics.neutronics.latticePhysics.tests.test_latticeInterface.TestLatticePhysicsInterface method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.html#armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.TestLatticePhysicsWriter.test_latticePhysicsWriter">test_latticePhysicsWriter() (armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.TestLatticePhysicsWriter method)</a>
 </li>
@@ -14148,15 +14216,17 @@
 </li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestNuclide.test_loadMcc3Data">test_loadMcc3Data() (armi.nucDirectory.tests.test_nuclideBases.TestNuclide method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor.test_loadRZT">test_loadRZT() (armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor method)</a>
+      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor.test_loadRZT">test_loadRZT() (armi.reactor.tests.test_rz_reactors.TestRZTReactor method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor_modern.test_loadRZT_reactor">test_loadRZT_reactor() (armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor_modern method)</a>
+      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactorModern.test_loadRZT_reactor">test_loadRZT_reactor() (armi.reactor.tests.test_rz_reactors.TestRZTReactorModern method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_loadSortSetting">test_loadSortSetting() (armi.bookkeeping.db.tests.test_database3.TestDatabase3 method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.OperatorTests.test_loadStateError">test_loadStateError() (armi.operators.tests.test_operators.OperatorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.tests.test_m0_1_6_locationLabels.html#armi.scripts.migration.tests.test_m0_1_6_locationLabels.TestMigration.test_locationLabelMigration">test_locationLabelMigration() (armi.scripts.migration.tests.test_m0_1_6_locationLabels.TestMigration method)</a>
+      <li><a href=".apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestSettingsMigration.test_loadStreamFromPath">test_loadStreamFromPath() (armi.migration.tests.test_migration_base.TestSettingsMigration method)</a>
+</li>
+      <li><a href=".apidocs/armi.migration.tests.test_m0_1_6.html#armi.migration.tests.test_m0_1_6.TestMigration.test_locationLabelMigration">test_locationLabelMigration() (armi.migration.tests.test_m0_1_6.TestMigration method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_layout.html#armi.bookkeeping.db.tests.test_layout.TestLocationPacking.test_locationPacking">test_locationPacking() (armi.bookkeeping.db.tests.test_layout.TestLocationPacking method)</a>
 </li>
@@ -14170,9 +14240,9 @@
 </li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestNuclide.test_LumpNuclideBase_getNatrualIsotopicsDoesNotFail">test_LumpNuclideBase_getNatrualIsotopicsDoesNotFail() (armi.nucDirectory.tests.test_nuclideBases.TestNuclide method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_macroXSGenerationInterface.html#armi.physics.neutronics.tests.test_macroXSGenerationInterface.TestMacroXSGenerationInterface.test_macroXSGenerationInterface">test_macroXSGenerationInterface() (armi.physics.neutronics.tests.test_macroXSGenerationInterface.TestMacroXSGenerationInterface method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_macroXSGenerationInterface.html#armi.physics.neutronics.tests.test_macroXSGenerationInterface.TestMacroXSGenerationInterface.test_macroXSGenerationInterfaceBasics">test_macroXSGenerationInterfaceBasics() (armi.physics.neutronics.tests.test_macroXSGenerationInterface.TestMacroXSGenerationInterface method)</a>
 </li>
-      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmi.test_main">test_main() (armi.tests.test_apps.TestArmi method)</a>
+      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmiHighLevel.test_main">test_main() (armi.tests.test_apps.TestArmiHighLevel method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_operatorSnapshots.html#armi.operators.tests.test_operatorSnapshots.TestOperatorSnapshots.test_mainOperate">test_mainOperate() (armi.operators.tests.test_operatorSnapshots.TestOperatorSnapshots method)</a>
 </li>
@@ -14308,6 +14378,8 @@
         <li><a href=".apidocs/armi.tests.test_interfaces.html#armi.tests.test_interfaces.TestCodeInterface.test_nameContains">(armi.tests.test_interfaces.TestCodeInterface method)</a>
 </li>
       </ul></li>
+      <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.MaterialFindingTests.test_namespacing">test_namespacing() (armi.materials.tests.test_materials.MaterialFindingTests method)</a>
+</li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestNuclide.test_NaturalNuclide_atomicWeightIsAverageOfNaturallyOccuringIsotopes">test_NaturalNuclide_atomicWeightIsAverageOfNaturallyOccuringIsotopes() (armi.nucDirectory.tests.test_nuclideBases.TestNuclide method)</a>
 </li>
       <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestNuclide.test_NaturalNuclideBase_getNatrualIsotpics">test_NaturalNuclideBase_getNatrualIsotpics() (armi.nucDirectory.tests.test_nuclideBases.TestNuclide method)</a>
@@ -14318,9 +14390,7 @@
         <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestSquare.test_negativeArea">(armi.reactor.tests.test_components.TestSquare method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Test_NegativeVolume">Test_NegativeVolume (class in armi.reactor.tests.test_blocks)</a>
-</li>
-      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Test_NegativeVolume.test_negativeVolume">test_negativeVolume() (armi.reactor.tests.test_blocks.Test_NegativeVolume method)</a>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestNegativeVolume.test_negativeVolume">test_negativeVolume() (armi.reactor.tests.test_blocks.TestNegativeVolume method)</a>
 
       <ul>
         <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCube.test_negativeVolume">(armi.reactor.tests.test_components.TestCube method)</a>
@@ -14330,9 +14400,7 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.report.tests.test_newReport.html#armi.bookkeeping.report.tests.test_newReport.TestReportContentCreation.test_neutronicsPlotFunctions">test_neutronicsPlotFunctions() (armi.bookkeeping.report.tests.test_newReport.TestReportContentCreation method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin">Test_NeutronicsPlugin (class in armi.physics.neutronics.tests.test_neutronicsPlugin)</a>
-</li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin.test_neutronicsSettingsLoaded">test_neutronicsSettingsLoaded() (armi.physics.neutronics.tests.test_neutronicsPlugin.Test_NeutronicsPlugin method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin.test_neutronicsSettingsLoaded">test_neutronicsSettingsLoaded() (armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.NeutronicsReactorTests.test_neutronicsSettingsValidators">test_neutronicsSettingsValidators() (armi.physics.neutronics.tests.test_neutronicsPlugin.NeutronicsReactorTests method)</a>
 </li>
@@ -14344,7 +14412,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_materialModifications.html#armi.reactor.blueprints.tests.test_materialModifications.TestMaterialModifications.test_noMaterialModifications">test_noMaterialModifications() (armi.reactor.blueprints.tests.test_materialModifications.TestMaterialModifications method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_NoMovementACLP">test_NoMovementACLP() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_noMovementACLP">test_noMovementACLP() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_customIsotopics.html#armi.reactor.blueprints.tests.test_customIsotopics.TestCustomIsotopics_ErrorConditions.test_nonConformantElementName">test_nonConformantElementName() (armi.reactor.blueprints.tests.test_customIsotopics.TestCustomIsotopics_ErrorConditions method)</a>
 </li>
@@ -14360,7 +14428,7 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_normalizeNames">test_normalizeNames() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.Test_densityTools.test_normalizeNuclideList">test_normalizeNuclideList() (armi.utils.tests.test_densityTools.Test_densityTools method)</a>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools.test_normalizeNuclideList">test_normalizeNuclideList() (armi.utils.tests.test_densityTools.TestDensityTools method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_assemblies.html#armi.reactor.tests.test_assemblies.Assembly_TestCase.test_notesParameter">test_notesParameter() (armi.reactor.tests.test_assemblies.Assembly_TestCase method)</a>
 </li>
@@ -14458,15 +14526,21 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_customIsotopics.html#armi.reactor.blueprints.tests.test_customIsotopics.TestCustomIsotopics.test_numberFractions">test_numberFractions() (armi.reactor.blueprints.tests.test_customIsotopics.TestCustomIsotopics method)</a>
 </li>
+      <li><a href=".apidocs/armi.utils.tests.test_hexagon.html#armi.utils.tests.test_hexagon.TestHexagon.test_numPositionsInRing">test_numPositionsInRing() (armi.utils.tests.test_hexagon.TestHexagon method)</a>
+</li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_open">test_open() (armi.bookkeeping.db.tests.test_database3.TestDatabase3 method)</a>
 </li>
+      <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.OperatorTests.test_operatorData">test_operatorData() (armi.operators.tests.test_operators.OperatorTests method)</a>
+</li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestCrossSectionSettings.test_optionalKey">test_optionalKey() (armi.physics.neutronics.tests.test_crossSectionSettings.TestCrossSectionSettings method)</a>
+</li>
+      <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.OperatorTests.test_orderedInterfaces">test_orderedInterfaces() (armi.operators.tests.test_operators.OperatorTests method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositeTree.test_ordering">test_ordering() (armi.reactor.tests.test_composites.TestCompositeTree method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_comparedb3.html#armi.bookkeeping.db.tests.test_comparedb3.TestCompareDB3.test_outputWriter">test_outputWriter() (armi.bookkeeping.db.tests.test_comparedb3.TestCompareDB3 method)</a>
 </li>
-      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmi.test_overConfigured">test_overConfigured() (armi.tests.test_apps.TestArmi method)</a>
+      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmiHighLevel.test_overConfigured">test_overConfigured() (armi.tests.test_apps.TestArmiHighLevel method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestLinkage.test_overlappingSolidPins">test_overlappingSolidPins() (armi.reactor.converters.tests.test_axialExpansionChanger.TestLinkage method)</a>
 </li>
@@ -14499,6 +14573,8 @@
       <li><a href=".apidocs/armi.utils.tests.test_parsing.html#armi.utils.tests.test_parsing.LiteralEvalTest.test_parseValue">test_parseValue() (armi.utils.tests.test_parsing.LiteralEvalTest method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_mpiActions.html#armi.tests.test_mpiActions.MpiIterTests.test_perfectBalancing">test_perfectBalancing() (armi.tests.test_mpiActions.MpiIterTests method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionAverage.test_performAverageByComponent">test_performAverageByComponent() (armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollectionAverage method)</a>
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.TestTightCoupling.test_performTightCoupling_Inactive">test_performTightCoupling_Inactive() (armi.operators.tests.test_operators.TestTightCoupling method)</a>
 </li>
@@ -14542,7 +14618,7 @@
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary.test_pmatrxLibraryAttributes">test_pmatrxLibraryAttributes() (armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary method)</a>
 </li>
-      <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_pmatrx.html#armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrx.test_pmatrxNeutronEneries">test_pmatrxNeutronEneries() (armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrx method)</a>
+      <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_pmatrx.html#armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrx.test_pmatrxNeutronEnergies">test_pmatrxNeutronEnergies() (armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrx method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_pmatrx.html#armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrxNuclides.test_pmatrxNuclideDataAA">test_pmatrxNuclideDataAA() (armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrxNuclides method)</a>
 </li>
@@ -14586,7 +14662,7 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_prepRestartRun">test_prepRestartRun() (armi.bookkeeping.db.tests.test_database3.TestDatabase3 method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_PrescribedExpansionContractionConservation">test_PrescribedExpansionContractionConservation() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_prescribedExpansionContractionConservation">test_prescribedExpansionContractionConservation() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestShapedComponent.test_preserveMassDuringThermalExpansion">test_preserveMassDuringThermalExpansion() (armi.reactor.tests.test_components.TestShapedComponent method)</a>
 </li>
@@ -14754,6 +14830,8 @@
         <li><a href=".apidocs/armi.materials.tests.test_sic.html#armi.materials.tests.test_sic.Test_SiC.test_pseudoDensity">(armi.materials.tests.test_sic.Test_SiC method)</a>
 </li>
       </ul></li>
+      <li><a href=".apidocs/armi.materials.tests.test_uZr.html#armi.materials.tests.test_uZr.UZR_TestCase.test_pseudoDensityKgM3">test_pseudoDensityKgM3() (armi.materials.tests.test_uZr.UZR_TestCase method)</a>
+</li>
       <li><a href=".apidocs/armi.operators.tests.test_inspectors.html#armi.operators.tests.test_inspectors.TestInspector.test_query">test_query() (armi.operators.tests.test_inspectors.TestInspector method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_reportPlotting.html#armi.utils.tests.test_reportPlotting.TestRadar.test_radar">test_radar() (armi.utils.tests.test_reportPlotting.TestRadar method)</a>
@@ -14939,7 +15017,11 @@
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestRoundTrip.test_roundTrip">test_roundTrip() (armi.reactor.blueprints.tests.test_gridBlueprints.TestRoundTrip method)</a>
 </li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestArmiCase.test_run">test_run() (armi.cases.tests.test_cases.TestArmiCase method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.cli.tests.test_runSuite.html#armi.cli.tests.test_runSuite.TestRunSuiteSuite.test_run">(armi.cli.tests.test_runSuite.TestRunSuiteSuite method)</a>
 </li>
+      </ul></li>
       <li><a href=".apidocs/armi.tests.test_mpiActions.html#armi.tests.test_mpiActions.MpiIterTests.test_runActionsDistributeStateAction">test_runActionsDistributeStateAction() (armi.tests.test_mpiActions.MpiIterTests method)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_mpiActions.html#armi.tests.test_mpiActions.MpiIterTests.test_runActionsDistributionAction">test_runActionsDistributionAction() (armi.tests.test_mpiActions.MpiIterTests method)</a>
@@ -14951,6 +15033,8 @@
       <li><a href=".apidocs/armi.tests.test_notebooks.html#armi.tests.test_notebooks.NotebookTests.test_runDataModel">test_runDataModel() (armi.tests.test_notebooks.NotebookTests method)</a>
 </li>
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestRunEntryPoint.test_runEntryPointBasics">test_runEntryPointBasics() (armi.cli.tests.test_runEntryPoint.TestRunEntryPoint method)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.tests.test_executers.html#armi.physics.tests.test_executers.TestExecuters.test_runExternalExecutable">test_runExternalExecutable() (armi.physics.tests.test_executers.TestExecuters method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.tests.test_executers.html#armi.physics.tests.test_executers.TestExecutionOptions.test_runningDirectoryPath">test_runningDirectoryPath() (armi.physics.tests.test_executers.TestExecutionOptions method)</a>
 </li>
@@ -14964,10 +15048,6 @@
         <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_rzflux.html#armi.nuclearDataIO.cccc.tests.test_rzflux.TestRzflux.test_rwAscii">(armi.nuclearDataIO.cccc.tests.test_rzflux.TestRzflux method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor">Test_RZT_Reactor (class in armi.reactor.tests.test_rz_reactors)</a>
-</li>
-      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.Test_RZT_Reactor_modern">Test_RZT_Reactor_modern (class in armi.reactor.tests.test_rz_reactors)</a>
-</li>
       <li><a href=".apidocs/armi.utils.tests.test_units.html#armi.utils.tests.test_units.TestUnits.test_sanitizeAngle">test_sanitizeAngle() (armi.utils.tests.test_units.TestUnits method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_saveAllFlux">test_saveAllFlux() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
@@ -14984,9 +15064,11 @@
 </li>
       <li><a href=".apidocs/armi.tests.test_mpiActions.html#armi.tests.test_mpiActions.MpiIterTests.test_serialGather">test_serialGather() (armi.tests.test_mpiActions.MpiIterTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_serializer_pack_unpack">test_serializer_pack_unpack() (armi.reactor.tests.test_parameters.ParameterTests method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_setB10VolOnCreation">test_setB10VolOnCreation() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_setBuGroupBounds">test_setBuGroupBounds() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_setBuGroupBounds">test_setBuGroupBounds() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setBuLimitInfo">test_setBuLimitInfo() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
 </li>
@@ -15014,6 +15096,8 @@
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions.test_setExpansionFactors">test_setExpansionFactors() (armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setImportantParams">test_setImportantParams() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setLinPowByPin">test_setLinPowByPin() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setLocation">test_setLocation() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
@@ -15031,9 +15115,17 @@
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestSettings2.test_setModuleVerbosities">test_setModuleVerbosities() (armi.settings.tests.test_settings.TestSettings2 method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setNumberDensities">test_setNumberDensities() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_setNumberDensities">(armi.reactor.tests.test_components.TestComponent method)</a>
 </li>
+      </ul></li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setNumberDensity">test_setNumberDensity() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_setNumberDensity">(armi.reactor.tests.test_components.TestComponent method)</a>
 </li>
+      </ul></li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_geometryConverters.html#armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters.test_setNumberOfFuelAssems">test_setNumberOfFuelAssems() (armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.Block_TestCase.test_setPitch">test_setPitch() (armi.reactor.tests.test_blocks.Block_TestCase method)</a>
@@ -15106,6 +15198,8 @@
 </li>
       <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.OperatorTests.test_snapshotRequest">test_snapshotRequest() (armi.operators.tests.test_operators.OperatorTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent.test_solid_material">test_solid_material() (armi.reactor.tests.test_components.TestComponent method)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestLinkage.test_solidPinNotOverlappingAnnulus">test_solidPinNotOverlappingAnnulus() (armi.reactor.converters.tests.test_axialExpansionChanger.TestLinkage method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestLinkage.test_solidPinOverlappingWithAnnulus">test_solidPinOverlappingWithAnnulus() (armi.reactor.converters.tests.test_axialExpansionChanger.TestLinkage method)</a>
@@ -15166,7 +15260,9 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.report.tests.test_newReport.html#armi.bookkeeping.report.tests.test_newReport.TestReportContentCreation.test_tableCreation">test_tableCreation() (armi.bookkeeping.report.tests.test_newReport.TestReportContentCreation method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_TargetComponentMassConservation">test_TargetComponentMassConservation() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_targetComponentMassConservation">test_targetComponentMassConservation() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
+</li>
+      <li><a href=".apidocs/armi.materials.tests.test_uZr.html#armi.materials.tests.test_uZr.UZR_TestCase.test_TD">test_TD() (armi.materials.tests.test_uZr.UZR_TestCase method)</a>
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_directoryChangers.html#armi.utils.tests.test_directoryChangers.TestDirectoryChangers.test_temporary_cleans">test_temporary_cleans() (armi.utils.tests.test_directoryChangers.TestDirectoryChangers method)</a>
 </li>
@@ -15198,9 +15294,9 @@
         <li><a href=".apidocs/armi.materials.tests.test_materials.html#armi.materials.tests.test_materials.Zr_TestCase.test_thermalConductivity">(armi.materials.tests.test_materials.Zr_TestCase method)</a>
 </li>
       </ul></li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_ThermalExpansionContractionConservation_Complex">test_ThermalExpansionContractionConservation_Complex() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_thermalExpansionContractionConservation_complex">test_thermalExpansionContractionConservation_complex() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_ThermalExpansionContractionConservation_Simple">test_ThermalExpansionContractionConservation_Simple() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
+      <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation.test_thermalExpansionContractionConservation_simple">test_thermalExpansionContractionConservation_simple() (armi.reactor.converters.tests.test_axialExpansionChanger.TestConservation method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestCircle.test_thermallyExpands">test_thermallyExpands() (armi.reactor.tests.test_components.TestCircle method)</a>
 
@@ -15254,8 +15350,6 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blueprints.html#armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema.test_topLevelComponentInput">test_topLevelComponentInput() (armi.reactor.blueprints.tests.test_blueprints.TestBlueprintsSchema method)</a>
 </li>
-      <li><a href=".apidocs/armi.reactor.tests.test_flags.html#armi.reactor.tests.test_flags.TestFlags.test_toString">test_toString() (armi.reactor.tests.test_flags.TestFlags method)</a>
-</li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_compxs.html#armi.nuclearDataIO.cccc.tests.test_compxs.TestCompxs.test_totalScatterMatrix">test_totalScatterMatrix() (armi.nuclearDataIO.cccc.tests.test_compxs.TestCompxs method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_blueprints.html#armi.reactor.blueprints.tests.test_blueprints.TestBlueprints.test_traceNuclides">test_traceNuclides() (armi.reactor.blueprints.tests.test_blueprints.TestBlueprints method)</a>
@@ -15300,11 +15394,13 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_updateBlockBOLHeights_DBLoad">test_updateBlockBOLHeights_DBLoad() (armi.reactor.tests.test_reactors.HexReactorTests method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager.test_updateBurnupGroups">test_updateBurnupGroups() (armi.physics.neutronics.tests.test_crossSectionManager.Test_CrossSectionGroupManager method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_updateBurnupGroups">test_updateBurnupGroups() (armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions.test_updateComponentTempsBy1DTempFieldRuntimeError">test_updateComponentTempsBy1DTempFieldRuntimeError() (armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions.test_updateComponentTempsBy1DTempFieldValueError">test_updateComponentTempsBy1DTempFieldValueError() (armi.reactor.converters.tests.test_axialExpansionChanger.TestExceptions method)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestDetailedNDensUpdate.test_updateDetailedNdens">test_updateDetailedNdens() (armi.reactor.tests.test_blocks.TestDetailedNDensUpdate method)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDifferentialRadialSegment.test_updateDims">test_updateDims() (armi.reactor.tests.test_components.TestDifferentialRadialSegment method)</a>
 </li>
@@ -15393,7 +15489,13 @@
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_cccc.html#armi.nuclearDataIO.cccc.tests.test_cccc.CcccBinaryRecordTests.test_writeAndReadSimpleStringRecord">test_writeAndReadSimpleStringRecord() (armi.nuclearDataIO.cccc.tests.test_cccc.CcccBinaryRecordTests method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_dif3d.html#armi.nuclearDataIO.cccc.tests.test_dif3d.TestDif3dSimpleHexz.test_writeBinary">test_writeBinary() (armi.nuclearDataIO.cccc.tests.test_dif3d.TestDif3dSimpleHexz method)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_gamiso.html#armi.nuclearDataIO.cccc.tests.test_gamiso.TestGamiso.test_writeBinary">(armi.nuclearDataIO.cccc.tests.test_gamiso.TestGamiso method)</a>
 </li>
+        <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_isotxs.html#armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs.test_writeBinary">(armi.nuclearDataIO.cccc.tests.test_isotxs.TestIsotxs method)</a>
+</li>
+      </ul></li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_dlayxs.html#armi.nuclearDataIO.cccc.tests.test_dlayxs.DlayxsTests.test_writeBinary_mcc3">test_writeBinary_mcc3() (armi.nuclearDataIO.cccc.tests.test_dlayxs.DlayxsTests method)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsWriterTests.test_writeFull">test_writeFull() (armi.settings.tests.test_settingsIO.SettingsWriterTests method)</a>
@@ -15422,6 +15524,8 @@
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsWriterTests.test_writeShort">test_writeShort() (armi.settings.tests.test_settingsIO.SettingsWriterTests method)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_parameters.html#armi.reactor.tests.test_parameters.ParameterTests.test_writeSomeParamsToDB">test_writeSomeParamsToDB() (armi.reactor.tests.test_parameters.ParameterTests method)</a>
+</li>
       <li><a href=".apidocs/armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.html#armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.TestLatticePhysicsWriter.test_writeTitle">test_writeTitle() (armi.physics.neutronics.latticePhysics.tests.test_latticeWriter.TestLatticePhysicsWriter method)</a>
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_database3.html#armi.bookkeeping.db.tests.test_database3.TestDatabase3.test_writeToDB">test_writeToDB() (armi.bookkeeping.db.tests.test_database3.TestDatabase3 method)</a>
@@ -15434,13 +15538,11 @@
 </li>
       <li><a href=".apidocs/armi.utils.tests.test_reportPlotting.html#armi.utils.tests.test_reportPlotting.TestRadar.test_xsHistoryVsTime">test_xsHistoryVsTime() (armi.utils.tests.test_reportPlotting.TestRadar method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings">Test_XSSettings (class in armi.physics.neutronics.tests.test_crossSectionSettings)</a>
-</li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings.test_xsSettingsSetDefault">test_xsSettingsSetDefault() (armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings.test_xsSettingsSetDefault">test_xsSettingsSetDefault() (armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings method)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_nhflux.html#armi.nuclearDataIO.cccc.tests.test_nhflux.TestNhflux.test_xyPartialCurrents">test_xyPartialCurrents() (armi.nuclearDataIO.cccc.tests.test_nhflux.TestNhflux method)</a>
 </li>
-      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings.test_yamlIO">test_yamlIO() (armi.physics.neutronics.tests.test_crossSectionSettings.Test_XSSettings method)</a>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings.test_yamlIO">test_yamlIO() (armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings method)</a>
 
       <ul>
         <li><a href=".apidocs/armi.reactor.tests.test_geometry.html#armi.reactor.tests.test_geometry.TestSystemLayoutInput.test_yamlIO">(armi.reactor.tests.test_geometry.TestSystemLayoutInput method)</a>
@@ -15450,13 +15552,15 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_materialModifications.html#armi.reactor.blueprints.tests.test_materialModifications.TestMaterialModifications.test_zr_wt_frac_modification">test_zr_wt_frac_modification() (armi.reactor.blueprints.tests.test_materialModifications.TestMaterialModifications method)</a>
 </li>
+      <li><a href=".apidocs/armi.nucDirectory.tests.test_nuclideBases.html#armi.nucDirectory.tests.test_nuclideBases.TestAAAZZZSId">TestAAAZZZSId (class in armi.nucDirectory.tests.test_nuclideBases)</a>
+</li>
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestAddingOptions">TestAddingOptions (class in armi.settings.tests.test_settings)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestApps">TestApps (class in armi.tests.test_apps)</a>
 </li>
-      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmi">TestArmi (class in armi.tests.test_apps)</a>
-</li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestArmiCase">TestArmiCase (class in armi.cases.tests.test_cases)</a>
+</li>
+      <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestArmiHighLevel">TestArmiHighLevel (class in armi.tests.test_apps)</a>
 </li>
       <li><a href=".apidocs/armi.tests.test_armiTestHelper.html#armi.tests.test_armiTestHelper.TestArmiTestHelper">TestArmiTestHelper (class in armi.tests.test_armiTestHelper)</a>
 </li>
@@ -15506,11 +15610,15 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_comparedb3.html#armi.bookkeeping.db.tests.test_comparedb3.TestCompareDB3">TestCompareDB3 (class in armi.bookkeeping.db.tests.test_comparedb3)</a>
 </li>
+      <li><a href=".apidocs/armi.tests.test_tests.html#armi.tests.test_tests.TestCompareFiles">TestCompareFiles (class in armi.tests.test_tests)</a>
+</li>
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestCompareIsotxsLibsEntryPoint">TestCompareIsotxsLibsEntryPoint (class in armi.cli.tests.test_runEntryPoint)</a>
 </li>
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestCompareSuites">TestCompareSuites (class in armi.cli.tests.test_runEntryPoint)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestComponent">TestComponent (class in armi.reactor.tests.test_components)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestComponentAveraging">TestComponentAveraging (class in armi.physics.neutronics.tests.test_crossSectionManager)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_componentBlueprint.html#armi.reactor.blueprints.tests.test_componentBlueprint.TestComponentBlueprint">TestComponentBlueprint (class in armi.reactor.blueprints.tests.test_componentBlueprint)</a>
 </li>
@@ -15532,6 +15640,10 @@
 </li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestCopyInterfaceInputs">TestCopyInterfaceInputs (class in armi.cases.tests.test_cases)</a>
 </li>
+      <li><a href=".apidocs/armi.operators.tests.test_operators.html#armi.operators.tests.test_operators.TestCreateOperator">TestCreateOperator (class in armi.operators.tests.test_operators)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager">TestCrossSectionGroupManager (class in armi.physics.neutronics.tests.test_crossSectionManager)</a>
+</li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestCrossSectionSettings">TestCrossSectionSettings (class in armi.physics.neutronics.tests.test_crossSectionSettings)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionTable.html#armi.physics.neutronics.tests.test_crossSectionTable.TestCrossSectionTable">TestCrossSectionTable (class in armi.physics.neutronics.tests.test_crossSectionTable)</a>
@@ -15550,7 +15662,11 @@
 </li>
       <li><a href=".apidocs/armi.bookkeeping.db.tests.test_databaseInterface.html#armi.bookkeeping.db.tests.test_databaseInterface.TestDatabaseWriter">TestDatabaseWriter (class in armi.bookkeeping.db.tests.test_databaseInterface)</a>
 </li>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestDensityTools">TestDensityTools (class in armi.utils.tests.test_densityTools)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestDerivedShape">TestDerivedShape (class in armi.reactor.tests.test_components)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestDetailedNDensUpdate">TestDetailedNDensUpdate (class in armi.reactor.tests.test_blocks)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_axialExpansionChanger.html#armi.reactor.converters.tests.test_axialExpansionChanger.TestDetermineTargetComponent">TestDetermineTargetComponent (class in armi.reactor.converters.tests.test_axialExpansionChanger)</a>
 </li>
@@ -15616,6 +15732,8 @@
 </li>
       <li><a href=".apidocs/armi.cases.inputModifiers.tests.test_inputModifiers.html#armi.cases.inputModifiers.tests.test_inputModifiers.TestFullCoreModifier">TestFullCoreModifier (class in armi.cases.inputModifiers.tests.test_inputModifiers)</a>
 </li>
+      <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestFullFactorialSuiteBuilder">TestFullFactorialSuiteBuilder (class in armi.cases.tests.test_suiteBuilder)</a>
+</li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_gamiso.html#armi.nuclearDataIO.cccc.tests.test_gamiso.TestGamiso">TestGamiso (class in armi.nuclearDataIO.cccc.tests.test_gamiso)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.converters.tests.test_uniformMesh.html#armi.reactor.converters.tests.test_uniformMesh.TestGammaUniformMesh">TestGammaUniformMesh (class in armi.reactor.converters.tests.test_uniformMesh)</a>
@@ -15633,6 +15751,8 @@
       <li><a href=".apidocs/armi.reactor.converters.tests.test_geometryConverters.html#armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters">TestGeometryConverters (class in armi.reactor.converters.tests.test_geometryConverters)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_geometry.html#armi.reactor.tests.test_geometry.TestGeomType">TestGeomType (class in armi.reactor.tests.test_geometry)</a>
+</li>
+      <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestGetISOTXSFilesInWorkingDirectory">TestGetISOTXSFilesInWorkingDirectory (class in armi.nuclearDataIO.tests.test_xsLibraries)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestGetReactionRateDict">TestGetReactionRateDict (class in armi.reactor.tests.test_composites)</a>
 </li>
@@ -15657,7 +15777,11 @@
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHelix">TestHelix (class in armi.reactor.tests.test_components)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHexagon">TestHexagon (class in armi.reactor.tests.test_components)</a>
+
+      <ul>
+        <li><a href=".apidocs/armi.utils.tests.test_hexagon.html#armi.utils.tests.test_hexagon.TestHexagon">(class in armi.utils.tests.test_hexagon)</a>
 </li>
+      </ul></li>
       <li><a href=".apidocs/armi.physics.fuelCycle.tests.test_hexAssemblyFuelMgmtUtils.html#armi.physics.fuelCycle.tests.test_hexAssemblyFuelMgmtUtils.TestHexAssemMgmtTools">TestHexAssemMgmtTools (class in armi.physics.fuelCycle.tests.test_hexAssemblyFuelMgmtUtils)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestHexHoledCircle">TestHexHoledCircle (class in armi.reactor.tests.test_components)</a>
@@ -15718,6 +15842,8 @@
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_components.html#armi.reactor.tests.test_components.TestMaterialAdjustments">TestMaterialAdjustments (class in armi.reactor.tests.test_components)</a>
 </li>
+      <li><a href=".apidocs/armi.utils.tests.test_densityTools.html#armi.utils.tests.test_densityTools.TestMaterialIgnoreFake">TestMaterialIgnoreFake (class in armi.utils.tests.test_densityTools)</a>
+</li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_assemblyBlueprints.html#armi.reactor.blueprints.tests.test_assemblyBlueprints.TestMaterialModifications">TestMaterialModifications (class in armi.reactor.blueprints.tests.test_assemblyBlueprints)</a>
 
       <ul>
@@ -15730,13 +15856,19 @@
 </li>
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestMigrateInputs">TestMigrateInputs (class in armi.cli.tests.test_runEntryPoint)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.tests.test_m0_1_6_locationLabels.html#armi.scripts.migration.tests.test_m0_1_6_locationLabels.TestMigration">TestMigration (class in armi.scripts.migration.tests.test_m0_1_6_locationLabels)</a>
+      <li><a href=".apidocs/armi.migration.tests.test_m0_1_6.html#armi.migration.tests.test_m0_1_6.TestMigration">TestMigration (class in armi.migration.tests.test_m0_1_6)</a>
+</li>
+      <li><a href=".apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestMigrationBases">TestMigrationBases (class in armi.migration.tests.test_migration_base)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods">TestMiscMethods (class in armi.reactor.tests.test_composites)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct.TestMo99LFP">TestMo99LFP (class in armi.physics.neutronics.fissionProductModel.tests.test_lumpedFissionProduct)</a>
 </li>
       <li><a href=".apidocs/armi.cli.tests.test_runEntryPoint.html#armi.cli.tests.test_runEntryPoint.TestModifyCaseSettingsCommand">TestModifyCaseSettingsCommand (class in armi.cli.tests.test_runEntryPoint)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_blocks.html#armi.reactor.tests.test_blocks.TestNegativeVolume">TestNegativeVolume (class in armi.reactor.tests.test_blocks)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_neutronicsPlugin.html#armi.physics.neutronics.tests.test_neutronicsPlugin.TestNeutronicsPlugin">TestNeutronicsPlugin (class in armi.physics.neutronics.tests.test_neutronicsPlugin)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_nhflux.html#armi.nuclearDataIO.cccc.tests.test_nhflux.TestNhflux">TestNhflux (class in armi.nuclearDataIO.cccc.tests.test_nhflux)</a>
 </li>
@@ -15772,7 +15904,11 @@
 </li>
       <li><a href=".apidocs/armi.tests.test_apps.html#armi.tests.test_apps.TestPlugin4">TestPlugin4 (class in armi.tests.test_apps)</a>
 </li>
+      <li><a href=".apidocs/armi.tests.test_plugins.html#armi.tests.test_plugins.TestPluginBasics">TestPluginBasics (class in armi.tests.test_plugins)</a>
+</li>
       <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestPluginForCopyInterfacesMultipleFiles">TestPluginForCopyInterfacesMultipleFiles (class in armi.cases.tests.test_cases)</a>
+</li>
+      <li><a href=".apidocs/armi.cases.tests.test_cases.html#armi.cases.tests.test_cases.TestPluginWithDuplicateSetting">TestPluginWithDuplicateSetting (class in armi.cases.tests.test_cases)</a>
 </li>
       <li><a href=".apidocs/armi.nuclearDataIO.cccc.tests.test_pmatrx.html#armi.nuclearDataIO.cccc.tests.test_pmatrx.TestPmatrx">TestPmatrx (class in armi.nuclearDataIO.cccc.tests.test_pmatrx)</a>
 </li>
@@ -15818,9 +15954,17 @@
 </li>
       <li><a href=".apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestRZTGridBlueprint">TestRZTGridBlueprint (class in armi.reactor.blueprints.tests.test_gridBlueprints)</a>
 </li>
+      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactor">TestRZTReactor (class in armi.reactor.tests.test_rz_reactors)</a>
+</li>
+      <li><a href=".apidocs/armi.reactor.tests.test_rz_reactors.html#armi.reactor.tests.test_rz_reactors.TestRZTReactorModern">TestRZTReactorModern (class in armi.reactor.tests.test_rz_reactors)</a>
+</li>
+      <li><a href=".apidocs/armi.cases.tests.test_suiteBuilder.html#armi.cases.tests.test_suiteBuilder.TestSeparateEffectsBuilder">TestSeparateEffectsBuilder (class in armi.cases.tests.test_suiteBuilder)</a>
+</li>
       <li><a href=".apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsRenameTests.testSettings">testSettings (armi.settings.tests.test_settingsIO.SettingsRenameTests attribute)</a>
 </li>
       <li><a href=".apidocs/armi.settings.tests.test_settings.html#armi.settings.tests.test_settings.TestSettings2">TestSettings2 (class in armi.settings.tests.test_settings)</a>
+</li>
+      <li><a href=".apidocs/armi.migration.tests.test_migration_base.html#armi.migration.tests.test_migration_base.TestSettingsMigration">TestSettingsMigration (class in armi.migration.tests.test_migration_base)</a>
 </li>
       <li><a href=".apidocs/armi.cases.inputModifiers.tests.test_inputModifiers.html#armi.cases.inputModifiers.tests.test_inputModifiers.TestSettingsModifiers">TestSettingsModifiers (class in armi.cases.inputModifiers.tests.test_inputModifiers)</a>
 </li>
@@ -15893,6 +16037,8 @@
       <li><a href=".apidocs/armi.nuclearDataIO.tests.test_xsLibraries.html#armi.nuclearDataIO.tests.test_xsLibraries.TestXSLibrary">TestXSLibrary (class in armi.nuclearDataIO.tests.test_xsLibraries)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestXSNumberConverters">TestXSNumberConverters (class in armi.physics.neutronics.tests.test_crossSectionManager)</a>
+</li>
+      <li><a href=".apidocs/armi.physics.neutronics.tests.test_crossSectionSettings.html#armi.physics.neutronics.tests.test_crossSectionSettings.TestXSSettings">TestXSSettings (class in armi.physics.neutronics.tests.test_crossSectionSettings)</a>
 </li>
       <li><a href=".apidocs/armi.reactor.tests.test_zones.html#armi.reactor.tests.test_zones.TestZone">TestZone (class in armi.reactor.tests.test_zones)</a>
 </li>
@@ -16084,16 +16230,14 @@
 </li>
       <li><a href=".apidocs/armi.reactor.flags.html#armi.reactor.flags.Flags.toString">toString() (armi.reactor.flags.Flags class method)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.base.html#armi.scripts.migration.base.Migration.toVersion">toVersion (armi.scripts.migration.base.Migration attribute)</a>
+      <li><a href=".apidocs/armi.migration.base.html#armi.migration.base.Migration.toVersion">toVersion (armi.migration.base.Migration attribute)</a>
 
       <ul>
-        <li><a href=".apidocs/armi.scripts.migration.crossSectionBlueprintsToSettings.html#armi.scripts.migration.crossSectionBlueprintsToSettings.MoveCrossSectionsFromBlueprints.toVersion">(armi.scripts.migration.crossSectionBlueprintsToSettings.MoveCrossSectionsFromBlueprints attribute)</a>
+        <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.RemoveCentersFromBlueprints.toVersion">(armi.migration.m0_1_3.RemoveCentersFromBlueprints attribute)</a>
 </li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.RemoveCentersFromBlueprints.toVersion">(armi.scripts.migration.m0_1_3.RemoveCentersFromBlueprints attribute)</a>
+        <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.UpdateElementalNuclides.toVersion">(armi.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
 </li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.UpdateElementalNuclides.toVersion">(armi.scripts.migration.m0_1_3.UpdateElementalNuclides attribute)</a>
-</li>
-        <li><a href=".apidocs/armi.scripts.migration.m0_1_6_locationLabels.html#armi.scripts.migration.m0_1_6_locationLabels.ConvertAlphanumLocationSettingsToNum.toVersion">(armi.scripts.migration.m0_1_6_locationLabels.ConvertAlphanumLocationSettingsToNum attribute)</a>
+        <li><a href=".apidocs/armi.migration.m0_1_6.html#armi.migration.m0_1_6.ConvertAlphanumLocationSettingsToNum.toVersion">(armi.migration.m0_1_6.ConvertAlphanumLocationSettingsToNum attribute)</a>
 </li>
       </ul></li>
       <li><a href=".apidocs/armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection.toWriteToDB">toWriteToDB() (armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection method)</a>
@@ -16254,7 +16398,7 @@
       </ul></li>
       <li><a href=".apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper.updateDpaRate">updateDpaRate() (armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper method)</a>
 </li>
-      <li><a href=".apidocs/armi.scripts.migration.m0_1_3.html#armi.scripts.migration.m0_1_3.UpdateElementalNuclides">UpdateElementalNuclides (class in armi.scripts.migration.m0_1_3)</a>
+      <li><a href=".apidocs/armi.migration.m0_1_3.html#armi.migration.m0_1_3.UpdateElementalNuclides">UpdateElementalNuclides (class in armi.migration.m0_1_3)</a>
 </li>
       <li><a href=".apidocs/armi.settings.caseSettings.html#armi.settings.caseSettings.Settings.updateEnvironmentSettingsFrom">updateEnvironmentSettingsFrom() (armi.settings.caseSettings.Settings method)</a>
 </li>
@@ -16263,6 +16407,8 @@
       <li><a href=".apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.DoseResultsMapper.updateLoadpadDose">updateLoadpadDose() (armi.physics.neutronics.globalFlux.globalFluxInterface.DoseResultsMapper method)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.globalFlux.globalFluxInterface.html#armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper.updateMaxDpaParams">updateMaxDpaParams() (armi.physics.neutronics.globalFlux.globalFluxInterface.GlobalFluxResultMapper method)</a>
+</li>
+      <li><a href=".apidocs/armi.nucDirectory.nuclideBases.html#armi.nucDirectory.nuclideBases.updateNuclideBasesForSpecialCases">updateNuclideBasesForSpecialCases() (in module armi.nucDirectory.nuclideBases)</a>
 </li>
       <li><a href=".apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager.updateNuclideTemperatures">updateNuclideTemperatures() (armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager method)</a>
 </li>
@@ -16721,7 +16867,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

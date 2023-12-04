@@ -88,12 +88,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -213,9 +213,23 @@ not have a method with the specified name.</p>
 method when executed. Raises a ValueError if the instance does
 not have a method with the specified name.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_coreSfp">
+<span class="sig-name descname"><span class="pre">test_coreSfp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_coreSfp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_coreSfp" title="Permalink to this definition"></a></dt>
+<dd><p>The reactor object includes a core and an SFP.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_factorySortSetting">
 <span class="sig-name descname"><span class="pre">test_factorySortSetting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_factorySortSetting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_factorySortSetting" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Create a core object from an input yaml.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getSetParameters">
+<span class="sig-name descname"><span class="pre">test_getSetParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getSetParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getSetParameters" title="Permalink to this definition"></a></dt>
+<dd><p>This test works through multiple levels of the hierarchy to test ability to
+modify parameters at different levels.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_sortChildren">
@@ -323,7 +337,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_findNeighbors">
 <span class="sig-name descname"><span class="pre">test_findNeighbors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_findNeighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_findNeighbors" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Find neighbors of a given assembly.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembliesInCircularRing">
@@ -351,6 +366,11 @@ not have a method with the specified name.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getNumAssembliesWithAllRingsFilledOutBipass">
+<span class="sig-name descname"><span class="pre">test_getNumAssembliesWithAllRingsFilledOutBipass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getNumAssembliesWithAllRingsFilledOutBipass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumAssembliesWithAllRingsFilledOutBipass" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getNumEnergyGroups">
 <span class="sig-name descname"><span class="pre">test_getNumEnergyGroups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getNumEnergyGroups"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumEnergyGroups" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -361,14 +381,22 @@ not have a method with the specified name.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembly">
-<span class="sig-name descname"><span class="pre">test_getAssembly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getAssembly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembly" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithLoc">
+<span class="sig-name descname"><span class="pre">test_getAssemblyWithLoc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getAssemblyWithLoc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithLoc" title="Permalink to this definition"></a></dt>
+<dd><p>Get assembly by location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithName">
+<span class="sig-name descname"><span class="pre">test_getAssemblyWithName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getAssemblyWithName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithName" title="Permalink to this definition"></a></dt>
+<dd><p>Get assembly by name.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_restoreReactor">
 <span class="sig-name descname"><span class="pre">test_restoreReactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_restoreReactor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_restoreReactor" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Restore a reactor after growing it from third to full core.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_differentNuclideModels">
@@ -383,7 +411,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getSymmetryFactor">
 <span class="sig-name descname"><span class="pre">test_getSymmetryFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getSymmetryFactor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getSymmetryFactor" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test getSymmetryFactor().</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getAssembliesOnSymmetryLine">
@@ -408,7 +437,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_getGridBounds">
 <span class="sig-name descname"><span class="pre">test_getGridBounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_getGridBounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_getGridBounds" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test getGridBounds() works on different scales.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_locations">
@@ -443,7 +473,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssembliesInRingByCount">
 <span class="sig-name descname"><span class="pre">test_removeAssembliesInRingByCount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_reactors.html#HexReactorTests.test_removeAssembliesInRingByCount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssembliesInRingByCount" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Tests retrieving ring numbers and removing a ring.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssembliesInRingHex">
@@ -589,7 +620,7 @@ not have a method with the specified name.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

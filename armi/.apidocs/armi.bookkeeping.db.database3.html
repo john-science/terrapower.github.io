@@ -88,12 +88,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -296,8 +296,8 @@ version of ARMI from the code you are using.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.bookkeeping.db.database3.Database3.loadGeometry">
 <span class="sig-name descname"><span class="pre">loadGeometry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/bookkeeping/db/database3.html#Database3.loadGeometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.bookkeeping.db.database3.Database3.loadGeometry" title="Permalink to this definition"></a></dt>
-<dd><p>This is primarily just used for migrations.
-The “geometry files” were replaced by <code class="docutils literal notranslate"><span class="pre">systems:</span></code> and <code class="docutils literal notranslate"><span class="pre">grids:</span></code> sections of <code class="docutils literal notranslate"><span class="pre">Blueprints</span></code>.</p>
+<dd><p>This is primarily just used for migrations.</p>
+<p>The “geometry files” were replaced by <code class="docutils literal notranslate"><span class="pre">systems:</span></code> and <code class="docutils literal notranslate"><span class="pre">grids:</span></code> sections of <code class="docutils literal notranslate"><span class="pre">Blueprints</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -403,7 +403,7 @@ would render this kind of operation unnecessary.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.bookkeeping.db.database3.Database3.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statePointName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowMissing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateGlobalAssemNum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateMasterCs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/bookkeeping/db/database3.html#Database3.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.bookkeeping.db.database3.Database3.load" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statePointName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowMissing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/bookkeeping/db/database3.html#Database3.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.bookkeeping.db.database3.Database3.load" title="Permalink to this definition"></a></dt>
 <dd><p>Load a new reactor from (cycle, node).</p>
 <p>Case settings and blueprints can be provided by the client, or read from the database itself.
 Providing these from the client could be useful when performing snapshot runs
@@ -421,8 +421,6 @@ like a list.</p></li>
 <li><p><strong>statePointName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Optional arbitrary statepoint name (e.g., “special” for “c00n00-special/”)</p></li>
 <li><p><strong>allowMissing</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to emit a warning, rather than crash if reading a database
 with undefined parameters. Default False.</p></li>
-<li><p><strong>updateGlobalAssemNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – DeprecationWarning: This is unused.</p></li>
-<li><p><strong>updateMasterCs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – TODO: Deprecated. Slated for removal.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -622,7 +620,7 @@ the try/except in <code class="docutils literal notranslate"><span class="pre">_
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

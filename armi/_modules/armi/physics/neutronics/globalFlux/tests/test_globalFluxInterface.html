@@ -197,7 +197,15 @@
 
 
 <div class="viewcode-block" id="TestGlobalFluxOptions"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions">[docs]</a><span class="k">class</span> <span class="nc">TestGlobalFluxOptions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests for GlobalFluxOptions.&quot;&quot;&quot;</span>
+
 <div class="viewcode-block" id="TestGlobalFluxOptions.test_readFromSettings"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxOptions.test_readFromSettings">[docs]</a>    <span class="k">def</span> <span class="nf">test_readFromSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test reading global flux options.</span>
+
+<span class="sd">        .. test:: Tests GlobalFluxOptions.</span>
+<span class="sd">            :id: T_ARMI_FLUX_OPTIONS</span>
+<span class="sd">            :tests: R_ARMI_FLUX_OPTIONS</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
         <span class="n">opts</span> <span class="o">=</span> <span class="n">globalFluxInterface</span><span class="o">.</span><span class="n">GlobalFluxOptions</span><span class="p">(</span><span class="s2">&quot;neutronics-run&quot;</span><span class="p">)</span>
         <span class="n">opts</span><span class="o">.</span><span class="n">fromUserSettings</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
@@ -226,6 +234,19 @@
 
 
 <div class="viewcode-block" id="TestGlobalFluxInterface"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface">[docs]</a><span class="k">class</span> <span class="nc">TestGlobalFluxInterface</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestGlobalFluxInterface.test_computeDpaRate"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_computeDpaRate">[docs]</a>    <span class="k">def</span> <span class="nf">test_computeDpaRate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute DPA and DPA rates from multi-group neutron flux and cross sections.</span>
+
+<span class="sd">        .. test:: Compute DPA and DPA rates.</span>
+<span class="sd">            :id: T_ARMI_FLUX_DPA</span>
+<span class="sd">            :tests: R_ARMI_FLUX_DPA</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">flx</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">globalFluxInterface</span><span class="o">.</span><span class="n">computeDpaRate</span><span class="p">(</span><span class="n">flx</span><span class="p">,</span> <span class="n">xs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">24</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="mi">6</span><span class="p">))</span></div>
+
 <div class="viewcode-block" id="TestGlobalFluxInterface.test_interaction"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_interaction">[docs]</a>    <span class="k">def</span> <span class="nf">test_interaction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Ensure the basic interaction hooks work.</span>
@@ -252,10 +273,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;detailedDpa&quot;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestGlobalFluxInterface.test_checkEnergyBalance"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_checkEnergyBalance">[docs]</a>    <span class="k">def</span> <span class="nf">test_checkEnergyBalance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test energy balance check.</span>
+
+<span class="sd">        .. test:: Block-wise power is consistent with reactor data model power.</span>
+<span class="sd">            :id: T_ARMI_FLUX_CHECK_POWER</span>
+<span class="sd">            :tests: R_ARMI_FLUX_CHECK_POWER</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
         <span class="n">_o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">test_reactors</span><span class="o">.</span><span class="n">loadTestReactor</span><span class="p">()</span>
         <span class="n">gfi</span> <span class="o">=</span> <span class="n">MockGlobalFluxInterface</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">cs</span><span class="p">)</span>
-        <span class="n">gfi</span><span class="o">.</span><span class="n">_checkEnergyBalance</span><span class="p">()</span></div></div>
+        <span class="n">gfi</span><span class="o">.</span><span class="n">checkEnergyBalance</span><span class="p">()</span></div></div>
 
 
 <div class="viewcode-block" id="TestGlobalFluxInterfaceWithExecuters"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecuters">[docs]</a><span class="k">class</span> <span class="nc">TestGlobalFluxInterfaceWithExecuters</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -271,6 +298,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">gfi</span> <span class="o">=</span> <span class="n">MockGlobalFluxWithExecuters</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TestGlobalFluxInterfaceWithExecuters.test_executerInteraction"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecuters.test_executerInteraction">[docs]</a>    <span class="k">def</span> <span class="nf">test_executerInteraction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the global flux interface and executer though one time now.</span>
+
+<span class="sd">        .. test:: Run the global flux interface to prove the mesh in the reactor is suffience for the neutronics solver.</span>
+<span class="sd">            :id: T_ARMI_FLUX_GEOM_TRANSFORM1</span>
+<span class="sd">            :tests: R_ARMI_FLUX_GEOM_TRANSFORM</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">gfi</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gfi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span>
         <span class="n">gfi</span><span class="o">.</span><span class="n">interactBOC</span><span class="p">()</span>
         <span class="n">gfi</span><span class="o">.</span><span class="n">interactEveryNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -294,7 +327,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_setTightCouplingFalse</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="TestGlobalFluxInterfaceWithExecuters.test_getTightCouplingValue"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecuters.test_getTightCouplingValue">[docs]</a>    <span class="k">def</span> <span class="nf">test_getTightCouplingValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test getTightCouplingValue returns the correct value for keff and type for power.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test getTightCouplingValue returns the correct value for keff and type for power.</span>
+
+<span class="sd">        .. test:: Return k-eff or assembly-wise power for coupling interactions.</span>
+<span class="sd">            :id: T_ARMI_FLUX_COUPLING_VALUE</span>
+<span class="sd">            :tests: R_ARMI_FLUX_COUPLING_VALUE</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_setTightCouplingTrue</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gfi</span><span class="o">.</span><span class="n">getTightCouplingValue</span><span class="p">(),</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># set in setUp</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gfi</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">parameter</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span>
@@ -323,6 +361,15 @@
         <span class="bp">cls</span><span class="o">.</span><span class="n">gfi</span> <span class="o">=</span> <span class="n">MockGlobalFluxWithExecutersNonUniform</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">cs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TestGlobalFluxInterfaceWithExecutersNonUniform.test_executerInteractionNonUniformAssems"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterfaceWithExecutersNonUniform.test_executerInteractionNonUniformAssems">[docs]</a>    <span class="k">def</span> <span class="nf">test_executerInteractionNonUniformAssems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the global flux interface with non-uniform assemblies.</span>
+
+<span class="sd">        This will serve as a broad end-to-end test of the interface, and also</span>
+<span class="sd">        stress test the mesh issues with non-uniform assemblies.</span>
+
+<span class="sd">        .. test:: Run the global flux interface to prove the mesh in the reactor is suffience for the neutronics solver.</span>
+<span class="sd">            :id: T_ARMI_FLUX_GEOM_TRANSFORM0</span>
+<span class="sd">            :tests: R_ARMI_FLUX_GEOM_TRANSFORM</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">gfi</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gfi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span>
         <span class="n">gfi</span><span class="o">.</span><span class="n">interactBOC</span><span class="p">()</span>
         <span class="n">gfi</span><span class="o">.</span><span class="n">interactEveryNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -440,7 +487,11 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Test that the reaction rate code executes and sets a param &gt; 0.0.</span>
 
-<span class="sd">        .. warning: This does not validate the reaction rate calculation.</span>
+<span class="sd">        .. test:: Return the reaction rates for a given ArmiObject.</span>
+<span class="sd">            :id: T_ARMI_FLUX_RX_RATES</span>
+<span class="sd">            :tests: R_ARMI_FLUX_RX_RATES</span>
+
+<span class="sd">        .. warning:: This does not validate the reaction rate calculation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">test_blocks</span><span class="o">.</span><span class="n">loadTestBlock</span><span class="p">()</span>
         <span class="n">test_blocks</span><span class="o">.</span><span class="n">applyDummyData</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -467,7 +518,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

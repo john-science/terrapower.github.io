@@ -90,12 +90,12 @@
 <li class="toctree-l4"><a class="reference internal" href="armi.cases.html">armi.cases package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.cli.html">armi.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.materials.html">armi.materials package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="armi.migration.html">armi.migration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nucDirectory.html">armi.nucDirectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.nuclearDataIO.html">armi.nuclearDataIO package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.operators.html">armi.operators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.physics.html">armi.physics package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="armi.reactor.html">armi.reactor package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="armi.scripts.html">armi.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.settings.html">armi.settings package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.tests.html">armi.tests package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="armi.utils.html">armi.utils package</a></li>
@@ -177,6 +177,20 @@ most of the state variables, including power, flux, and homogenized number densi
 <dt class="sig sig-object py" id="armi.reactor.blocks.Block.pDefs">
 <span class="sig-name descname"><span class="pre">pDefs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#armi.reactor.blocks.Block.pDefs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.reactor.blocks.Block.createHomogenizedCopy">
+<span class="sig-name descname"><span class="pre">createHomogenizedCopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pinSpatialLocators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#Block.createHomogenizedCopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.Block.createHomogenizedCopy" title="Permalink to this definition"></a></dt>
+<dd><p>Create a copy of a block.</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>Used to implement a copy function for specific block types that can
+be much faster than a deepcopy by glossing over details that may be
+unnecessary in certain contexts.</p>
+<p>This base class implementation is just a deepcopy of the block, in full detail
+(not homogenized).</p>
+</div>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="armi.reactor.blocks.Block.core">
@@ -434,7 +448,8 @@ changes the mass slightly and you can get negative burnups, which you do not wan
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.Block.coords">
 <span class="sig-name descname"><span class="pre">coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rotationDegreesCCW</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#Block.coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.Block.coords" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the coordinates of the block.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.Block.setBuLimitInfo">
@@ -545,13 +560,11 @@ so the symmetry factor should generally be just 1.0.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>mass</strong></p>
+<dd class="field-even"><p><strong>mass</strong> – Mass difference in grams. If you subtract mass, mass will be negative.
+If returnMass is False (default), this will always be zero.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><p>float</p>
-<p>Mass difference in grams. If you subtract mass, mass will be negative.
-If returnMass is False (default), this will always be zero.</p>
-</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -802,6 +815,8 @@ Then, look on that component for dimName.</p>
 returns None</p></li>
 <li><p><strong>component</strong> (<em>Component or None</em>) – Component that has the max pitch, if returnComp == True. If no component is found to
 define the pitch, returns None</p></li>
+<li><p><em>.. impl:: Pitch of block is retrievable.</em> – :id: I_ARMI_BLOCK_DIMS1
+:implements: R_ARMI_BLOCK_DIMS</p></li>
 </ul>
 </p>
 </dd>
@@ -986,7 +1001,7 @@ group is the next energy group, as set in the ISOTXS library.</p>
 <dd><p>Function for rotating a block’s spatially varying variables by a specified angle (radians).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> (<em>rad -</em>) – number (in radians) specifying the angle of counter clockwise rotation</p>
+<dd class="field-odd"><p><strong>rad</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Number (in radians) specifying the angle of counter clockwise rotation.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1043,6 +1058,7 @@ options are needed. Only works if pins have clad.</p>
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.blocks.</span></span><span class="sig-name descname"><span class="pre">HexBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#HexBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.HexBlock" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#armi.reactor.blocks.Block" title="armi.reactor.blocks.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>Defines a HexBlock.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.PITCH_COMPONENT_TYPE">
 <span class="sig-name descname"><span class="pre">PITCH_COMPONENT_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.ClassVar" title="(in Python v3.12)"><span class="pre">ClassVar</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.12)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="armi.reactor.components.component.html#armi.reactor.components.component.Component" title="armi.reactor.components.component.Component"><span class="pre">Component</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.Hexagon'&gt;,)</span></em><a class="headerlink" href="#armi.reactor.blocks.HexBlock.PITCH_COMPONENT_TYPE" title="Permalink to this definition"></a></dt>
@@ -1051,7 +1067,37 @@ options are needed. Only works if pins have clad.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.coords">
 <span class="sig-name descname"><span class="pre">coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rotationDegreesCCW</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#HexBlock.coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.HexBlock.coords" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the coordinates of the block.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.createHomogenizedCopy">
+<span class="sig-name descname"><span class="pre">createHomogenizedCopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pinSpatialLocators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#HexBlock.createHomogenizedCopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.HexBlock.createHomogenizedCopy" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new homogenized copy of a block that is less expensive than a full deepcopy.</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>This can be used to improve performance when a new copy of a reactor needs to be
+built, but the full detail of the block (including component geometry, material,
+number density, etc.) is not required for the targeted physics solver being applied
+to the new reactor model.</p>
+<p>The main use case is for the uniform mesh converter (UMC). Frequently, a deterministic
+neutronics solver will require a uniform mesh reactor, which is produced by the UMC.
+Many deterministic solvers for fast spectrum reactors will also treat the individual
+blocks as homogenized mixtures. Since the neutronics solver does not need to know about
+the geometric and material details of the individual child components within a block,
+we can save significant effort while building the uniform mesh reactor with the UMC
+by omitting this detailed data and only providing the necessary level of detail for
+the uniform mesh reactor: number densities on each block.</p>
+<p>can affect cross sections. This temperature variation is captured by the lattice physics
+module. As long as temperature distribution is correctly captured during cross section
+generation, it doesn’t need to be transferred to the neutronics solver directly through
+this copy operation.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.makeAssemWithUniformMesh" title="armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.makeAssemWithUniformMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter.makeAssemWithUniformMesh</span></code></a></p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.getMaxArea">
@@ -1062,17 +1108,20 @@ options are needed. Only works if pins have clad.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.getDuctIP">
 <span class="sig-name descname"><span class="pre">getDuctIP</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#HexBlock.getDuctIP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.HexBlock.getDuctIP" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the duct IP dimension.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.getDuctOP">
 <span class="sig-name descname"><span class="pre">getDuctOP</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#HexBlock.getDuctOP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.HexBlock.getDuctOP" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the duct OP dimension.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.initializePinLocations">
 <span class="sig-name descname"><span class="pre">initializePinLocations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blocks.html#HexBlock.initializePinLocations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blocks.HexBlock.initializePinLocations" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Initialize pin locations.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.blocks.HexBlock.setPinPowers">
@@ -1456,7 +1505,7 @@ cell is.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

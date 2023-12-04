@@ -84,6 +84,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#don-t-open-until-it-is-ready">10.2.2. Don’t open until it is ready</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#test-it">10.2.3. Test It</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#document-it">10.2.4. Document It</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watch-for-requirements">10.2.5. Watch for Requirements</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#packaging-and-dependency-management">10.3. Packaging and dependency management</a><ul>
@@ -178,10 +179,11 @@ If your PRs are smaller, you will notice a great increase in the quality of the 
 </div>
 <p>Your PR isn’t complete when the code works, it is complete when the code is polished and all the
 tests are written and working. The idea here is: as soon as you open a PR, people will start
-spending their time looking at it. And their time is valuable. An exception to this rule is that
-GitHub allows you to <a class="reference external" href="https://github.blog/2019-02-14-introducing-draft-pull-requests/">open a Draft PR</a>
-which is a nice option if you need to open your PR early for some reason (usually testing). You
-can also convert any open PR to Draft if you decide it needs more work.</p>
+spending their time looking at it. And their time is valuable. Even though GitHub allows you to
+<a class="reference external" href="https://github.blog/2019-02-14-introducing-draft-pull-requests/">open a Draft PR</a>, this is
+not the default option in ARMI. It should not be your workflow to open a Draft PR by default. We
+prefer to keep the PR list as short as possible. A good rule of thumb is: don’t open a PR until
+you think it is ready for final review.</p>
 </section>
 <section id="test-it">
 <h3><span class="section-number">10.2.3. </span>Test It<a class="headerlink" href="#test-it" title="Permalink to this heading"></a></h3>
@@ -210,6 +212,25 @@ it for somebody who is new to the code base 3 years from now, who needs to under
 nitty-gritty detail to fix a bug without you. Think about variable names, comments, and docstrings.
 Also consider (if you are making a major change) that you might be making something in the docs
 out-of-date.</p>
+</section>
+<section id="watch-for-requirements">
+<h3><span class="section-number">10.2.5. </span>Watch for Requirements<a class="headerlink" href="#watch-for-requirements" title="Permalink to this heading"></a></h3>
+<p>When you are touching code in ARMI, watch out for the docstrings in the methods, classes, or
+modules you are editing. These docstrings might have bread crumbs that link back to requirements.
+Such breadcrumbs will look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. req: This is a requirement breadcrumb.</span>
+
+<span class="sd">.. test: This is a test breadcrumb.</span>
+
+<span class="sd">.. impl: This is an implementation breadcrumb.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>If you touch any code that has such a docstring, even in a file, you are going to be
+responsible for not breaking that code/functionality. And you will be required to explicitly
+call out that you touch such a code in your PR.</p>
 </section>
 </section>
 <section id="packaging-and-dependency-management">
@@ -317,7 +338,7 @@ import, but is actually calling the same underlying <code class="docutils litera
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

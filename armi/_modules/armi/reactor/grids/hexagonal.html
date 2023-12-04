@@ -161,16 +161,20 @@
 <span class="sd">            (-1, 1) ( 0, 0) ( 1,-1)</span>
 
 <span class="sd">                (-1, 0) ( 0,-1)</span>
-
-<span class="sd">    .. impl:: ARMI supports a Hexagonal mesh.</span>
-<span class="sd">       :id: I_REACTOR_MESH_2</span>
-<span class="sd">       :links: R_REACTOR_MESH</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="HexGrid.fromPitch"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.fromPitch">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">fromPitch</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="n">numRings</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">armiObject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pointedEndUp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">symmetry</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build a finite step-based 2-D hex grid from a hex pitch in cm.</span>
+
+<span class="sd">        .. impl:: Construct a hexagonal lattice.</span>
+<span class="sd">            :id: I_ARMI_GRID_HEX</span>
+<span class="sd">            :implements: R_ARMI_GRID_HEX</span>
+
+<span class="sd">        .. impl:: Hexagonal grids can be points-up or flats-up.</span>
+<span class="sd">            :id: I_ARMI_GRID_HEX_TYPE</span>
+<span class="sd">            :implements: R_ARMI_GRID_HEX_TYPE</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -388,7 +392,6 @@
 <span class="sd">        -----</span>
 <span class="sd">        - Only the 1/3 core view geometry is actually coded in here right now.</span>
 <span class="sd">        - Being &quot;on&quot; a symmetry line means the line goes through the middle of you.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 
@@ -409,6 +412,12 @@
         <span class="k">return</span> <span class="n">symmetryLine</span></div>
 
 <div class="viewcode-block" id="HexGrid.getSymmetricEquivalents"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.getSymmetricEquivalents">[docs]</a>    <span class="k">def</span> <span class="nf">getSymmetricEquivalents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">IJKType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">IJType</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieve e quivalent contents based on 3rd symmetry.</span>
+
+<span class="sd">        .. impl:: Equivalent contents in 3rd geometry are retrievable.</span>
+<span class="sd">            :id: I_ARMI_GRID_EQUIVALENTS</span>
+<span class="sd">            :implements: R_ARMI_GRID_EQUIVALENTS</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">symmetry</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">THIRD_CORE</span>
             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">symmetry</span><span class="o">.</span><span class="n">boundary</span> <span class="o">==</span> <span class="n">geometry</span><span class="o">.</span><span class="n">BoundaryType</span><span class="o">.</span><span class="n">PERIODIC</span>
@@ -458,7 +467,12 @@
             <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="HexGrid.isInFirstThird"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.isInFirstThird">[docs]</a>    <span class="k">def</span> <span class="nf">isInFirstThird</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locator</span><span class="p">,</span> <span class="n">includeTopEdge</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;True if locator is in first third of hex grid.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;True if locator is in first third of hex grid.</span>
+
+<span class="sd">        .. impl:: Determine if grid is in first third.</span>
+<span class="sd">            :id: I_ARMI_GRID_SYMMETRY_LOC</span>
+<span class="sd">            :implements: R_ARMI_GRID_SYMMETRY_LOC</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ring</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRingPos</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ring</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -543,7 +557,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 

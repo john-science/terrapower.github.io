@@ -124,6 +124,11 @@
 <span class="sd">    power or temperatures have been updated. This allows pre-run fuel management</span>
 <span class="sd">    steps for highly customized fuel loadings. In typical runs, no fuel management</span>
 <span class="sd">    occurs at the beginning of the first cycle and the as-input state is left as is.</span>
+
+<span class="sd">    .. impl:: ARMI provides a shuffle logic interface.</span>
+<span class="sd">        :id: I_ARMI_SHUFFLE</span>
+<span class="sd">        :implements: R_ARMI_SHUFFLE</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;fuelHandler&quot;</span>
@@ -135,8 +140,6 @@
         <span class="c1"># need order due to nature of moves but with fast membership tests</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">moved</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cycle</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="c1"># filled during summary of EOC time in years of each cycle (time at which shuffling occurs)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cycleTime</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="FuelHandlerInterface.specifyInputs"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.fuelCycle.fuelHandlerInterface.html#armi.physics.fuelCycle.fuelHandlerInterface.FuelHandlerInterface.specifyInputs">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">specifyInputs</span><span class="p">(</span><span class="n">cs</span><span class="p">):</span>
@@ -179,9 +182,6 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">manageFuel</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="FuelHandlerInterface.interactEOC"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.fuelCycle.fuelHandlerInterface.html#armi.physics.fuelCycle.fuelHandlerInterface.FuelHandlerInterface.interactEOC">[docs]</a>    <span class="k">def</span> <span class="nf">interactEOC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">timeYears</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">time</span>
-        <span class="c1"># keep track of the EOC time in years.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cycleTime</span><span class="p">[</span><span class="n">cycle</span><span class="p">]</span> <span class="o">=</span> <span class="n">timeYears</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="p">)</span><span class="si">}</span><span class="s2"> assemblies in the Spent Fuel Pool&quot;</span>
@@ -280,7 +280,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-10-10.
+      <span class="lastupdated">Last updated on 2023-12-04.
       </span></p>
   </div>
 
