@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cases.inputModifiers.inputModifiers &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cases.inputModifiers.inputModifiers &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -110,22 +110,22 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Object that modifies input definitions in some well-defined way.</span>
 
-<span class="sd">    (This class is abstract.)</span>
-
-<span class="sd">    Subclasses must implement a ``__call__`` method accepting a ``CaseSettings``,</span>
-<span class="sd">    ``Blueprints``, and ``SystemLayoutInput``.</span>
-
-<span class="sd">    The class attribute ``FAIL_IF_AFTER`` should be a tuple defining what, if any,</span>
-<span class="sd">    modifications this should fail if performed after. For example, one should not</span>
-<span class="sd">    adjust the smear density (a function of Cladding ID) before adjusting the Cladding</span>
-<span class="sd">    ID.</span>
-
-<span class="sd">    Some subclasses are provided, but you are expected to make your own design-specific</span>
-<span class="sd">    modifiers in most cases.</span>
-
 <span class="sd">    .. impl:: A generic tool to modify user inputs on multiple cases.</span>
 <span class="sd">        :id: I_ARMI_CASE_MOD1</span>
 <span class="sd">        :implements: R_ARMI_CASE_MOD</span>
+
+<span class="sd">        This class serves as an abstract base class for modifying the inputs of</span>
+<span class="sd">        a case, typically case settings. Child classes must implement a</span>
+<span class="sd">        ``__call__`` method accepting a</span>
+<span class="sd">        :py:class:`~armi.settings.caseSettings.Settings`,</span>
+<span class="sd">        :py:class:`~armi.reactor.blueprints.Blueprints`, and</span>
+<span class="sd">        :py:class:`~armi.reactor.systemLayoutInput.SystemLayoutInput` and return</span>
+<span class="sd">        the appropriately modified version of these objects. The class attribute</span>
+<span class="sd">        ``FAIL_IF_AFTER`` should be a tuple defining what, if any, modifications</span>
+<span class="sd">        this should fail if performed after. For example, one should not adjust</span>
+<span class="sd">        the smear density (a function of Cladding ID) before adjusting the</span>
+<span class="sd">        Cladding ID. Some generic child classes are provided in this module, but</span>
+<span class="sd">        it is expected that design-specific modifiers are built individually.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">FAIL_IF_AFTER</span> <span class="o">=</span> <span class="p">()</span>
@@ -156,7 +156,7 @@
 
 <span class="sd">    (This class is abstract.)</span>
 
-<span class="sd">    Subclasses must implement a ``__call__`` method accepting a ``CaseSettings``,</span>
+<span class="sd">    Subclasses must implement a ``__call__`` method accepting a ``Settings``,</span>
 <span class="sd">    ``Blueprints``, and ``SystemLayoutInput``.</span>
 
 <span class="sd">    This is a modified version of the InputModifier abstract class that imposes</span>
@@ -202,7 +202,7 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    Besides the core, other grids may also be of interest for expansion, like</span>
+<span class="sd">    Besides the Core, other grids may also be of interest for expansion, like</span>
 <span class="sd">    a grid that defines fuel management. However, the expansion of a fuel</span>
 <span class="sd">    management schedule to full core is less trivial than just expanding</span>
 <span class="sd">    the core itself. Thus, this modifier currently does not attempt</span>
@@ -291,8 +291,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

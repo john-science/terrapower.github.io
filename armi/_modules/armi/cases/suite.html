@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cases.suite &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cases.suite &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -136,15 +136,16 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A CaseSuite is a collection of possibly related Case objects.</span>
 
-<span class="sd">    A CaseSuite is intended to be both a pre-processing and post-processing tool to</span>
-<span class="sd">    facilitate case generation and analysis. Under most circumstances one may wish to</span>
-<span class="sd">    subclass a CaseSuite to meet the needs of a specific calculation.</span>
-
-<span class="sd">    A CaseSuite is a collection that is keyed off Case titles.</span>
-
 <span class="sd">    .. impl:: CaseSuite allows for one case to start after another completes.</span>
 <span class="sd">        :id: I_ARMI_CASE_SUITE</span>
 <span class="sd">        :implements: R_ARMI_CASE_SUITE</span>
+
+<span class="sd">        The CaseSuite object allows multiple, often related,</span>
+<span class="sd">        :py:class:`~armi.cases.case.Case` objects to be run sequentially. A CaseSuite</span>
+<span class="sd">        is intended to be both a pre-processing or a post-processing tool to facilitate</span>
+<span class="sd">        case generation and analysis. Under most circumstances one may wish to subclass</span>
+<span class="sd">        a CaseSuite to meet the needs of a specific calculation. A CaseSuite is a</span>
+<span class="sd">        collection that is keyed off Case titles.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
@@ -182,9 +183,10 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">rootDir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">patterns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignorePatterns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Finds case objects by searching for a pattern of inputs, and adds them to the suite.</span>
+<span class="sd">        Finds case objects by searching for a pattern of file paths, and adds them to</span>
+<span class="sd">        the suite.</span>
 
-<span class="sd">        This searches for CaseSettings input files and loads them to create Case objects.</span>
+<span class="sd">        This searches for Settings input files and loads them to create Case objects.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -216,8 +218,8 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        Some of these printouts won&#39;t make sense for all users, and may</span>
-<span class="sd">        make sense to be delegated to the plugins/app.</span>
+<span class="sd">        Some of these printouts won&#39;t make sense for all users, and may make sense to</span>
+<span class="sd">        be delegated to the plugins/app.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">environmentSettings</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
@@ -248,8 +250,8 @@
 
 <span class="sd">        Creates a clone for each case within a CaseSuite. If ``oldRoot`` is not</span>
 <span class="sd">        specified, then each case clone is made in a directory with the title of the</span>
-<span class="sd">        case. If ``oldRoot`` is specified, then a relative path from ``oldRoot`` will be</span>
-<span class="sd">        used to determine a new relative path to the current directory ``oldRoot``.</span>
+<span class="sd">        case. If ``oldRoot`` is specified, then a relative path from ``oldRoot`` will</span>
+<span class="sd">        be used to determine a new relative path to the current directory ``oldRoot``.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -293,9 +295,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run each case, one after the other.</span>
 
-<span class="sd">        .. warning:: Suite running may not work yet if the cases have interdependencies.</span>
-<span class="sd">                    We typically run on a HPC but are still working on a platform</span>
-<span class="sd">                    independent way of handling HPCs.</span>
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        Suite running may not work yet if the cases have interdependencies. We typically run on a</span>
+<span class="sd">        HPC but are still working on a platform independent way of handling HPCs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">ci</span><span class="p">,</span> <span class="n">case</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running case </span><span class="si">{</span><span class="n">ci</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">case</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -403,6 +406,7 @@
             <span class="n">userFile</span><span class="p">,</span> <span class="n">refFile</span><span class="p">,</span> <span class="n">caseIssues</span> <span class="o">=</span> <span class="n">tableResults</span><span class="p">[</span><span class="n">testName</span><span class="p">]</span>
             <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">testName</span><span class="p">,</span> <span class="n">userFile</span><span class="p">,</span> <span class="n">refFile</span><span class="p">,</span> <span class="n">caseIssues</span><span class="p">))</span>
             <span class="n">totalDiffs</span> <span class="o">+=</span> <span class="n">caseIssues</span>
+
         <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">fmt</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span>
@@ -453,8 +457,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

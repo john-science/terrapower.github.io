@@ -6,13 +6,13 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://terrapower.github.io/armi/installation.html" />
 <meta property="og:site_name" content="Advanced Reactor Modeling Interface" />
-<meta property="og:description" content="Prerequisites: These instructions target users with some software development knowledge. In particular, we assume familiarity with Python, virtual environments, and Git. You must have the following..." />
+<meta property="og:description" content="This section will guide you through installing the ARMI Framework on your machine. Prerequisites: These instructions target users with some software development knowledge. In particular, we assume ..." />
 <meta property="og:image" content="https://terrapower.github.io/armi/_static/armiSchematicView.png" />
 <meta property="og:image:alt" content="Advanced Reactor Modeling Interface" />
-<meta name="description" content="Prerequisites: These instructions target users with some software development knowledge. In particular, we assume familiarity with Python, virtual environments, and Git. You must have the following..." />
+<meta name="description" content="This section will guide you through installing the ARMI Framework on your machine. Prerequisites: These instructions target users with some software development knowledge. In particular, we assume ..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; ARMI 0.2.9 documentation</title>
+  <title>Installation &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -35,7 +35,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Gallery" href="gallery/index.html" />
+    <link rel="next" title="User Docs" href="user/index.html" />
     <link rel="prev" title="ARMI" href="index.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
               <img src="_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -67,6 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#preparing-a-virtual-environment">Preparing a Virtual Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-the-code">Getting the code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-0-update-pip">Step 0: Update PIP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#option-1-install-as-a-library">Option 1: Install as a library</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#option-2-install-as-a-repository-for-developers">Option 2: Install as a repository (for developers)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#verifying-installation">Verifying installation</a></li>
@@ -79,10 +80,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href=".apidocs/modules.html">API Docs</a></li>
@@ -119,6 +120,7 @@
              
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>This section will guide you through installing the ARMI Framework on your machine.</p>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
 <p>These instructions target users with some software development knowledge. In
@@ -126,7 +128,7 @@ particular, we assume familiarity with <a class="reference external" href="https
 <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environments</a>, and <a class="reference external" href="https://git-scm.com/">Git</a>.</p>
 <p>You must have the following installed before proceeding:</p>
 <ul>
-<li><p><a class="reference external" href="https://www.python.org/downloads/">Python</a> version 3.6 or later (preferably 64-bit)</p>
+<li><p><a class="reference external" href="https://www.python.org/downloads/">Python</a> version 3.7 or newer (preferably 64-bit).</p>
 <div class="admonition-the-right-python-command admonition">
 <p class="admonition-title">The right Python command</p>
 <p>Python 2 and Python 3 often co-exist on the same system. Whether the
@@ -179,6 +181,18 @@ library. On Linux, doing so will require some MPI development libraries
 <section id="getting-the-code">
 <h2>Getting the code<a class="headerlink" href="#getting-the-code" title="Permalink to this heading"></a></h2>
 <p>Choose one of the following two installation methods depending on your needs.</p>
+<section id="step-0-update-pip">
+<h3>Step 0: Update PIP<a class="headerlink" href="#step-0-update-pip" title="Permalink to this heading"></a></h3>
+<p>In order to use the commands below, you’re going to want to use a version of <code class="docutils literal notranslate"><span class="pre">pip&gt;=22.1</span></code>.
+Two common ways of solving that are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(armi-venv) $ pip install pip&gt;=22.1
+</pre></div>
+</div>
+<p>or, in most cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(armi-venv) $ pip install -U pip
+</pre></div>
+</div>
+</section>
 <section id="option-1-install-as-a-library">
 <h3>Option 1: Install as a library<a class="headerlink" href="#option-1-install-as-a-library" title="Permalink to this heading"></a></h3>
 <p>If you plan on running ARMI without viewing or modifying source code, you may
@@ -204,7 +218,7 @@ SSH keys and use <code class="docutils literal notranslate"><span class="pre">gi
 </div>
 <p>Now install ARMI with all its dependencies:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(armi-venv) $ cd armi
-(armi-venv) $ pip install -e .[test]
+(armi-venv) $ pip install -e &quot;.[test]&quot;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -268,14 +282,14 @@ tools from their websites.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="ARMI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gallery/index.html" class="btn btn-neutral float-right" title="Gallery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="user/index.html" class="btn btn-neutral float-right" title="User Docs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

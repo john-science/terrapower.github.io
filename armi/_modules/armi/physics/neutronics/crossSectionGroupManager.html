@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.neutronics.crossSectionGroupManager &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.physics.neutronics.crossSectionGroupManager &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -412,6 +412,14 @@
 <span class="sd">    .. impl:: Create representative blocks using volume-weighted averaging.</span>
 <span class="sd">        :id: I_ARMI_XSGM_CREATE_REPR_BLOCKS0</span>
 <span class="sd">        :implements: R_ARMI_XSGM_CREATE_REPR_BLOCKS</span>
+
+<span class="sd">        This class constructs new blocks from an existing block list based on a volume-weighted</span>
+<span class="sd">        average. Inheriting functionality from the abstract</span>
+<span class="sd">        :py:class:`Reactor &lt;armi.physics.neutronics.crossSectionGroupManager.BlockCollection&gt;`</span>
+<span class="sd">        object, this class will construct representative blocks using averaged parameters of all</span>
+<span class="sd">        blocks in the given collection. Number density averages can be computed at a component level</span>
+<span class="sd">        or at a block level by default. Average nuclide temperatures and burnup are also included</span>
+<span class="sd">        when constructing a representative block.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_makeRepresentativeBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -488,15 +496,15 @@
 
     <span class="k">def</span> <span class="nf">_getAverageComponentTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compIndex</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get weighted average component temperature for the collection</span>
+<span class="sd">        Get weighted average component temperature for the collection.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        Weighting is both by the block weight within the collection and the relative mass of the component.</span>
-<span class="sd">        The block weight is already scaled by the block volume, so we need to pull that out of the block</span>
-<span class="sd">        weighting because it would effectively be double-counted in the component mass. b.getHeight()</span>
-<span class="sd">        is proportional to block volume, so it is used here as a computationally cheaper proxy for scaling</span>
-<span class="sd">        by block volume.</span>
+<span class="sd">        Weighting is both by the block weight within the collection and the relative mass of the</span>
+<span class="sd">        Component. The block weight is already scaled by the block volume, so we need to pull that</span>
+<span class="sd">        out of the block weighting because it would effectively be double-counted in the component</span>
+<span class="sd">        mass. b.getHeight() is proportional to block volume, so it is used here as a computationally</span>
+<span class="sd">        cheaper proxy for scaling by block volume.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -523,11 +531,10 @@
 
     <span class="k">def</span> <span class="nf">_performAverageByComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Check if block collection averaging can/should be performed by component</span>
+<span class="sd">        Check if block collection averaging can/should be performed by component.</span>
 
-<span class="sd">        If the components of blocks in the collection are similar and the user</span>
-<span class="sd">        has requested component-level averaging, return True.</span>
-<span class="sd">        Otherwise, return False.</span>
+<span class="sd">        If the components of blocks in the collection are similar and the user has requested</span>
+<span class="sd">        Component-level averaging, return True. Otherwise, return False.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">averageByComponent</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
@@ -536,11 +543,10 @@
 
     <span class="k">def</span> <span class="nf">_checkBlockSimilarity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Check if blocks in the collection have similar components</span>
+<span class="sd">        Check if blocks in the collection have similar components.</span>
 
-<span class="sd">        If the components of blocks in the collection are similar and the user</span>
-<span class="sd">        has requested component-level averaging, return True.</span>
-<span class="sd">        Otherwise, return False.</span>
+<span class="sd">        If the components of blocks in the collection are similar and the user has requested</span>
+<span class="sd">        Component-level averaging, return True. Otherwise, return False.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cFlags</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCandidateBlocks</span><span class="p">():</span>
@@ -566,8 +572,8 @@
 
 <span class="sd">    This volume-weights the densities by component volume fraction.</span>
 
-<span class="sd">    It&#39;s important to count zero-density nuclides (i.e. ones like AM242 that are expected to build up)</span>
-<span class="sd">    as trace values at the proper component temperatures.</span>
+<span class="sd">    It&#39;s important to count zero-density nuclides (i.e. ones like AM242 that are expected to build</span>
+<span class="sd">    up) as trace values at the proper component temperatures.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">getNumberDensitiesWithTrace</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">allNucNames</span><span class="p">):</span>
@@ -598,22 +604,30 @@
 
 <div class="viewcode-block" id="CylindricalComponentsAverageBlockCollection"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CylindricalComponentsAverageBlockCollection">[docs]</a><span class="k">class</span> <span class="nc">CylindricalComponentsAverageBlockCollection</span><span class="p">(</span><span class="n">BlockCollection</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Creates a representative block for the purpose of cross section generation with a one-dimensional</span>
-<span class="sd">    cylindrical model.</span>
+<span class="sd">    Creates a representative block for the purpose of cross section generation with a one-</span>
+<span class="sd">    dimensional cylindrical model.</span>
 
 <span class="sd">    .. impl:: Create representative blocks using custom cylindrical averaging.</span>
 <span class="sd">        :id: I_ARMI_XSGM_CREATE_REPR_BLOCKS1</span>
 <span class="sd">        :implements: R_ARMI_XSGM_CREATE_REPR_BLOCKS</span>
 
+<span class="sd">        This class constructs representative blocks based on a volume-weighted average using</span>
+<span class="sd">        cylindrical blocks from an existing block list. Inheriting functionality from the abstract</span>
+<span class="sd">        :py:class:`Reactor &lt;armi.physics.neutronics.crossSectionGroupManager.BlockCollection&gt;`</span>
+<span class="sd">        object, this class will construct representative blocks using averaged parameters of all</span>
+<span class="sd">        blocks in the given collection. Number density averages are computed at a component level.</span>
+<span class="sd">        Nuclide temperatures from a median block-average temperature are used and the average burnup</span>
+<span class="sd">        is evaluated across all blocks in the block list.</span>
+
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    When generating the representative block within this collection, the geometry is checked</span>
-<span class="sd">    against all other blocks to ensure that the number of components are consistent. This implementation</span>
-<span class="sd">    is intended to be opinionated, so if a user attempts to put blocks that have geometric differences</span>
+<span class="sd">    When generating the representative block within this collection, the geometry is checked against</span>
+<span class="sd">    all other blocks to ensure that the number of components are consistent. This implementation is</span>
+<span class="sd">    intended to be opinionated, so if a user attempts to put blocks that have geometric differences</span>
 <span class="sd">    then this will fail.</span>
 
-<span class="sd">    This selects a representative block based on the collection of candidates based on the</span>
-<span class="sd">    median block average temperatures as an assumption.</span>
+<span class="sd">    This selects a representative block based on the collection of candidates based on the median</span>
+<span class="sd">    Block-average temperatures as an assumption.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_getNewBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -661,17 +675,18 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
-<span class="sd">            When the components in a candidate block do not align with</span>
-<span class="sd">            the components in the representative block. This check includes component area, component multiplicity,</span>
-<span class="sd">            and nuclide composition.</span>
+<span class="sd">            When the components in a candidate block do not align with the components in the</span>
+<span class="sd">            representative Block. This check includes component area, component multiplicity, and</span>
+<span class="sd">            nuclide composition.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">repBlock</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Blocks </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">repBlock</span><span class="si">}</span><span class="s2"> have differing number &quot;</span>
-                <span class="s2">&quot;of components and cannot be homogenized&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Blocks </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">repBlock</span><span class="si">}</span><span class="s2"> have differing number of components and cannot be &quot;</span>
+                <span class="s2">&quot;homogenized&quot;</span>
             <span class="p">)</span>
-        <span class="c1"># Using Fe-56 as a proxy for structure and Na-23 as proxy for coolant is undesirably SFR-centric</span>
-        <span class="c1"># This should be generalized in the future, if possible</span>
+
+        <span class="c1"># TODO: Using Fe-56 as a proxy for structure and Na-23 as proxy for coolant is undesirably</span>
+        <span class="c1"># SFR-centric. This should be generalized in the future, if possible.</span>
         <span class="n">consistentNucs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;PU239&quot;</span><span class="p">,</span> <span class="s2">&quot;U238&quot;</span><span class="p">,</span> <span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="s2">&quot;U234&quot;</span><span class="p">,</span> <span class="s2">&quot;FE56&quot;</span><span class="p">,</span> <span class="s2">&quot;NA23&quot;</span><span class="p">,</span> <span class="s2">&quot;O16&quot;</span><span class="p">}</span>
         <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">repC</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">repBlock</span><span class="p">)):</span>
             <span class="n">compString</span> <span class="o">=</span> <span class="p">(</span>
@@ -707,7 +722,9 @@
         <span class="k">return</span> <span class="n">allNucNames</span><span class="p">,</span> <span class="n">densities</span> <span class="o">/</span> <span class="n">totalWeight</span>
 
     <span class="k">def</span> <span class="nf">_orderComponentsInGroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repBlock</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Order the components based on dimension and material type within the representative block.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Order the components based on dimension and material type within the representative</span>
+<span class="sd">        Block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCandidateBlocks</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_checkComponentConsistency</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">repBlock</span><span class="p">)</span>
         <span class="n">componentLists</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCandidateBlocks</span><span class="p">()]</span>
@@ -733,13 +750,13 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    - Ignores lumped fission products since there is no foreseeable need for burn calculations in 1D slab geometry</span>
-<span class="sd">      since it is used for low power neutronic validation.</span>
-<span class="sd">    - Checks for consistent component dimensions for all blocks in a group and then creates a new block.</span>
-<span class="sd">    - Iterates through components of all blocks and calculates component average number densities. This calculation</span>
-<span class="sd">      takes the first component of each block, averages the number densities, and applies this to the number density</span>
-<span class="sd">      to the representative block.</span>
-
+<span class="sd">    - Ignores lumped fission products since there is no foreseeable need for burn calculations in 1D</span>
+<span class="sd">      slab geometry since it is used for low power neutronic validation.</span>
+<span class="sd">    - Checks for consistent component dimensions for all blocks in a group and then creates a new</span>
+<span class="sd">      Block.</span>
+<span class="sd">    - Iterates through components of all blocks and calculates component average number densities.</span>
+<span class="sd">      This calculation takes the first component of each block, averages the number densities, and</span>
+<span class="sd">      applies this to the number density to the representative block.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_getNewBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -782,14 +799,16 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
-<span class="sd">            When the components in a candidate block do not align with</span>
-<span class="sd">            the components in the representative block. This check includes component area, component multiplicity,</span>
-<span class="sd">            and nuclide composition.</span>
+<span class="sd">            When the components in a candidate block do not align with the components in the</span>
+<span class="sd">            representative block. This check includes component area, component multiplicity, and</span>
+<span class="sd">            nuclide composition.</span>
 
 <span class="sd">        TypeError</span>
 <span class="sd">            When the shape of the component is not a rectangle.</span>
 
-<span class="sd">        .. warning:: This only checks ``consistentNucs`` for ones that are important in ZPPR and BFS.</span>
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This only checks ``consistentNucs`` for ones that are important in ZPPR and BFS.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">comps</span> <span class="o">=</span> <span class="n">b</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">components</span>
 
@@ -848,7 +867,8 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        - This component does not serve any purpose for XS generation as it contains void material with zero area.</span>
+<span class="sd">        - This component does not serve any purpose for XS generation as it contains void material</span>
+<span class="sd">          with zero area.</span>
 <span class="sd">        - Removing this component does not modify the blocks within the reactor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">repBlock</span><span class="o">.</span><span class="n">iterComponents</span><span class="p">():</span>
@@ -933,9 +953,18 @@
 <div class="viewcode-block" id="CrossSectionGroupManager.interactBOL"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager.interactBOL">[docs]</a>    <span class="k">def</span> <span class="nf">interactBOL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Called at the Beginning-of-Life of a run, before any cycles start.</span>
 
-<span class="sd">        .. impl:: The lattice physics interface and XSGM are connected at BOL.</span>
+<span class="sd">        .. impl:: The lattice physics interface and cross-section group manager are connected at</span>
+<span class="sd">            BOL.</span>
 <span class="sd">            :id: I_ARMI_XSGM_FREQ0</span>
 <span class="sd">            :implements: R_ARMI_XSGM_FREQ</span>
+
+<span class="sd">            This method sets the cross-section block averaging method and and logic for whether all</span>
+<span class="sd">            blocks in a cross section group should be used when generating a representative block.</span>
+<span class="sd">            Furthermore, if the control logic for lattice physics frequency updates is set at</span>
+<span class="sd">            beginning-of-life (`BOL`) through the :py:class:`LatticePhysicsInterface</span>
+<span class="sd">            &lt;armi.physics.neutronics.latticePhysics&gt;`, the cross-section group manager will</span>
+<span class="sd">            construct representative blocks for each cross-section IDs at the beginning of the</span>
+<span class="sd">            reactor state.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># now that all cs settings are loaded, apply defaults to compound XS settings</span>
         <span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="n">CONF_XS_BLOCK_REPRESENTATION</span>
@@ -958,9 +987,17 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update representative blocks and block burnup groups.</span>
 
-<span class="sd">        .. impl:: The lattice physics interface and XSGM are connected at BOC.</span>
+<span class="sd">        .. impl:: The lattice physics interface and cross-section group manager are connected at</span>
+<span class="sd">            BOC.</span>
 <span class="sd">            :id: I_ARMI_XSGM_FREQ1</span>
 <span class="sd">            :implements: R_ARMI_XSGM_FREQ</span>
+
+<span class="sd">            This method updates representative blocks and block burnups at the beginning-of-cycle</span>
+<span class="sd">            for each cross-section ID if the control logic for lattice physics frequency updates is</span>
+<span class="sd">            set at beginning-of-cycle (`BOC`) through the :py:class:`LatticePhysicsInterface</span>
+<span class="sd">            &lt;armi.physics.neutronics.latticePhysics&gt;`. At the beginning-of-cycle, the cross-section</span>
+<span class="sd">            group manager will construct representative blocks for each cross-section IDs for the</span>
+<span class="sd">            current reactor state.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -977,32 +1014,51 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">clearRepresentativeBlocks</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="CrossSectionGroupManager.interactEveryNode"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager.interactEveryNode">[docs]</a>    <span class="k">def</span> <span class="nf">interactEveryNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Interactino at every time now.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Interaction at every time node.</span>
 
-<span class="sd">        .. impl:: The lattice physics interface and XSGM are connected at every time node.</span>
+<span class="sd">        .. impl:: The lattice physics interface and cross-section group manager are connected at</span>
+<span class="sd">            every time node.</span>
 <span class="sd">            :id: I_ARMI_XSGM_FREQ2</span>
 <span class="sd">            :implements: R_ARMI_XSGM_FREQ</span>
+
+<span class="sd">            This method updates representative blocks and block burnups at every node for each</span>
+<span class="sd">            cross-section ID if the control logic for lattices physics frequency updates is set for</span>
+<span class="sd">            every node (`everyNode`) through the :py:class:`LatticePhysicsInterface</span>
+<span class="sd">            &lt;armi.physics.neutronics.latticePhysics&gt;`. At every node, the cross-section group</span>
+<span class="sd">            manager will construct representative blocks for each cross-section ID in the current</span>
+<span class="sd">            reactor state.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_latticePhysicsFrequency</span> <span class="o">&gt;=</span> <span class="n">LatticePhysicsFrequency</span><span class="o">.</span><span class="n">everyNode</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">createRepresentativeBlocks</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="CrossSectionGroupManager.interactCoupled"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager.interactCoupled">[docs]</a>    <span class="k">def</span> <span class="nf">interactCoupled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iteration</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update XS groups on each physics coupling iteration to get latest temperatures.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update cross-section groups on each physics coupling iteration to get latest</span>
+<span class="sd">        temperatures.</span>
 
-<span class="sd">        .. impl:: The lattice physics interface and XSGM are connected during coupling.</span>
+<span class="sd">        .. impl:: The lattice physics interface and cross-section group manager are connected</span>
+<span class="sd">            during coupling.</span>
 <span class="sd">            :id: I_ARMI_XSGM_FREQ3</span>
 <span class="sd">            :implements: R_ARMI_XSGM_FREQ</span>
 
+<span class="sd">            This method updates representative blocks and block burnups at every node and the first</span>
+<span class="sd">            coupled iteration for each cross-section ID if the control logic for lattices physics</span>
+<span class="sd">            frequency updates is set for the first coupled iteration (``firstCoupledIteration``)</span>
+<span class="sd">            through the</span>
+<span class="sd">            :py:class:`LatticePhysicsInterface &lt;armi.physics.neutronics.latticePhysics&gt;`.</span>
+<span class="sd">            The cross-section group manager will construct representative blocks for each</span>
+<span class="sd">            cross-section ID at the first iteration of every time node.</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        Updating the XS on only the first (i.e., iteration == 0) timenode can be a reasonable approximation to</span>
-<span class="sd">        get new cross sections with some temperature updates but not have to run lattice physics on each</span>
-<span class="sd">        coupled iteration. If the user desires to have the cross sections updated with every coupling iteration,</span>
-<span class="sd">        the ``latticePhysicsFrequency: all`` option.</span>
+<span class="sd">        Updating the cross-section on only the first (i.e., iteration == 0) timenode can be a</span>
+<span class="sd">        reasonable approximation to get new cross sections with some temperature updates but not</span>
+<span class="sd">        have to run lattice physics on each coupled iteration. If the user desires to have the</span>
+<span class="sd">        cross sections updated with every coupling iteration, the ``latticePhysicsFrequency: all``</span>
+<span class="sd">        option.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
-<span class="sd">        :py:meth:`Assembly &lt;armi.physics.neutronics.latticePhysics.latticePhysics.LatticePhysicsInterface.interactCoupled&gt;`</span>
+<span class="sd">        :py:meth:`~armi.physics.neutronics.latticePhysics.latticePhysics.LatticePhysicsInterface.interactCoupled`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">iteration</span> <span class="o">==</span> <span class="mi">0</span>
@@ -1170,11 +1226,16 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span>
 
 <div class="viewcode-block" id="CrossSectionGroupManager.createRepresentativeBlocks"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager.createRepresentativeBlocks">[docs]</a>    <span class="k">def</span> <span class="nf">createRepresentativeBlocks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a representative block from each cross section ID managed here.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a representative block from each cross-section ID managed here.</span>
 
-<span class="sd">        .. impl:: Create collections of blocks based on XS type and burn-up group.</span>
+<span class="sd">        .. impl:: Create collections of blocks based on cross-section type and burn-up group.</span>
 <span class="sd">            :id: I_ARMI_XSGM_CREATE_XS_GROUPS</span>
 <span class="sd">            :implements: R_ARMI_XSGM_CREATE_XS_GROUPS</span>
+
+<span class="sd">            This method constructs the representative blocks and block burnups</span>
+<span class="sd">            for each cross-section ID in the reactor model. Starting with the making of cross-section groups, it will</span>
+<span class="sd">            find candidate blocks and create representative blocks from that selection.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">representativeBlocks</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">avgNucTemperatures</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1307,6 +1368,7 @@
                     <span class="n">modifiedBlockXSTypes</span><span class="p">[</span><span class="n">origXSType</span><span class="p">]</span> <span class="o">+</span> <span class="n">origXSID</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
                 <span class="p">)</span>  <span class="c1"># New XS Type + Old Burnup Group</span>
                 <span class="n">origXSIDsFromNew</span><span class="p">[</span><span class="n">newXSID</span><span class="p">]</span> <span class="o">=</span> <span class="n">origXSID</span>
+
         <span class="c1"># Create new representative blocks based on the original XS IDs</span>
         <span class="k">for</span> <span class="n">newXSID</span><span class="p">,</span> <span class="n">origXSID</span> <span class="ow">in</span> <span class="n">origXSIDsFromNew</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span>
@@ -1323,6 +1385,7 @@
             <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blockList</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">getMicroSuffix</span><span class="p">()</span> <span class="o">==</span> <span class="n">origXSID</span><span class="p">:</span>
                     <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">xsType</span> <span class="o">=</span> <span class="n">newXSType</span>
+
         <span class="k">return</span> <span class="n">modifiedReprBlocks</span><span class="p">,</span> <span class="n">origXSIDsFromNew</span>
 
 <div class="viewcode-block" id="CrossSectionGroupManager.getNextAvailableXsTypes"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.neutronics.crossSectionGroupManager.html#armi.physics.neutronics.crossSectionGroupManager.CrossSectionGroupManager.getNextAvailableXsTypes">[docs]</a>    <span class="k">def</span> <span class="nf">getNextAvailableXsTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">howMany</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">excludedXSTypes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1359,8 +1422,8 @@
         <span class="k">return</span> <span class="n">availableXsTypes</span><span class="p">[:</span><span class="n">howMany</span><span class="p">]</span></div>
 
     <span class="k">def</span> <span class="nf">_getUnrepresentedBlocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockCollectionsByXsGroup</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        gets all blocks with suffixes not yet represented (for blocks in assemblies in the blueprints but not the core).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets all blocks with suffixes not yet represented (for blocks in assemblies in the blueprints but not the core).</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -1391,11 +1454,10 @@
 
     <span class="k">def</span> <span class="nf">_modifyUnrepresentedXSIDs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockCollectionsByXsGroup</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        adjust the xsID of blocks in the groups that are not represented.</span>
+<span class="sd">        Adjust the xsID of blocks in the groups that are not represented.</span>
 
 <span class="sd">        Try to just adjust the burnup group up to something that is represented</span>
 <span class="sd">        (can happen to structure in AA when only AB, AC, AD still remain).</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">xsID</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unrepresentedXSIDs</span><span class="p">:</span>
             <span class="n">missingXsType</span><span class="p">,</span> <span class="n">_missingBuGroup</span> <span class="o">=</span> <span class="n">xsID</span>
@@ -1568,8 +1630,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

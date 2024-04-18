@@ -12,7 +12,7 @@
 <meta name="description" content="The base ARMI App class. This module defines the App class, which is used to configure the ARMI Framework for a specific application. An App implements a simple interface for customizing much of th..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.apps module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.apps module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -137,29 +137,19 @@
 <p>This module defines the <a class="reference internal" href="#armi.apps.App" title="armi.apps.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a> class, which is used to configure the ARMI
 Framework for a specific application. An <code class="docutils literal notranslate"><span class="pre">App</span></code> implements a simple interface for
 customizing much of the Framework’s behavior.</p>
-<div class="admonition-historical-fun-fact admonition">
-<p class="admonition-title">Historical Fun Fact</p>
-<p>This pattern is used by many frameworks as a way of encapsulating what would
-otherwise be global state. The ARMI Framework has historically made heavy use of
-global state (e.g., <a class="reference internal" href="armi.nucDirectory.nuclideBases.html#module-armi.nucDirectory.nuclideBases" title="armi.nucDirectory.nuclideBases"><code class="xref py py-mod docutils literal notranslate"><span class="pre">armi.nucDirectory.nuclideBases</span></code></a>), and it will take
-quite a bit of effort to refactor the code to access such things through an App
-object.</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>Historical Fun Fact</p>
+<p>This pattern is used by many frameworks as a way of encapsulating what would otherwise be global
+state. The ARMI Framework has historically made heavy use of global state (e.g.,
+<a class="reference internal" href="armi.nucDirectory.nuclideBases.html#module-armi.nucDirectory.nuclideBases" title="armi.nucDirectory.nuclideBases"><code class="xref py py-mod docutils literal notranslate"><span class="pre">armi.nucDirectory.nuclideBases</span></code></a>), and it will take quite a bit of effort to refactor the
+code to access such things through an App object.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="armi.apps.App">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.apps.</span></span><span class="sig-name descname"><span class="pre">App</span></span><a class="reference internal" href="../_modules/armi/apps.html#App"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.apps.App" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>The main point of customization for the ARMI Framework.</p>
-<p>The App class is intended to be subclassed in order to customize the functionality
-and look-and-feel of the ARMI Framework for a specific use case. An App contains a
-plugin manager, which should be populated in <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> with a collection of
-plugins that are deemed suitable for a given application, as well as other methods
-which provide further customization.</p>
-<p>The base App class is also a good place to expose some more convenient ways to get
-data out of the Plugin API; calling the <code class="docutils literal notranslate"><span class="pre">pluggy</span></code> hooks directly can sometimes be a
-pain, as the results returned by the individual plugins may need to be merged and/or
-checked for errors. Adding that logic here reduces boilerplate throughout the rest
-of the code.</p>
+<p>The highest-level of abstraction for defining what happens during an ARMI run.</p>
 <p>This mostly initializes the default plugin manager. Subclasses are free to adopt
 this plugin manager and register more plugins of their own, or to throw it away
 and start from scratch if they do not wish to use the default Framework plugins.</p>
@@ -265,8 +255,8 @@ is produced, with extra data on the App name and version, if available.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

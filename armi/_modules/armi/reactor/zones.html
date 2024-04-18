@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.zones &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.zones &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -125,6 +125,18 @@
 <span class="sd">    .. impl:: A user can define a collection of armi locations.</span>
 <span class="sd">        :id: I_ARMI_ZONE</span>
 <span class="sd">        :implements: R_ARMI_ZONE</span>
+
+<span class="sd">        The Zone class facilitates the creation of a Zone object representing a</span>
+<span class="sd">        collection of locations in the Core. A Zone contains a group of locations</span>
+<span class="sd">        in the Core, used to subdivide it for analysis. Each location represents</span>
+<span class="sd">        an Assembly or a Block, where a single Zone must contain items of the same</span>
+<span class="sd">        type (i.e., Assembly or Block). Methods are provided to add or remove</span>
+<span class="sd">        one or more locations to/from the Zone, and similarly, add or remove one or</span>
+<span class="sd">        more items with a Core location (i.e., Assemblies or Blocks) to/from the</span>
+<span class="sd">        Zone. In addition, several methods are provided to facilitate the</span>
+<span class="sd">        retrieval of locations from a Zone by performing functions to check if a</span>
+<span class="sd">        location exists in the Zone, looping through the locations in the Zone in</span>
+<span class="sd">        alphabetical order, and returning the number of locations in the Zone, etc.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">VALID_TYPES</span> <span class="o">=</span> <span class="p">(</span><span class="n">Assembly</span><span class="p">,</span> <span class="n">Block</span><span class="p">)</span>
@@ -298,6 +310,16 @@
 <span class="sd">    .. impl:: A user can define a collection of armi zones.</span>
 <span class="sd">        :id: I_ARMI_ZONES</span>
 <span class="sd">        :implements: R_ARMI_ZONES</span>
+
+<span class="sd">        The Zones class facilitates the creation of a Zones object representing a</span>
+<span class="sd">        collection of Zone objects. Methods are provided to add or remove one</span>
+<span class="sd">        or more Zone to/from the Zones object. Likewise, methods are provided</span>
+<span class="sd">        to validate that the zones are mutually exclusive, obtain the location</span>
+<span class="sd">        labels of zones, return the Zone object where a particular Assembly or Block</span>
+<span class="sd">        resides, sort the Zone objects alphabetically, and summarize the zone</span>
+<span class="sd">        definitions. In addition, methods are provided to facilitate the</span>
+<span class="sd">        retrieval of Zone objects by name, loop through the Zones in order, and</span>
+<span class="sd">        return the number of Zone objects.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -405,7 +427,7 @@
 
 <div class="viewcode-block" id="Zones.checkDuplicates"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.zones.html#armi.reactor.zones.Zones.checkDuplicates">[docs]</a>    <span class="k">def</span> <span class="nf">checkDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Validate that the the zones are mutually exclusive.</span>
+<span class="sd">        Validate that the zones are mutually exclusive.</span>
 
 <span class="sd">        That is, make sure that no item appears in more than one Zone.</span>
 
@@ -517,10 +539,10 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        zoneDefinitions:</span>
-<span class="sd">        - ring-1: 001-001</span>
-<span class="sd">        - ring-2: 002-001, 002-002</span>
-<span class="sd">        - ring-3: 003-001, 003-002, 003-003</span>
+<span class="sd">            zoneDefinitions:</span>
+<span class="sd">            - ring-1: 001-001</span>
+<span class="sd">            - ring-2: 002-001, 002-002</span>
+<span class="sd">            - ring-3: 003-001, 003-002, 003-003</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># log a quick header</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;zoneDefinitions:&quot;</span><span class="p">)</span>
@@ -539,8 +561,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

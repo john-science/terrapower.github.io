@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blueprints.reactorBlueprint &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blueprints.reactorBlueprint &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -109,18 +109,17 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Definitions of top-level reactor arrangements like the Core (default), SFP, etc.</span>
 
-<span class="sd">See documentation of blueprints in :doc:`/user/inputs/blueprints` for more context. See</span>
-<span class="sd">example in :py:mod:`armi.reactor.blueprints.tests.test_reactorBlueprints`.</span>
+<span class="sd">See documentation of blueprints in :doc:`/user/inputs/blueprints` for more context. See example in</span>
+<span class="sd">:py:mod:`armi.reactor.blueprints.tests.test_reactorBlueprints`.</span>
 
-<span class="sd">This was built to replace the old system that loaded the core geometry from the</span>
-<span class="sd">cs[&#39;geometry&#39;] setting. Until the geom file-based input is completely removed, this</span>
-<span class="sd">system will attempt to migrate the core layout from geom files. When geom files are</span>
-<span class="sd">used, explicitly specifying a ``core`` system will result in an error.</span>
+<span class="sd">This was built to replace the old system that loaded the core geometry from the ``cs[&#39;geometry&#39;]``</span>
+<span class="sd">setting. Until the geom file-based input is completely removed, this system will attempt to migrate</span>
+<span class="sd">the core layout from geom files. When geom files are used, explicitly specifying a ``core`` system</span>
+<span class="sd">will result in an error.</span>
 
-<span class="sd">System Blueprints are a big step in the right direction to generalize user input, but</span>
-<span class="sd">was still mostly adapted from the old Core layout input. As such, they still only really</span>
-<span class="sd">support Core-like systems. Future work should generalize the concept of &quot;system&quot; to more</span>
-<span class="sd">varied scenarios.</span>
+<span class="sd">System Blueprints are a big step in the right direction to generalize user input, but was still</span>
+<span class="sd">mostly adapted from the old Core layout input. As such, they still only really support Core-like</span>
+<span class="sd">systems. Future work should generalize the concept of &quot;system&quot; to more varied scenarios.</span>
 
 <span class="sd">See Also</span>
 <span class="sd">--------</span>
@@ -143,9 +142,32 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The reactor-level structure input blueprint.</span>
 
-<span class="sd">    .. note:: We use string keys to link grids to objects that use them. This differs</span>
-<span class="sd">        from how blocks/assembies are specified, which use YAML anchors. YAML anchors</span>
-<span class="sd">        have proven to be problematic and difficult to work with</span>
+<span class="sd">    .. impl:: Build core and spent fuel pool from blueprints</span>
+<span class="sd">        :id: I_ARMI_BP_SYSTEMS</span>
+<span class="sd">        :implements: R_ARMI_BP_SYSTEMS, R_ARMI_BP_CORE</span>
+
+<span class="sd">        This class creates a yaml interface for the user to define systems with</span>
+<span class="sd">        grids, such as cores or spent fuel pools, each having their own name,</span>
+<span class="sd">        type, grid, and position in space. It is incorporated into the &quot;systems&quot;</span>
+<span class="sd">        section of a blueprints file by being included as key-value pairs within</span>
+<span class="sd">        the :py:class:`~armi.reactor.blueprints.reactorBlueprint.Systems` class,</span>
+<span class="sd">        which is in turn included into the overall blueprints within</span>
+<span class="sd">        :py:class:`~armi.reactor.blueprints.Blueprints`.</span>
+
+<span class="sd">        This class includes a</span>
+<span class="sd">        :py:meth:`~armi.reactor.blueprints.reactorBlueprint.SystemBlueprint.construct` method, which</span>
+<span class="sd">        is typically called from within :py:func:`~armi.reactor.reactors.factory` during the</span>
+<span class="sd">        initialization of the reactor object to instantiate the core and/or spent fuel pool objects.</span>
+<span class="sd">        During that process, a spatial grid is constructed based on the grid blueprints specified in</span>
+<span class="sd">        the &quot;grids&quot; section of the blueprints (see :need:`I_ARMI_BP_GRID`) and the assemblies needed</span>
+<span class="sd">        to fill the lattice are built from blueprints using</span>
+<span class="sd">        :py:meth:`~armi.reactor.blueprints.Blueprints.constructAssem`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    We use string keys to link grids to objects that use them. This differs from how blocks/</span>
+<span class="sd">    assembies are specified, which use YAML anchors. YAML anchors have proven to be problematic and</span>
+<span class="sd">    difficult to work with.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="n">yamlize</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
@@ -195,14 +217,6 @@
 <div class="viewcode-block" id="SystemBlueprint.construct"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.blueprints.reactorBlueprint.html#armi.reactor.blueprints.reactorBlueprint.SystemBlueprint.construct">[docs]</a>    <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">,</span> <span class="n">bp</span><span class="p">,</span> <span class="n">reactor</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loadAssems</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a core/IVS/EVST/whatever and fill it with children.</span>
 
-<span class="sd">        .. impl:: Build core and spent fuel pool from blueprint</span>
-<span class="sd">            :id: I_ARMI_BP_SYSTEMS</span>
-<span class="sd">            :implements: R_ARMI_BP_SYSTEMS</span>
-
-<span class="sd">        .. impl:: Create core object from blueprint.</span>
-<span class="sd">            :id: I_ARMI_BP_CORE</span>
-<span class="sd">            :implements: R_ARMI_BP_CORE</span>
-
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        cs : :py:class:`Settings &lt;armi.settings.Settings&gt;` object.</span>
@@ -215,7 +229,7 @@
 <span class="sd">        loadAssems : bool, optional</span>
 <span class="sd">            whether to fill reactor with assemblies, as defined in blueprints, or not. Is False in</span>
 <span class="sd">            :py:class:`UniformMeshGeometryConverter &lt;armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter&gt;`</span>
-<span class="sd">            within the initNewReactor() class method.</span>
+<span class="sd">            within the initNewReactor() method.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -373,8 +387,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

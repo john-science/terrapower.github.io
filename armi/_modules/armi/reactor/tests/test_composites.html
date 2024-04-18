@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.tests.test_composites &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.tests.test_composites &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -206,13 +206,9 @@
 <div class="viewcode-block" id="TestCompositePattern.test_composite"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_composite">[docs]</a>    <span class="k">def</span> <span class="nf">test_composite</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Test basic Composite things.</span>
 
-<span class="sd">        .. test:: Composites are a physical part of the reactor.</span>
+<span class="sd">        .. test:: Composites are part of a hierarchical model.</span>
 <span class="sd">            :id: T_ARMI_CMP0</span>
 <span class="sd">            :tests: R_ARMI_CMP</span>
-
-<span class="sd">        .. test:: Composites are part of a hierarchical model.</span>
-<span class="sd">            :id: T_ARMI_CMP_CHILDREN0</span>
-<span class="sd">            :tests: R_ARMI_CMP_CHILDREN</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container</span>
 
@@ -229,13 +225,9 @@
 <div class="viewcode-block" id="TestCompositePattern.test_getChildren"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositePattern.test_getChildren">[docs]</a>    <span class="k">def</span> <span class="nf">test_getChildren</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Test the get children method.</span>
 
-<span class="sd">        .. test:: Composites are a physical part of the reactor.</span>
+<span class="sd">        .. test:: Composites are part of a hierarchical model.</span>
 <span class="sd">            :id: T_ARMI_CMP1</span>
 <span class="sd">            :tests: R_ARMI_CMP</span>
-
-<span class="sd">        .. test:: Composites are part of a hierarchical model.</span>
-<span class="sd">            :id: T_ARMI_CMP_CHILDREN1</span>
-<span class="sd">            :tests: R_ARMI_CMP_CHILDREN</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># There are 5 leaves and 1 composite in container. The composite has one leaf.</span>
         <span class="n">firstGen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="o">.</span><span class="n">getChildren</span><span class="p">()</span>
@@ -540,7 +532,10 @@
         <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getFirstBlock</span><span class="p">()</span><span class="o">.</span><span class="n">getComponents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">constituentReport</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="TestCompositeTree.test_getNuclides"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositeTree.test_getNuclides">[docs]</a>    <span class="k">def</span> <span class="nf">test_getNuclides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;The getNuclides should return all keys that have ever been in this block, including values that are at trace.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The getNuclides should return all keys that have ever been in this block, including values</span>
+<span class="sd">        that are at trace.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Block</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()</span>
         <span class="n">ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">refDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ref</span><span class="p">:</span>
@@ -549,9 +544,8 @@
 
 <div class="viewcode-block" id="TestCompositeTree.test_getFuelMass"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestCompositeTree.test_getFuelMass">[docs]</a>    <span class="k">def</span> <span class="nf">test_getFuelMass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        This test creates a dummy assembly and ensures that the assembly, block, and fuel component masses are</span>
-<span class="sd">        consistent.</span>
-<span class="sd">        `getFuelMass` ensures that the fuel component is used to `getMass`.</span>
+<span class="sd">        This test creates a dummy assembly and ensures that the assembly, block, and fuel component</span>
+<span class="sd">        masses are consistent. `getFuelMass` ensures that the fuel component is used to `getMass`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
         <span class="n">assemDesign</span> <span class="o">=</span> <span class="n">assemblyBlueprint</span><span class="o">.</span><span class="n">AssemblyBlueprint</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blueprintYaml</span><span class="p">)</span>
@@ -771,7 +765,12 @@
         <span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
         <span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">loadTestBlock</span><span class="p">())</span>
         <span class="n">group</span><span class="o">.</span><span class="n">setMass</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+
+        <span class="c1"># ad a second block, and confirm it works</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">loadTestBlock</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">),</span> <span class="mf">1364.28376185</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMiscMethods.test_getNumberDensities"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getNumberDensities">[docs]</a>    <span class="k">def</span> <span class="nf">test_getNumberDensities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get number densities from composite.</span>
@@ -779,25 +778,82 @@
 <span class="sd">        .. test:: Number density of composite is retrievable.</span>
 <span class="sd">            :id: T_ARMI_CMP_GET_NDENS0</span>
 <span class="sd">            :tests: R_ARMI_CMP_GET_NDENS</span>
-
-<span class="sd">        .. test:: Get number densities.</span>
-<span class="sd">            :id: T_ARMI_CMP_NUC</span>
-<span class="sd">            :tests: R_ARMI_CMP_NUC</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># verify the number densities from the composite</span>
         <span class="n">ndens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0001096</span><span class="p">,</span> <span class="n">ndens</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0000368</span><span class="p">,</span> <span class="n">ndens</span><span class="p">[</span><span class="s2">&quot;W&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span>
 
         <span class="n">ndens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;SI&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0001096</span><span class="p">,</span> <span class="n">ndens</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0001096</span><span class="p">,</span> <span class="n">ndens</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+        <span class="c1"># sum nuc densities from children components</span>
+        <span class="n">totalVolume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span>
+        <span class="n">childDensities</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">nuc</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">nuc</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">childDensities</span><span class="p">:</span>
+                    <span class="n">childDensities</span><span class="p">[</span><span class="n">nuc</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">totalVolume</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">childDensities</span><span class="p">[</span><span class="n">nuc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">val</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">totalVolume</span><span class="p">)</span>
+
+        <span class="c1"># verify the children match this composite</span>
+        <span class="k">for</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;FE&quot;</span><span class="p">,</span> <span class="s2">&quot;SI&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="n">nuc</span><span class="p">),</span> <span class="n">childDensities</span><span class="p">[</span><span class="n">nuc</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">nuc</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestMiscMethods.test_getNumberDensitiesWithExpandedFissionProducts"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getNumberDensitiesWithExpandedFissionProducts">[docs]</a>    <span class="k">def</span> <span class="nf">test_getNumberDensitiesWithExpandedFissionProducts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get number densities from composite.</span>
+
+<span class="sd">        .. test:: Get number densities.</span>
+<span class="sd">            :id: T_ARMI_CMP_NUC</span>
+<span class="sd">            :tests: R_ARMI_CMP_NUC</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># verify the number densities from the composite</span>
+        <span class="n">ndens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">(</span><span class="n">expandFissionProducts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0001096</span><span class="p">,</span> <span class="n">ndens</span><span class="p">[</span><span class="s2">&quot;SI&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0000368</span><span class="p">,</span> <span class="n">ndens</span><span class="p">[</span><span class="s2">&quot;W&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span>
+
+        <span class="n">ndens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="s2">&quot;SI&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.0001096</span><span class="p">,</span> <span class="n">ndens</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+        <span class="c1"># set the lumped fission product mapping</span>
+        <span class="n">fpd</span> <span class="o">=</span> <span class="n">getDummyLFPFile</span><span class="p">()</span>
+        <span class="n">lfps</span> <span class="o">=</span> <span class="n">fpd</span><span class="o">.</span><span class="n">createLFPsFromFile</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">setLumpedFissionProducts</span><span class="p">(</span><span class="n">lfps</span><span class="p">)</span>
+
+        <span class="c1"># sum nuc densities from children components</span>
+        <span class="n">totalVolume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span>
+        <span class="n">childDensities</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+            <span class="c1"># get the number densities with and without fission products</span>
+            <span class="n">d0</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">(</span><span class="n">expandFissionProducts</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">(</span><span class="n">expandFissionProducts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># prove that the expanded fission products have more isotopes</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">d0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">d0</span><span class="p">))</span>
+
+            <span class="c1"># sum the child nuclide densites (weighted by mass fraction)</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">nuc</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">nuc</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">childDensities</span><span class="p">:</span>
+                    <span class="n">childDensities</span><span class="p">[</span><span class="n">nuc</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">totalVolume</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">childDensities</span><span class="p">[</span><span class="n">nuc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">val</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">totalVolume</span><span class="p">)</span>
+
+        <span class="c1"># verify the children match this composite</span>
+        <span class="k">for</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;FE&quot;</span><span class="p">,</span> <span class="s2">&quot;SI&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNumberDensity</span><span class="p">(</span><span class="n">nuc</span><span class="p">),</span> <span class="n">childDensities</span><span class="p">[</span><span class="n">nuc</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">nuc</span>
+            <span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestMiscMethods.test_dimensionReport"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_dimensionReport">[docs]</a>    <span class="k">def</span> <span class="nf">test_dimensionReport</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">report</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">setComponentDimensionsReport</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">report</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">))</span></div>
-
-<div class="viewcode-block" id="TestMiscMethods.test_printDensities"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_printDensities">[docs]</a>    <span class="k">def</span> <span class="nf">test_printDensities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">lines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">printDensities</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()))</span></div>
 
 <div class="viewcode-block" id="TestMiscMethods.test_getAtomicWeight"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_composites.html#armi.reactor.tests.test_composites.TestMiscMethods.test_getAtomicWeight">[docs]</a>    <span class="k">def</span> <span class="nf">test_getAtomicWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">getAtomicWeight</span><span class="p">()</span>
@@ -835,8 +891,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

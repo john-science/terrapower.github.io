@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -89,7 +89,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for armi</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright 2009-2019 TerraPower, LLC</span>
+<span></span><span class="c1"># Copyright 2019 TerraPower, LLC</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -213,17 +213,27 @@
 <span class="sd">        :id: I_ARMI_SETTING1</span>
 <span class="sd">        :implements: R_ARMI_SETTING</span>
 
+<span class="sd">        This method initializes an ARMI run, and if successful returns an Operator.</span>
+<span class="sd">        That operator is designed to drive the reactor simulation through time steps to</span>
+<span class="sd">        simulate its operation. This method takes in a settings file or object to</span>
+<span class="sd">        initialize the operator. Whether a settings file or object is supplied, the</span>
+<span class="sd">        operator will be built based on the those settings. Because the total</span>
+<span class="sd">        collection of settings can be modified by developers of ARMI applications,</span>
+<span class="sd">        providing these settings allow ARMI end-users to define their simulation as</span>
+<span class="sd">        granularly as they need.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    choice : int, optional</span>
-<span class="sd">        Automatically run with this item out of the menu</span>
-<span class="sd">        that would be produced of existing xml files.</span>
+<span class="sd">        Automatically run with this item out of the menu that would be produced by the</span>
+<span class="sd">        existing YAML files.</span>
 
 <span class="sd">    fName : str, optional</span>
-<span class="sd">        An actual case name to load. e.g. ntTwr1.xml</span>
+<span class="sd">        The path to a settings file to load: my_case.yaml</span>
 
-<span class="sd">    cs : object, optional</span>
-<span class="sd">        If supplied, supercede the other case input methods and use the object directly</span>
+<span class="sd">    cs : Settings, optional</span>
+<span class="sd">        If supplied, this CS object will supercede the other case input methods and use</span>
+<span class="sd">        the object directly.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -440,8 +450,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

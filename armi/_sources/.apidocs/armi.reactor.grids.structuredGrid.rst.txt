@@ -1,7 +1,7 @@
-armi.utils.tests.test\_dochelpers module
+armi.reactor.grids.structuredGrid module
 ========================================
 
-.. automodule:: armi.utils.tests.test_dochelpers
+.. automodule:: armi.reactor.grids.structuredGrid
    :members:
    :undoc-members:
    :show-inheritance:

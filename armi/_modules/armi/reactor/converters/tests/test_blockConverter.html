@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.converters.tests.test_blockConverter &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.converters.tests.test_blockConverter &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
@@ -209,14 +209,10 @@
             <span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
             <span class="o">.</span><span class="n">getFirstBlock</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)</span>
         <span class="p">)</span>
-
         <span class="n">block</span><span class="o">.</span><span class="n">spatialGrid</span> <span class="o">=</span> <span class="n">grids</span><span class="o">.</span><span class="n">HexGrid</span><span class="o">.</span><span class="n">fromPitch</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
 
-        <span class="n">area</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span>
         <span class="n">converter</span> <span class="o">=</span> <span class="n">blockConverters</span><span class="o">.</span><span class="n">HexComponentsToCylConverter</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
         <span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">converter</span><span class="o">.</span><span class="n">convertedBlock</span><span class="o">.</span><span class="n">getArea</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">getArea</span><span class="p">())</span>
 
         <span class="k">for</span> <span class="n">compType</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">,</span> <span class="n">Flags</span><span class="o">.</span><span class="n">CLAD</span><span class="p">,</span> <span class="n">Flags</span><span class="o">.</span><span class="n">DUCT</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
@@ -229,7 +225,12 @@
                     <span class="p">]</span>
                 <span class="p">),</span>
             <span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">converter</span><span class="o">.</span><span class="n">convertedBlock</span><span class="o">.</span><span class="n">getComponents</span><span class="p">(</span><span class="n">compType</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+                    <span class="n">block</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">compType</span><span class="p">)</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">temperatureInC</span>
+                <span class="p">)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(),</span> <span class="n">converter</span><span class="o">.</span><span class="n">convertedBlock</span><span class="o">.</span><span class="n">getHeight</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_checkAreaAndComposition</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">converter</span><span class="o">.</span><span class="n">convertedBlock</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_checkCiclesAreInContact</span><span class="p">(</span><span class="n">converter</span><span class="o">.</span><span class="n">convertedBlock</span><span class="p">)</span></div>
 
@@ -518,8 +519,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

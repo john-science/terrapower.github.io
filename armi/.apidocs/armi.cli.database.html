@@ -12,7 +12,7 @@
 <meta name="description" content="Entry point into ARMI for manipulating output databases." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cli.database module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cli.database module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -139,52 +139,6 @@
   <section id="module-armi.cli.database">
 <span id="armi-cli-database-module"></span><h1>armi.cli.database module<a class="headerlink" href="#module-armi.cli.database" title="Permalink to this heading"></a></h1>
 <p>Entry point into ARMI for manipulating output databases.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.cli.database.</span></span><span class="sig-name descname"><span class="pre">ConvertDB</span></span><a class="reference internal" href="../_modules/armi/cli/database.html#ConvertDB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cli.database.ConvertDB" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="armi.cli.entryPoint.html#armi.cli.entryPoint.EntryPoint" title="armi.cli.entryPoint.EntryPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">EntryPoint</span></code></a></p>
-<p>Convert databases between different versions.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'convert-db'</span></em><a class="headerlink" href="#armi.cli.database.ConvertDB.name" title="Permalink to this definition"></a></dt>
-<dd><p>The &lt;command-name&gt; that is used to call the command from the command line</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB.mode">
-<span class="sig-name descname"><span class="pre">mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#armi.cli.database.ConvertDB.mode" title="Permalink to this definition"></a></dt>
-<dd><p>One of {armi.Mode.BATCH, armi.Mode.INTERACTIVE, armi.Mode.GUI}, optional.
-Specifies the ARMI mode in which the command is run. Default is armi.Mode.BATCH.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB.addOptions">
-<span class="sig-name descname"><span class="pre">addOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/cli/database.html#ConvertDB.addOptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cli.database.ConvertDB.addOptions" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB.parse_args">
-<span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/cli/database.html#ConvertDB.parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cli.database.ConvertDB.parse_args" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB.invoke">
-<span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/cli/database.html#ConvertDB.invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cli.database.ConvertDB.invoke" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="armi.cli.database.ConvertDB.settingsArgument">
-<span class="sig-name descname"><span class="pre">settingsArgument</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#armi.cli.database.ConvertDB.settingsArgument" title="Permalink to this definition"></a></dt>
-<dd><p>One of {‘optional’, ‘required’, None}, or unspecified.
-Specifies whether a settings file argument is to be added to the
-command’s argument parser. If settingsArgument == ‘required’, then a settings
-file is a required positional argument. If settingsArgument == ‘optional’,
-then it is an optional positional argument. Finally, if settingsArgument is
-None, then no settings file argument is added.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="armi.cli.database.ExtractInputs">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.cli.database.</span></span><span class="sig-name descname"><span class="pre">ExtractInputs</span></span><a class="reference internal" href="../_modules/armi/cli/database.html#ExtractInputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cli.database.ExtractInputs" title="Permalink to this definition"></a></dt>
@@ -290,8 +244,8 @@ None, then no settings file argument is added.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

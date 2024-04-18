@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.tests.test_interfaces &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.tests.test_interfaces &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -230,6 +230,7 @@
 <span class="sd">        Ragged lists are easier to manage with lists as opposed to numpy.arrays,</span>
 <span class="sd">        namely, their dimension is preserved.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># show a situation where it doesn&#39;t converge</span>
         <span class="n">previousValues</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;float&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
             <span class="s2">&quot;list1D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
@@ -242,7 +243,13 @@
         <span class="p">}</span>
         <span class="k">for</span> <span class="n">previous</span><span class="p">,</span> <span class="n">current</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">previousValues</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">updatedValues</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">storePreviousIterationValue</span><span class="p">(</span><span class="n">previous</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">isConverged</span><span class="p">(</span><span class="n">current</span><span class="p">))</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">isConverged</span><span class="p">(</span><span class="n">current</span><span class="p">))</span>
+
+        <span class="c1"># show a situation where it DOES converge</span>
+        <span class="n">previousValues</span> <span class="o">=</span> <span class="n">updatedValues</span>
+        <span class="k">for</span> <span class="n">previous</span><span class="p">,</span> <span class="n">current</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">previousValues</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">updatedValues</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">storePreviousIterationValue</span><span class="p">(</span><span class="n">previous</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">coupler</span><span class="o">.</span><span class="n">isConverged</span><span class="p">(</span><span class="n">current</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="TestTightCoupler.test_isConvergedRuntimeError"><a class="viewcode-back" href="../../../.apidocs/armi.tests.test_interfaces.html#armi.tests.test_interfaces.TestTightCoupler.test_isConvergedRuntimeError">[docs]</a>    <span class="k">def</span> <span class="nf">test_isConvergedRuntimeError</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Test to ensure 3D arrays do not work.&quot;&quot;&quot;</span>
@@ -270,8 +277,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

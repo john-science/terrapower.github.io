@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blueprints.assemblyBlueprint &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blueprints.assemblyBlueprint &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -109,12 +109,10 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This module defines the blueprints input object for assemblies.</span>
 
-<span class="sd">In addition to defining the input format, the ``AssemblyBlueprint`` class is responsible</span>
-<span class="sd">for constructing ``Assembly`` objects. An attempt has been made to decouple ``Assembly``</span>
-<span class="sd">construction from the rest of ARMI as much as possible. For example, an assembly does</span>
-<span class="sd">not require a reactor to be constructed, or a geometry file (but uses contained Block</span>
-<span class="sd">geometry type as a surrogate).</span>
-
+<span class="sd">In addition to defining the input format, the ``AssemblyBlueprint`` class is responsible for</span>
+<span class="sd">constructing ``Assembly`` objects. An attempt has been made to decouple ``Assembly`` construction</span>
+<span class="sd">from the rest of ARMI as much as possible. For example, an assembly does not require a reactor to be</span>
+<span class="sd">constructed, or a geometry file (but uses contained Block geometry type as a surrogate).</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">yamlize</span>
 
@@ -140,8 +138,8 @@
 
 <div class="viewcode-block" id="Modifications"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.blueprints.assemblyBlueprint.html#armi.reactor.blueprints.assemblyBlueprint.Modifications">[docs]</a><span class="k">class</span> <span class="nc">Modifications</span><span class="p">(</span><span class="n">yamlize</span><span class="o">.</span><span class="n">Map</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The names of material modifications and lists of the modification values for</span>
-<span class="sd">    each block in the assembly.</span>
+<span class="sd">    The names of material modifications and lists of the modification values for each block in the</span>
+<span class="sd">    assembly.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">key_type</span> <span class="o">=</span> <span class="n">yamlize</span><span class="o">.</span><span class="n">Typed</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
@@ -149,10 +147,7 @@
 
 
 <div class="viewcode-block" id="ByComponentModifications"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.blueprints.assemblyBlueprint.html#armi.reactor.blueprints.assemblyBlueprint.ByComponentModifications">[docs]</a><span class="k">class</span> <span class="nc">ByComponentModifications</span><span class="p">(</span><span class="n">yamlize</span><span class="o">.</span><span class="n">Map</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The name of a component within the block and an associated Modifications</span>
-<span class="sd">    object.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The name of a component within the block and an associated Modifications object.&quot;&quot;&quot;</span>
 
     <span class="n">key_type</span> <span class="o">=</span> <span class="n">yamlize</span><span class="o">.</span><span class="n">Typed</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
     <span class="n">value_type</span> <span class="o">=</span> <span class="n">Modifications</span></div>
@@ -162,17 +157,36 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A yamlize map for reading and holding material modifications.</span>
 
-<span class="sd">    A user may specify material modifications directly</span>
-<span class="sd">    as keys/values on this class, in which case these material modifications will</span>
-<span class="sd">    be blanket applied to the entire block.</span>
+<span class="sd">    A user may specify material modifications directly as keys/values on this class, in which case</span>
+<span class="sd">    these material modifications will be blanket applied to the entire block.</span>
 
-<span class="sd">    If the user wishes to specify material modifications specific to a component</span>
-<span class="sd">    within the block, they should use the `by component` attribute, specifying</span>
-<span class="sd">    the keys/values underneath the name of a specific component in the block.</span>
+<span class="sd">    If the user wishes to specify material modifications specific to a component within the block,</span>
+<span class="sd">    they should use the `by component` attribute, specifying the keys/values underneath the name of</span>
+<span class="sd">    a specific component in the block.</span>
 
 <span class="sd">    .. impl:: User-impact on material definitions.</span>
 <span class="sd">        :id: I_ARMI_MAT_USER_INPUT0</span>
 <span class="sd">        :implements: R_ARMI_MAT_USER_INPUT</span>
+
+<span class="sd">        Defines a yaml map attribute for the assembly portion of the blueprints (see</span>
+<span class="sd">        :py:class:`~armi.blueprints.assemblyBlueprint.AssemblyBlueprint`) that allows users to</span>
+<span class="sd">        specify material attributes as lists corresponding to each axial block in the assembly. Two</span>
+<span class="sd">        types of specifications can be made:</span>
+
+<span class="sd">            1. Key-value pairs can be specified directly, where the key is the name of the</span>
+<span class="sd">            modification and the value is the list of block values.</span>
+
+<span class="sd">            2. The &quot;by component&quot; attribute can be used, in which case the user can specify material</span>
+<span class="sd">            attributes that are specific to individual components in each block. This is enabled</span>
+<span class="sd">            through the</span>
+<span class="sd">            :py:class:`~armi.reactor.blueprints.assemblyBlueprint.ByComponentModifications` class,</span>
+<span class="sd">            which basically just allows for one additional layer of attributes corresponding to the</span>
+<span class="sd">            component names.</span>
+
+<span class="sd">        These material attributes can be used during the resolution of material classes during core</span>
+<span class="sd">        instantiation (see</span>
+<span class="sd">        :py:meth:`~armi.reactor.blueprints.blockBlueprint.BlockBlueprint.construct` and</span>
+<span class="sd">        :py:meth:`~armi.reactor.blueprints.componentBlueprint.ComponentBlueprint.construct`).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">key_type</span> <span class="o">=</span> <span class="n">yamlize</span><span class="o">.</span><span class="n">Typed</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
@@ -194,6 +208,23 @@
 <span class="sd">    .. impl:: Create assembly from blueprint file.</span>
 <span class="sd">        :id: I_ARMI_BP_ASSEM</span>
 <span class="sd">        :implements: R_ARMI_BP_ASSEM</span>
+
+<span class="sd">        Defines a yaml construct that allows the user to specify attributes of an</span>
+<span class="sd">        assembly from within their blueprints file, including a name, flags, specifier</span>
+<span class="sd">        for use in defining a core map, a list of blocks, a list of block heights,</span>
+<span class="sd">        a list of axial mesh points in each block, a list of cross section identifiers</span>
+<span class="sd">        for each block, and material options (see :need:`I_ARMI_MAT_USER_INPUT0`).</span>
+
+<span class="sd">        Relies on the underlying infrastructure from the ``yamlize`` package for</span>
+<span class="sd">        reading from text files, serialization, and internal storage of the data.</span>
+
+<span class="sd">        Is implemented as part of a blueprints file by being imported and used</span>
+<span class="sd">        as an attribute within the larger :py:class:`~armi.reactor.blueprints.Blueprints`</span>
+<span class="sd">        class.</span>
+
+<span class="sd">        Includes a ``construct`` method, which instantiates an instance of</span>
+<span class="sd">        :py:class:`~armi.reactor.assemblies.Assembly` with the characteristics</span>
+<span class="sd">        as specified in the blueprints.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="n">yamlize</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
@@ -242,8 +273,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        cs : CaseSettings</span>
-<span class="sd">            CaseSettings object which containing relevant modeling options.</span>
+<span class="sd">        cs : Settings</span>
+<span class="sd">            Settings object which containing relevant modeling options.</span>
 <span class="sd">        blueprint : Blueprint</span>
 <span class="sd">            Root blueprint object containing relevant modeling options.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -409,8 +440,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

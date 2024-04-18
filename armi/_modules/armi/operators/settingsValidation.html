@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.operators.settingsValidation &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.operators.settingsValidation &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -106,9 +106,10 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">A system to check user settings for validity and provide users with meaningful suggestions to fix.</span>
+<span class="sd">A system to check user settings for validity and provide users with meaningful</span>
+<span class="sd">suggestions to fix.</span>
 
-<span class="sd">This allows developers to specify a rich set of rules and suggestions for user settings.</span>
+<span class="sd">This allows developers to define a rich set of rules and suggestions for user settings.</span>
 <span class="sd">These then pop up during initialization of a run, either on the command line or as</span>
 <span class="sd">dialogues in the GUI. They say things like: &quot;Your ___ setting has the value ___, which</span>
 <span class="sd">is impossible. Would you like to switch to ___?&quot;</span>
@@ -141,6 +142,15 @@
 <span class="sd">    .. impl:: Rules to validate and customize a setting&#39;s behavior.</span>
 <span class="sd">        :id: I_ARMI_SETTINGS_RULES</span>
 <span class="sd">        :implements: R_ARMI_SETTINGS_RULES</span>
+
+<span class="sd">        This class is meant to represent a generic validation test against a setting.</span>
+<span class="sd">        The goal is: developers create new settings and they want to make sure those</span>
+<span class="sd">        settings are used correctly. As an implementation, users pass in a</span>
+<span class="sd">        ``condition`` function to this class that returns ``True`` or ``False`` based</span>
+<span class="sd">        on the setting name and value. And then this class has a ``resolve`` method</span>
+<span class="sd">        which tests if the condition is met. Optionally, this class also contains a</span>
+<span class="sd">        ``correction`` function that allows users to automatically correct a bad</span>
+<span class="sd">        setting, if the developers can find a clear path forward.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">statement</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="n">correction</span><span class="p">):</span>
@@ -150,8 +160,8 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        condition : callable</span>
-<span class="sd">            A callable that returns True or False. If True,</span>
-<span class="sd">            then the query activates its question and potential correction.</span>
+<span class="sd">            A callable that returns True or False. If True, then the query activates</span>
+<span class="sd">            its question and potential correction.</span>
 <span class="sd">        statement : str</span>
 <span class="sd">            A statement of the problem indicated by a True condition</span>
 <span class="sd">        question : str</span>
@@ -551,16 +561,16 @@
         <span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">_willBeCopiedFrom</span><span class="p">(</span><span class="n">fName</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">copyFile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;copyFilesFrom&quot;</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="n">fName</span> <span class="o">==</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">copyFile</span><span class="p">)[</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="k">return</span> <span class="kc">True</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="nb">any</span><span class="p">(</span>
+                <span class="n">fName</span> <span class="o">==</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">copyFile</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">copyFile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;copyFilesFrom&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">addQuery</span><span class="p">(</span>
             <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;explicitRepeatShuffles&quot;</span><span class="p">]</span>
             <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_csRelativePathExists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;explicitRepeatShuffles&quot;</span><span class="p">])</span>
             <span class="ow">and</span> <span class="ow">not</span> <span class="n">_willBeCopiedFrom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;explicitRepeatShuffles&quot;</span><span class="p">]),</span>
-            <span class="s2">&quot;The specified repeat shuffle file `</span><span class="si">{0}</span><span class="s2">` does not exist, and won&#39;t be copied from elsewhere. &quot;</span>
+            <span class="s2">&quot;The specified repeat shuffle file `</span><span class="si">{0}</span><span class="s2">` does not exist, and won&#39;t be copied. &quot;</span>
             <span class="s2">&quot;Run will crash.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="s2">&quot;explicitRepeatShuffles&quot;</span><span class="p">]),</span>
             <span class="s2">&quot;&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">NO_ACTION</span><span class="p">,</span>
@@ -723,11 +733,10 @@
                 <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
                     <span class="k">return</span> <span class="kc">True</span>
 
-                <span class="k">for</span> <span class="n">pf</span><span class="p">,</span> <span class="n">af</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">powerFracs</span><span class="p">,</span> <span class="n">availabilities</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="n">pf</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">af</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
-                        <span class="c1"># this will be a full decay step and any power fraction will be ignored. May be ok, but warn.</span>
-                        <span class="k">return</span> <span class="kc">True</span>
-                <span class="k">return</span> <span class="kc">False</span>
+                <span class="c1"># This will be a full decay step and any power fraction will be ignored. May be ok.</span>
+                <span class="k">return</span> <span class="nb">any</span><span class="p">(</span>
+                    <span class="n">pf</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">af</span> <span class="o">==</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">pf</span><span class="p">,</span> <span class="n">af</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">powerFracs</span><span class="p">,</span> <span class="n">availabilities</span><span class="p">)</span>
+                <span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">addQuery</span><span class="p">(</span>
                 <span class="k">lambda</span><span class="p">:</span> <span class="p">(</span>
@@ -896,8 +905,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cases.case &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cases.case &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -105,11 +105,12 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">The ``Case`` object is responsible for running, and executing a set of user inputs.  Many</span>
-<span class="sd">entry points redirect into ``Case`` methods, such as ``clone``, ``compare``, and ``run``.</span>
+<span class="sd">The ``Case`` object is responsible for running, and executing a set of</span>
+<span class="sd">user inputs.  Many entry points redirect into ``Case`` methods, such as</span>
+<span class="sd">``clone``, ``compare``, and ``run``.</span>
 
-<span class="sd">The ``Case`` object provides an abstraction around ARMI inputs to allow for manipulation and</span>
-<span class="sd">collection of cases.</span>
+<span class="sd">The ``Case`` object provides an abstraction around ARMI inputs to allow</span>
+<span class="sd">for manipulation and collection of cases.</span>
 
 <span class="sd">See Also</span>
 <span class="sd">--------</span>
@@ -173,8 +174,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        cs : CaseSettings</span>
-<span class="sd">            CaseSettings for this Case</span>
+<span class="sd">        cs : Settings</span>
+<span class="sd">            Settings for this Case</span>
 
 <span class="sd">        caseSuite : CaseSuite, optional</span>
 <span class="sd">            CaseSuite this particular case belongs. Passing this in allows dependency</span>
@@ -188,8 +189,8 @@
 <span class="sd">            ``cs`` as needed.</span>
 
 <span class="sd">        geom : SystemLayoutInput, optional</span>
-<span class="sd">            SystemLayoutInput for this case. If not supplied, it will be loaded from the ``cs`` as</span>
-<span class="sd">            needed.</span>
+<span class="sd">            SystemLayoutInput for this case. If not supplied, it will be loaded from the</span>
+<span class="sd">            ``cs`` as needed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_startTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_caseSuite</span> <span class="o">=</span> <span class="n">caseSuite</span>
@@ -422,15 +423,19 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run an ARMI case.</span>
 
-<span class="sd">        This initializes an ``Operator``, a ``Reactor`` and invokes</span>
-<span class="sd">        :py:meth:`Operator.operate`!</span>
-
-<span class="sd">        It also activates supervisory things like code coverage checking, profiling,</span>
-<span class="sd">        or tracing, if requested by users during debugging.</span>
 
 <span class="sd">        .. impl:: The case class allows for a generic ARMI simulation.</span>
 <span class="sd">            :id: I_ARMI_CASE</span>
 <span class="sd">            :implements: R_ARMI_CASE</span>
+
+<span class="sd">            This method is responsible for &quot;running&quot; the ARMI simulation</span>
+<span class="sd">            instigated by the inputted settings. This initializes an</span>
+<span class="sd">            :py:class:`~armi.operators.operator.Operator`, a</span>
+<span class="sd">            :py:class:`~armi.reactor.reactors.Reactor` and invokes</span>
+<span class="sd">            :py:meth:`Operator.operate</span>
+<span class="sd">            &lt;armi.operators.operator.Operator.operate&gt;`. It also activates</span>
+<span class="sd">            supervisory things like code coverage checking, profiling, or</span>
+<span class="sd">            tracing, if requested by users during debugging.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -466,7 +471,7 @@
 
     <span class="k">def</span> <span class="nf">_startCoverage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper to the Case.run(): spin up the code coverage tooling,</span>
-<span class="sd">        if the CaseSettings file says to.</span>
+<span class="sd">        if the Settings file says to.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -494,7 +499,7 @@
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_endCoverage</span><span class="p">(</span><span class="n">userCovFile</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper to the Case.run(): stop and report code coverage,</span>
-<span class="sd">        if the CaseSettings file says to.</span>
+<span class="sd">        if the Settings file says to.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -560,7 +565,7 @@
 
     <span class="k">def</span> <span class="nf">_startProfiling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper to the Case.run(): start the Python profiling,</span>
-<span class="sd">        if the CaseSettings file says to.</span>
+<span class="sd">        if the Settings file says to.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -577,7 +582,7 @@
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_endProfiling</span><span class="p">(</span><span class="n">profiler</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper to the Case.run(): stop and report python profiling,</span>
-<span class="sd">        if the CaseSettings file says to.</span>
+<span class="sd">        if the Settings file says to.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -655,6 +660,17 @@
 <span class="sd">        .. impl:: Perform validity checks on case inputs.</span>
 <span class="sd">            :id: I_ARMI_CASE_CHECK</span>
 <span class="sd">            :implements: R_ARMI_CASE_CHECK</span>
+
+<span class="sd">            This method checks the validity of the current settings. It relies</span>
+<span class="sd">            on an :py:class:`~armi.operators.settingsValidation.Inspector`</span>
+<span class="sd">            object from the :py:class:`~armi.operators.operator.Operator` to</span>
+<span class="sd">            generate a list of</span>
+<span class="sd">            :py:class:`~armi.operators.settingsValidation.Query` objects that</span>
+<span class="sd">            represent potential issues in the settings. After gathering the</span>
+<span class="sd">            queries, this method prints a table of query &quot;statements&quot; and</span>
+<span class="sd">            &quot;questions&quot; to the console. If running in an interactive mode, the</span>
+<span class="sd">            user then has the opportunity to address the questions posed by the</span>
+<span class="sd">            queries by either addressing the potential issue or ignoring it.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1004,7 +1020,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cs : CaseSettings</span>
+<span class="sd">    cs : Settings</span>
 <span class="sd">        The source case settings to find input files</span>
 <span class="sd">    destination : str</span>
 <span class="sd">        The target directory to copy input files to</span>
@@ -1110,8 +1126,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

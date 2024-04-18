@@ -12,7 +12,7 @@
 <meta name="description" content="This module defines the blueprints input object for assemblies. In addition to defining the input format, the AssemblyBlueprint class is responsible for constructing Assembly objects. An attempt ha..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blueprints.assemblyBlueprint module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blueprints.assemblyBlueprint module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -140,17 +140,16 @@
   <section id="module-armi.reactor.blueprints.assemblyBlueprint">
 <span id="armi-reactor-blueprints-assemblyblueprint-module"></span><h1>armi.reactor.blueprints.assemblyBlueprint module<a class="headerlink" href="#module-armi.reactor.blueprints.assemblyBlueprint" title="Permalink to this heading"></a></h1>
 <p>This module defines the blueprints input object for assemblies.</p>
-<p>In addition to defining the input format, the <code class="docutils literal notranslate"><span class="pre">AssemblyBlueprint</span></code> class is responsible
-for constructing <code class="docutils literal notranslate"><span class="pre">Assembly</span></code> objects. An attempt has been made to decouple <code class="docutils literal notranslate"><span class="pre">Assembly</span></code>
-construction from the rest of ARMI as much as possible. For example, an assembly does
-not require a reactor to be constructed, or a geometry file (but uses contained Block
-geometry type as a surrogate).</p>
+<p>In addition to defining the input format, the <code class="docutils literal notranslate"><span class="pre">AssemblyBlueprint</span></code> class is responsible for
+constructing <code class="docutils literal notranslate"><span class="pre">Assembly</span></code> objects. An attempt has been made to decouple <code class="docutils literal notranslate"><span class="pre">Assembly</span></code> construction
+from the rest of ARMI as much as possible. For example, an assembly does not require a reactor to be
+constructed, or a geometry file (but uses contained Block geometry type as a surrogate).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="armi.reactor.blueprints.assemblyBlueprint.Modifications">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.blueprints.assemblyBlueprint.</span></span><span class="sig-name descname"><span class="pre">Modifications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blueprints/assemblyBlueprint.html#Modifications"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blueprints.assemblyBlueprint.Modifications" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Map</span></code></p>
-<p>The names of material modifications and lists of the modification values for
-each block in the assembly.</p>
+<p>The names of material modifications and lists of the modification values for each block in the
+assembly.</p>
 <p>Initialize a Map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -183,8 +182,7 @@ each block in the assembly.</p>
 <dt class="sig sig-object py" id="armi.reactor.blueprints.assemblyBlueprint.ByComponentModifications">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.blueprints.assemblyBlueprint.</span></span><span class="sig-name descname"><span class="pre">ByComponentModifications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blueprints/assemblyBlueprint.html#ByComponentModifications"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blueprints.assemblyBlueprint.ByComponentModifications" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Map</span></code></p>
-<p>The name of a component within the block and an associated Modifications
-object.</p>
+<p>The name of a component within the block and an associated Modifications object.</p>
 <p>Initialize a Map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -218,12 +216,11 @@ object.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.blueprints.assemblyBlueprint.</span></span><span class="sig-name descname"><span class="pre">MaterialModifications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/blueprints/assemblyBlueprint.html#MaterialModifications"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.blueprints.assemblyBlueprint.MaterialModifications" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Map</span></code></p>
 <p>A yamlize map for reading and holding material modifications.</p>
-<p>A user may specify material modifications directly
-as keys/values on this class, in which case these material modifications will
-be blanket applied to the entire block.</p>
-<p>If the user wishes to specify material modifications specific to a component
-within the block, they should use the <cite>by component</cite> attribute, specifying
-the keys/values underneath the name of a specific component in the block.</p>
+<p>A user may specify material modifications directly as keys/values on this class, in which case
+these material modifications will be blanket applied to the entire block.</p>
+<p>If the user wishes to specify material modifications specific to a component within the block,
+they should use the <cite>by component</cite> attribute, specifying the keys/values underneath the name of
+a specific component in the block.</p>
 <p>Initialize a Map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -277,7 +274,7 @@ blueprints YAML file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cs</strong> (<em>CaseSettings</em>) – CaseSettings object which containing relevant modeling options.</p></li>
+<li><p><strong>cs</strong> (<em>Settings</em>) – Settings object which containing relevant modeling options.</p></li>
 <li><p><strong>blueprint</strong> (<em>Blueprint</em>) – Root blueprint object containing relevant modeling options.</p></li>
 </ul>
 </dd>
@@ -338,8 +335,8 @@ blueprints YAML file.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

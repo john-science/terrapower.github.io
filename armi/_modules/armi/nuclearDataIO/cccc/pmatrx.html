@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.nuclearDataIO.cccc.pmatrx &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.nuclearDataIO.cccc.pmatrx &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -110,9 +110,10 @@
 
 <span class="sd">See  [GAMSOR]_ and [MC23]_.</span>
 
-<span class="sd">.. [MC23] Lee, Changho, Jung, Yeon Sang, and Yang, Won Sik. MC2-3: Multigroup Cross Section Generation Code for Fast Reactor</span>
-<span class="sd">          Analysis Nuclear. United States: N. p., 2018. Web. doi:10.2172/1483949.</span>
-<span class="sd">          (`OSTI &lt;https://www.osti.gov/biblio/1483949-mc2-multigroup-cross-section-generation-code-fast-reactor-analysis-nuclear&gt;`_)</span>
+<span class="sd">.. [MC23] Lee, Changho, Jung, Yeon Sang, and Yang, Won Sik. MC2-3: Multigroup Cross Section</span>
+<span class="sd">          Generation Code for Fast Reactor Analysis Nuclear. United States: N. p., 2018. Web.</span>
+<span class="sd">          doi:10.2172/1483949. (`OSTI</span>
+<span class="sd">          &lt;https://www.osti.gov/biblio/1483949-mc2-multigroup-cross-section-generation-code-fast-reactor-analysis-nuclear&gt;`_)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">traceback</span>
@@ -241,12 +242,16 @@
 
 
 <div class="viewcode-block" id="writeBinary"><a class="viewcode-back" href="../../../../.apidocs/armi.nuclearDataIO.cccc.pmatrx.html#armi.nuclearDataIO.cccc.pmatrx.writeBinary">[docs]</a><span class="k">def</span> <span class="nf">writeBinary</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the PMATRX data from an :py:class:`~armi.nuclearDataIO.xsLibraries.IsotxsLibrary` object to a binary file.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the PMATRX data from an :py:class:`~armi.nuclearDataIO.xsLibraries.IsotxsLibrary`</span>
+<span class="sd">    object to a binary file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_write</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="writeAscii"><a class="viewcode-back" href="../../../../.apidocs/armi.nuclearDataIO.cccc.pmatrx.html#armi.nuclearDataIO.cccc.pmatrx.writeAscii">[docs]</a><span class="k">def</span> <span class="nf">writeAscii</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the PMATRX data from an :py:class:`~armi.nuclearDataIO.xsLibraries.IsotxsLibrary` object to an ASCII file.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the PMATRX data from an :py:class:`~armi.nuclearDataIO.xsLibraries.IsotxsLibrary`</span>
+<span class="sd">    object to an ASCII file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_write</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span></div>
 
 
@@ -257,6 +262,7 @@
 <span class="k">def</span> <span class="nf">_readWrite</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">fileMode</span><span class="p">,</span> <span class="n">getNuclideFunc</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">PmatrxIO</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span> <span class="n">fileMode</span><span class="p">,</span> <span class="n">getNuclideFunc</span><span class="p">)</span> <span class="k">as</span> <span class="n">rw</span><span class="p">:</span>
         <span class="n">rw</span><span class="o">.</span><span class="n">readWrite</span><span class="p">()</span>
+
     <span class="k">return</span> <span class="n">lib</span>
 
 
@@ -282,6 +288,25 @@
 <span class="sd">        .. impl:: Tool to read and write PMATRX files.</span>
 <span class="sd">            :id: I_ARMI_NUCDATA_PMATRX</span>
 <span class="sd">            :implements: R_ARMI_NUCDATA_PMATRX</span>
+
+<span class="sd">            Reading and writing PMATRX files is performed using the general</span>
+<span class="sd">            nuclear data I/O functionalities described in</span>
+<span class="sd">            :need:`I_ARMI_NUCDATA`. Reading/writing a PMATRX file is performed</span>
+<span class="sd">            through the following steps:</span>
+
+<span class="sd">            #. Read/write global information including:</span>
+
+<span class="sd">                * Number of gamma energy groups</span>
+<span class="sd">                * Number of neutron energy groups</span>
+<span class="sd">                * Maximum scattering order</span>
+<span class="sd">                * Maximum number of compositions</span>
+<span class="sd">                * Maximum number of materials</span>
+<span class="sd">                * Maximum number of regions</span>
+
+<span class="sd">            #. Read/write energy group structure for neutrons and gammas</span>
+<span class="sd">            #. Read/write dose conversion factors</span>
+<span class="sd">            #. Read/write gamma production matrices for each nuclide, as well as</span>
+<span class="sd">               other reaction constants related to neutron-gamma production.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rwMessage</span><span class="p">()</span>
         <span class="n">properties</span><span class="o">.</span><span class="n">unlockImmutableProperties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lib</span><span class="p">)</span>
@@ -483,8 +508,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

@@ -12,7 +12,7 @@
 <meta name="description" content="This module handles fuel management operations such as shuffling, rotation, and fuel processing (in fluid systems). The FuelHandlerInterface instantiates a FuelHandler, which is typically a user-de..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.fuelCycle.fuelHandlers module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.physics.fuelCycle.fuelHandlers module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -144,7 +144,7 @@ fuel processing (in fluid systems).</p>
 <p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">FuelHandlerInterface</span></code> instantiates a <code class="docutils literal notranslate"><span class="pre">FuelHandler</span></code>, which is typically a user-defined
 subclass the <a class="reference internal" href="#armi.physics.fuelCycle.fuelHandlers.FuelHandler" title="armi.physics.fuelCycle.fuelHandlers.FuelHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">FuelHandler</span></code></a> object in custom shuffle-logic input files.
 Users point to the code modules with their custom fuel handlers using the
-<code class="docutils literal notranslate"><span class="pre">shuffleLogic</span></code> and <code class="docutils literal notranslate"><span class="pre">fuelHandlerName</span></code> settings, as described in <a class="reference internal" href="../user/inputs/fuel_management.html"><span class="doc">Fuel Management Input</span></a>.
+<code class="docutils literal notranslate"><span class="pre">shuffleLogic</span></code> and <code class="docutils literal notranslate"><span class="pre">fuelHandlerName</span></code> settings, as described in <span class="xref std std-doc">/user/inputs/fuel_management</span>.
 These subclasses override <code class="docutils literal notranslate"><span class="pre">chooseSwaps</span></code> that determine
 the particular shuffling of a case.</p>
 <p>This module also handles repeat shuffles when doing a restart.</p>
@@ -200,7 +200,7 @@ with the <code class="docutils literal notranslate"><span class="pre">fuelHandle
 <dd><p>Return factors between 0 and 1 that control fuel management.</p>
 <p>This is the default shuffle control function. Usually you would override this
 with your own in a custom shuffleLogic.py file. For more details about how this
-works, refer to <a class="reference internal" href="../user/inputs/fuel_management.html"><span class="doc">Fuel Management Input</span></a>.</p>
+works, refer to <span class="xref std std-doc">/user/inputs/fuel_management</span>.</p>
 <p>This will get bound to the default FuelHandler as a static method below. This is
 done to allow a user to mix and match FuelHandler class implementations and
 getFactorList implementations at run time.</p>
@@ -317,15 +317,21 @@ it may be worth reconsidering the design of these query operations ;).</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<dl class="simple">
-<dt>feed = self.findAssembly(targetRing=4,</dt><dd><p>width=(0,0),
-param=’maxPercentBu’,
-compareTo=100,
-typeSpec=Flags.FEED | Flags.FUEL)</p>
-</dd>
-</dl>
-<p>returns the feed fuel assembly in ring 4 that has a burnup closest to 100% (the highest
-burnup assembly)</p>
+<p>This returns the feed fuel assembly in ring 4 that has a burnup closest to 100%
+(the highest burnup assembly):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findAssembly</span><span class="p">(</span><span class="n">targetRing</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                         <span class="n">width</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+                         <span class="n">param</span><span class="o">=</span><span class="s1">&#39;maxPercentBu&#39;</span><span class="p">,</span>
+                         <span class="n">compareTo</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                         <span class="n">typeSpec</span><span class="o">=</span><span class="n">Flags</span><span class="o">.</span><span class="n">FEED</span> <span class="o">|</span> <span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="armi.physics.fuelCycle.fuelHandlers.FuelHandler.isAssemblyInAZone">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAssemblyInAZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/fuelCycle/fuelHandlers.html#FuelHandler.isAssemblyInAZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.fuelCycle.fuelHandlers.FuelHandler.isAssemblyInAZone" title="Permalink to this definition"></a></dt>
+<dd><p>Does the given assembly in one of these zones.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -335,8 +341,8 @@ burnup assembly)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a1</strong> (<em>Assembly</em>) – The first assembly</p></li>
-<li><p><strong>a2</strong> (<em>Assembly</em>) – The second assembly</p></li>
+<li><p><strong>a1</strong> (<a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly" title="armi.reactor.assemblies.Assembly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Assembly</span></code></a>) – The first assembly</p></li>
+<li><p><strong>a2</strong> (<a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly" title="armi.reactor.assemblies.Assembly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Assembly</span></code></a>) – The second assembly</p></li>
 </ul>
 </dd>
 </dl>
@@ -353,6 +359,14 @@ burnup assembly)</p>
 <dt class="sig sig-object py" id="armi.physics.fuelCycle.fuelHandlers.FuelHandler.dischargeSwap">
 <span class="sig-name descname"><span class="pre">dischargeSwap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">incoming</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outgoing</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/physics/fuelCycle/fuelHandlers.html#FuelHandler.dischargeSwap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.physics.fuelCycle.fuelHandlers.FuelHandler.dischargeSwap" title="Permalink to this definition"></a></dt>
 <dd><p>Removes one assembly from the core and replace it with another assembly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>incoming</strong> (<a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly" title="armi.reactor.assemblies.Assembly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Assembly</span></code></a>) – The assembly getting swapped into the core.</p></li>
+<li><p><strong>outgoing</strong> (<a class="reference internal" href="armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly" title="armi.reactor.assemblies.Assembly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Assembly</span></code></a>) – The assembly getting discharged out the core.</p></li>
+</ul>
+</dd>
+</dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
@@ -603,8 +617,8 @@ of SFP for round 2, etc.)</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

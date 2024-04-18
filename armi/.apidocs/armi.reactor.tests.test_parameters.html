@@ -12,7 +12,7 @@
 <meta name="description" content="Tests of the Parameters class." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.tests.test_parameters module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.tests.test_parameters module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -217,12 +217,14 @@ database3._writeParams for an example use of this functionality.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.ParameterTests.test_setter">
 <span class="sig-name descname"><span class="pre">test_setter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#ParameterTests.test_setter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.ParameterTests.test_setter" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test the Parameter setter() tooling, that signifies if a Parameter has been updated.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.ParameterTests.test_setterGetterBasics">
 <span class="sig-name descname"><span class="pre">test_setterGetterBasics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#ParameterTests.test_setterGetterBasics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.ParameterTests.test_setterGetterBasics" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Test the Parameter setter/getter tooling, through the lifecycle of a Parameter being updated.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.ParameterTests.test_cannotDefineParameterWithSameName">
@@ -267,107 +269,7 @@ database3._writeParams for an example use of this functionality.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.ParameterTests.test_parameterCollectionsHave__slots__">
 <span class="sig-name descname"><span class="pre">test_parameterCollectionsHave__slots__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#ParameterTests.test_parameterCollectionsHave__slots__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.ParameterTests.test_parameterCollectionsHave__slots__" title="Permalink to this definition"></a></dt>
-<dd><p>Make sure something is implemented to prevent accidental creation of
-attributes.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.MockSyncPC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.tests.test_parameters.</span></span><span class="sig-name descname"><span class="pre">MockSyncPC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.12)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#MockSyncPC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.MockSyncPC" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="armi.reactor.parameters.parameterCollections.html#armi.reactor.parameters.parameterCollections.ParameterCollection" title="armi.reactor.parameters.parameterCollections.ParameterCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterCollection</span></code></a></p>
-<p>Create a new ParameterCollection instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>_state</strong> – Optional list of parameter values, ordered by _allFields. Passed values
-should come from a call to __getstate__(). This should only be used
-internally to this model.</p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.MockSyncPC.pDefs">
-<span class="sig-name descname"><span class="pre">pDefs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="armi.reactor.parameters.parameterDefinitions.html#armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection" title="armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection"><span class="pre">ParameterDefinitionCollection</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;armi.reactor.parameters.parameterDefinitions.ParameterDefinitionCollection</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#armi.reactor.tests.test_parameters.MockSyncPC.pDefs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.MockSyncPC.pb">
-<span class="sig-name descname"><span class="pre">pb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;armi.reactor.parameters.parameterDefinitions.ParameterBuilder</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#armi.reactor.tests.test_parameters.MockSyncPC.pb" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.makeComp">
-<span class="sig-prename descclassname"><span class="pre">armi.reactor.tests.test_parameters.</span></span><span class="sig-name descname"><span class="pre">makeComp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#makeComp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.makeComp" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.tests.test_parameters.</span></span><span class="sig-name descname"><span class="pre">SynchronizationTests</span></span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Some unit tests that must be run with mpirun instead of the standard unittest
-system.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testNamePrefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mpitest_'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.run" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.write">
-<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.write" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.assertRaises">
-<span class="sig-name descname"><span class="pre">assertRaises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exceptionType</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.assertRaises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.assertRaises" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.assertEqual">
-<span class="sig-name descname"><span class="pre">assertEqual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.assertEqual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.assertEqual" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.assertNotEqual">
-<span class="sig-name descname"><span class="pre">assertNotEqual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.assertNotEqual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.assertNotEqual" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_noConflicts">
-<span class="sig-name descname"><span class="pre">mpitest_noConflicts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_noConflicts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_noConflicts" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_noConflicts_setByString">
-<span class="sig-name descname"><span class="pre">mpitest_noConflicts_setByString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_noConflicts_setByString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_noConflicts_setByString" title="Permalink to this definition"></a></dt>
-<dd><p>Make sure params set by string also work with sync.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_withConflicts">
-<span class="sig-name descname"><span class="pre">mpitest_withConflicts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_withConflicts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_withConflicts" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_withConflictsButSameValue">
-<span class="sig-name descname"><span class="pre">mpitest_withConflictsButSameValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_withConflictsButSameValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_withConflictsButSameValue" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_noConflictsMaintainWithStateRetainer">
-<span class="sig-name descname"><span class="pre">mpitest_noConflictsMaintainWithStateRetainer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_noConflictsMaintainWithStateRetainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_noConflictsMaintainWithStateRetainer" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_conflictsMaintainWithStateRetainer">
-<span class="sig-name descname"><span class="pre">mpitest_conflictsMaintainWithStateRetainer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_conflictsMaintainWithStateRetainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_conflictsMaintainWithStateRetainer" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_rxCoeffsProcess">
-<span class="sig-name descname"><span class="pre">mpitest_rxCoeffsProcess</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/tests/test_parameters.html#SynchronizationTests.mpitest_rxCoeffsProcess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.tests.test_parameters.SynchronizationTests.mpitest_rxCoeffsProcess" title="Permalink to this definition"></a></dt>
-<dd><p>This test mimics the process for rxCoeffs when doing distributed doppler.</p>
+<dd><p>Tests we prevent accidental creation of attributes.</p>
 </dd></dl>
 
 </dd></dl>
@@ -385,8 +287,8 @@ system.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

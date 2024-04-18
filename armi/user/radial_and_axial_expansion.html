@@ -12,7 +12,7 @@
 <meta name="description" content="ARMI natively supports linear expansion in both the radial and axial dimensions. These expansion types function independently of one another and each have their own set of underlying assumptions an..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>11. Radial and Axial Expansion and Contraction &mdash; ARMI 0.2.9 documentation</title>
+  <title>11. Radial and Axial Expansion and Contraction &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -54,7 +54,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,12 +66,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">User Docs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="user_install.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inputs/index.html">2. Inputs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outputs/index.html">3. Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">2. Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html">3. Outputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual_data_access.html">4. Accessing Data in ARMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reactor_parameters_report.html">5. Reactor Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="core_parameters_report.html">6. Core Parameters</a></li>
@@ -81,14 +79,14 @@
 <li class="toctree-l2"><a class="reference internal" href="physics_coupling.html">10. Physics Coupling</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">11. Radial and Axial Expansion and Contraction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#thermal-expansion">11.1. Thermal Expansion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#radial-expansion">11.2. Radial Expansion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#axial-expansion">11.3. Axial Expansion</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="accessingEntryPoints.html">12. Accessing Entry Points</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -124,7 +122,7 @@
              
   <section id="radial-and-axial-expansion-and-contraction">
 <h1><span class="section-number">11. </span>Radial and Axial Expansion and Contraction<a class="headerlink" href="#radial-and-axial-expansion-and-contraction" title="Permalink to this heading"></a></h1>
-<p>ARMI natively supports linear expansion in both the radial and axial dimensions. These expansion types function independently of one another and each have their own set of underlying assumptions and use-cases. The remainder of this section is described as follows: in Section <a class="reference internal" href="#thermalexpansion"><span class="std std-ref">Thermal Expansion</span></a> the methodology used for thermal expansion within ARMI is described; in Sections <a class="reference internal" href="#radialexpansion"><span class="std std-ref">Radial Expansion</span></a> and <a class="reference internal" href="#axialexpansion"><span class="std std-ref">Axial Expansion</span></a>, we describe the design, limitations, and intended functionality of radial and axial expansion, respectively.</p>
+<p>ARMI natively supports linear expansion in both the radial and axial dimensions. These expansion types function independently of one another and each have their own set of underlying assumptions and use-cases. The remainder of this section is described as follows: in Section <a class="reference internal" href="#thermalexpansion"><span class="std std-ref">Thermal Expansion</span></a> the methodology used for thermal expansion within ARMI is described; in Sections <span class="xref std std-ref">radialExpansion</span> and <span class="xref std std-ref">axialExpansion</span>, we describe the design, limitations, and intended functionality of radial and axial expansion, respectively.</p>
 <section id="thermal-expansion">
 <span id="thermalexpansion"></span><h2><span class="section-number">11.1. </span>Thermal Expansion<a class="headerlink" href="#thermal-expansion" title="Permalink to this heading"></a></h2>
 <p>ARMI treats thermal expansion as a linear phenomena using the standard linear expansion relationship,</p>
@@ -135,22 +133,22 @@
 <span class="eqno">(2)<a class="headerlink" href="#equation-newlength" title="Permalink to this equation"></a></span>\[L_1 = L_0\left[1 + \alpha(T_1)\left(T_1 - T_0\right) \right].\]</div>
 <p>Given Equation <a class="reference internal" href="#equation-linearexp">(1)</a>, we can create expressions for the change in length between our “hot” temperature (Equation <a class="reference internal" href="#equation-hotexp">(3)</a>)</p>
 <div class="math notranslate nohighlight" id="equation-hotexp">
-<span class="eqno">(3)<a class="headerlink" href="#equation-hotexp" title="Permalink to this equation"></a></span>\[\begin{split}\begin{align}
+<span class="eqno">(3)<a class="headerlink" href="#equation-hotexp" title="Permalink to this equation"></a></span>\[\begin{split}\begin{aligned}
     \frac{L_h - L_0}{L_0} &amp;= \alpha(T_h)\left(T_h - T_0\right),\\
     \frac{L_h}{L_0} &amp;= 1 + \alpha(T_h)\left(T_h - T_0\right).
-\end{align}\end{split}\]</div>
+\end{aligned}\end{split}\]</div>
 <p>and “non-reference” temperature, <span class="math notranslate nohighlight">\(T_c\)</span> (Equation <a class="reference internal" href="#equation-nonrefexp">(4)</a>),</p>
 <div class="math notranslate nohighlight" id="equation-nonrefexp">
-<span class="eqno">(4)<a class="headerlink" href="#equation-nonrefexp" title="Permalink to this equation"></a></span>\[\begin{split}\begin{align}
+<span class="eqno">(4)<a class="headerlink" href="#equation-nonrefexp" title="Permalink to this equation"></a></span>\[\begin{split}\begin{aligned}
     \frac{L_c - L_0}{L_0} &amp;= \alpha(T_c)\left(T_c - T_0\right),\\
     \frac{L_c}{L_0} &amp;= 1 + \alpha(T_c)\left(T_c - T_0\right).
-\end{align}\end{split}\]</div>
+\end{aligned}\end{split}\]</div>
 <p>These are used within ARMI to enable thermal expansion and contraction with a temperature not equal to the reference temperature, <span class="math notranslate nohighlight">\(T_0\)</span>. By taking the difference between Equation <a class="reference internal" href="#equation-hotexp">(3)</a> and <a class="reference internal" href="#equation-nonrefexp">(4)</a>, we can obtain an expression relating the change in length, <span class="math notranslate nohighlight">\(L_h - L_c\)</span>, to the reference length, <span class="math notranslate nohighlight">\(L_0\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-diffhotnonref">
-<span class="eqno">(5)<a class="headerlink" href="#equation-diffhotnonref" title="Permalink to this equation"></a></span>\[\begin{split}\begin{align}
+<span class="eqno">(5)<a class="headerlink" href="#equation-diffhotnonref" title="Permalink to this equation"></a></span>\[\begin{split}\begin{aligned}
     \frac{L_h - L_0}{L_0} - \frac{L_c - L_0}{L_0} &amp;= \frac{L_h}{L_0} - 1 - \frac{L_c}{L_0} + 1, \\
     &amp;= \frac{L_h - L_c}{L_0}.
-\end{align}\end{split}\]</div>
+\end{aligned}\end{split}\]</div>
 <p>Using Equations <a class="reference internal" href="#equation-diffhotnonref">(5)</a> and <a class="reference internal" href="#equation-nonrefexp">(4)</a>, we can obtain an expression for the change in length, <span class="math notranslate nohighlight">\(L_h - L_c\)</span>, relative to the non-reference temperature,</p>
 <div class="math notranslate nohighlight" id="equation-expnewrelative">
 <span class="eqno">(6)<a class="headerlink" href="#equation-expnewrelative" title="Permalink to this equation"></a></span>\[\begin{split}\frac{L_h - L_c}{L_c} &amp;= \frac{L_h - L_c}{L_0} \frac{L_0}{L_c}\\
@@ -163,12 +161,6 @@
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="../.apidocs/armi.materials.material.html#armi.materials.material.Material.linearExpansionPercent" title="armi.materials.material.Material.linearExpansionPercent"><code class="xref py py-meth docutils literal notranslate"><span class="pre">linearExpansionPercent</span></code></a> returns <span class="math notranslate nohighlight">\(\frac{L - L_0}{L_0}\)</span> in %.</p>
 </div>
-</section>
-<section id="radial-expansion">
-<span id="radialexpansion"></span><h2><span class="section-number">11.2. </span>Radial Expansion<a class="headerlink" href="#radial-expansion" title="Permalink to this heading"></a></h2>
-</section>
-<section id="axial-expansion">
-<span id="axialexpansion"></span><h2><span class="section-number">11.3. </span>Axial Expansion<a class="headerlink" href="#axial-expansion" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
@@ -183,8 +175,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

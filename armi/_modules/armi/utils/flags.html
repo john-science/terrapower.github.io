@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.utils.flags &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.utils.flags &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -212,13 +212,22 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A collection of bitwise flags.</span>
 
-<span class="sd">    This is intended to emulate ``enum.Flag``, except with the possibility of extension</span>
-<span class="sd">    after the class has been defined. Most docs for ``enum.Flag`` should be relevant here,</span>
-<span class="sd">    but there are sure to be occasional differences.</span>
+<span class="sd">    This is intended to emulate ``enum.Flag``, except with the possibility of extension after the</span>
+<span class="sd">    class has been defined. Most docs for ``enum.Flag`` should be relevant here, but there are sure</span>
+<span class="sd">    to be occasional differences.</span>
 
 <span class="sd">    .. impl:: No two flags have equivalence.</span>
 <span class="sd">        :id: I_ARMI_FLAG_DEFINE</span>
 <span class="sd">        :implements: R_ARMI_FLAG_DEFINE</span>
+
+<span class="sd">        A bitwise flag class intended to emulate the standard library&#39;s ``enum.Flag``, with the</span>
+<span class="sd">        added functionality that it allows for extension after the class has been defined. Each Flag</span>
+<span class="sd">        is unique; no two Flags are equivalent.</span>
+
+<span class="sd">        Note that while Python allows for arbitrary-width integers, exceeding the system-native</span>
+<span class="sd">        integer size can lead to challenges in storing data, e.g. in an HDF5 file. In this case, the</span>
+<span class="sd">        ``from_bytes()`` and ``to_bytes()`` methods are provided to represent a Flag&#39;s values in</span>
+<span class="sd">        smaller chunks so that writeability can be maintained.</span>
 
 <span class="sd">    .. warning::</span>
 <span class="sd">        Python features arbitrary-width integers, allowing one to represent an</span>
@@ -314,14 +323,18 @@
 <span class="sd">            the new data, since classes are mutable.</span>
 
 <span class="sd">        .. impl:: Set of flags are extensible without loss of uniqueness.</span>
-<span class="sd">            :id: I_ARMI_FLAG_EXTEND</span>
+<span class="sd">            :id: I_ARMI_FLAG_EXTEND0</span>
 <span class="sd">            :implements: R_ARMI_FLAG_EXTEND</span>
+
+<span class="sd">            A class method to extend a ``Flag`` with a vector of provided additional ``fields``,</span>
+<span class="sd">            with field names as keys, without loss of uniqueness. Values for the additional</span>
+<span class="sd">            ``fields`` can be explicitly specified, or an instance of ``auto`` can be supplied.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        fields : dict</span>
-<span class="sd">            A dictionary containing field names as keys, and their desired values, or</span>
-<span class="sd">            an instance of ``auto`` as values.</span>
+<span class="sd">            A dictionary containing field names as keys, and their desired values, or an instance of</span>
+<span class="sd">            ``auto`` as values.</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -429,8 +442,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

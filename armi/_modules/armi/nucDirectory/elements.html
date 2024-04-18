@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.nucDirectory.elements &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.nucDirectory.elements &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -111,6 +111,20 @@
 <span class="sd">.. impl:: A tool for querying basic data for elements of the periodic table.</span>
 <span class="sd">    :id: I_ARMI_ND_ELEMENTS0</span>
 <span class="sd">    :implements: R_ARMI_ND_ELEMENTS</span>
+
+<span class="sd">    The :py:mod:`elements &lt;armi.nucDirectory.elements&gt;` module defines the</span>
+<span class="sd">    :py:class:`Element &lt;armi.nucDirectory.elements.Element&gt;` class which acts as</span>
+<span class="sd">    a data structure for organizing information about an individual element,</span>
+<span class="sd">    including number of protons, name, chemical symbol, phase (at STP), periodic</span>
+<span class="sd">    table group, standard weight, and a list of isotope :py:class:`nuclideBase</span>
+<span class="sd">    &lt;armi.nucDirectory.nuclideBases.NuclideBase&gt;` instances. The module includes</span>
+<span class="sd">    a factory that generates the :py:class:`Element</span>
+<span class="sd">    &lt;armi.nucDirectory.elements.Element&gt;` instances by reading from the</span>
+<span class="sd">    ``elements.dat`` file stored in the ARMI resources folder.  When an</span>
+<span class="sd">    :py:class:`Element &lt;armi.nucDirectory.elements.Element&gt;` instance is</span>
+<span class="sd">    initialized, it is added to a set of global dictionaries that are keyed by</span>
+<span class="sd">    number of protons, element name, and element symbol. The module includes</span>
+<span class="sd">    several helper functions for querying these global dictionaries.</span>
 
 <span class="sd">The element class structure is outlined :ref:`here &lt;elements-class-diagram&gt;`.</span>
 
@@ -168,41 +182,42 @@
 <span class="sd">     &lt;Element  LR (Z=103), Lawrencium, ChemicalGroup.ACTINIDE, ChemicalPhase.SOLID&gt;]</span>
 
 
-<span class="sd">For specific data on nuclides within each element, refer to the </span>
-<span class="sd">:ref:`nuclide bases summary table &lt;nuclide-bases-table&gt;`.</span>
+<span class="sd">.. only:: html</span>
 
+<span class="sd">    For specific data on nuclides within each element, refer to the</span>
+<span class="sd">    :ref:`nuclide bases summary table &lt;nuclide-bases-table&gt;`.</span>
 
-<span class="sd">.. exec::</span>
-<span class="sd">    from tabulate import tabulate</span>
-<span class="sd">    from armi.nucDirectory import elements</span>
+<span class="sd">    .. exec::</span>
+<span class="sd">        from tabulate import tabulate</span>
+<span class="sd">        from armi.nucDirectory import elements</span>
+<span class="sd">        from dochelpers import createTable</span>
 
-<span class="sd">    attributes = [&#39;z&#39;,</span>
-<span class="sd">                  &#39;name&#39;,</span>
-<span class="sd">                  &#39;symbol&#39;,</span>
-<span class="sd">                  &#39;phase&#39;,</span>
-<span class="sd">                  &#39;group&#39;,</span>
-<span class="sd">                  &#39;is naturally occurring?&#39;,</span>
-<span class="sd">                  &#39;is heavy metal?&#39;,</span>
-<span class="sd">                  &#39;num. nuclides&#39;,]</span>
+<span class="sd">        attributes = [&#39;z&#39;,</span>
+<span class="sd">                    &#39;name&#39;,</span>
+<span class="sd">                    &#39;symbol&#39;,</span>
+<span class="sd">                    &#39;phase&#39;,</span>
+<span class="sd">                    &#39;group&#39;,</span>
+<span class="sd">                    &#39;is naturally occurring?&#39;,</span>
+<span class="sd">                    &#39;is heavy metal?&#39;,</span>
+<span class="sd">                    &#39;num. nuclides&#39;,]</span>
 
-<span class="sd">    def getAttributes(element):</span>
-<span class="sd">        return [</span>
-<span class="sd">            f&#39;``{element.z}``&#39;,</span>
-<span class="sd">            f&#39;``{element.name}``&#39;,</span>
-<span class="sd">            f&#39;``{element.symbol}``&#39;,</span>
-<span class="sd">            f&#39;``{element.phase}``&#39;,</span>
-<span class="sd">            f&#39;``{element.group}``&#39;,</span>
-<span class="sd">            f&#39;``{element.isNaturallyOccurring()}``&#39;,</span>
-<span class="sd">            f&#39;``{element.isHeavyMetal()}``&#39;,</span>
-<span class="sd">            f&#39;``{len(element.nuclides)}``&#39;,</span>
-<span class="sd">        ]</span>
+<span class="sd">        def getAttributes(element):</span>
+<span class="sd">            return [</span>
+<span class="sd">                f&#39;``{element.z}``&#39;,</span>
+<span class="sd">                f&#39;``{element.name}``&#39;,</span>
+<span class="sd">                f&#39;``{element.symbol}``&#39;,</span>
+<span class="sd">                f&#39;``{element.phase}``&#39;,</span>
+<span class="sd">                f&#39;``{element.group}``&#39;,</span>
+<span class="sd">                f&#39;``{element.isNaturallyOccurring()}``&#39;,</span>
+<span class="sd">                f&#39;``{element.isHeavyMetal()}``&#39;,</span>
+<span class="sd">                f&#39;``{len(element.nuclides)}``&#39;,</span>
+<span class="sd">            ]</span>
 
-<span class="sd">    sortedElements = sorted(elements.byZ.values())</span>
-<span class="sd">    return create_table(tabulate(tabular_data=[getAttributes(elem) for elem in sortedElements],</span>
-<span class="sd">                                 headers=attributes,</span>
-<span class="sd">                                 tablefmt=&#39;rst&#39;),</span>
-<span class="sd">                        caption=&#39;List of elements&#39;)</span>
-
+<span class="sd">        sortedElements = sorted(elements.byZ.values())</span>
+<span class="sd">        return createTable(tabulate(tabular_data=[getAttributes(elem) for elem in sortedElements],</span>
+<span class="sd">                                    headers=attributes,</span>
+<span class="sd">                                    tablefmt=&#39;rst&#39;),</span>
+<span class="sd">                           caption=&#39;List of elements&#39;)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
@@ -248,6 +263,19 @@
 <span class="sd">        .. impl:: An element of the periodic table.</span>
 <span class="sd">            :id: I_ARMI_ND_ELEMENTS1</span>
 <span class="sd">            :implements: R_ARMI_ND_ELEMENTS</span>
+
+<span class="sd">            The :py:class:`Element &lt;armi.nucDirectory.elements.Element&gt;` class</span>
+<span class="sd">            acts as a data structure for organizing information about an</span>
+<span class="sd">            individual element, including number of protons, name, chemical</span>
+<span class="sd">            symbol, phase (at STP), periodic table group, standard weight, and a</span>
+<span class="sd">            list of isotope</span>
+<span class="sd">            :py:class:`nuclideBase &lt;armi.nucDirectory.nuclideBases.NuclideBase&gt;`</span>
+<span class="sd">            instances.</span>
+
+<span class="sd">            The :py:class:`Element &lt;armi.nucDirectory.elements.Element&gt;` class</span>
+<span class="sd">            has a few methods for appending additional isotopes, checking</span>
+<span class="sd">            whether an isotope is naturally occurring, retrieving the natural</span>
+<span class="sd">            isotopic abundance, or whether the element is a heavy metal.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -516,8 +544,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

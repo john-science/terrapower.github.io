@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.assemblies &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.assemblies &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -125,6 +125,7 @@
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">composites</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">grids</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
+<span class="kn">from</span> <span class="nn">armi.materials.material</span> <span class="kn">import</span> <span class="n">Fluid</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.parameters</span> <span class="kn">import</span> <span class="n">ParamLocation</span>
 
 
@@ -219,8 +220,7 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        You must run armi.reactor.reactors.Reactor.regenAssemblyLists after calling</span>
-<span class="sd">        this.</span>
+<span class="sd">        You must run armi.reactor.reactors.Reactor.regenAssemblyLists after calling this.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">assemNum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNum</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">bi</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -273,18 +273,22 @@
 <span class="sd">        .. impl:: Assemblies are made up of type Block.</span>
 <span class="sd">            :id: I_ARMI_ASSEM_BLOCKS</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_BLOCKS</span>
+
+<span class="sd">            Adds a unique Block to the top of the Assembly. If the Block already</span>
+<span class="sd">            exists in the Assembly, an error is raised in</span>
+<span class="sd">            :py:meth:`armi.reactor.composites.Composite.add`.</span>
+<span class="sd">            The spatialLocator of the Assembly is updated to account for</span>
+<span class="sd">            the new Block. In ``reestablishBlockOrder``, the Assembly spatialGrid</span>
+<span class="sd">            is reinitialized and Block-wise spatialLocator and name objects</span>
+<span class="sd">            are updated. The axial mesh and other Block geometry parameters are</span>
+<span class="sd">            updated in ``calculateZCoords``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">composites</span><span class="o">.</span><span class="n">Composite</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
         <span class="n">obj</span><span class="o">.</span><span class="n">spatialLocator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="c1"># assemblies have bounds-based 1-D spatial grids. Adjust it to the right value.</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">obj</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># more work is needed, make a new mesh</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reestablishBlockOrder</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">calculateZCoords</span><span class="p">()</span></div>
+
+        <span class="c1"># more work is needed, make a new mesh</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reestablishBlockOrder</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calculateZCoords</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Assembly.moveTo"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.moveTo">[docs]</a>    <span class="k">def</span> <span class="nf">moveTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locator</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Move an assembly somewhere else.&quot;&quot;&quot;</span>
@@ -309,16 +313,16 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get string label representing this object&#39;s location.</span>
 
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        This function (and its friends) were created before the advent of both the</span>
-<span class="sd">        grid/spatialLocator system and the ability to represent things like the SFP as</span>
-<span class="sd">        siblings of a Core. In future, this will likely be re-implemented in terms of</span>
-<span class="sd">        just spatialLocator objects.</span>
-
 <span class="sd">        .. impl:: Assembly location is retrievable.</span>
 <span class="sd">            :id: I_ARMI_ASSEM_POSI0</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_POSI</span>
+
+<span class="sd">            This method returns a string label indicating the location</span>
+<span class="sd">            of an Assembly. There are three options: 1) the Assembly</span>
+<span class="sd">            is not within a Core object and is interpreted as in the</span>
+<span class="sd">            &quot;load queue&quot;; 2) the Assembly is within the spent fuel pool;</span>
+<span class="sd">            3) the Assembly is within a Core object, so it has a physical</span>
+<span class="sd">            location within the Core.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># just use ring and position, not axial (which is 0)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
@@ -336,6 +340,9 @@
 <span class="sd">        .. impl:: Assembly coordinates are retrievable.</span>
 <span class="sd">            :id: I_ARMI_ASSEM_POSI1</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_POSI</span>
+
+<span class="sd">            In this method, the spatialLocator of an Assembly is leveraged to return</span>
+<span class="sd">            its physical (x,y) coordinates in cm.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getGlobalCoordinates</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
@@ -350,6 +357,10 @@
 <span class="sd">        .. impl:: Assembly area is retrievable.</span>
 <span class="sd">            :id: I_ARMI_ASSEM_DIMS0</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_DIMS</span>
+
+<span class="sd">            Returns the area of the first block in the Assembly. If there are no</span>
+<span class="sd">            blocks in the Assembly, a warning is issued and a default area of 1.0</span>
+<span class="sd">            is returned.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span>
@@ -365,6 +376,10 @@
 <span class="sd">        .. impl:: Assembly volume is retrievable.</span>
 <span class="sd">            :id: I_ARMI_ASSEM_DIMS1</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_DIMS</span>
+
+<span class="sd">            The volume of the Assembly is calculated as the product of the</span>
+<span class="sd">            area of the first block (via ``getArea``) and the total height</span>
+<span class="sd">            of the assembly (via ``getTotalHeight``).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTotalHeight</span><span class="p">()</span></div>
 
@@ -376,7 +391,9 @@
 <span class="sd">        -----</span>
 <span class="sd">        If there is no plenum blocks in the assembly, a plenum volume of 0.0 is returned</span>
 
-<span class="sd">        .. warning:: This is a bit design-specific for pinned assemblies</span>
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This is a bit design-specific for pinned assemblies</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">plenumBlocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">PLENUM</span><span class="p">)</span>
 
@@ -394,9 +411,8 @@
         <span class="n">plenumBlocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">PLENUM</span><span class="p">)</span>
         <span class="n">plenumTemps</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">THcoolantOutletT</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">plenumBlocks</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="p">(</span>
-            <span class="ow">not</span> <span class="n">plenumTemps</span>
-        <span class="p">):</span>  <span class="c1"># no plenum blocks, use the top block of the assembly for plenum temperature</span>
+        <span class="c1"># no plenum blocks, use the top block of the assembly for plenum temperature</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">plenumTemps</span><span class="p">:</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No plenum blocks exist. Using outlet coolant temperature.&quot;</span><span class="p">)</span>
             <span class="n">plenumTemps</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">THcoolantOutletT</span><span class="p">]</span>
 
@@ -415,8 +431,9 @@
 <span class="sd">        -----</span>
 <span class="sd">        Used for mesh sensitivity studies.</span>
 
-<span class="sd">        .. warning:: This is likely destined for a geometry converter rather than</span>
-<span class="sd">            this instance method.</span>
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This is likely destined for a geometry converter rather than this instance method.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">newBlockStack</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">topIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -485,6 +502,7 @@
                 <span class="n">newBlocks</span> <span class="o">-=</span> <span class="p">(</span>
                     <span class="mi">1</span>  <span class="c1"># subtract one because we eliminated the original b completely.</span>
                 <span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">removeAll</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span> <span class="o">=</span> <span class="n">grids</span><span class="o">.</span><span class="n">axialUnitGrid</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">newBlockStack</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">newBlockStack</span><span class="p">:</span>
@@ -512,7 +530,6 @@
 
 <span class="sd">        armi.reactor.reactors.Reactor.findAllAxialMeshPoints : gets a global list of all</span>
 <span class="sd">        of these, plus finer res.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">bottom</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">meshVals</span> <span class="o">=</span> <span class="p">[]</span>
@@ -570,6 +587,10 @@
 <span class="sd">            :id: I_ARMI_ASSEM_DIMS2</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_DIMS</span>
 
+<span class="sd">            The height of the Assembly is calculated by taking the sum of the</span>
+<span class="sd">            constituent Blocks. If a ``typeSpec`` is provided, the total height</span>
+<span class="sd">            of the blocks containing Flags that match the ``typeSpec`` is returned.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        typeSpec : See :py:meth:`armi.composites.Composite.hasFlags`</span>
@@ -578,7 +599,6 @@
 <span class="sd">        -------</span>
 <span class="sd">        height : float</span>
 <span class="sd">            the height in cm</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">h</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
@@ -630,7 +650,6 @@
 <span class="sd">        elevation : list of floats</span>
 <span class="sd">            Every float in the list is an elevation of a block boundary for the block</span>
 <span class="sd">            type specified (has duplicates)</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">elevation</span><span class="p">,</span> <span class="n">elevationsWithBlockBoundaries</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">[]</span>
 
@@ -742,7 +761,7 @@
 
     <span class="k">def</span> <span class="nf">_shouldMassBeConserved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">belowFuelColumn</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Determine from a rule set if the mass of a block should be conserved during axial expansion.</span>
+<span class="sd">        Determine from a rule set if the mass of a block component should be conserved during axial expansion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -758,8 +777,8 @@
 <span class="sd">        conserveMass : boolean</span>
 <span class="sd">            Should the mass be conserved in this block</span>
 
-<span class="sd">        adjustList : list of nuclides</span>
-<span class="sd">            What nuclides should have their mass conserved (if any)</span>
+<span class="sd">        conserveComponents : list of components</span>
+<span class="sd">            What components should have their mass conserved (if any)</span>
 
 <span class="sd">        belowFuelColumn : boolean</span>
 <span class="sd">            Update whether the block is above or below a fuel column</span>
@@ -772,32 +791,31 @@
         <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">):</span>
             <span class="c1"># fuel block</span>
             <span class="n">conserveMass</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">adjustList</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()</span>
+            <span class="n">conserveComponents</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getComponents</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">):</span>
             <span class="c1"># non-fuel block of a fuel assembly.</span>
             <span class="k">if</span> <span class="n">belowFuelColumn</span><span class="p">:</span>
                 <span class="c1"># conserve mass of everything below the fuel so as to not invalidate</span>
                 <span class="c1"># grid-plate dose calcs.</span>
                 <span class="n">conserveMass</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="n">adjustList</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()</span>
-                <span class="c1"># conserve mass of everything except coolant.</span>
-                <span class="n">coolant</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">COOLANT</span><span class="p">)</span>
-                <span class="n">coolantList</span> <span class="o">=</span> <span class="n">coolant</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">()</span> <span class="k">if</span> <span class="n">coolant</span> <span class="k">else</span> <span class="p">[]</span>
-                <span class="k">for</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="n">coolantList</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="n">adjustList</span><span class="p">:</span>
-                        <span class="n">adjustList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">nuc</span><span class="p">)</span>
+                <span class="c1"># conserve mass of everything except fluids.</span>
+                <span class="n">conserveComponents</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">comp</span>
+                    <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">getComponents</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">material</span><span class="p">,</span> <span class="n">Fluid</span><span class="p">)</span>
+                <span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># plenum or above block in fuel assembly. don&#39;t conserve mass.</span>
                 <span class="n">conserveMass</span> <span class="o">=</span> <span class="kc">False</span>
-                <span class="n">adjustList</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">conserveComponents</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># non fuel block in non-fuel assem. Don&#39;t conserve mass.</span>
             <span class="n">conserveMass</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="n">adjustList</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">conserveComponents</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">return</span> <span class="n">conserveMass</span><span class="p">,</span> <span class="n">adjustList</span>
+        <span class="k">return</span> <span class="n">conserveMass</span><span class="p">,</span> <span class="n">conserveComponents</span>
 
-<div class="viewcode-block" id="Assembly.setBlockMesh"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.setBlockMesh">[docs]</a>    <span class="k">def</span> <span class="nf">setBlockMesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockMesh</span><span class="p">,</span> <span class="n">conserveMassFlag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">adjustList</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Assembly.setBlockMesh"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.setBlockMesh">[docs]</a>    <span class="k">def</span> <span class="nf">setBlockMesh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockMesh</span><span class="p">,</span> <span class="n">conserveMassFlag</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Snaps the axial mesh points of this assembly to correspond with the reference mesh.</span>
 
@@ -825,7 +843,14 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        blockMesh : iterable</span>
-<span class="sd">            a list of floats describing the upper mesh points of each block in cm.</span>
+<span class="sd">            A list of floats describing the upper mesh points of each block in cm.</span>
+
+<span class="sd">        conserveMassFlag : bool or str</span>
+<span class="sd">            Option for how to treat mass conservation when the block mesh changes.</span>
+<span class="sd">            Conservation of mass for fuel components is enabled by</span>
+<span class="sd">            conserveMassFlag=&quot;auto&quot;. If not auto, a boolean value should be</span>
+<span class="sd">            passed. The default is False, which does not conserve any masses.</span>
+<span class="sd">            True conserves mass for all components.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -865,15 +890,19 @@
                 <span class="k">return</span>
 
             <span class="k">if</span> <span class="n">conserveMassFlag</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
-                <span class="n">conserveMass</span><span class="p">,</span> <span class="n">adjustList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shouldMassBeConserved</span><span class="p">(</span>
+                <span class="n">conserveMass</span><span class="p">,</span> <span class="n">conserveComponents</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shouldMassBeConserved</span><span class="p">(</span>
                     <span class="n">belowFuelColumn</span><span class="p">,</span> <span class="n">b</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">conserveMass</span> <span class="o">=</span> <span class="n">conserveMassFlag</span>
+                <span class="n">conserveComponents</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getComponents</span><span class="p">()</span>
 
-            <span class="n">b</span><span class="o">.</span><span class="n">setHeight</span><span class="p">(</span>
-                <span class="n">newTop</span> <span class="o">-</span> <span class="n">zBottom</span><span class="p">,</span> <span class="n">conserveMass</span><span class="o">=</span><span class="n">conserveMass</span><span class="p">,</span> <span class="n">adjustList</span><span class="o">=</span><span class="n">adjustList</span>
-            <span class="p">)</span>
+            <span class="n">oldBlockHeight</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">setHeight</span><span class="p">(</span><span class="n">newTop</span> <span class="o">-</span> <span class="n">zBottom</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">conserveMass</span><span class="p">:</span>
+                <span class="n">heightRatio</span> <span class="o">=</span> <span class="n">oldBlockHeight</span> <span class="o">/</span> <span class="n">b</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">conserveComponents</span><span class="p">:</span>
+                    <span class="n">c</span><span class="o">.</span><span class="n">changeNDensByFactor</span><span class="p">(</span><span class="n">heightRatio</span><span class="p">)</span>
             <span class="n">zBottom</span> <span class="o">=</span> <span class="n">newTop</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">calculateZCoords</span><span class="p">()</span></div>
@@ -933,8 +962,8 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        for block, bottomZ in a.getBlocksAndZ(returnBottomZ=True):</span>
-<span class="sd">            print({0}&#39;s bottom mesh point is {1}&#39;.format(block, bottomZ))</span>
+<span class="sd">            for block, bottomZ in a.getBlocksAndZ(returnBottomZ=True):</span>
+<span class="sd">                print({0}&#39;s bottom mesh point is {1}&#39;.format(block, bottomZ))</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">returnBottomZ</span> <span class="ow">and</span> <span class="n">returnTopZ</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both returnTopZ and returnBottomZ are set to `True`&quot;</span><span class="p">)</span>
@@ -958,10 +987,9 @@
         <span class="k">return</span> <span class="nb">zip</span><span class="p">(</span><span class="n">blocks</span><span class="p">,</span> <span class="n">zCoords</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Assembly.hasContinuousCoolantChannel"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.hasContinuousCoolantChannel">[docs]</a>    <span class="k">def</span> <span class="nf">hasContinuousCoolantChannel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">b</span><span class="o">.</span><span class="n">containsAtLeastOneChildWithFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">COOLANT</span><span class="p">):</span>
-                <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">containsAtLeastOneChildWithFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">COOLANT</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">()</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Assembly.getFirstBlock"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getFirstBlock">[docs]</a>    <span class="k">def</span> <span class="nf">getFirstBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeSpec</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">bs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">typeSpec</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="n">exact</span><span class="p">)</span>
@@ -1051,9 +1079,9 @@
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        If the block structure looks like:</span>
-<span class="sd">         50.0 to 100.0 Block3</span>
-<span class="sd">         25.0 to 50.0  Block2</span>
-<span class="sd">         0.0 to 25.0   Block1</span>
+<span class="sd">        50.0 to 100.0 Block3</span>
+<span class="sd">        25.0 to 50.0  Block2</span>
+<span class="sd">        0.0 to 25.0   Block1</span>
 
 <span class="sd">        Then,</span>
 
@@ -1246,7 +1274,7 @@
 
 <div class="viewcode-block" id="Assembly.reestablishBlockOrder"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.reestablishBlockOrder">[docs]</a>    <span class="k">def</span> <span class="nf">reestablishBlockOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        After children have been mixed up axially, this re-locates each block with the proper axial mesh.</span>
+<span class="sd">        The block ordering has changed, so the spatialGrid and Block-wise spatialLocator and name objects need updating.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1278,14 +1306,21 @@
 
 <div class="viewcode-block" id="Assembly.getDim"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.getDim">[docs]</a>    <span class="k">def</span> <span class="nf">getDim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeSpec</span><span class="p">,</span> <span class="n">dimName</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Search through blocks in this assembly and find the first component of compName.</span>
-<span class="sd">        Then, look on that component for dimName.</span>
+<span class="sd">        With a preference for fuel blocks, find the first component in the Assembly with</span>
+<span class="sd">        flags that match ``typeSpec`` and return dimension as specified by ``dimName``.</span>
 
 <span class="sd">        Example: getDim(Flags.WIRE, &#39;od&#39;) will return a wire&#39;s OD in cm.</span>
 
 <span class="sd">        .. impl:: Assembly dimensions are retrievable.</span>
 <span class="sd">            :id: I_ARMI_ASSEM_DIMS3</span>
 <span class="sd">            :implements: R_ARMI_ASSEM_DIMS</span>
+
+<span class="sd">            This method searches for the first Component that matches the</span>
+<span class="sd">            given ``typeSpec`` and returns the dimension as specified by</span>
+<span class="sd">            ``dimName``. There is a hard-coded preference for Components</span>
+<span class="sd">            to be within fuel Blocks. If there are no Blocks, then ``None``</span>
+<span class="sd">            is returned. If ``typeSpec`` is not within the first Block, an</span>
+<span class="sd">            error is raised within :py:meth:`~armi.reactor.blocks.Block.getDim`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># prefer fuel blocks.</span>
         <span class="n">bList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">)</span>
@@ -1306,26 +1341,39 @@
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getSymmetryFactor</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Assembly.rotate"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.rotate">[docs]</a>    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rad</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rotates the spatial variables on an assembly the specified angle.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rotates the spatial variables on an assembly by the specified angle.</span>
 
-<span class="sd">        Each block on the assembly is rotated in turn.</span>
+<span class="sd">        Each Block on the Assembly is rotated in turn.</span>
+
+<span class="sd">        .. impl:: An assembly can be rotated about its z-axis.</span>
+<span class="sd">            :id: I_ARMI_SHUFFLE_ROTATE</span>
+<span class="sd">            :implements: R_ARMI_SHUFFLE_ROTATE</span>
+
+<span class="sd">            This method loops through every ``Block`` in this ``Assembly`` and rotates</span>
+<span class="sd">            it by a given angle (in radians). The rotation angle is positive in the</span>
+<span class="sd">            counter-clockwise direction, and must be divisible by increments of PI/6</span>
+<span class="sd">            (60 degrees). To actually perform the ``Block`` rotation, the</span>
+<span class="sd">            :py:meth:`armi.reactor.blocks.Block.rotate` method is called.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        rad: float</span>
 <span class="sd">            number (in radians) specifying the angle of counter clockwise rotation</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        rad must be in 60-degree increments! (i.e., PI/6, PI/3, PI, 2 * PI/3, etc)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
-            <span class="n">b</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span></div></div>
+            <span class="n">b</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Assembly.isOnWhichSymmetryLine"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.Assembly.isOnWhichSymmetryLine">[docs]</a>    <span class="k">def</span> <span class="nf">isOnWhichSymmetryLine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">spatialGrid</span>
+        <span class="k">return</span> <span class="n">grid</span><span class="o">.</span><span class="n">overlapsWhichSymmetryLine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getCompleteIndices</span><span class="p">())</span></div></div>
 
 
 <div class="viewcode-block" id="HexAssembly"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.HexAssembly">[docs]</a><span class="k">class</span> <span class="nc">HexAssembly</span><span class="p">(</span><span class="n">Assembly</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Placeholder, so users can explicitly define a hex-based assembly.</span>
-
-<span class="sd">    .. impl:: Assembly of hex blocks.</span>
-<span class="sd">        :id: I_ARMI_ASSEM_HEX</span>
-<span class="sd">        :implements: R_ARMI_ASSEM_HEX</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Placeholder, so users can explicitly define a hex-based Assembly.&quot;&quot;&quot;</span>
 
     <span class="k">pass</span></div>
 
@@ -1340,7 +1388,9 @@
 <span class="sd">    HexAssembly because they use different locations and need to have Radial Meshes in</span>
 <span class="sd">    their setting.</span>
 
-<span class="sd">    note ThRZAssemblies should be a subclass of Assemblies (similar to Hex-Z) because</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    ThRZAssemblies should be a subclass of Assemblies (similar to Hex-Z) because</span>
 <span class="sd">    they should have a common place to put information about subdividing the global mesh</span>
 <span class="sd">    for transport - this is similar to how blocks have &#39;AxialMesh&#39; in their blocks.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1351,7 +1401,7 @@
 
 <div class="viewcode-block" id="RZAssembly.radialOuter"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.assemblies.html#armi.reactor.assemblies.RZAssembly.radialOuter">[docs]</a>    <span class="k">def</span> <span class="nf">radialOuter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns the outer radial boundary of this assembly.</span>
+<span class="sd">        Returns the outer radial boundary of this assembly.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1398,8 +1448,8 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    This is a subclass of RZAssemblies, which is its a subclass of the Generics Assembly</span>
-<span class="sd">    Object</span>
+<span class="sd">    This is a subclass of RZAssemblies, which is itself a subclass of the generic</span>
+<span class="sd">    Assembly class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assemType</span><span class="p">,</span> <span class="n">assemNum</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1414,8 +1464,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

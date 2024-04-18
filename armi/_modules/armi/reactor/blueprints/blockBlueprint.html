@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blueprints.blockBlueprint &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blueprints.blockBlueprint &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -141,6 +141,25 @@
 <span class="sd">    .. impl:: Create a Block from blueprint file.</span>
 <span class="sd">        :id: I_ARMI_BP_BLOCK</span>
 <span class="sd">        :implements: R_ARMI_BP_BLOCK</span>
+
+<span class="sd">        Defines a yaml construct that allows the user to specify attributes of a block from within</span>
+<span class="sd">        their blueprints file, including a name, flags, a radial grid to specify locations of pins,</span>
+<span class="sd">        and the name of a component which drives the axial expansion of the block (see</span>
+<span class="sd">        :py:mod:`~armi.reactor.converters.axialExpansionChanger`).</span>
+
+<span class="sd">        In addition, the user may specify key-value pairs to specify the components contained within</span>
+<span class="sd">        the block, where the keys are component names and the values are component blueprints (see</span>
+<span class="sd">        :py:class:`~armi.reactor.blueprints.ComponentBlueprint.ComponentBlueprint`).</span>
+
+<span class="sd">        Relies on the underlying infrastructure from the ``yamlize`` package for reading from text</span>
+<span class="sd">        files, serialization, and internal storage of the data.</span>
+
+<span class="sd">        Is implemented into a blueprints file by being imported and used as an attribute within the</span>
+<span class="sd">        larger :py:class:`~armi.reactor.blueprints.Blueprints` class.</span>
+
+<span class="sd">        Includes a ``construct`` method, which instantiates an instance of</span>
+<span class="sd">        :py:class:`~armi.reactor.blocks.Block` with the characteristics as specified in the</span>
+<span class="sd">        blueprints.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">item_type</span> <span class="o">=</span> <span class="n">componentBlueprint</span><span class="o">.</span><span class="n">ComponentBlueprint</span>
@@ -180,8 +199,8 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        cs : CaseSettings</span>
-<span class="sd">            CaseSettings object for the appropriate simulation.</span>
+<span class="sd">        cs : Settings</span>
+<span class="sd">            Settings object for the appropriate simulation.</span>
 
 <span class="sd">        blueprint : Blueprints</span>
 <span class="sd">            Blueprints object containing various detailed information, such as nuclides to model</span>
@@ -345,7 +364,7 @@
                             <span class="n">materialParentClass</span><span class="o">.</span><span class="n">applyInputParams</span>
                         <span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
                     <span class="p">)</span>
-        <span class="c1"># self is a parameter to class methods, so it gets picked up here</span>
+        <span class="c1"># self is a parameter to methods, so it gets picked up here</span>
         <span class="c1"># but that&#39;s obviously not a real material modifier</span>
         <span class="n">perChildModifiers</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s2">&quot;self&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">perChildModifiers</span>
@@ -505,8 +524,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

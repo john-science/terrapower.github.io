@@ -12,7 +12,7 @@
 <meta name="description" content="Good Commit Messages: The ARMI project follows a few basic rules for “good” commit messages: The purpose of the message is to explain to the changes you made to a stranger 5 years from now., Keep y..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10. Tooling and Infrastructure &mdash; ARMI 0.2.9 documentation</title>
+  <title>10. Tooling and Infrastructure &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -35,7 +35,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Release Notes" href="../release/index.html" />
+    <link rel="next" title="Gallery" href="../gallery/index.html" />
     <link rel="prev" title="9. Standards and Practices for Coding" href="standards_and_practices.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,8 +64,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="guide.html">1. Framework Architecture</a></li>
@@ -85,6 +83,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#test-it">10.2.3. Test It</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#document-it">10.2.4. Document It</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#watch-for-requirements">10.2.5. Watch for Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-release-notes">10.2.6. Add Release Notes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#packaging-and-dependency-management">10.3. Packaging and dependency management</a><ul>
@@ -98,6 +97,8 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -132,7 +133,7 @@
            <div itemprop="articleBody">
              
   <section id="tooling-and-infrastructure">
-<h1><span class="section-number">10. </span>Tooling and Infrastructure<a class="headerlink" href="#tooling-and-infrastructure" title="Permalink to this heading"></a></h1>
+<span id="armi-tooling"></span><h1><span class="section-number">10. </span>Tooling and Infrastructure<a class="headerlink" href="#tooling-and-infrastructure" title="Permalink to this heading"></a></h1>
 <section id="good-commit-messages">
 <h2><span class="section-number">10.1. </span>Good Commit Messages<a class="headerlink" href="#good-commit-messages" title="Permalink to this heading"></a></h2>
 <p>The ARMI project follows a few basic rules for “good” commit messages:</p>
@@ -219,18 +220,36 @@ out-of-date.</p>
 modules you are editing. These docstrings might have bread crumbs that link back to requirements.
 Such breadcrumbs will look like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">.. req: This is a requirement breadcrumb.</span>
+<span class="sd">.. test: This is a requirement test breadcrumb.</span>
 
-<span class="sd">.. test: This is a test breadcrumb.</span>
-
-<span class="sd">.. impl: This is an implementation breadcrumb.</span>
+<span class="sd">.. impl: This is an requirement implementation breadcrumb.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>If you touch any code that has such a docstring, even in a file, you are going to be
+<p>If you touch any code that has such a docstring, even at the top of the file, you are going to be
 responsible for not breaking that code/functionality. And you will be required to explicitly
 call out that you touch such a code in your PR.</p>
+<p>Your PR reviewer will take an extra look at any PR that touches a requirement test or implementation.
+And you will need to add a special release note under the “Changes that Affect Requirements” section header.</p>
+</section>
+<section id="add-release-notes">
+<h3><span class="section-number">10.2.6. </span>Add Release Notes<a class="headerlink" href="#add-release-notes" title="Permalink to this heading"></a></h3>
+<p>For most PRs, you will need to add release notes to the
+<a class="reference external" href="https://github.com/terrapower/armi/tree/main/doc/release">Release Notes documentation</a>. The goal
+here is to help track all the important changes that happened in ARMI, so ARMI can document what
+has changed during the next <a class="reference external" href="https://github.com/terrapower/armi/releases">release</a>. To that end,
+minor PRs won’t require a release note.</p>
+<p>In particular, in the release notes, you will find four sections in the releasee notes:</p>
+<ol class="arabic simple">
+<li><p><strong>New Features</strong> - A new feature (or major addition to a current feature) was added to the code.</p></li>
+<li><p><strong>API Changes</strong> - ANY change to the public-facing API of ARMI.</p></li>
+<li><p><strong>Bug Fixes</strong> - ANY bug fix in the code (not the documentation), no matter how minor.</p></li>
+<li><p><strong>Changes that Affect Requirements</strong> - If you touch the code (<code class="docutils literal notranslate"><span class="pre">impl</span></code>) or test (<code class="docutils literal notranslate"><span class="pre">test</span></code>) for
+anything that currently has a requirement crumb. (This must be a non-trivial change.)</p></li>
+</ol>
+<p>If your PR fits more than one of these categories, great! Put a description of your change under
+all the categories that apply.</p>
 </section>
 </section>
 <section id="packaging-and-dependency-management">
@@ -331,14 +350,14 @@ import, but is actually calling the same underlying <code class="docutils litera
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="standards_and_practices.html" class="btn btn-neutral float-left" title="9. Standards and Practices for Coding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../release/index.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../gallery/index.html" class="btn btn-neutral float-right" title="Gallery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

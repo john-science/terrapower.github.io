@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.tests.test_reactors &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.tests.test_reactors &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -109,6 +109,7 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span>
 
 <span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_allclose</span><span class="p">,</span> <span class="n">assert_equal</span>
@@ -136,6 +137,7 @@
 <span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">ARMI_RUN_PATH</span><span class="p">,</span> <span class="n">mockRunLogs</span><span class="p">,</span> <span class="n">TEST_ROOT</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">directoryChangers</span>
 
+<span class="n">THIS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
 <span class="n">TEST_REACTOR</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># pickled string of test reactor (for fast caching)</span>
 
 
@@ -254,8 +256,6 @@
 <span class="sd">    o : Operator</span>
 <span class="sd">    r : Reactor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO: it would be nice to have this be more stream-oriented. Juggling files is</span>
-    <span class="c1"># devilishly difficult.</span>
     <span class="k">global</span> <span class="n">TEST_REACTOR</span>
     <span class="n">fName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inputFilePath</span><span class="p">,</span> <span class="n">inputFileName</span><span class="p">)</span>
     <span class="n">customSettings</span> <span class="o">=</span> <span class="n">customSettings</span> <span class="ow">or</span> <span class="p">{}</span>
@@ -337,14 +337,6 @@
 <span class="sd">        .. test:: The reactor object is a composite.</span>
 <span class="sd">            :id: T_ARMI_R</span>
 <span class="sd">            :tests: R_ARMI_R</span>
-
-<span class="sd">        .. test:: The reactor object includes a core and an SFP.</span>
-<span class="sd">            :id: T_ARMI_R_CHILDREN1</span>
-<span class="sd">            :tests: R_ARMI_R_CHILDREN</span>
-
-<span class="sd">        .. test:: Components are a physical part of the reactor.</span>
-<span class="sd">            :id: T_ARMI_CMP2</span>
-<span class="sd">            :tests: R_ARMI_CMP</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">,</span> <span class="n">reactors</span><span class="o">.</span><span class="n">Core</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sfp</span><span class="p">,</span> <span class="n">SpentFuelPool</span><span class="p">))</span>
@@ -392,9 +384,13 @@
 <span class="sd">            :tests: R_ARMI_PARAM_PART</span>
 
 <span class="sd">        .. test:: Ensure there is a setting for total core power.</span>
-<span class="sd">            :id: T_ARMI_SETTINGS_POWER</span>
+<span class="sd">            :id: T_ARMI_SETTINGS_POWER0</span>
 <span class="sd">            :tests: R_ARMI_SETTINGS_POWER</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Test at reactor level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">availabilityFactor</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
         <span class="c1"># Test at core level</span>
         <span class="n">core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">power</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -414,7 +410,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">THTfuelCL</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="n">block</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">THTfuelCL</span> <span class="o">=</span> <span class="mi">57</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">THTfuelCL</span><span class="p">,</span> <span class="mi">57</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">THTfuelCL</span><span class="p">,</span> <span class="mi">57</span><span class="p">)</span>
+
+        <span class="c1"># Test at component level</span>
+        <span class="n">component</span> <span class="o">=</span> <span class="n">block</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">,</span> <span class="mf">450.0</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_sortChildren"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_sortChildren">[docs]</a>    <span class="k">def</span> <span class="nf">test_sortChildren</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()),</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -551,6 +551,18 @@
 <div class="viewcode-block" id="HexReactorTests.test_getMaxNumPins"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getMaxNumPins">[docs]</a>    <span class="k">def</span> <span class="nf">test_getMaxNumPins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">numPins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getMaxNumPins</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">169</span><span class="p">,</span> <span class="n">numPins</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_addMultipleCores"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_addMultipleCores">[docs]</a>    <span class="k">def</span> <span class="nf">test_addMultipleCores</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test the catch that a reactor can only have one core.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_getReactor"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getReactor">[docs]</a>    <span class="k">def</span> <span class="nf">test_getReactor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The Core object can return its Reactor parent; test that getter.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">reactors</span><span class="o">.</span><span class="n">Reactor</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_addMoreNodes"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_addMoreNodes">[docs]</a>    <span class="k">def</span> <span class="nf">test_addMoreNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">originalMesh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">axialMesh</span>
@@ -811,16 +823,19 @@
 
 <div class="viewcode-block" id="HexReactorTests.test_getAssemblyWithLoc"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithLoc">[docs]</a>    <span class="k">def</span> <span class="nf">test_getAssemblyWithLoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get assembly by location.</span>
+<span class="sd">        Get assembly by location, in a couple different ways to ensure they all work.</span>
 
 <span class="sd">        .. test:: Get assembly by location.</span>
 <span class="sd">            :id: T_ARMI_R_GET_ASSEM_LOC</span>
 <span class="sd">            :tests: R_ARMI_R_GET_ASSEM_LOC</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">a0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblyWithStringLocation</span><span class="p">(</span><span class="s2">&quot;003-001&quot;</span><span class="p">)</span>
         <span class="n">a1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblyWithAssemNum</span><span class="p">(</span><span class="n">assemNum</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssembly</span><span class="p">(</span><span class="n">locationString</span><span class="o">=</span><span class="s2">&quot;003-001&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">getLocation</span><span class="p">(),</span> <span class="s2">&quot;003-001&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_getAssemblyWithName"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getAssemblyWithName">[docs]</a>    <span class="k">def</span> <span class="nf">test_getAssemblyWithName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -833,7 +848,8 @@
         <span class="n">a1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblyWithAssemNum</span><span class="p">(</span><span class="n">assemNum</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">a2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssembly</span><span class="p">(</span><span class="n">assemblyName</span><span class="o">=</span><span class="s2">&quot;A0010&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;A0010&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_restoreReactor"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_restoreReactor">[docs]</a>    <span class="k">def</span> <span class="nf">test_restoreReactor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Restore a reactor after growing it from third to full core.</span>
@@ -842,10 +858,36 @@
 <span class="sd">            :id: T_ARMI_THIRD_TO_FULL_CORE1</span>
 <span class="sd">            :tests: R_ARMI_THIRD_TO_FULL_CORE</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">aListLength</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">())</span>
+        <span class="n">numOfAssembliesOneThird</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">isFullCore</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">symmetry</span><span class="p">,</span>
+            <span class="n">geometry</span><span class="o">.</span><span class="n">SymmetryType</span><span class="p">(</span>
+                <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">THIRD_CORE</span><span class="p">,</span> <span class="n">geometry</span><span class="o">.</span><span class="n">BoundaryType</span><span class="o">.</span><span class="n">PERIODIC</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="c1"># grow to full core</span>
         <span class="n">converter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">growToFullCore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">isFullCore</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">()),</span> <span class="n">numOfAssembliesOneThird</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">symmetry</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">FULL_CORE</span><span class="p">)</span>
+        <span class="c1"># restore back to 1/3 core</span>
         <span class="n">converter</span><span class="o">.</span><span class="n">restorePreviousGeometry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">aListLength</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">()))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">numOfAssembliesOneThird</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">symmetry</span><span class="p">,</span>
+            <span class="n">geometry</span><span class="o">.</span><span class="n">SymmetryType</span><span class="p">(</span>
+                <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">THIRD_CORE</span><span class="p">,</span> <span class="n">geometry</span><span class="o">.</span><span class="n">BoundaryType</span><span class="o">.</span><span class="n">PERIODIC</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">isFullCore</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">numOfAssembliesOneThird</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">symmetry</span><span class="p">,</span>
+            <span class="n">geometry</span><span class="o">.</span><span class="n">SymmetryType</span><span class="p">(</span>
+                <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">THIRD_CORE</span><span class="p">,</span> <span class="n">geometry</span><span class="o">.</span><span class="n">BoundaryType</span><span class="o">.</span><span class="n">PERIODIC</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_differentNuclideModels"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_differentNuclideModels">[docs]</a>    <span class="k">def</span> <span class="nf">test_differentNuclideModels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_XS_KERNEL</span><span class="p">],</span> <span class="s2">&quot;MC2v3&quot;</span><span class="p">)</span>
@@ -910,7 +952,8 @@
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">mgFlux</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">adjMgFlux</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">saveAllFlux</span><span class="p">()</span></div>
+        <span class="k">with</span> <span class="n">directoryChangers</span><span class="o">.</span><span class="n">TemporaryDirectoryChanger</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">THIS_DIR</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">saveAllFlux</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_getFluxVector"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getFluxVector">[docs]</a>    <span class="k">def</span> <span class="nf">test_getFluxVector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">class</span> <span class="nc">MockLib</span><span class="p">:</span>
@@ -1074,6 +1117,25 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(),</span> <span class="mi">9</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">removeAssembliesInRing</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(),</span> <span class="mi">8</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_getNumRings"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_getNumRings">[docs]</a>    <span class="k">def</span> <span class="nf">test_getNumRings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">circularRingList</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(</span><span class="n">indexBased</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(</span><span class="n">indexBased</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">circularRingList</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">circularRingList</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(</span><span class="n">indexBased</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getNumRings</span><span class="p">(</span><span class="n">indexBased</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_whenNoAssemblies"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_whenNoAssemblies">[docs]</a>    <span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;armi.reactor.reactors.Core.getAssemblies&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_whenNoAssemblies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mockGetAssemblies</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test various edge cases when there are no assemblies.&quot;&quot;&quot;</span>
+        <span class="n">mockGetAssemblies</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">countBlocksWithFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">countFuelAxialBlocks</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getFirstFuelBlockAxialNode</span><span class="p">(),</span> <span class="mf">9e9</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexReactorTests.test_removeAssembliesInRingHex"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_removeAssembliesInRingHex">[docs]</a>    <span class="k">def</span> <span class="nf">test_removeAssembliesInRingHex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1336,7 +1398,41 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="mf">3e9</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">powerDensity</span> <span class="o">=</span> <span class="mf">2e9</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">setPowerIfNecessary</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">power</span><span class="p">,</span> <span class="mf">3e9</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">power</span><span class="p">,</span> <span class="mf">3e9</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HexReactorTests.test_findAllMeshPoints"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.HexReactorTests.test_findAllMeshPoints">[docs]</a>    <span class="k">def</span> <span class="nf">test_findAllMeshPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test findAllMeshPoints().</span>
+
+<span class="sd">        .. test:: Test that the reactor can calculate its core block mesh.</span>
+<span class="sd">            :id: T_ARMI_R_MESH</span>
+<span class="sd">            :tests: R_ARMI_R_MESH</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># lets do some basic sanity checking of the meshpoints</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">findAllMeshPoints</span><span class="p">()</span>
+
+        <span class="c1"># no two meshpoints should be the same, and they should all be monotonically increasing</span>
+        <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">xx</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">xx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">xx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">yy</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">yy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;y=</span><span class="si">{</span><span class="n">yy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">zz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">zz</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="n">zz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;z=</span><span class="si">{</span><span class="n">zz</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># the z-index should start at zero (the bottom)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># ensure the X and Y mesh spacing is correct (for a hex core)</span>
+        <span class="n">pitch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">pitch</span>
+
+        <span class="n">xPitch</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">pitch</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">xx</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">xx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xPitch</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+
+        <span class="n">yPitch</span> <span class="o">=</span> <span class="n">pitch</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">yy</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">yy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">yPitch</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="CartesianReactorTests"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.CartesianReactorTests">[docs]</a><span class="k">class</span> <span class="nc">CartesianReactorTests</span><span class="p">(</span><span class="n">ReactorTests</span><span class="p">):</span>
@@ -1373,6 +1469,33 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;Nuclide categorization&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;Structure&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CartesianReactorNeighborTests"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.CartesianReactorNeighborTests">[docs]</a><span class="k">class</span> <span class="nc">CartesianReactorNeighborTests</span><span class="p">(</span><span class="n">ReactorTests</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">loadTestReactor</span><span class="p">(</span><span class="n">TEST_ROOT</span><span class="p">,</span> <span class="n">inputFileName</span><span class="o">=</span><span class="s2">&quot;zpprTest.yaml&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+<div class="viewcode-block" id="CartesianReactorNeighborTests.test_findNeighborsCartesian"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.tests.test_reactors.html#armi.reactor.tests.test_reactors.CartesianReactorNeighborTests.test_findNeighborsCartesian">[docs]</a>    <span class="k">def</span> <span class="nf">test_findNeighborsCartesian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find neighbors of a given assembly in a Cartesian grid.&quot;&quot;&quot;</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">childrenByLocator</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+        <span class="n">neighbs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">findNeighbors</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">locs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">indices</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">neighbs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">neighbs</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">locs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">locs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">locs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">locs</span><span class="p">)</span>
+
+        <span class="c1"># try with edge assembly</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">childrenByLocator</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+        <span class="n">neighbs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">findNeighbors</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">showBlanks</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">locs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">indices</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">neighbs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">neighbs</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># in this case no locations that aren&#39;t actually in the core should be returned</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">locs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">locs</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -1382,8 +1505,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

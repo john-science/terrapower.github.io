@@ -12,7 +12,7 @@
 <meta name="description" content="Here we will discuss some big-picture elements of the ARMI architecture. Throughout, links to the API docs will lead to additional details. The Reactor Model: The reactor package is the central rep..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. Framework Architecture &mdash; ARMI 0.2.9 documentation</title>
+  <title>1. Framework Architecture &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,8 +64,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Framework Architecture</a><ul>
@@ -102,6 +100,8 @@
 <li class="toctree-l2"><a class="reference internal" href="tooling.html">10. Tooling and Infrastructure</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -151,11 +151,9 @@ potentially many generic <strong>Composite</strong> child objects representing e
 The <strong>Core</strong> is made of <strong>Assembly</strong> objects, which are in turn made up as a collection
 of <strong>Block</strong> objects. <a class="reference internal" href="../glossary.html#term-reactor-state"><span class="xref std std-term">State</span></a> variables may be stored at any level
 of this hierarchy using the <a class="reference internal" href="../.apidocs/armi.reactor.parameters.html#module-armi.reactor.parameters" title="armi.reactor.parameters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">armi.reactor.parameters</span></code></a> system to contain results
-(e.g., <code class="docutils literal notranslate"><span class="pre">keff</span></code>, <code class="docutils literal notranslate"><span class="pre">flow</span> <span class="pre">rates</span></code>, <code class="docutils literal notranslate"><span class="pre">power</span></code>, <code class="docutils literal notranslate"><span class="pre">flux</span></code>, etc.). Within each block are</p>
-<blockquote>
-<div><p><strong>Components</strong> that define the pin-level geometry.  Associated with each Component are</p>
-</div></blockquote>
-<p><strong>Material</strong> objects that contain material properties (<code class="docutils literal notranslate"><span class="pre">density</span></code>, <code class="docutils literal notranslate"><span class="pre">conductivity</span></code>,
+(e.g., <code class="docutils literal notranslate"><span class="pre">keff</span></code>, <code class="docutils literal notranslate"><span class="pre">flow</span> <span class="pre">rates</span></code>, <code class="docutils literal notranslate"><span class="pre">power</span></code>, <code class="docutils literal notranslate"><span class="pre">flux</span></code>, etc.). Within each block are
+<strong>Components</strong> that define the pin-level geometry.  Associated with each Component are
+<strong>Material</strong> objects that contain material properties (<code class="docutils literal notranslate"><span class="pre">density</span></code>, <code class="docutils literal notranslate"><span class="pre">conductivity</span></code>,
 <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">capacity</span></code>, etc.) and isotopic mass fractions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -167,14 +165,14 @@ information in the documentation still reflects this.</p>
 <figure class="align-center" id="id1">
 <img alt="../_images/armi_reactor_objects.png" src="../_images/armi_reactor_objects.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Figure 1.</strong> The primary data containers in ARMI</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">The primary data containers in ARMI</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Each level of the composite pattern hierarchy contains most of its state data in a
 collection of parameters detailing considerations of how the reactor has progressed
 through time to any given point. This information also constitutes the majority of what
 gets written to the database for evaluation and/or follow-on analysis.</p>
-<p>Review the <a class="reference internal" href="../tutorials/data_model.html"><span class="doc">Hands-on at the ARMI Terminal</span></a> section for examples
+<p>Review the data model <a class="reference internal" href="../tutorials/index.html#armi-tutorials"><span class="std std-ref">Tutorials</span></a> section for examples
 exploring a populated instance of the <strong>Reactor</strong> model.</p>
 <section id="finding-objects-in-a-model">
 <h3><span class="section-number">1.1.1. </span>Finding objects in a model<a class="headerlink" href="#finding-objects-in-a-model" title="Permalink to this heading"></a></h3>
@@ -329,7 +327,7 @@ interface stack is traversed in order.</p>
 <figure class="align-center" id="id2">
 <img alt="../_images/armi_general_flowchart.png" src="../_images/armi_general_flowchart.png" />
 <figcaption>
-<p><span class="caption-text"><strong>Figure 1.</strong> The computational flow of the interface hooks</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">The computational flow of the interface hooks</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>For example, input checking routines would run at beginning-of-life (BOL), calculation
@@ -342,12 +340,14 @@ all interfaces are initialized.</p></li>
 Happens once as the run is starting up.</p></li>
 <li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactBOC" title="armi.interfaces.Interface.interactBOC"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactBOC</span></code></a> – Beginning of cycle.
 Happens once per cycle.</p></li>
-<li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactEveryNode" title="armi.interfaces.Interface.interactEveryNode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactEveryNode</span></code></a> – happens
-after every node step/flux calculation</p></li>
+<li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactEveryNode" title="armi.interfaces.Interface.interactEveryNode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactEveryNode</span></code></a> – Happens
+after every node step/flux calculation.</p></li>
 <li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactEOC" title="armi.interfaces.Interface.interactEOC"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactEOC</span></code></a> – End of cycle.</p></li>
 <li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactEOL" title="armi.interfaces.Interface.interactEOL"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactEOL</span></code></a> – End of life.</p></li>
 <li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactError" title="armi.interfaces.Interface.interactError"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactError</span></code></a> – When an error
 occurs, this can run to clean up or print debugging info.</p></li>
+<li><p><a class="reference internal" href="../.apidocs/armi.interfaces.html#armi.interfaces.Interface.interactCoupled" title="armi.interfaces.Interface.interactCoupled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interactCoupled</span></code></a> – Happens
+after every node step/flux calculation, if tight physics coupling is active.</p></li>
 </ul>
 <p>These interaction points are optional in every interface, and you may override one or
 more of them to suit your needs.  You should not change the arguments to the hooks,
@@ -379,7 +379,7 @@ as deemed necessary to have the interfaces work properly.</p>
 <h2><span class="section-number">1.3. </span>Plugins<a class="headerlink" href="#plugins" title="Permalink to this heading"></a></h2>
 <p>Plugins are higher-level objects that can bring in one or more Interfaces, settings
 definitions, parameters, validations, etc. They are documented in
-<a class="reference internal" href="making_armi_based_apps.html"><span class="doc">Making ARMI-based Apps</span></a> and <a class="reference internal" href="../.apidocs/armi.plugins.html#module-armi.plugins" title="armi.plugins"><code class="xref py py-mod docutils literal notranslate"><span class="pre">armi.plugins</span></code></a>.</p>
+<a class="reference internal" href="making_armi_based_apps.html#armi-app-making"><span class="std std-ref">Making ARMI-based Apps</span></a> and <a class="reference internal" href="../.apidocs/armi.plugins.html#module-armi.plugins" title="armi.plugins"><code class="xref py py-mod docutils literal notranslate"><span class="pre">armi.plugins</span></code></a>.</p>
 <section id="entry-points">
 <h3><span class="section-number">1.3.1. </span>Entry Points<a class="headerlink" href="#entry-points" title="Permalink to this heading"></a></h3>
 <p>ARMI has a set of <a class="reference internal" href="../.apidocs/armi.cli.entryPoint.html#armi.cli.entryPoint.EntryPoint" title="armi.cli.entryPoint.EntryPoint"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Entry</span> <span class="pre">Points</span></code></a> that can run
@@ -387,7 +387,7 @@ cases, launch the GUI, and perform various testing and utility operations. When 
 invoke ARMI with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">armi</span> <span class="pre">run</span></code>, the <code class="docutils literal notranslate"><span class="pre">__main__.py</span></code> file is loaded and all
 valid Entry Points are dynamically loaded. The proper entry point (in this case,
 <a class="reference internal" href="../.apidocs/armi.cli.run.html#armi.cli.run.RunEntryPoint" title="armi.cli.run.RunEntryPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">armi.cli.run.RunEntryPoint</span></code></a>) is invoked. As ARMI initializes itself, settings
-are loaded into a <code class="xref py py-class docutils literal notranslate"><span class="pre">CaseSettings</span></code>
+are loaded into a <a class="reference internal" href="../.apidocs/armi.settings.caseSettings.html#armi.settings.caseSettings.Settings" title="armi.settings.caseSettings.Settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a>
 object.  From those settings, an <a class="reference internal" href="../.apidocs/armi.operators.operator.html#armi.operators.operator.Operator" title="armi.operators.operator.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code></a>
 subclass is built by a factory and its <code class="docutils literal notranslate"><span class="pre">operate</span></code> method is called. This fires up the
 main ARMI analysis loop and its interface stack is looped over as indicated by user
@@ -407,8 +407,8 @@ input.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

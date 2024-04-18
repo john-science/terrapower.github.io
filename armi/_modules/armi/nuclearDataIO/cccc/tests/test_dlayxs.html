@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.nuclearDataIO.cccc.tests.test_dlayxs &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.nuclearDataIO.cccc.tests.test_dlayxs &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
@@ -1018,7 +1018,8 @@
             <span class="p">]</span><span class="o">.</span><span class="n">precursorDecayConstants</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dlayData</span><span class="p">,</span> <span class="n">endfProvidedData</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-            <span class="c1"># this is reraised because generating the message might take some time to format all the data from the arrays</span>
+            <span class="c1"># this is reraised because generating the message might take some time to format all the</span>
+            <span class="c1"># data from the arrays</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
                 <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> was different,</span><span class="se">\n</span><span class="s2">expected:</span><span class="si">{}</span><span class="se">\n</span><span class="s2">actual:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">nucName</span><span class="p">,</span> <span class="n">endfProvidedData</span><span class="p">,</span> <span class="n">dlayData</span>
@@ -1028,7 +1029,8 @@
             <span class="k">pass</span>
 
 <div class="viewcode-block" id="DlayxsTests.test_ENDFVII1NeutronsPerFission"><a class="viewcode-back" href="../../../../../.apidocs/armi.nuclearDataIO.cccc.tests.test_dlayxs.html#armi.nuclearDataIO.cccc.tests.test_dlayxs.DlayxsTests.test_ENDFVII1NeutronsPerFission">[docs]</a>    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span>
-        <span class="s2">&quot;All the delayNeutronsPerFission data from mcc-v3 does not agree, this may be because they are from ENDV/B VI.8.&quot;</span>
+        <span class="s2">&quot;All the delayNeutronsPerFission data from mcc-v3 does not agree, this may be because they &quot;</span>
+        <span class="s2">&quot;are from ENDV/B VI.8.&quot;</span>
     <span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_ENDFVII1NeutronsPerFission</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1155,7 +1157,8 @@
             <span class="n">numpyData</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">endfProvidedData</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dlayData</span><span class="p">,</span> <span class="n">numpyData</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-            <span class="c1"># this is reraised because generating the message might take some time to format all the data from the arrays</span>
+            <span class="c1"># this is reraised because generating the message might take some time to format all the</span>
+            <span class="c1"># data from the arrays</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
                 <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> was different,</span><span class="se">\n</span><span class="s2">expected:</span><span class="si">{}</span><span class="se">\n</span><span class="s2">actual:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">nucName</span><span class="p">,</span> <span class="n">numpyData</span><span class="p">,</span> <span class="n">dlayData</span>
@@ -1225,8 +1228,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blocks &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blocks &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -106,12 +106,10 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Defines blocks, which are axial chunks of assemblies. They contain</span>
-<span class="sd">most of the state variables, including power, flux, and homogenized number densities.</span>
+<span class="sd">Defines blocks, which are axial chunks of assemblies. They contain most of the state variables,</span>
+<span class="sd">including power, flux, and homogenized number densities.</span>
 
-<span class="sd">Assemblies are made of blocks.</span>
-
-<span class="sd">Blocks are made of components.</span>
+<span class="sd">Assemblies are made of blocks. Blocks are made of components.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">ClassVar</span>
 <span class="kn">import</span> <span class="nn">collections</span>
@@ -123,6 +121,7 @@
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">nuclideBases</span>
 <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
 <span class="kn">from</span> <span class="nn">armi.bookkeeping</span> <span class="kn">import</span> <span class="n">report</span>
+<span class="kn">from</span> <span class="nn">armi.nucDirectory</span> <span class="kn">import</span> <span class="n">elements</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics</span> <span class="kn">import</span> <span class="n">GAMMA</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics</span> <span class="kn">import</span> <span class="n">NEUTRON</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">blockParameters</span>
@@ -180,8 +179,7 @@
 <span class="sd">            The name of this block</span>
 
 <span class="sd">        height : float, optional</span>
-<span class="sd">            The height of the block in cm. Defaults to 1.0 so that</span>
-<span class="sd">            `getVolume` assumes unit height.</span>
+<span class="sd">            The height of the block in cm. Defaults to 1.0 so that ``getVolume`` assumes unit height.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">composites</span><span class="o">.</span><span class="n">Composite</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
@@ -256,12 +254,11 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        Used to implement a copy function for specific block types that can</span>
-<span class="sd">        be much faster than a deepcopy by glossing over details that may be</span>
-<span class="sd">        unnecessary in certain contexts.</span>
+<span class="sd">        Used to implement a copy function for specific block types that can be much faster than a</span>
+<span class="sd">        deepcopy by glossing over details that may be unnecessary in certain contexts.</span>
 
-<span class="sd">        This base class implementation is just a deepcopy of the block, in full detail</span>
-<span class="sd">        (not homogenized).</span>
+<span class="sd">        This base class implementation is just a deepcopy of the block, in full detail (not</span>
+<span class="sd">        homogenized).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
@@ -314,10 +311,9 @@
 
 <span class="sd">        This also sets the block-level assembly-num param.</span>
 
-<span class="sd">        Once, we used a axial-character suffix to represent the axial</span>
-<span class="sd">        index, but this is inherently limited so we switched to a numerical</span>
-<span class="sd">        name. The axial suffix needs can be brought in in plugins that require</span>
-<span class="sd">        them.</span>
+<span class="sd">        Once, we used a axial-character suffix to represent the axial index, but this is inherently</span>
+<span class="sd">        limited so we switched to a numerical name. The axial suffix needs can be brought in to</span>
+<span class="sd">        plugins that require them.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -331,10 +327,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the smear density of pins in this block.</span>
 
-<span class="sd">        Smear density is the area of the fuel divided by the area of the space available</span>
-<span class="sd">        for fuel inside the cladding. Other space filled with solid materials is not</span>
-<span class="sd">        considered available. If all the area is fuel, it has 100% smear density. Lower</span>
-<span class="sd">        smear density allows more room for swelling.</span>
+<span class="sd">        Smear density is the area of the fuel divided by the area of the space available for fuel</span>
+<span class="sd">        inside the cladding. Other space filled with solid materials is not considered available. If</span>
+<span class="sd">        all the area is fuel, it has 100% smear density. Lower smear density allows more room for</span>
+<span class="sd">        swelling.</span>
 
 <span class="sd">        .. warning:: This requires circular fuel and circular cladding. Designs that vary</span>
 <span class="sd">            from this will be wrong. It may make sense in the future to put this somewhere a</span>
@@ -342,13 +338,12 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        This only considers circular objects. If you have a cladding that is not a circle,</span>
-<span class="sd">        it will be ignored.</span>
+<span class="sd">        This only considers circular objects. If you have a cladding that is not a circle, it will</span>
+<span class="sd">        be ignored.</span>
 
-<span class="sd">        Negative areas can exist for void gaps in the fuel pin. A negative area in a gap</span>
-<span class="sd">        represents overlap area between two solid components. To account for this</span>
-<span class="sd">        additional space within the pin cladding the abs(negativeArea) is added to the</span>
-<span class="sd">        inner cladding area.</span>
+<span class="sd">        Negative areas can exist for void gaps in the fuel pin. A negative area in a gap represents</span>
+<span class="sd">        overlap area between two solid components. To account for this additional space within the</span>
+<span class="sd">        pin cladding the abs(negativeArea) is added to the inner cladding area.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -392,7 +387,8 @@
             <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isFuel</span><span class="p">():</span>
                 <span class="n">fuelComponentArea</span> <span class="o">+=</span> <span class="n">componentArea</span>
             <span class="k">elif</span> <span class="n">c</span><span class="o">.</span><span class="n">hasFlags</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">SLUG</span><span class="p">):</span>
-                <span class="c1"># this flag designates that this clad/slug combination isn&#39;t fuel and shouldn&#39;t be counted in the average</span>
+                <span class="c1"># this flag designates that this clad/slug combination isn&#39;t fuel and shouldn&#39;t be</span>
+                <span class="c1"># counted in the average</span>
                 <span class="k">pass</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">containsSolidMaterial</span><span class="p">():</span>
@@ -430,9 +426,8 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
-<span class="sd">            If the multiplicities of the block are not only 1 or N or if generated ringNumber leads to more positions than necessary.</span>
-
-
+<span class="sd">            If the multiplicities of the block are not only 1 or N or if generated ringNumber leads</span>
+<span class="sd">            to more positions than necessary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
@@ -456,7 +451,7 @@
 
 <span class="sd">        volume: float, optional</span>
 <span class="sd">            If average=True, the volume-integrated flux is divided by volume before being returned.</span>
-<span class="sd">            The user may specify a volume here, or the function will obtain the block volume directly.</span>
+<span class="sd">            The user may specify a volume, or the function will obtain the block volume directly.</span>
 
 <span class="sd">        gamma : bool, optional</span>
 <span class="sd">            Whether to return the neutron flux or the gamma flux.</span>
@@ -484,8 +479,8 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        fluxes : 2-D list of floats</span>
-<span class="sd">            The block-level pin multigroup fluxes. fluxes[g][i] represents the flux in group g for pin i.</span>
-<span class="sd">            Flux units are the standard n/cm^2/s.</span>
+<span class="sd">            The block-level pin multigroup fluxes. fluxes[g][i] represents the flux in group g for</span>
+<span class="sd">            pin i. Flux units are the standard n/cm^2/s.</span>
 <span class="sd">            The &quot;ARMI pin ordering&quot; is used, which is counter-clockwise from 3 o&#39;clock.</span>
 <span class="sd">        adjoint : bool, optional</span>
 <span class="sd">            Whether to set real or adjoint data.</span>
@@ -495,8 +490,8 @@
 <span class="sd">        Outputs</span>
 <span class="sd">        -------</span>
 <span class="sd">        self.p.pinMgFluxes : 2-D array of floats</span>
-<span class="sd">            The block-level pin multigroup fluxes. pinMgFluxes[g][i] represents the flux in group g for pin i.</span>
-<span class="sd">            Flux units are the standard n/cm^2/s.</span>
+<span class="sd">            The block-level pin multigroup fluxes. pinMgFluxes[g][i] represents the flux in group g</span>
+<span class="sd">            for pin i. Flux units are the standard n/cm^2/s.</span>
 <span class="sd">            The &quot;ARMI pin ordering&quot; is used, which is counter-clockwise from 3 o&#39;clock.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pinFluxes</span> <span class="o">=</span> <span class="p">[]</span>
@@ -679,6 +674,17 @@
 <span class="sd">        .. impl:: Location of a block is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_POSI0</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_POSI</span>
+
+<span class="sd">            If the block does not have its ``core`` attribute set, if the block&#39;s</span>
+<span class="sd">            parent does not have a ``spatialGrid`` attribute, or if the block</span>
+<span class="sd">            does not have its location defined by its ``spatialLocator`` attribute,</span>
+<span class="sd">            return a string indicating that it is outside of the core.</span>
+
+<span class="sd">            Otherwise, use the :py:class:`~armi.reactor.grids.Grid.getLabel` static</span>
+<span class="sd">            method to convert the block&#39;s indices into a string like &quot;XXX-YYY-ZZZ&quot;.</span>
+<span class="sd">            For hexagonal geometry, &quot;XXX&quot; is the zero-padded hexagonal core ring,</span>
+<span class="sd">            &quot;YYY&quot; is the zero-padded position in that ring, and &quot;ZZZ&quot; is the zero-padded</span>
+<span class="sd">            block axial index from the bottom of the core.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">spatialGrid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">getLabel</span><span class="p">(</span>
@@ -687,16 +693,19 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;ExCore&quot;</span></div>
 
-<div class="viewcode-block" id="Block.coords"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.coords">[docs]</a>    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rotationDegreesCCW</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<div class="viewcode-block" id="Block.coords"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.coords">[docs]</a>    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the coordinates of the block.</span>
 
 <span class="sd">        .. impl:: Coordinates of a block are queryable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_POSI1</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_POSI</span>
+
+<span class="sd">            Calls to the :py:meth:`~armi.reactor.grids.locations.IndexLocation.getGlobalCoordinates`</span>
+<span class="sd">            method of the block&#39;s ``spatialLocator`` attribute, which recursively</span>
+<span class="sd">            calls itself on all parents of the block to get the coordinates of the</span>
+<span class="sd">            block&#39;s centroid in 3D cartesian space.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">rotationDegreesCCW</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Cannot get coordinates with rotation.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getGlobalCoordinates</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Block.setBuLimitInfo"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.setBuLimitInfo">[docs]</a>    <span class="k">def</span> <span class="nf">setBuLimitInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -712,17 +721,6 @@
 
 <div class="viewcode-block" id="Block.getMaxArea"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getMaxArea">[docs]</a>    <span class="k">def</span> <span class="nf">getMaxArea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
-
-<div class="viewcode-block" id="Block.getMaxVolume"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getMaxVolume">[docs]</a>    <span class="k">def</span> <span class="nf">getMaxVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The maximum volume of this object if it were totally full.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        vol : float</span>
-<span class="sd">            volume in cm^3.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMaxArea</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Block.getArea"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getArea">[docs]</a>    <span class="k">def</span> <span class="nf">getArea</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cold</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -779,6 +777,12 @@
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS0</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
 
+<span class="sd">            Loops over all the components in the block, calling</span>
+<span class="sd">            :py:meth:`~armi.reactor.components.component.Component.getVolume` on</span>
+<span class="sd">            each and summing the result. The summed value is then divided by</span>
+<span class="sd">            the symmetry factor of the block to account for reduced volumes of</span>
+<span class="sd">            blocks in certain symmetric representations.</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        volume : float</span>
@@ -805,11 +809,6 @@
 <span class="sd">        armi.reactor.converters.geometryConverter.EdgeAssemblyChanger.scaleParamsRelatedToSymmetry</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">1.0</span></div>
-
-<div class="viewcode-block" id="Block.isOnWhichSymmetryLine"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.isOnWhichSymmetryLine">[docs]</a>    <span class="k">def</span> <span class="nf">isOnWhichSymmetryLine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Block symmetry lines are determined by the reactor, not the parent.&quot;&quot;&quot;</span>
-        <span class="n">grid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">spatialGrid</span>
-        <span class="k">return</span> <span class="n">grid</span><span class="o">.</span><span class="n">overlapsWhichSymmetryLine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getCompleteIndices</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="Block.adjustDensity"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.adjustDensity">[docs]</a>    <span class="k">def</span> <span class="nf">adjustDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">adjustList</span><span class="p">,</span> <span class="n">returnMass</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1176,9 +1175,21 @@
 <div class="viewcode-block" id="Block.getNumPins"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getNumPins">[docs]</a>    <span class="k">def</span> <span class="nf">getNumPins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the number of pins in this block.</span>
 
-<span class="sd">        .. impl:: Get the number of pins in a block; potentially zero.</span>
+<span class="sd">        .. impl:: Get the number of pins in a block.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_NPINS</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_NPINS</span>
+
+<span class="sd">            Uses some simple criteria to infer the number of pins in the block.</span>
+
+<span class="sd">            For every flag in the module list :py:data:`~armi.reactor.blocks.PIN_COMPONENTS`,</span>
+<span class="sd">            loop over all components of that type in the block. If the component</span>
+<span class="sd">            is an instance of :py:class:`~armi.reactor.components.basicShapes.Circle`,</span>
+<span class="sd">            add its multiplicity to a list, and sum that list over all components</span>
+<span class="sd">            with each given flag.</span>
+
+<span class="sd">            After looping over all possibilities, return the maximum value returned</span>
+<span class="sd">            from the process above, or if no compatible components were found,</span>
+<span class="sd">            return zero.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nPins</span> <span class="o">=</span> <span class="p">[</span>
             <span class="nb">sum</span><span class="p">(</span>
@@ -1332,6 +1343,21 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the center-to-center hex pitch of this block.</span>
 
+<span class="sd">        .. impl:: Pitch of block is retrievable.</span>
+<span class="sd">            :id: I_ARMI_BLOCK_DIMS1</span>
+<span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            Uses the block&#39;s ``_pitchDefiningComponent`` to identify the component</span>
+<span class="sd">            in the block that defines the pitch. Then uses the</span>
+<span class="sd">            :py:meth:`~armi.reactor.components.component.Component.getPitchData`</span>
+<span class="sd">            method of that component to return the pitch for the block, accounting</span>
+<span class="sd">            for the component&#39;s current temperature.</span>
+
+<span class="sd">            The ``_pitchDefiningComponent`` attribute can be set by</span>
+<span class="sd">            :py:meth:`~armi.reactor.blocks.Block.setPitch`, but is typically</span>
+<span class="sd">            set via a calls to :py:meth:`~armi.reactor.blocks.Block._updatePitchComponent`</span>
+<span class="sd">            as components are added to the block with :py:meth:`~armi.reactor.blocks.Block.add`.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        returnComp : bool, optional</span>
@@ -1344,10 +1370,6 @@
 <span class="sd">        component : Component or None</span>
 <span class="sd">            Component that has the max pitch, if returnComp == True. If no component is found to</span>
 <span class="sd">            define the pitch, returns None</span>
-
-<span class="sd">        .. impl:: Pitch of block is retrievable.</span>
-<span class="sd">            :id: I_ARMI_BLOCK_DIMS1</span>
-<span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -1658,10 +1680,19 @@
 <span class="sd">            :id: I_ARMI_MANUAL_TARG_COMP</span>
 <span class="sd">            :implements: R_ARMI_MANUAL_TARG_COMP</span>
 
+<span class="sd">            Sets the ``axialExpTargetComponent`` parameter on the block to the name of the Component</span>
+<span class="sd">            which is passed in. This is then used by the</span>
+<span class="sd">            :py:class:`~armi.reactor.converters.axialExpansionChanger.AxialExpansionChanger`</span>
+<span class="sd">            class during axial expansion.</span>
+
+<span class="sd">            This method is typically called from within</span>
+<span class="sd">            :py:meth:`~armi.reactor.blueprints.blockBlueprint.BlockBlueprint.construct` during the</span>
+<span class="sd">            process of building a Block from the blueprints.</span>
+
 <span class="sd">        Parameter</span>
 <span class="sd">        ---------</span>
 <span class="sd">        targetComponent: :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` object</span>
-<span class="sd">            component specified to be target component for axial expansion changer</span>
+<span class="sd">            Component specified to be target component for axial expansion changer</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1693,7 +1724,36 @@
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clad</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getLocalCoordinates</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">coords</span></div></div>
+        <span class="k">return</span> <span class="n">coords</span></div>
+
+<div class="viewcode-block" id="Block.getBoronMassEnrich"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getBoronMassEnrich">[docs]</a>    <span class="k">def</span> <span class="nf">getBoronMassEnrich</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return B-10 mass fraction.&quot;&quot;&quot;</span>
+        <span class="n">b10</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;B10&quot;</span><span class="p">)</span>
+        <span class="n">b11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;B11&quot;</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">b11</span> <span class="o">+</span> <span class="n">b10</span>
+        <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="n">b10</span> <span class="o">/</span> <span class="n">total</span></div>
+
+<div class="viewcode-block" id="Block.getPuMoles"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getPuMoles">[docs]</a>    <span class="k">def</span> <span class="nf">getPuMoles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns total number of moles of Pu isotopes.&quot;&quot;&quot;</span>
+        <span class="n">nucNames</span> <span class="o">=</span> <span class="p">[</span><span class="n">nuc</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">byZ</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="o">.</span><span class="n">nuclides</span><span class="p">]</span>
+        <span class="n">puN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNuclideNumberDensities</span><span class="p">(</span><span class="n">nucNames</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">puN</span>
+            <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">MOLES_PER_CC_TO_ATOMS_PER_BARN_CM</span>
+            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getVolume</span><span class="p">()</span>
+            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSymmetryFactor</span><span class="p">()</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Block.getUraniumMassEnrich"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.Block.getUraniumMassEnrich">[docs]</a>    <span class="k">def</span> <span class="nf">getUraniumMassEnrich</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns U-235 mass fraction assuming U-235 and U-238 only.&quot;&quot;&quot;</span>
+        <span class="n">u5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;U235&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">u5</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="n">u8</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMass</span><span class="p">(</span><span class="s2">&quot;U238&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">u5</span> <span class="o">/</span> <span class="p">(</span><span class="n">u8</span> <span class="o">+</span> <span class="n">u5</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="HexBlock"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock">[docs]</a><span class="k">class</span> <span class="nc">HexBlock</span><span class="p">(</span><span class="n">Block</span><span class="p">):</span>
@@ -1703,6 +1763,10 @@
 <span class="sd">    .. impl:: ARMI has the ability to create hex shaped blocks.</span>
 <span class="sd">        :id: I_ARMI_BLOCK_HEX</span>
 <span class="sd">        :implements: R_ARMI_BLOCK_HEX</span>
+
+<span class="sd">        This class defines hexagonal-shaped Blocks. It inherits functionality from the parent class,</span>
+<span class="sd">        Block, and defines hexagonal-specific methods including, but not limited to, querying pin</span>
+<span class="sd">        pitch, pin linear power densities, hydraulic diameter, and retrieving inner and outer pitch.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">PITCH_COMPONENT_TYPE</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">_PitchDefiningComponent</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">components</span><span class="o">.</span><span class="n">Hexagon</span><span class="p">,)</span>
@@ -1710,13 +1774,21 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
         <span class="n">Block</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HexBlock.coords"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.coords">[docs]</a>    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rotationDegreesCCW</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<div class="viewcode-block" id="HexBlock.coords"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.coords">[docs]</a>    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the coordinates of the block.</span>
 
 <span class="sd">        .. impl:: Coordinates of a block are queryable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_POSI2</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_POSI</span>
+
+<span class="sd">            Calls to the :py:meth:`~armi.reactor.grids.locations.IndexLocation.getGlobalCoordinates`</span>
+<span class="sd">            method of the block&#39;s ``spatialLocator`` attribute, which recursively</span>
+<span class="sd">            calls itself on all parents of the block to get the coordinates of the</span>
+<span class="sd">            block&#39;s centroid in 3D cartesian space.</span>
+
+<span class="sd">            Will additionally adjust the x and y coordinates based on the block</span>
+<span class="sd">            parameters ``displacementX`` and ``displacementY``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getGlobalCoordinates</span><span class="p">()</span>
         <span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">displacementX</span> <span class="o">*</span> <span class="mf">100.0</span>
@@ -1733,6 +1805,15 @@
 <span class="sd">        .. impl:: Block compositions can be homogenized.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_HOMOG</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_HOMOG</span>
+
+<span class="sd">            This method creates and returns a homogenized representation of itself in the form of a new Block.</span>
+<span class="sd">            The homogenization occurs in the following manner. A single Hexagon Component is created</span>
+<span class="sd">            and added to the new Block. This Hexagon Component is given the</span>
+<span class="sd">            :py:class:`armi.materials.mixture._Mixture` material and a volume averaged temperature</span>
+<span class="sd">            (``getAverageTempInC``). The number densities of the original Block are also stored on</span>
+<span class="sd">            this new Component (:need:`I_ARMI_CMP_GET_NDENS`). Several parameters from the original block</span>
+<span class="sd">            are copied onto the homogenized block (e.g., macros, lumped fission products, burnup group,</span>
+<span class="sd">            number of pins, and spatial grid).</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -1757,6 +1838,12 @@
 <span class="sd">        this copy operation.</span>
 
 <span class="sd">        .. note: If you make a new block, you must add it to an assembly and a reactor.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        b</span>
+<span class="sd">            A homogenized block containing a single Hexagon Component that contains an</span>
+<span class="sd">            average temperature and the number densities from the original block.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1818,6 +1905,11 @@
 <span class="sd">        .. impl:: Area of block is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS2</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            This method first retrieves the pitch of the hexagonal Block</span>
+<span class="sd">            (:need:`I_ARMI_UTIL_HEXAGON0`) and then leverages the</span>
+<span class="sd">            area calculation via :need:`I_ARMI_UTIL_HEXAGON0`.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pitch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPitch</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">pitch</span><span class="p">:</span>
@@ -1831,6 +1923,10 @@
 <span class="sd">        .. impl:: IP dimension is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS3</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            This method retrieves the duct Component and quieries</span>
+<span class="sd">            it&#39;s inner pitch directly. If the duct is missing or if there</span>
+<span class="sd">            are multiple duct Components, an error will be raised.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">duct</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">DUCT</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">duct</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;ip&quot;</span><span class="p">)</span></div>
@@ -1842,6 +1938,10 @@
 <span class="sd">        .. impl:: OP dimension is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS4</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            This method retrieves the duct Component and quieries</span>
+<span class="sd">            its outer pitch directly. If the duct is missing or if there</span>
+<span class="sd">            are multiple duct Components, an error will be raised.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">duct</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">DUCT</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">duct</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;op&quot;</span><span class="p">)</span></div>
@@ -2044,7 +2144,7 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        rotateIndexLookup[i_after_rotation-1] = i_before_rotation-1</span>
+<span class="sd">            rotateIndexLookup[i_after_rotation-1] = i_before_rotation-1</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">rotNum</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -2147,6 +2247,14 @@
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS5</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
 
+<span class="sd">            Requires that the outer most duct be Hexagonal and wire and clad Components</span>
+<span class="sd">            be present. The flat-to-flat distance between the radial exterior of opposing</span>
+<span class="sd">            pins in the outermost ring is computed by computing the distance between</span>
+<span class="sd">            pin centers (``getPinCenterFlatToFlat``) and adding the outer diameter of</span>
+<span class="sd">            the clad Component and the outer diameter of the wire Component twice. The</span>
+<span class="sd">            total margin between the inner pitch of the duct Component and the wire is then</span>
+<span class="sd">            computed. The pin to duct gap is then half this distance.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        cold : boolean</span>
@@ -2244,25 +2352,25 @@
 
 <div class="viewcode-block" id="HexBlock.autoCreateSpatialGrids"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.autoCreateSpatialGrids">[docs]</a>    <span class="k">def</span> <span class="nf">autoCreateSpatialGrids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Given a block without a spatialGrid, create a spatialGrid and give its children</span>
-<span class="sd">        the corresponding spatialLocators (if it is a simple block).</span>
+<span class="sd">        Given a block without a spatialGrid, create a spatialGrid and give its children the</span>
+<span class="sd">        corresponding spatialLocators (if it is a simple block).</span>
 
-<span class="sd">        In this case, a simple block would be one that has either multiplicity of</span>
-<span class="sd">        components equal to 1 or N but no other multiplicities. Also, this should only</span>
-<span class="sd">        happen when N fits exactly into a given number of hex rings.  Otherwise, do not</span>
-<span class="sd">        create a grid for this block.</span>
+<span class="sd">        In this case, a simple block would be one that has either multiplicity of components equal</span>
+<span class="sd">        to 1 or N but no other multiplicities. Also, this should only happen when N fits exactly</span>
+<span class="sd">        into a given number of hex rings.  Otherwise, do not create a grid for this block.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        If the block meets all the conditions, we gather all components to either be a multiIndexLocation containing all</span>
-<span class="sd">        of the pin positions, otherwise, locator is the center (0,0).</span>
+<span class="sd">        If the Block meets all the conditions, we gather all components to either be a</span>
+<span class="sd">        multiIndexLocation containing all of the pin positions, or the locator is the center (0,0).</span>
 
 <span class="sd">        Also, this only works on blocks that have &#39;flat side up&#39;.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
-<span class="sd">            If the multiplicities of the block are not only 1 or N or if generated ringNumber leads to more positions than necessary.</span>
+<span class="sd">            If the multiplicities of the block are not only 1 or N or if generated ringNumber leads</span>
+<span class="sd">            to more positions than necessary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Check multiplicities...</span>
         <span class="n">mults</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="o">.</span><span class="n">getDimension</span><span class="p">(</span><span class="s2">&quot;mult&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterComponents</span><span class="p">()}</span>
@@ -2279,7 +2387,7 @@
         <span class="c1"># note that it&#39;s the pointed end of the cell hexes that are up (but the</span>
         <span class="c1"># macro shape of the pins forms a hex with a flat top fitting in the assembly)</span>
         <span class="n">grid</span> <span class="o">=</span> <span class="n">grids</span><span class="o">.</span><span class="n">HexGrid</span><span class="o">.</span><span class="n">fromPitch</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">getPinPitch</span><span class="p">(</span><span class="n">cold</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">numRings</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pointedEndUp</span><span class="o">=</span><span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getPinPitch</span><span class="p">(</span><span class="n">cold</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">numRings</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cornersUp</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>
         <span class="n">spatialLocators</span> <span class="o">=</span> <span class="n">grids</span><span class="o">.</span><span class="n">MultiIndexLocation</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">)</span>
         <span class="n">numLocations</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2324,12 +2432,17 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the pin pitch in cm.</span>
 
-<span class="sd">        Assumes that the pin pitch is defined entirely by contacting cladding tubes</span>
-<span class="sd">        and wire wraps. Grid spacers not yet supported.</span>
+<span class="sd">        Assumes that the pin pitch is defined entirely by contacting cladding tubes and wire wraps.</span>
+<span class="sd">        Grid spacers not yet supported.</span>
 
 <span class="sd">        .. impl:: Pin pitch within block is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS6</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            This implementation requires that clad and wire Components are present.</span>
+<span class="sd">            If not, an error is raised. If present, the pin pitch is calculated</span>
+<span class="sd">            as the sum of the outer diameter of the clad and outer diameter of</span>
+<span class="sd">            the wire.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2362,11 +2475,41 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="HexBlock.getWettedPerimeter"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getWettedPerimeter">[docs]</a>    <span class="k">def</span> <span class="nf">getWettedPerimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the total wetted perimeter of the block in cm.</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the total wetted perimeter of the block in cm.</span>
 
 <span class="sd">        .. impl:: Wetted perimeter of block is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS7</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            This implementation computes wetted perimeters for specific Components, as specified</span>
+<span class="sd">            by their Flags (:need:`R_ARMI_FLAG_DEFINE`). Hollow hexagons and circular pin Components</span>
+<span class="sd">            are supported. The latter supports both instances where the exterior is wetted</span>
+<span class="sd">            (e.g., clad, wire) as well as when the interior and exterior are wetted (hollow circle).</span>
+
+<span class="sd">            Hollow hexagons are calculated via,</span>
+
+<span class="sd">            .. math::</span>
+
+<span class="sd">                \frac{6 \times \text{ip}}{\sqrt{3}},</span>
+
+<span class="sd">            where :math:`\text{ip}` is the inner pitch of the hollow hexagon. Circular pin Components</span>
+<span class="sd">            where the exterior is wetted is calculated via,</span>
+
+<span class="sd">            .. math::</span>
+
+<span class="sd">                N \pi \left( \text{OD}_c + \text{OD}_w \right),</span>
+
+<span class="sd">            where :math:`N` is the total number of pins, :math:`\text{OD}_c` is the outer diameter</span>
+<span class="sd">            of the clad, and :math:`\text{OD}_w` is the outer diameter of the wire, respectively.</span>
+<span class="sd">            When both the interior and exterior are wetted, the wetted perimeter is calculated as</span>
+
+<span class="sd">            .. math::</span>
+
+<span class="sd">                \pi \left( \text{OD} + \text{ID} \right),</span>
+
+<span class="sd">            where :math:`\text{OD}` and :math:`\text{ID}` are the outer and inner diameters of the pin</span>
+<span class="sd">            Component, respectively.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># flags pertaining to hexagon components where the interior of the hexagon is wetted</span>
         <span class="n">wettedHollowHexagonComponentFlags</span> <span class="o">=</span> <span class="p">(</span>
@@ -2445,11 +2588,14 @@
 <span class="sd">        .. impl:: Flow area of block is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS8</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            Retrieving the flow area requires that there be a single coolant Component.</span>
+<span class="sd">            If available, the area is calculated (:need:`I_ARMI_COMP_VOL0`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">COOLANT</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="HexBlock.getHydraulicDiameter"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getHydraulicDiameter">[docs]</a>    <span class="k">def</span> <span class="nf">getHydraulicDiameter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the hydraulic diameter in this block in cm.</span>
 
 <span class="sd">        Hydraulic diameter is 4A/P where A is the flow area and P is the wetted perimeter.</span>
@@ -2457,15 +2603,18 @@
 <span class="sd">        inside of the duct. The flow area is the inner area of the duct minus the area of the</span>
 <span class="sd">        pins and the wire.</span>
 
-<span class="sd">        To convert the inner hex pitch into a perimeter, first convert to side, then</span>
-<span class="sd">        multiply by 6.</span>
-
-<span class="sd">        p = sqrt(3)*s</span>
-<span class="sd">        l = 6*p/sqrt(3)</span>
-
 <span class="sd">        .. impl:: Hydraulic diameter of block is retrievable.</span>
 <span class="sd">            :id: I_ARMI_BLOCK_DIMS9</span>
 <span class="sd">            :implements: R_ARMI_BLOCK_DIMS</span>
+
+<span class="sd">            The hydraulic diamter is calculated via</span>
+
+<span class="sd">            .. math::</span>
+
+<span class="sd">                4\frac{A}{P},</span>
+
+<span class="sd">            where :math:`A` is the flow area (:need:`I_ARMI_BLOCK_DIMS8`) and :math:`P` is the</span>
+<span class="sd">            wetted perimeter (:need:`I_ARMI_BLOCK_DIMS7`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFlowArea</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">getWettedPerimeter</span><span class="p">()</span></div></div>
 
@@ -2562,8 +2711,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cli &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cli &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../.apidocs/modules.html">API Docs</a></li>
@@ -192,14 +192,17 @@
 
 <div class="viewcode-block" id="ArmiCLI"><a class="viewcode-back" href="../../.apidocs/armi.cli.html#armi.cli.ArmiCLI">[docs]</a><span class="k">class</span> <span class="nc">ArmiCLI</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    ARMI CLI -- The main entry point into ARMI. There are various commands</span>
-<span class="sd">    available, to get help for the individual commands, run again with</span>
-<span class="sd">    `&lt;command&gt; --help`. Generically, the CLI implements functions that already</span>
-<span class="sd">    exists within ARMI.</span>
+<span class="sd">    ARMI CLI -- The main entry point into ARMI. There are various commands available. To get help</span>
+<span class="sd">    for the individual commands, run again with `&lt;command&gt; --help`. Typically, the CLI implements</span>
+<span class="sd">    functions that already exist within ARMI.</span>
 
 <span class="sd">    .. impl:: The basic ARMI CLI, for running a simulation.</span>
 <span class="sd">        :id: I_ARMI_CLI_CS</span>
 <span class="sd">        :implements: R_ARMI_CLI_CS</span>
+
+<span class="sd">        Provides a basic command-line interface (CLI) for running an ARMI simulation. Available</span>
+<span class="sd">        commands can be listed with ``-l``. Information on individual commands can be obtained by</span>
+<span class="sd">        running with ``&lt;command&gt; --help``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -220,7 +223,7 @@
 
         <span class="n">parser</span> <span class="o">=</span> <span class="n">ArmiParser</span><span class="p">(</span>
             <span class="n">prog</span><span class="o">=</span><span class="n">context</span><span class="o">.</span><span class="n">APP_NAME</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.. impl&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
             <span class="n">usage</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(prog)s</span><span class="s2"> [-h] [-l | command [args]]&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
@@ -340,8 +343,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

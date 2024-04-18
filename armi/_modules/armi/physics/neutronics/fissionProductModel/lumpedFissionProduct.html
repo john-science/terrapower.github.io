@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.neutronics.fissionProductModel.lumpedFissionProduct &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.physics.neutronics.fissionProductModel.lumpedFissionProduct &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
@@ -271,24 +271,7 @@
         <span class="n">massFracDenom</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">nuc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">massFracDenom</span> <span class="o">+=</span> <span class="bp">self</span><span class="p">[</span><span class="n">nuc</span><span class="p">]</span> <span class="o">*</span> <span class="n">nuc</span><span class="o">.</span><span class="n">weight</span>
-        <span class="k">return</span> <span class="n">massFracDenom</span></div>
-
-<div class="viewcode-block" id="LumpedFissionProduct.printDensities"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.LumpedFissionProduct.printDensities">[docs]</a>    <span class="k">def</span> <span class="nf">printDensities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lfpDens</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Print number densities of nuclides within the lumped fission product.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        lfpDens : float</span>
-<span class="sd">            Number density (atom/b-cm) of the lumped fission product</span>
-
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        This multiplies the provided number density for the lumped fission</span>
-<span class="sd">        product by the yield of each nuclide.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:6s}</span><span class="s2"> </span><span class="si">{1:.7E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">lfpDens</span> <span class="o">*</span> <span class="bp">self</span><span class="p">[</span><span class="n">n</span><span class="p">]))</span></div></div>
+        <span class="k">return</span> <span class="n">massFracDenom</span></div></div>
 
 
 <div class="viewcode-block" id="LumpedFissionProductCollection"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.LumpedFissionProductCollection">[docs]</a><span class="k">class</span> <span class="nc">LumpedFissionProductCollection</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
@@ -506,7 +489,8 @@
     <span class="k">for</span> <span class="n">lfp</span> <span class="ow">in</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
         <span class="k">lambda</span> <span class="n">nb</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nb</span><span class="p">,</span> <span class="n">nuclideBases</span><span class="o">.</span><span class="n">LumpNuclideBase</span><span class="p">)</span>
     <span class="p">):</span>
-        <span class="c1"># Not all lump nuclides bases defined are fission products, so ensure that only fission products are considered.</span>
+        <span class="c1"># Not all lump nuclides bases defined are fission products, so ensure that only fission</span>
+        <span class="c1"># products are considered.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="s2">&quot;FP&quot;</span> <span class="ow">in</span> <span class="n">lfp</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s2">&quot;REGN&quot;</span> <span class="ow">in</span> <span class="n">lfp</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
             <span class="k">continue</span>
         <span class="n">mo99FP</span> <span class="o">=</span> <span class="n">LumpedFissionProduct</span><span class="p">(</span><span class="n">lfp</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -517,6 +501,7 @@
 
 <div class="viewcode-block" id="isGas"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.html#armi.physics.neutronics.fissionProductModel.lumpedFissionProduct.isGas">[docs]</a><span class="k">def</span> <span class="nf">isGas</span><span class="p">(</span><span class="n">nuc</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;True if nuclide is considered a gas.&quot;&quot;&quot;</span>
+    <span class="c1"># ruff: noqa: SIM110</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">getElementsByChemicalPhase</span><span class="p">(</span><span class="n">elements</span><span class="o">.</span><span class="n">ChemicalPhase</span><span class="o">.</span><span class="n">GAS</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="n">nuc</span><span class="o">.</span><span class="n">element</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -530,8 +515,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

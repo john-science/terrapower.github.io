@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.reactors &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.reactors &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -110,8 +110,8 @@
 <span class="sd">to be modeled. Core objects represent collections of assemblies.</span>
 
 <span class="sd">Core is a high-level object in the data model in ARMI. They contain assemblies which in turn contain</span>
-<span class="sd">more refinement in representing the physical reactor. The reactor is the owner of many of the</span>
-<span class="sd">plant-wide state variables such as keff, cycle, and node.</span>
+<span class="sd">more refinement in representing the physical reactor. The reactor is the owner of many of the plant-</span>
+<span class="sd">wide state variables such as keff, cycle, and node.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 <span class="kn">import</span> <span class="nn">collections</span>
@@ -160,17 +160,26 @@
 <span class="sd">    Top level of the composite structure, potentially representing all components in a reactor.</span>
 
 <span class="sd">    This class contains the core and any ex-core structures that are to be represented in the ARMI</span>
-<span class="sd">    model. Historically, the `Reactor` contained only the core. To support better representation of</span>
-<span class="sd">    ex-core structures, the old `Reactor` functionality was moved to the newer `Core` class, which</span>
-<span class="sd">    has a `Reactor` parent.</span>
+<span class="sd">    model. Historically, the ``Reactor`` contained only the core. To support better representation</span>
+<span class="sd">    of ex-core structures, the old ``Reactor`` functionality was moved to the newer `Core` class,</span>
+<span class="sd">    which has a ``Reactor`` parent.</span>
 
 <span class="sd">    .. impl:: The user-specified reactor.</span>
 <span class="sd">        :id: I_ARMI_R</span>
 <span class="sd">        :implements: R_ARMI_R</span>
 
-<span class="sd">    .. impl:: The reactor includes a core and a spent fuel pool.</span>
-<span class="sd">        :id: I_ARMI_R_CHILDREN</span>
-<span class="sd">        :implements: R_ARMI_R_CHILDREN</span>
+<span class="sd">        The :py:class:`Reactor &lt;armi.reactor.reactors.Reactor&gt;` is the top level of the composite</span>
+<span class="sd">        structure, which can represent all components within a reactor core. The reactor contains a</span>
+<span class="sd">        :py:class:`Core &lt;armi.reactor.reactors.Core&gt;`, which contains a collection of</span>
+<span class="sd">        :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;` objects arranged in a hexagonal or</span>
+<span class="sd">        Cartesian grid. Each Assembly consists of a stack of</span>
+<span class="sd">        :py:class:`Block &lt;armi.reactor.blocks.Block&gt;` objects, which are each composed of one or</span>
+<span class="sd">        more :py:class:`Component &lt;armi.reactor.components.component.Component&gt;` objects. Each</span>
+<span class="sd">        :py:class:`Interface &lt;armi.interfaces.Interface&gt;` is able to interact with the reactor and</span>
+<span class="sd">        its child :py:class:`Composites &lt;armi.reactor.composites.Composite&gt;` by retrieving data from</span>
+<span class="sd">        it or writing new data to it. This is the main medium through which input information and</span>
+<span class="sd">        the output of physics calculations is exchanged between interfaces and written to an ARMI</span>
+<span class="sd">        database.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">pDefs</span> <span class="o">=</span> <span class="n">reactorParameters</span><span class="o">.</span><span class="n">defineReactorParameters</span><span class="p">()</span>
@@ -225,8 +234,8 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        The &quot;max assembly number&quot; is not currently used in the Reactor. So the idea</span>
-<span class="sd">        is that we return the current number, then iterate it for the next assembly.</span>
+<span class="sd">        The &quot;max assembly number&quot; is not currently used in the Reactor. So the idea is that we</span>
+<span class="sd">        return the current number, then iterate it for the next assembly.</span>
 
 <span class="sd">        Obviously, this method will be unused for non-assembly-based reactors.</span>
 
@@ -265,13 +274,9 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a Reactor based on the input settings.</span>
 
-<span class="sd">    .. impl:: Users can create a reactor from an input yaml file.</span>
-<span class="sd">        :id: I_ARMI_R_CORE</span>
-<span class="sd">        :implements: R_ARMI_R_CORE</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cs: CaseSettings</span>
+<span class="sd">    cs: Settings</span>
 <span class="sd">        A relevant settings object</span>
 
 <span class="sd">    Returns</span>
@@ -333,6 +338,21 @@
 <span class="sd">    Reactor structure made up of assemblies. Could be a Core, spent fuel pool, reactor head, etc.</span>
 
 <span class="sd">    This has the bulk of the data management operations.</span>
+
+<span class="sd">    .. impl:: Represent a reactor core as a composite object.</span>
+<span class="sd">        :id: I_ARMI_R_CORE</span>
+<span class="sd">        :implements: R_ARMI_R_CORE</span>
+
+<span class="sd">        A :py:class:`Core &lt;armi.reactor.reactors.Core&gt;` object is typically a child of a</span>
+<span class="sd">        :py:class:`Reactor &lt;armi.reactor.reactors.Reactor&gt;` object. A Reactor can contain multiple</span>
+<span class="sd">        objects of the Core type. The instance attribute name ``r.core`` is reserved for the object</span>
+<span class="sd">        representating the active core. A reactor may also have a spent fuel pool instance</span>
+<span class="sd">        attribute, ``r.sfp``, which is also of type :py:class:`core &lt;armi.reactor.reactors.Core&gt;`.</span>
+
+<span class="sd">        Most of the operations to retrieve information from the ARMI reactor data model are mediated</span>
+<span class="sd">        through Core objects. For example,</span>
+<span class="sd">        :py:meth:`getAssemblies() &lt;armi.reactor.reactors.Core.getAssemblies&gt;` is used to get a list</span>
+<span class="sd">        of all assemblies in the Core.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -440,8 +460,23 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter for symmetry type.</span>
 
 <span class="sd">        .. impl:: Get core symmetry.</span>
-<span class="sd">            :id: I_ARMI_R_SYMM0</span>
+<span class="sd">            :id: I_ARMI_R_SYMM</span>
 <span class="sd">            :implements: R_ARMI_R_SYMM</span>
+
+<span class="sd">            This property getter returns the symmetry attribute of the spatialGrid instance</span>
+<span class="sd">            attribute. The spatialGrid is an instance of a child of the abstract base class</span>
+<span class="sd">            :py:class:`Grid &lt;armi.reactor.grids.grid.Grid&gt;` type. The symmetry attribute is an</span>
+<span class="sd">            instance of the :py:class:`SymmetryType &lt;armi.reactor.geometry.SymmetryType&gt;` class,</span>
+<span class="sd">            which is a wrapper around the :py:class:`DomainType &lt;armi.reactor.geometry.DomainType&gt;`</span>
+<span class="sd">            and :py:class:`BoundaryType &lt;armi.reactor.geometry.BoundaryType&gt;` enumerations used to</span>
+<span class="sd">            classify the domain (e.g., 1/3 core, quarter core, full core) and symmetry boundary</span>
+<span class="sd">            conditions (e.g., periodic, reflective, none) of a reactor, respectively.</span>
+
+<span class="sd">            Only specific combinations of :py:class:`Grid &lt;armi.reactor.grids.grid.Grid&gt;` type,</span>
+<span class="sd">            :py:class:`DomainType &lt;armi.reactor.geometry.DomainType&gt;`, and :py:class:`BoundaryType</span>
+<span class="sd">            &lt;armi.reactor.geometry.BoundaryType&gt;` are valid. The validity of a user-specified</span>
+<span class="sd">            geometry and symmetry is verified by a settings :py:class:`Inspector</span>
+<span class="sd">            &lt;armi.operators.settingsValidation.Inspector`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot access symmetry before a spatialGrid is attached.&quot;</span><span class="p">)</span>
@@ -449,12 +484,7 @@
 
     <span class="nd">@symmetry</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">symmetry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for symmetry type.</span>
-
-<span class="sd">        .. impl:: Set core symmetry.</span>
-<span class="sd">            :id: I_ARMI_R_SYMM1</span>
-<span class="sd">            :implements: R_ARMI_R_SYMM</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for symmetry type.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">symmetry</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clearCache</span><span class="p">()</span>
 
@@ -481,12 +511,10 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the microscopic cross section library if one exists.</span>
 
-<span class="sd">        - If there is a library currently associated with the core,</span>
-<span class="sd">          it will be returned</span>
-<span class="sd">        - Otherwise, an ``ISOTXS`` file will be searched for in the working directory,</span>
-<span class="sd">          opened as ``ISOTXS`` object and returned.</span>
-<span class="sd">        - Finally, if no ``ISOTXS`` file exists in the working directory,</span>
-<span class="sd">          a None will be returned.</span>
+<span class="sd">        - If there is a library currently associated with the core, it will be returned</span>
+<span class="sd">        - Otherwise, an ``ISOTXS`` file will be searched for in the working directory, opened as</span>
+<span class="sd">          ``ISOTXS`` object and returned.</span>
+<span class="sd">        - Finally, if no ``ISOTXS`` file exists in the working directory, a None will be returned.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">isotxsFileName</span> <span class="o">=</span> <span class="n">nuclearDataIO</span><span class="o">.</span><span class="n">getExpectedISOTXSFileName</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lib</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">isotxsFileName</span><span class="p">):</span>
@@ -516,14 +544,14 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the &quot;reference&quot; assembly for this Core.</span>
 
-<span class="sd">        The reference assembly is defined as the center-most assembly with a FUEL flag,</span>
-<span class="sd">        if any are present, or the center-most of any assembly otherwise.</span>
+<span class="sd">        The reference assembly is defined as the center-most assembly with a FUEL flag, if any are</span>
+<span class="sd">        present, or the center-most of any assembly otherwise.</span>
 
 <span class="sd">        Warning</span>
 <span class="sd">        -------</span>
-<span class="sd">        The convenience of this property should be weighed against it&#39;s somewhat</span>
-<span class="sd">        arbitrary nature for any particular client. The center-most fueled assembly is</span>
-<span class="sd">        not particularly representative of the state of the core as a whole.</span>
+<span class="sd">        The convenience of this property should be weighed against it&#39;s somewhat arbitrary nature</span>
+<span class="sd">        for any particular client. The center-most fueled assembly is not particularly</span>
+<span class="sd">        representative of the state of the core as a whole.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">spatialLocator</span><span class="o">.</span><span class="n">getRingPos</span><span class="p">()</span>
         <span class="n">assems</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">Flags</span><span class="o">.</span><span class="n">FUEL</span><span class="p">,</span> <span class="n">sortKey</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
@@ -574,9 +602,8 @@
 <div class="viewcode-block" id="Core.setPowerIfNecessary"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.setPowerIfNecessary">[docs]</a>    <span class="k">def</span> <span class="nf">setPowerIfNecessary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the core power, from the power density.</span>
 
-<span class="sd">        If the power density is set, but the power isn&#39;t, we set the calculate the</span>
-<span class="sd">        total heavy metal mass of the reactor, and set the total power. Which will</span>
-<span class="sd">        then be the real source of truth again.</span>
+<span class="sd">        If the power density is set, but the power isn&#39;t, calculate the total heavy metal mass of</span>
+<span class="sd">        the reactor, and set the total power. Which will then be the real source of truth again.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">power</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">powerDensity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setPowerFromDensity</span><span class="p">()</span></div>
@@ -597,8 +624,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Store the current location of all assemblies.</span>
 
-<span class="sd">        This is required for shuffle printouts, repeat shuffling, and</span>
-<span class="sd">        MCNP shuffling.</span>
+<span class="sd">        This is required for shuffle printouts, repeat shuffling, and MCNP shuffling.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">includeAll</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
             <span class="n">a</span><span class="o">.</span><span class="n">lastLocationLabel</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">()</span></div>
@@ -661,7 +687,7 @@
 <span class="sd">        ----------</span>
 <span class="sd">        ringNum : int</span>
 <span class="sd">            The ring to remove</span>
-<span class="sd">        cs: CaseSettings</span>
+<span class="sd">        cs: Settings</span>
 <span class="sd">            A relevant settings object</span>
 <span class="sd">        overrideCircularRingMode : bool, optional</span>
 <span class="sd">            False ~ default: use circular/square/hex rings, just as the reactor defines them</span>
@@ -871,9 +897,19 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the number of rings in this reactor. Based on location so indexing will start at 1.</span>
 
+<span class="sd">        Circular ring shuffling changes the interpretation of this result.</span>
+
 <span class="sd">        .. impl:: Retrieve number of rings in core.</span>
 <span class="sd">            :id: I_ARMI_R_NUM_RINGS</span>
 <span class="sd">            :implements: R_ARMI_R_NUM_RINGS</span>
+
+<span class="sd">            This method determines the number of rings in the reactor. If the</span>
+<span class="sd">            setting ``circularRingMode`` is enabled (by default it is false), the</span>
+<span class="sd">            assemblies will be grouped into roughly circular rings based on</span>
+<span class="sd">            their positions and the number of circular rings is returned.</span>
+<span class="sd">            Otherwise, the number of hex rings is returned. This parameter is</span>
+<span class="sd">            mostly used to facilitate certain fuel management strategies where</span>
+<span class="sd">            the fuel is categorized and moved based on ring indexing.</span>
 
 <span class="sd">        Warning</span>
 <span class="sd">        -------</span>
@@ -883,9 +919,6 @@
 <span class="sd">        ----------</span>
 <span class="sd">        indexBased : bool, optional</span>
 <span class="sd">            If true, will force location-index interpretation, even if &quot;circular shuffling&quot; is enabled.</span>
-
-<span class="sd">        When circular ring shuffling is activated, this changes interpretation.</span>
-<span class="sd">        Developers plan on making this another method for the secondary interpretation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">circularRingList</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">indexBased</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circularRingList</span><span class="p">)</span>
@@ -942,14 +975,14 @@
 <span class="sd">            The types of blocks to be counted in a single assembly</span>
 
 <span class="sd">        assemTypeSpec : Flags or list of Flags</span>
-<span class="sd">            The types of assemblies that are to be examine for the blockTypes</span>
-<span class="sd">            of interest.  None is every assembly</span>
+<span class="sd">            The types of assemblies that are to be examine for the blockTypes of interest. None is</span>
+<span class="sd">            every assembly.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        maxBlocks : int</span>
-<span class="sd">            The maximum number of blocks of the specified types in a single</span>
-<span class="sd">            assembly in the entire core</span>
+<span class="sd">            The maximum number of blocks of the specified types in a single assembly in the entire</span>
+<span class="sd">            core.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">assems</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">typeSpec</span><span class="o">=</span><span class="n">assemTypeSpec</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
@@ -1074,8 +1107,8 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">ring</span><span class="p">,</span> <span class="n">typeSpec</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exactType</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exclusions</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the assemblies in a specified ring.  Definitions of rings can change</span>
-<span class="sd">        with problem parameters.</span>
+<span class="sd">        Returns the assemblies in a specified ring. Definitions of rings can change with problem</span>
+<span class="sd">        parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1122,9 +1155,8 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">ring</span><span class="p">,</span> <span class="n">typeSpec</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exactType</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exclusions</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets an assemblies within a circular range of the center of the core.  This</span>
-<span class="sd">        function allows for more circular styled assembly shuffling instead of the</span>
-<span class="sd">        current hex approach.</span>
+<span class="sd">        Gets an assemblies within a circular range of the center of the core. This function allows</span>
+<span class="sd">        for more circular styled assembly shuffling instead of the current hex approach.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1176,7 +1208,8 @@
 
 <div class="viewcode-block" id="Core.buildCircularRingDictionary"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.buildCircularRingDictionary">[docs]</a>    <span class="k">def</span> <span class="nf">buildCircularRingDictionary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ringPitch</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Builds a dictionary of all circular rings in the core.  This is required information for getAssembliesInCircularRing.</span>
+<span class="sd">        Builds a dictionary of all circular rings in the core. This is required information for</span>
+<span class="sd">        getAssembliesInCircularRing.</span>
 
 <span class="sd">        The purpose of this function is to allow for more circular core shuffling in the hex design.</span>
 
@@ -1216,12 +1249,12 @@
         <span class="k">for</span> <span class="n">assem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAssemblies</span><span class="p">(</span><span class="n">includeBolAssems</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">includeSFP</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
             <span class="n">aName</span> <span class="o">=</span> <span class="n">assem</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">aName</span> <span class="ow">in</span> <span class="n">assymap</span> <span class="ow">and</span> <span class="n">assymap</span><span class="p">[</span><span class="n">aName</span><span class="p">]</span> <span class="o">!=</span> <span class="n">assem</span><span class="p">:</span>
-                <span class="c1"># dangerous situation that can occur in restart runs where the global assemNum isn&#39;t updated.</span>
-                <span class="c1"># !=assem clause added because sometimes an assem is in one of the includeAll lists that is also in the</span>
-                <span class="c1"># core and that&#39;s ok.</span>
+                <span class="c1"># dangerous situation that can occur in restart runs where the global assemNum isn&#39;t</span>
+                <span class="c1"># updated. !=assem clause added because sometimes an assem is in one of the</span>
+                <span class="c1"># includeAll lists that is also in the core and that&#39;s ok.</span>
                 <span class="n">runLog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
-                    <span class="s2">&quot;Two (or more) assemblies in the reactor (and associated lists) have the name </span><span class="si">{0}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
-                    <span class="s2">&quot;including </span><span class="si">{1}</span><span class="s2"> and </span><span class="si">{2}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">aName</span><span class="p">,</span> <span class="n">assem</span><span class="p">,</span> <span class="n">assymap</span><span class="p">[</span><span class="n">aName</span><span class="p">])</span>
+                    <span class="s2">&quot;Two (or more) assemblies in the reactor (and associated lists) have the name &quot;</span>
+                    <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">including </span><span class="si">{1}</span><span class="s2"> and </span><span class="si">{2}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">aName</span><span class="p">,</span> <span class="n">assem</span><span class="p">,</span> <span class="n">assymap</span><span class="p">[</span><span class="n">aName</span><span class="p">])</span>
                 <span class="p">)</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Assembly name collision.&quot;</span><span class="p">)</span>
 
@@ -1234,6 +1267,11 @@
 <span class="sd">        .. impl:: Get assembly by name.</span>
 <span class="sd">            :id: I_ARMI_R_GET_ASSEM_NAME</span>
 <span class="sd">            :implements: R_ARMI_R_GET_ASSEM_NAME</span>
+
+<span class="sd">            This method returns the :py:class:`assembly &lt;armi.reactor.core.assemblies.Assembly&gt;`</span>
+<span class="sd">            with a name matching the</span>
+<span class="sd">            value provided as an input parameter to this function. The ``name`` of</span>
+<span class="sd">            an assembly is based on the ``assemNum`` parameter.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1746,11 +1784,23 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAssembly</span><span class="p">(</span><span class="n">assemNum</span><span class="o">=</span><span class="n">assemNum</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Core.getAssemblyWithStringLocation"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.getAssemblyWithStringLocation">[docs]</a>    <span class="k">def</span> <span class="nf">getAssemblyWithStringLocation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locationString</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an assembly or none if given a location string like &#39;B0014&#39;.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an assembly or none if given a location string like &#39;001-001&#39;.</span>
 
 <span class="sd">        .. impl:: Get assembly by location.</span>
 <span class="sd">            :id: I_ARMI_R_GET_ASSEM_LOC</span>
 <span class="sd">            :implements: R_ARMI_R_GET_ASSEM_LOC</span>
+
+<span class="sd">            This method returns the :py:class:`assembly</span>
+<span class="sd">            &lt;armi.reactor.core.assemblies.Assembly&gt;` located in the requested</span>
+<span class="sd">            location. The location is provided to this method as an input</span>
+<span class="sd">            parameter in a string with the format &quot;001-001&quot;. For a :py:class:`HexGrid</span>
+<span class="sd">            &lt;armi.reactor.grids.hexagonal.HexGrid&gt;`, the first number indicates</span>
+<span class="sd">            the hexagonal ring and the second number indicates the position</span>
+<span class="sd">            within that ring. For a :py:class:`CartesianGrid</span>
+<span class="sd">            &lt;armi.reactor.grids.cartesian.CartesianGrid&gt;`, the first number</span>
+<span class="sd">            represents the x index and the second number represents the y index.</span>
+<span class="sd">            If there is no assembly in the grid at the requested location, this</span>
+<span class="sd">            method returns None.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ring</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">grids</span><span class="o">.</span><span class="n">locatorLabelToIndices</span><span class="p">(</span><span class="n">locationString</span><span class="p">)</span>
         <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatialGrid</span><span class="o">.</span><span class="n">getLocatorFromRingAndPos</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
@@ -1779,12 +1829,37 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find assemblies that are next to this assembly.</span>
 
-<span class="sd">        Return a list of neighboring assemblies from the 30 degree point (point 1) then</span>
-<span class="sd">        counterclockwise around.</span>
+<span class="sd">        Return a list of neighboring assemblies.</span>
+
+<span class="sd">        For a hexagonal grid, the list begins from the 30 degree point (point 1)</span>
+<span class="sd">        then moves counterclockwise around.</span>
+
+<span class="sd">        For a Cartesian grid, the order of the neighbors is east, north, west,</span>
+<span class="sd">        south.</span>
 
 <span class="sd">        .. impl:: Retrieve neighboring assemblies of a given assembly.</span>
 <span class="sd">            :id: I_ARMI_R_FIND_NEIGHBORS</span>
 <span class="sd">            :implements: R_ARMI_R_FIND_NEIGHBORS</span>
+
+<span class="sd">            This method takes an :py:class:`Assembly</span>
+<span class="sd">            &lt;armi.reactor.assemblies.Assembly&gt;` as an input parameter and returns</span>
+<span class="sd">            a list of the assemblies neighboring that assembly. There are 6</span>
+<span class="sd">            neighbors in a hexagonal grid and 4 neighbors in a Cartesian grid.</span>
+<span class="sd">            The (i, j) indices of the neighbors are provided by</span>
+<span class="sd">            :py:meth:`getNeighboringCellIndices</span>
+<span class="sd">            &lt;armi.reactor.grids.StructuredGrid.getNeighboringCellIndices&gt;`. For</span>
+<span class="sd">            a hexagonal grid, the (i, j) indices are converted to (ring,</span>
+<span class="sd">            position) indexing using the ``core.spatialGrid`` instance attribute.</span>
+
+<span class="sd">            The ``showBlanks`` option determines whether non-existing assemblies</span>
+<span class="sd">            will be indicated with a ``None`` in the list or just excluded from</span>
+<span class="sd">            the list altogether.</span>
+
+<span class="sd">            The ``duplicateAssembliesOnReflectiveBoundary`` setting only works for</span>
+<span class="sd">            1/3 core symmetry with periodic boundary conditions. For these types</span>
+<span class="sd">            of geometries, if this setting is ``True``, neighbor lists for</span>
+<span class="sd">            assemblies along a periodic boundary will include the assemblies</span>
+<span class="sd">            along the opposite periodic boundary that are effectively neighbors.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1792,55 +1867,64 @@
 <span class="sd">            The assembly to find neighbors of.</span>
 
 <span class="sd">        showBlanks : Boolean, optional</span>
-<span class="sd">            If True, the returned array of 6 neighbors will return &quot;None&quot; for neighbors</span>
-<span class="sd">            that do not explicitly exist in the 1/3 core model (including many that WOULD</span>
-<span class="sd">            exist in a full core model).</span>
+<span class="sd">            If True, the returned array of 6 neighbors will return &quot;None&quot; for</span>
+<span class="sd">            neighbors that do not explicitly exist in the 1/3 core model</span>
+<span class="sd">            (including many that WOULD exist in a full core model).</span>
 
-<span class="sd">            If False, the returned array will not include the &quot;None&quot; neighbors. If one or</span>
-<span class="sd">            more neighbors does not explicitly exist in the 1/3 core model, the returned</span>
-<span class="sd">            array will have a length of less than 6.</span>
+<span class="sd">            If False, the returned array will not include the &quot;None&quot; neighbors.</span>
+<span class="sd">            If one or more neighbors does not explicitly exist in the 1/3 core</span>
+<span class="sd">            model, the returned array will have a length of less than 6.</span>
 
 <span class="sd">        duplicateAssembliesOnReflectiveBoundary : Boolean, optional</span>
-<span class="sd">            If True, findNeighbors duplicates neighbor assemblies into their &quot;symmetric</span>
-<span class="sd">            identicals&quot; so that even assemblies that border symmetry lines will have 6</span>
-<span class="sd">            neighbors. The only assemblies that will have fewer than 6 neighbors are those</span>
-<span class="sd">            that border the outer core boundary (usually vacuum).</span>
+<span class="sd">            If True, findNeighbors duplicates neighbor assemblies into their</span>
+<span class="sd">            &quot;symmetric identicals&quot; so that even assemblies that border symmetry</span>
+<span class="sd">            lines will have 6 neighbors. The only assemblies that will have</span>
+<span class="sd">            fewer than 6 neighbors are those that border the outer core boundary</span>
+<span class="sd">            (usually vacuum).</span>
 
-<span class="sd">            If False, findNeighbors returns None for assemblies that do not exist in a 1/3</span>
-<span class="sd">            core model (but WOULD exist in a full core model).</span>
+<span class="sd">            If False, findNeighbors returns None for assemblies that do not</span>
+<span class="sd">            exist in a 1/3 core model (but WOULD exist in a full core model).</span>
 
-<span class="sd">            For example, applying findNeighbors for the central assembly (ring, pos) = (1,</span>
-<span class="sd">            1) in 1/3 core symmetry (with duplicateAssembliesOnReflectiveBoundary = True)</span>
-<span class="sd">            would return a list of 6 assemblies, but those 6 would really only be</span>
-<span class="sd">            assemblies (2, 1) and (2, 2) repeated 3 times each.</span>
+<span class="sd">            For example, applying findNeighbors for the central assembly (ring,</span>
+<span class="sd">            pos) = (1, 1) in 1/3 core symmetry (with</span>
+<span class="sd">            duplicateAssembliesOnReflectiveBoundary = True) would return a list</span>
+<span class="sd">            of 6 assemblies, but those 6 would really only be assemblies (2, 1)</span>
+<span class="sd">            and (2, 2) repeated 3 times each.</span>
 
-<span class="sd">            Note that the value of duplicateAssembliesOnReflectiveBoundary only really if</span>
-<span class="sd">            showBlanks = True.  This will have no effect if the model is full core since</span>
-<span class="sd">            asymmetric models could find many duplicates in the other thirds</span>
+<span class="sd">            Note that the value of duplicateAssembliesOnReflectiveBoundary only</span>
+<span class="sd">            really matters if showBlanks == True. This will have no effect if</span>
+<span class="sd">            the model is full core since asymmetric models could find many</span>
+<span class="sd">            duplicates in the other thirds</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
-<span class="sd">        This only works for 1/3 or full core symmetry.</span>
+<span class="sd">        The duplicateAssembliesOnReflectiveBoundary setting only works for third</span>
+<span class="sd">        core symmetry.</span>
 
-<span class="sd">        This uses the &#39;mcnp&#39; index map (MCNP GEODST hex coordinates) instead of the</span>
-<span class="sd">        standard (ring, pos) map. because neighbors have consistent indices this way.  We</span>
-<span class="sd">        then convert over to (ring, pos) using the lookup table that a reactor has.</span>
+<span class="sd">        This uses the &#39;mcnp&#39; index map (MCNP GEODST hex coordinates) instead of</span>
+<span class="sd">        the standard (ring, pos) map. because neighbors have consistent indices</span>
+<span class="sd">        this way. We then convert over to (ring, pos) using the lookup table</span>
+<span class="sd">        that a reactor has.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        neighbors : list of assembly objects</span>
 <span class="sd">            This is a list of &quot;nearest neighbors&quot; to assembly a.</span>
 
-<span class="sd">            If showBlanks = False, it will return fewer than 6 neighbors if not all 6</span>
-<span class="sd">            neighbors explicitly exist in the core model.</span>
+<span class="sd">            If showBlanks = False, it will return fewer than the maximum number</span>
+<span class="sd">            of neighbors if not all neighbors explicitly exist in the core</span>
+<span class="sd">            model. For a hexagonal grid, the maximum number of neighbors is 6.</span>
+<span class="sd">            For a Cartesian grid, the maximum number is 4.</span>
 
-<span class="sd">            If showBlanks = True and duplicateAssembliesOnReflectiveBoundary = False, it</span>
-<span class="sd">            will have a &quot;None&quot; for assemblies that do not exist in the 1/3 model.</span>
+<span class="sd">            If showBlanks = True and duplicateAssembliesOnReflectiveBoundary =</span>
+<span class="sd">            False, it will have a &quot;None&quot; for assemblies that do not exist in the</span>
+<span class="sd">            1/3 model.</span>
 
-<span class="sd">            If showBlanks = True and duplicateAssembliesOnReflectiveBoundary = True, it</span>
-<span class="sd">            will return the existing &quot;symmetric identical&quot; assembly of a non-existing</span>
-<span class="sd">            assembly. It will only return &quot;None&quot; for an assembly when that assembly is</span>
-<span class="sd">            non-existing AND has no existing &quot;symmetric identical&quot;.</span>
+<span class="sd">            If showBlanks = True and duplicateAssembliesOnReflectiveBoundary =</span>
+<span class="sd">            True, it will return the existing &quot;symmetric identical&quot; assembly of</span>
+<span class="sd">            a non-existing assembly. It will only return &quot;None&quot; for an assembly</span>
+<span class="sd">            when that assembly is non-existing AND has no existing &quot;symmetric</span>
+<span class="sd">            identical&quot;.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1873,7 +1957,7 @@
 
     <span class="k">def</span> <span class="nf">_getReflectiveDuplicateAssembly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">neighborLoc</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return duplicate assemblies accross symmetry line.</span>
+<span class="sd">        Return duplicate assemblies across symmetry line.</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -1913,7 +1997,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        cs : CaseSettings object</span>
+<span class="sd">        cs : Settings</span>
 <span class="sd">            Global settings for the case</span>
 
 <span class="sd">        See Also</span>
@@ -1932,7 +2016,7 @@
 <span class="sd">            The assembly type to create</span>
 <span class="sd">        enrichList : list</span>
 <span class="sd">            weight percent enrichments of each block</span>
-<span class="sd">        cs : CaseSettings object</span>
+<span class="sd">        cs : Settings</span>
 <span class="sd">            Global settings for the case</span>
 
 <span class="sd">        Returns</span>
@@ -2034,6 +2118,17 @@
 <span class="sd">        .. impl:: Construct a mesh based on core blocks.</span>
 <span class="sd">            :id: I_ARMI_R_MESH</span>
 <span class="sd">            :implements: R_ARMI_R_MESH</span>
+
+<span class="sd">            This method iterates through all of the assemblies provided, or all</span>
+<span class="sd">            assemblies in the core if no list of ``assems`` is provided, and</span>
+<span class="sd">            constructs a tuple of three lists which contain the unique i, j, and</span>
+<span class="sd">            k mesh coordinates, respectively. The ``applySubMesh`` setting</span>
+<span class="sd">            controls whether the mesh will include the submesh coordinates. For</span>
+<span class="sd">            a standard assembly-based reactor geometry with a hexagonal or</span>
+<span class="sd">            Cartesian assembly grid, this method is only used to produce axial</span>
+<span class="sd">            (k) mesh points. If multiple assemblies are provided with different</span>
+<span class="sd">            axial meshes, the axial mesh list will contain the union of all</span>
+<span class="sd">            unique mesh points. Duplicate mesh points are removed.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2212,12 +2307,11 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        extraAssems : list</span>
-<span class="sd">            additional assemblies to consider when determining the mesh points.  They may</span>
-<span class="sd">            be useful in the MCPNXT models to represent the fuel management dummies.</span>
+<span class="sd">            additional assemblies to consider when determining the mesh points. They may be useful</span>
+<span class="sd">            in the MCPNXT models to represent the fuel management dummies.</span>
 
 <span class="sd">        applySubMesh : bool</span>
-<span class="sd">            (not implemented) generates submesh points to further discretize the radial</span>
-<span class="sd">            reactor mesh</span>
+<span class="sd">            (not implemented) generates submesh points to further discretize the radial reactor mesh</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findAllMeshPoints</span><span class="p">(</span><span class="n">extraAssems</span><span class="p">,</span> <span class="n">applySubMesh</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">j</span></div>
@@ -2246,9 +2340,8 @@
 
 <div class="viewcode-block" id="Core.getMinimumPercentFluxInFuel"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.getMinimumPercentFluxInFuel">[docs]</a>    <span class="k">def</span> <span class="nf">getMinimumPercentFluxInFuel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">0.005</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Goes through the entire reactor to determine what percentage of flux occures at</span>
-<span class="sd">        each ring.  Starting with the outer ring, this function helps determine the effective</span>
-<span class="sd">        size of the core where additional assemblies will not help the breeding in the TWR.</span>
+<span class="sd">        Starting with the outer ring, this method goes through the entire Reactor to determine what</span>
+<span class="sd">        percentage of flux occurs at each ring.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2343,41 +2436,6 @@
             <span class="k">return</span> <span class="n">num</span> <span class="o">/</span> <span class="n">denom</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;no temperature average for </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">typeSpec</span><span class="p">))</span></div>
-
-<div class="viewcode-block" id="Core.getAllNuclidesIn"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.getAllNuclidesIn">[docs]</a>    <span class="k">def</span> <span class="nf">getAllNuclidesIn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mats</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Find all nuclides that are present in these materials anywhere in the core.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        mats : iterable or Material</span>
-<span class="sd">            List (or single) of materials to scan the full core for, accumulating a nuclide list</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        allNucNames : list</span>
-<span class="sd">            All nuclide names in this material anywhere in the reactor</span>
-
-<span class="sd">        See Also</span>
-<span class="sd">        --------</span>
-<span class="sd">        getDominantMaterial : finds the most prevalent material in a certain type of blocks</span>
-<span class="sd">        Block.adjustDensity : modifies nuclides in a block</span>
-
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        If you need to know the nuclides in a fuel pin, you can&#39;t just use the sample returned</span>
-<span class="sd">        from getDominantMaterial, because it may be a fresh fuel material (U and Zr) even though</span>
-<span class="sd">        there are burned materials elsewhere (with U, Zr, Pu, LFP, etc.).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mats</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-            <span class="c1"># single material passed in</span>
-            <span class="n">mats</span> <span class="o">=</span> <span class="p">[</span><span class="n">mats</span><span class="p">]</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mats</span><span class="p">)</span>
-        <span class="n">allNucNames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterComponents</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                <span class="n">allNucNames</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">getNuclides</span><span class="p">())</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">allNucNames</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Core.growToFullCore"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.growToFullCore">[docs]</a>    <span class="k">def</span> <span class="nf">growToFullCore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Copies symmetric assemblies to build a full core model out of a 1/3 core model.</span>
@@ -2552,22 +2610,22 @@
 
 <div class="viewcode-block" id="Core.buildManualZones"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.reactors.html#armi.reactor.reactors.Core.buildManualZones">[docs]</a>    <span class="k">def</span> <span class="nf">buildManualZones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Build the Zones that are defined manually in the given CaseSettings file,</span>
+<span class="sd">        Build the Zones that are defined manually in the given Settings file,</span>
 <span class="sd">        in the `zoneDefinitions` setting.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        cs : CaseSettings</span>
+<span class="sd">        cs : Settings</span>
 <span class="sd">            The standard ARMI settings object</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        Manual zones will be defined in a special string format, e.g.:</span>
 
-<span class="sd">        zoneDefinitions:</span>
-<span class="sd">            - ring-1: 001-001</span>
-<span class="sd">            - ring-2: 002-001, 002-002</span>
-<span class="sd">            - ring-3: 003-001, 003-002, 003-003</span>
+<span class="sd">        &gt;&gt;&gt; zoneDefinitions:</span>
+<span class="sd">        &gt;&gt;&gt;     - ring-1: 001-001</span>
+<span class="sd">        &gt;&gt;&gt;     - ring-2: 002-001, 002-002</span>
+<span class="sd">        &gt;&gt;&gt;     - ring-3: 003-001, 003-002, 003-003</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
@@ -2600,8 +2658,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

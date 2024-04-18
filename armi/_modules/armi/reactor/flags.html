@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.flags &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.flags &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -383,6 +383,16 @@
 <span class="sd">        .. impl:: Retrieve flag from a string.</span>
 <span class="sd">            :id: I_ARMI_FLAG_TO_STR0</span>
 <span class="sd">            :implements: R_ARMI_FLAG_TO_STR</span>
+
+<span class="sd">            For a string passed as ``typeSpec``, first converts the whole string</span>
+<span class="sd">            to uppercase. Then tries to parse the string for any special phrases, as</span>
+<span class="sd">            defined in the module dictionary ``_CONVERSIONS``, and converts those</span>
+<span class="sd">            phrases to flags directly.</span>
+
+<span class="sd">            Then it splits the remaining string into separate words based on the presence</span>
+<span class="sd">            of spaces. Looping over each of the words, any numbers are stripped out</span>
+<span class="sd">            and the remaining string is matched up to any class attribute names.</span>
+<span class="sd">            If any matches are found these are returned as flags.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">_fromString</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeSpec</span><span class="p">)</span></div>
 
@@ -394,6 +404,12 @@
 <span class="sd">        .. impl:: Convert a flag to string.</span>
 <span class="sd">            :id: I_ARMI_FLAG_TO_STR1</span>
 <span class="sd">            :implements: R_ARMI_FLAG_TO_STR</span>
+
+<span class="sd">            This converts the representation of a bunch of flags from ``typeSpec``,</span>
+<span class="sd">            which might look like ``Flags.A|B``,</span>
+<span class="sd">            into a string with spaces in between the flag names, which would look</span>
+<span class="sd">            like  ``&#39;A B&#39;``. This is done via nesting string splitting and replacement</span>
+<span class="sd">            actions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">_toString</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeSpec</span><span class="p">)</span></div></div>
 
@@ -439,8 +455,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

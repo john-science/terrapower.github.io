@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.grids.hexagonal &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.grids.hexagonal &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -119,12 +119,12 @@
     <span class="n">BOUNDARY_60_DEGREES</span><span class="p">,</span>
     <span class="n">BOUNDARY_CENTER</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.grids.locations</span> <span class="kn">import</span> <span class="n">IndexLocation</span><span class="p">,</span> <span class="n">IJKType</span><span class="p">,</span> <span class="n">IJType</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.grids.structuredgrid</span> <span class="kn">import</span> <span class="n">StructuredGrid</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.grids.locations</span> <span class="kn">import</span> <span class="n">IJKType</span><span class="p">,</span> <span class="n">IJType</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.grids.structuredGrid</span> <span class="kn">import</span> <span class="n">StructuredGrid</span>
 
 <span class="n">COS30</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
 <span class="n">SIN30</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">2.0</span>
-<span class="c1"># going CCW from &quot;position 1&quot; (top right)</span>
+<span class="c1"># going counter-clockwise from &quot;position 1&quot; (top right)</span>
 <span class="n">TRIANGLES_IN_HEXAGON</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="p">(</span><span class="o">+</span><span class="n">COS30</span><span class="p">,</span> <span class="n">SIN30</span><span class="p">),</span>
@@ -138,43 +138,100 @@
 
 
 <div class="viewcode-block" id="HexGrid"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid">[docs]</a><span class="k">class</span> <span class="nc">HexGrid</span><span class="p">(</span><span class="n">StructuredGrid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Has 6 neighbors in plane.</span>
 
-<span class="sd">    It is recommended to use :meth:`fromPitch` rather than</span>
-<span class="sd">    calling the ``__init__`` constructor directly.</span>
+<span class="sd">    It is recommended to use :meth:`fromPitch` rather than calling the ``__init__``</span>
+<span class="sd">    constructor directly.</span>
+
+<span class="sd">    .. impl:: Construct a hexagonal lattice.</span>
+<span class="sd">        :id: I_ARMI_GRID_HEX</span>
+<span class="sd">        :implements: R_ARMI_GRID_HEX</span>
+
+<span class="sd">        This class represents a hexagonal ``StructuredGrid``, that is one where the</span>
+<span class="sd">        mesh maps to real, physical coordinates. This hexagonal grid is 2D, and divides</span>
+<span class="sd">        the plane up into regular hexagons. That is, each hexagon is symmetric and</span>
+<span class="sd">        is precisely flush with six neighboring hexagons. This class only allows for</span>
+<span class="sd">        two rotational options: flats up (where two sides of the hexagons are parallel</span>
+<span class="sd">        with the X-axis), and points up (where two sides are parallel with the Y-axis).</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    In an axial plane (i, j) are as follows (second one is pointedEndUp)::</span>
+<span class="sd">    In an axial plane (i, j) are as follows (flats up)::</span>
+<span class="sd">             _____</span>
+<span class="sd">            /     \</span>
+<span class="sd">      _____/  0,1  \_____</span>
+<span class="sd">     /     \       /     \</span>
+<span class="sd">    / -1,1  \_____/  1,0  \</span>
+<span class="sd">    \       /     \       /</span>
+<span class="sd">     \_____/  0,0  \_____/</span>
+<span class="sd">     /     \       /     \</span>
+<span class="sd">    / -1,0  \_____/  1,-1 \</span>
+<span class="sd">    \       /     \       /</span>
+<span class="sd">     \_____/  0,-1 \_____/</span>
+<span class="sd">           \       /</span>
+<span class="sd">            \_____/</span>
 
+<span class="sd">    In an axial plane (i, j) are as follows (corners up)::</span>
 
-<span class="sd">                    ( 0, 1)</span>
-<span class="sd">             (-1, 1)       ( 1, 0)</span>
-<span class="sd">                    ( 0, 0)</span>
-<span class="sd">             (-1, 0)       ( 1,-1)</span>
-<span class="sd">                    ( 0,-1)</span>
+<span class="sd">           / \     / \</span>
+<span class="sd">         /     \ /     \</span>
+<span class="sd">        |  0,1  |  1,0  |</span>
+<span class="sd">        |       |       |</span>
+<span class="sd">       / \     / \     / \</span>
+<span class="sd">     /     \ /     \ /     \</span>
+<span class="sd">    | -1,1  |  0,0  |  1,-1 |</span>
+<span class="sd">    |       |       |       |</span>
+<span class="sd">     \     / \     / \     /</span>
+<span class="sd">       \ /     \ /     \ /</span>
+<span class="sd">        | -1,0  |  0,-1 |</span>
+<span class="sd">        |       |       |</span>
+<span class="sd">         \     / \     /</span>
+<span class="sd">           \ /     \ /</span>
 
+<span class="sd">    Basic hexagon geometry::</span>
 
-<span class="sd">                ( 0, 1) ( 1, 0)</span>
+<span class="sd">    - pitch = sqrt(3) * side</span>
+<span class="sd">    - long diagonal = 2 * side</span>
+<span class="sd">    - Area = (sqrt(3) / 4) * side^2</span>
+<span class="sd">    - perimeter = 6 * side</span>
 
-<span class="sd">            (-1, 1) ( 0, 0) ( 1,-1)</span>
-
-<span class="sd">                (-1, 0) ( 0,-1)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cornersUp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check whether the hexagonal grid is &quot;corners up&quot; or &quot;flats up&quot;.</span>
+
+<span class="sd">        See the armi.reactor.grids.HexGrid class documentation for an</span>
+<span class="sd">        illustration of the two types of grid indexing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.0</span>
+
 <div class="viewcode-block" id="HexGrid.fromPitch"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.fromPitch">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">fromPitch</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="n">numRings</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">armiObject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pointedEndUp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">symmetry</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fromPitch</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="n">numRings</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">armiObject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cornersUp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">symmetry</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build a finite step-based 2-D hex grid from a hex pitch in cm.</span>
-
-<span class="sd">        .. impl:: Construct a hexagonal lattice.</span>
-<span class="sd">            :id: I_ARMI_GRID_HEX</span>
-<span class="sd">            :implements: R_ARMI_GRID_HEX</span>
 
 <span class="sd">        .. impl:: Hexagonal grids can be points-up or flats-up.</span>
 <span class="sd">            :id: I_ARMI_GRID_HEX_TYPE</span>
 <span class="sd">            :implements: R_ARMI_GRID_HEX_TYPE</span>
+
+<span class="sd">            When this method creates a ``HexGrid`` object, it can create a hexagonal</span>
+<span class="sd">            grid with one of two rotations: flats up (where two sides of the hexagons</span>
+<span class="sd">            are parallel with the X-axis), and points up (where two sides are parallel</span>
+<span class="sd">            with the Y-axis). While it is possible to imagine the hexagons being</span>
+<span class="sd">            rotated at other arbitrary angles, those are not supported here.</span>
+
+<span class="sd">        .. impl:: When creating a hexagonal grid, the user can specify the symmetry.</span>
+<span class="sd">            :id: I_ARMI_GRID_SYMMETRY1</span>
+<span class="sd">            :implements: R_ARMI_GRID_SYMMETRY</span>
+
+<span class="sd">            When this method creates a ``HexGrid`` object, it takes as an input the</span>
+<span class="sd">            symmetry of the resultant grid. This symmetry can be a string (e.g. &quot;full&quot;)</span>
+<span class="sd">            or a ``SymmetryType`` object (e.g. ``FULL_CORE``). If the grid is not full-</span>
+<span class="sd">            core, the method ``getSymmetricEquivalents()`` will be usable to map any</span>
+<span class="sd">            possible grid cell to the ones that are being modeled in the sub-grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -187,9 +244,9 @@
 <span class="sd">        armiObject : ArmiObject, optional</span>
 <span class="sd">            The object that this grid is anchored to (i.e. the reactor for a grid of</span>
 <span class="sd">            assemblies)</span>
-<span class="sd">        pointedEndUp : bool, optional</span>
-<span class="sd">            Rotate the hexagons 30 degrees so that the pointed end faces up instead of</span>
-<span class="sd">            the flat.</span>
+<span class="sd">        cornersUp : bool, optional</span>
+<span class="sd">            Rotate the hexagons 30 degrees so that the corners point up instead of</span>
+<span class="sd">            the flat faces.</span>
 <span class="sd">        symmetry : string, optional</span>
 <span class="sd">            A string representation of the symmetry options for the grid.</span>
 
@@ -198,27 +255,15 @@
 <span class="sd">        HexGrid</span>
 <span class="sd">            A functional hexagonal grid object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">side</span> <span class="o">=</span> <span class="n">hexagon</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="n">pitch</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pointedEndUp</span><span class="p">:</span>
-            <span class="c1"># rotated 30 degrees CCW from normal</span>
-            <span class="c1"># increases in i move you in x and y</span>
-            <span class="c1"># increases in j also move you in x and y</span>
-            <span class="n">unitSteps</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="p">(</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-                <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># x direction is only a function of i because j-axis is vertical.</span>
-            <span class="c1"># y direction is a function of both.</span>
-            <span class="n">unitSteps</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">unitSteps</span> <span class="o">=</span> <span class="n">HexGrid</span><span class="o">.</span><span class="n">_getRawUnitSteps</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="n">cornersUp</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">HexGrid</span><span class="p">(</span>
+        <span class="nb">hex</span> <span class="o">=</span> <span class="n">HexGrid</span><span class="p">(</span>
             <span class="n">unitSteps</span><span class="o">=</span><span class="n">unitSteps</span><span class="p">,</span>
             <span class="n">unitStepLimits</span><span class="o">=</span><span class="p">((</span><span class="o">-</span><span class="n">numRings</span><span class="p">,</span> <span class="n">numRings</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">numRings</span><span class="p">,</span> <span class="n">numRings</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
             <span class="n">armiObject</span><span class="o">=</span><span class="n">armiObject</span><span class="p">,</span>
             <span class="n">symmetry</span><span class="o">=</span><span class="n">symmetry</span><span class="p">,</span>
-        <span class="p">)</span></div>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">hex</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">pitch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -229,7 +274,7 @@
 <span class="sd">        --------</span>
 <span class="sd">        armi.reactor.grids.HexGrid.fromPitch</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
 <div class="viewcode-block" id="HexGrid.indicesToRingPos"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.indicesToRingPos">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">indicesToRingPos</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
@@ -292,7 +337,7 @@
 <span class="sd">        Return the indices of the immediate neighbors of a mesh point in the plane.</span>
 
 <span class="sd">        Note that these neighbors are ordered counter-clockwise beginning from the</span>
-<span class="sd">        30 or 60 degree direction. Exact direction is dependent on pointedEndUp arg.</span>
+<span class="sd">        30 or 60 degree direction. Exact direction is dependent on cornersUp arg.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span>
@@ -319,20 +364,42 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_indicesAndEdgeFromRingAndPos</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given the ring and position, return the (I,J) coordinates, and which edge the grid</span>
+<span class="sd">        cell is on.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring : int</span>
+<span class="sd">            Starting with 1 (not zero), the ring of the grid cell.</span>
+<span class="sd">        position : int</span>
+<span class="sd">            Starting with 1 (not zero), the position of the grid cell, in the ring.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        (int, int, int) : I coordinate, J coordinate, which edge of the hex ring</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - Edge indicates which edge of the ring in which the hexagon resides.</span>
+<span class="sd">        - Edge 0 is the NE edge, edge 1 is the N edge, etc.</span>
+<span class="sd">        - Offset is (0-based) index of the hexagon in that edge. For instance,</span>
+<span class="sd">          ring 3, pos 12 resides in edge 5 at index 1; it is the second hexagon</span>
+<span class="sd">          in ring 3, edge 5.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># The inputs start counting at 1, but the grid starts counting at zero.</span>
         <span class="n">ring</span> <span class="o">=</span> <span class="n">ring</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="n">position</span> <span class="o">-</span> <span class="mi">1</span>
 
+        <span class="c1"># Handle the center grid cell.</span>
         <span class="k">if</span> <span class="n">ring</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">pos</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Position in center ring must be 1, not </span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 
-        <span class="c1"># Edge indicates which edge of the ring in which the hexagon resides.</span>
-        <span class="c1"># Edge 0 is the NE edge, edge 1 is the N edge, etc.</span>
-        <span class="c1"># Offset is (0-based) index of the hexagon in that edge. For instance,</span>
-        <span class="c1"># ring 3, pos 12 resides in edge 5 at index 1; it is the second hexagon</span>
-        <span class="c1"># in ring 3, edge 5.</span>
-        <span class="n">edge</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">ring</span><span class="p">)</span>  <span class="c1"># = pos//ring, pos%ring</span>
+        <span class="c1"># find the edge and offset (pos//ring or pos%ring)</span>
+        <span class="n">edge</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">ring</span><span class="p">)</span>
+
+        <span class="c1"># find (I,J) based on the ring, edge, and offset</span>
         <span class="k">if</span> <span class="n">edge</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">ring</span> <span class="o">-</span> <span class="n">offset</span>
             <span class="n">j</span> <span class="o">=</span> <span class="n">offset</span>
@@ -341,9 +408,9 @@
             <span class="n">j</span> <span class="o">=</span> <span class="n">ring</span>
         <span class="k">elif</span> <span class="n">edge</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="n">ring</span>
-            <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="n">offset</span> <span class="o">+</span> <span class="n">ring</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">ring</span> <span class="o">-</span> <span class="n">offset</span>
         <span class="k">elif</span> <span class="n">edge</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="n">ring</span> <span class="o">+</span> <span class="n">offset</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">-</span> <span class="n">ring</span>
             <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="n">offset</span>
         <span class="k">elif</span> <span class="n">edge</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">offset</span>
@@ -352,13 +419,47 @@
             <span class="n">i</span> <span class="o">=</span> <span class="n">ring</span>
             <span class="n">j</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">-</span> <span class="n">ring</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;Edge </span><span class="si">{}</span><span class="s2"> is invalid. From ring </span><span class="si">{}</span><span class="s2">, pos </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">ring</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Edge </span><span class="si">{</span><span class="n">edge</span><span class="si">}</span><span class="s2"> is invalid. From ring </span><span class="si">{</span><span class="n">ring</span><span class="si">}</span><span class="s2">, pos </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">edge</span>
 
 <div class="viewcode-block" id="HexGrid.getIndicesFromRingAndPos"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.getIndicesFromRingAndPos">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">getIndicesFromRingAndPos</span><span class="p">(</span><span class="n">ring</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IJType</span><span class="p">:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Given the ring and position, return the (I,J) coordinates in the hex grid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring : int</span>
+<span class="sd">            Starting with 1 (not zero), the ring of the grid cell.</span>
+<span class="sd">        position : int</span>
+<span class="sd">            Starting with 1 (not zero), the position of the grid cell, in the ring.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        (int, int) : I coordinate, J coordinate</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        In an axial plane, the (ring, position) coordinates are as follows::</span>
+
+<span class="sd">             Flat-to-Flat                    Corners Up</span>
+<span class="sd">                 _____</span>
+<span class="sd">                /     \                      / \     / \</span>
+<span class="sd">          _____/  2,2  \_____              /     \ /     \</span>
+<span class="sd">         /     \       /     \            |  2,2  |  2,1  |</span>
+<span class="sd">        /  2,3  \_____/  2,1  \           |       |       |</span>
+<span class="sd">        \       /     \       /          / \     / \     / \</span>
+<span class="sd">         \_____/  1,1  \_____/         /     \ /     \ /     \</span>
+<span class="sd">         /     \       /     \        |  2,3  |  1,1  |  2,6  |</span>
+<span class="sd">        /  2,4  \_____/  2,6  \       |       |       |       |</span>
+<span class="sd">        \       /     \       /        \     / \     / \     /</span>
+<span class="sd">         \_____/  2,5  \_____/           \ /     \ /     \ /</span>
+<span class="sd">               \       /                  |  2,4  |  2,5  |</span>
+<span class="sd">                \_____/                   |       |       |</span>
+<span class="sd">                                           \     / \     /</span>
+<span class="sd">                                             \ /     \ /</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">_edge</span> <span class="o">=</span> <span class="n">HexGrid</span><span class="o">.</span><span class="n">_indicesAndEdgeFromRingAndPos</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span></div>
 
@@ -412,11 +513,18 @@
         <span class="k">return</span> <span class="n">symmetryLine</span></div>
 
 <div class="viewcode-block" id="HexGrid.getSymmetricEquivalents"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.getSymmetricEquivalents">[docs]</a>    <span class="k">def</span> <span class="nf">getSymmetricEquivalents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">IJKType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">IJType</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieve e quivalent contents based on 3rd symmetry.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieve the equivalent indices. If full core return nothing, if 1/3-core grid,</span>
+<span class="sd">        return the symmetric equivalents, if any other grid, raise an error.</span>
 
-<span class="sd">        .. impl:: Equivalent contents in 3rd geometry are retrievable.</span>
+<span class="sd">        .. impl:: Equivalent contents in 1/3-core geometries are retrievable.</span>
 <span class="sd">            :id: I_ARMI_GRID_EQUIVALENTS</span>
 <span class="sd">            :implements: R_ARMI_GRID_EQUIVALENTS</span>
+
+<span class="sd">            This method takes in (I,J,K) indices, and if this ``HexGrid`` is full core,</span>
+<span class="sd">            it returns nothing. If this ``HexGrid`` is 1/3-core, this method will return</span>
+<span class="sd">            the 1/3-core symmetric equivalent of just (I,J). If this grid is any other kind,</span>
+<span class="sd">            this method will just return an error; a hexagonal grid with any other</span>
+<span class="sd">            symmetry is probably an error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">symmetry</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="n">geometry</span><span class="o">.</span><span class="n">DomainType</span><span class="o">.</span><span class="n">THIRD_CORE</span>
@@ -443,7 +551,8 @@
 
 <div class="viewcode-block" id="HexGrid.triangleCoords"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.triangleCoords">[docs]</a>    <span class="k">def</span> <span class="nf">triangleCoords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">IJKType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return 6 coordinate pairs representing the centers of the 6 triangles in a hexagon centered here.</span>
+<span class="sd">        Return 6 coordinate pairs representing the centers of the 6 triangles in a</span>
+<span class="sd">        hexagon centered here.</span>
 
 <span class="sd">        Ignores z-coordinate and only operates in 2D for now.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -451,12 +560,42 @@
         <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">3.0</span>
         <span class="k">return</span> <span class="n">xy</span> <span class="o">+</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">TRIANGLES_IN_HEXAGON</span></div>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_getRawUnitSteps</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="n">cornersUp</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the raw unit steps (ignore step dimensions), for a hex grid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pitch : float</span>
+<span class="sd">            The short diameter of the hexagons (flat to flat).</span>
+<span class="sd">        cornersUp : bool, optional</span>
+<span class="sd">            If True, the hexagons have a corner pointing in the Y direction. Default: False</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple : The full 3D set of derivatives of X,Y,Z in terms of i,j,k.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">hexagon</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="n">pitch</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cornersUp</span><span class="p">:</span>
+            <span class="c1"># rotated 30 degrees counter-clockwise from normal</span>
+            <span class="c1"># increases in i moves you in x and y</span>
+            <span class="c1"># increases in j also moves you in x and y</span>
+            <span class="n">unitSteps</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># x direction is only a function of i because j-axis is vertical.</span>
+            <span class="c1"># y direction is a function of both.</span>
+            <span class="n">unitSteps</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="n">pitch</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">unitSteps</span>
+
 <div class="viewcode-block" id="HexGrid.changePitch"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.changePitch">[docs]</a>    <span class="k">def</span> <span class="nf">changePitch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newPitchCm</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Change the hex pitch.&quot;&quot;&quot;</span>
-        <span class="n">side</span> <span class="o">=</span> <span class="n">hexagon</span><span class="o">.</span><span class="n">side</span><span class="p">(</span><span class="n">newPitchCm</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">((</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">side</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="n">newPitchCm</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">newPitchCm</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">_stepDims</span><span class="p">]</span></div>
+        <span class="n">unitSteps</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">HexGrid</span><span class="o">.</span><span class="n">_getRawUnitSteps</span><span class="p">(</span><span class="n">newPitchCm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cornersUp</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unitSteps</span> <span class="o">=</span> <span class="n">unitSteps</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_stepDims</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="HexGrid.locatorInDomain"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.locatorInDomain">[docs]</a>    <span class="k">def</span> <span class="nf">locatorInDomain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locator</span><span class="p">,</span> <span class="n">symmetryOverlap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="c1"># This will include the &quot;top&quot; 120-degree symmetry lines. This is to support</span>
@@ -467,27 +606,37 @@
             <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="HexGrid.isInFirstThird"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.isInFirstThird">[docs]</a>    <span class="k">def</span> <span class="nf">isInFirstThird</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locator</span><span class="p">,</span> <span class="n">includeTopEdge</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;True if locator is in first third of hex grid.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test if the given locator is in the first 1/3 of the HexGrid.</span>
 
 <span class="sd">        .. impl:: Determine if grid is in first third.</span>
 <span class="sd">            :id: I_ARMI_GRID_SYMMETRY_LOC</span>
 <span class="sd">            :implements: R_ARMI_GRID_SYMMETRY_LOC</span>
+
+<span class="sd">            This is a simple helper method to determine if a given locator (from an</span>
+<span class="sd">            ArmiObject) is in the first 1/3 of the ``HexGrid``. This method does not</span>
+<span class="sd">            attempt to check if this grid is full or 1/3-core. It just does the basic</span>
+<span class="sd">            math of dividing up a hex-assembly reactor core into thirds and testing if</span>
+<span class="sd">            the given location is in the first 1/3 or not.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ring</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getRingPos</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ring</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
+
         <span class="n">maxPosTotal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPositionsInRing</span><span class="p">(</span><span class="n">ring</span><span class="p">)</span>
 
         <span class="n">maxPos1</span> <span class="o">=</span> <span class="n">ring</span> <span class="o">+</span> <span class="n">ring</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">maxPos2</span> <span class="o">=</span> <span class="n">maxPosTotal</span> <span class="o">-</span> <span class="n">ring</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">ring</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="c1"># odd ring. Upper edge assem typically not included.</span>
+            <span class="c1"># Odd ring; upper edge assem typically not included.</span>
             <span class="k">if</span> <span class="n">includeTopEdge</span><span class="p">:</span>
                 <span class="n">maxPos1</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">maxPos2</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># make a table to understand this.</span>
+            <span class="c1"># Even ring; upper edge assem included.</span>
+            <span class="n">maxPos2</span> <span class="o">+=</span> <span class="mi">1</span>
+
         <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">maxPos1</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">maxPos2</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
+
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="HexGrid.generateSortedHexLocationList"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.generateSortedHexLocationList">[docs]</a>    <span class="k">def</span> <span class="nf">generateSortedHexLocationList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nLocs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -500,7 +649,7 @@
 <span class="sd">        by ring number then position number.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># first, roughly calculate how many rings need to be created to cover nLocs worth of assemblies</span>
-        <span class="n">nLocs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nLocs</span><span class="p">)</span>  <span class="c1"># need to make this an integer</span>
+        <span class="n">nLocs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nLocs</span><span class="p">)</span>
 
         <span class="c1"># next, generate a list of locations and corresponding distances</span>
         <span class="n">locList</span> <span class="o">=</span> <span class="p">[]</span>
@@ -509,44 +658,17 @@
             <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">positions</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
                 <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getIndicesFromRingAndPos</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
                 <span class="n">locList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+
         <span class="c1"># round to avoid differences due to floating point math</span>
         <span class="n">locList</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
             <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">loc</span><span class="p">:</span> <span class="p">(</span>
                 <span class="nb">round</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">getGlobalCoordinates</span><span class="p">()),</span> <span class="mi">6</span><span class="p">),</span>
-                <span class="n">loc</span><span class="o">.</span><span class="n">i</span><span class="p">,</span>  <span class="c1"># loc.i=ring</span>
+                <span class="n">loc</span><span class="o">.</span><span class="n">i</span><span class="p">,</span>
                 <span class="n">loc</span><span class="o">.</span><span class="n">j</span><span class="p">,</span>
             <span class="p">)</span>
-        <span class="p">)</span>  <span class="c1"># loc.j= pos</span>
-        <span class="k">return</span> <span class="n">locList</span><span class="p">[:</span><span class="n">nLocs</span><span class="p">]</span></div>
+        <span class="p">)</span>
 
-    <span class="c1"># TODO: this is only used by testing and another method that just needs the count of assemblies</span>
-    <span class="c1">#       in a ring, not the actual positions</span>
-<div class="viewcode-block" id="HexGrid.allPositionsInThird"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.grids.hexagonal.html#armi.reactor.grids.hexagonal.HexGrid.allPositionsInThird">[docs]</a>    <span class="k">def</span> <span class="nf">allPositionsInThird</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring</span><span class="p">,</span> <span class="n">includeEdgeAssems</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a list of all the positions in a ring (in the first third).</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        ring : int</span>
-<span class="sd">            The ring to check</span>
-<span class="sd">        includeEdgeAssems : bool, optional</span>
-<span class="sd">            If True, include repeated positions in odd ring numbers. Default: False</span>
-
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        Rings start at 1, positions start at 1</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        positions : int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">positions</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPositionsInRing</span><span class="p">(</span><span class="n">ring</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getIndicesFromRingAndPos</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
-            <span class="n">loc</span> <span class="o">=</span> <span class="n">IndexLocation</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isInFirstThird</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">includeEdgeAssems</span><span class="p">):</span>
-                <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">positions</span></div></div>
+        <span class="k">return</span> <span class="n">locList</span><span class="p">[:</span><span class="n">nLocs</span><span class="p">]</span></div></div>
 </pre></div>
 
            </div>
@@ -556,8 +678,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

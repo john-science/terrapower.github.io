@@ -12,7 +12,7 @@
 <meta name="description" content="Module to test geometry converters." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.converters.tests.test_geometryConverters module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.converters.tests.test_geometryConverters module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -151,13 +151,13 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters.test_addRing">
 <span class="sig-name descname"><span class="pre">test_addRing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/converters/tests/test_geometryConverters.html#TestGeometryConverters.test_addRing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters.test_addRing" title="Permalink to this definition"></a></dt>
-<dd><p>Tests that the addRing method adds the correct number of fuel assemblies to the test reactor.</p>
+<dd><p>Tests that <code class="docutils literal notranslate"><span class="pre">addRing</span></code> adds the correct number of fuel assemblies to the test reactor.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters.test_setNumberOfFuelAssems">
 <span class="sig-name descname"><span class="pre">test_setNumberOfFuelAssems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/converters/tests/test_geometryConverters.html#TestGeometryConverters.test_setNumberOfFuelAssems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.converters.tests.test_geometryConverters.TestGeometryConverters.test_setNumberOfFuelAssems" title="Permalink to this definition"></a></dt>
-<dd><p>Tests that the setNumberOfFuelAssems method properly changes the number of fuel assemblies.</p>
+<dd><p>Tests that <code class="docutils literal notranslate"><span class="pre">setNumberOfFuelAssems</span></code> properly changes the number of fuel assemblies.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -177,7 +177,14 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.converters.tests.test_geometryConverters.TestHexToRZConverter.test_convert">
 <span class="sig-name descname"><span class="pre">test_convert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/converters/tests/test_geometryConverters.html#TestHexToRZConverter.test_convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.converters.tests.test_geometryConverters.TestHexToRZConverter.test_convert" title="Permalink to this definition"></a></dt>
-<dd><p>Test the HexToRZConverter.</p>
+<dd><p>Test HexToRZConverter.convert().</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>Ensure the converted reactor has 1) nuclides and nuclide masses that match the
+original reactor, 2) for a given (r,z,theta) location the expected block type exists,
+3) the converted reactor has the right (r,z,theta) coordinates, and 4) the converted
+reactor blocks all have a single (homogenized) component.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -224,7 +231,8 @@ not have a method with the specified name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.converters.tests.test_geometryConverters.TestThirdCoreHexToFullCoreChanger.test_skipGrowToFullCoreWhenAlreadyFullCore">
 <span class="sig-name descname"><span class="pre">test_skipGrowToFullCoreWhenAlreadyFullCore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/converters/tests/test_geometryConverters.html#TestThirdCoreHexToFullCoreChanger.test_skipGrowToFullCoreWhenAlreadyFullCore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.converters.tests.test_geometryConverters.TestThirdCoreHexToFullCoreChanger.test_skipGrowToFullCoreWhenAlreadyFullCore" title="Permalink to this definition"></a></dt>
-<dd><p>Test that hex core is not modified when third core to full core changer is called on an already full core geometry.</p>
+<dd><p>Test that hex core is not modified when third core to full core changer is called on an
+already full core geometry.</p>
 </dd></dl>
 
 </dd></dl>
@@ -242,8 +250,8 @@ not have a method with the specified name.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

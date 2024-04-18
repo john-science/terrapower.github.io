@@ -12,7 +12,7 @@
 <meta name="description" content="Contains classes that build case suites from perturbing inputs. The general use case is to create a SuiteBuilder with a base Case, use addDegreeOfFreedom() to adjust inputs according to the supplie..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cases.suiteBuilder module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cases.suiteBuilder module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -178,8 +178,8 @@ is known to not work, or be unnecessary.</p>
 <p>The exact application of this is dependent on a subclass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>inputModifiers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>(</em><em>callable</em><em>(</em><em>CaseSettings</em><em>, </em><em>Blueprints</em><em>, </em><em>SystemLayoutInput</em><em>)</em><em>)</em>) – A list of callable objects with the signature
-<code class="docutils literal notranslate"><span class="pre">(CaseSettings,</span> <span class="pre">Blueprints,</span> <span class="pre">SystemLayoutInput)</span></code>. When these objects are called
+<dd class="field-odd"><p><strong>inputModifiers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>(</em><em>callable</em><em>(</em><em>Settings</em><em>, </em><em>Blueprints</em><em>, </em><em>SystemLayoutInput</em><em>)</em><em>)</em>) – A list of callable objects with the signature
+<code class="docutils literal notranslate"><span class="pre">(Settings,</span> <span class="pre">Blueprints,</span> <span class="pre">SystemLayoutInput)</span></code>. When these objects are called
 they should perturb the settings, blueprints, and/or geometry by some amount determined
 by their construction.</p>
 </dd>
@@ -205,7 +205,7 @@ then added to a <code class="docutils literal notranslate"><span class="pre">Cas
 <dd class="field-odd"><p><strong>namingFunc</strong> (<em>callable</em><em>(</em><em>index</em><em>, </em><em>case</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>(</em><em>InputModifier</em><em>)</em><em>)</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Function used to name each case. It is supplied with the index (int), the case (Case),
 and a tuple of InputModifiers used to edit the case. This should be enough information
 for someone to derive a meaningful name.</p>
-<p>The function should return a string specifying the path of the <code class="docutils literal notranslate"><span class="pre">CaseSettings</span></code>, this
+<p>The function should return a string specifying the path of the <code class="docutils literal notranslate"><span class="pre">Settings</span></code>, this
 allows the user to specify the directories where each case will be run.</p>
 <p>If not supplied the path will be <code class="docutils literal notranslate"><span class="pre">./case-suite/&lt;0000&gt;/&lt;title&gt;-&lt;0000&gt;</span></code>, where
 <code class="docutils literal notranslate"><span class="pre">&lt;0000&gt;</span></code> is the four-digit case index, and <code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code> is the <code class="docutils literal notranslate"><span class="pre">baseCase.title</span></code>.</p>
@@ -252,16 +252,40 @@ allows the user to specify the directories where each case will be run.</p>
 </pre></div>
 </div>
 <p>would result in 6 cases:</p>
-<div class="line-block">
-<div class="line">Index | <code class="docutils literal notranslate"><span class="pre">settingName1</span></code> | <code class="docutils literal notranslate"><span class="pre">settingName2</span></code> |</div>
-<div class="line">—– | —————- | —————- |</div>
-<div class="line">0     | 1                | 3                |</div>
-<div class="line">1     | 2                | 3                |</div>
-<div class="line">2     | 1                | 4                |</div>
-<div class="line">3     | 2                | 4                |</div>
-<div class="line">4     | 1                | 5                |</div>
-<div class="line">5     | 2                | 5                |</div>
-</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">settingName1</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">settingName2</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#armi.cases.suiteBuilder.SuiteBuilder.addDegreeOfFreedom" title="armi.cases.suiteBuilder.SuiteBuilder.addDegreeOfFreedom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SuiteBuilder.addDegreeOfFreedom</span></code></a></p>
@@ -314,15 +338,36 @@ allows the user to specify the directories where each case will be run.</p>
 </pre></div>
 </div>
 <p>would result in 5 cases:</p>
-<div class="line-block">
-<div class="line">Index | <code class="docutils literal notranslate"><span class="pre">settingName1</span></code> | <code class="docutils literal notranslate"><span class="pre">settingName2</span></code> |</div>
-<div class="line">—– | —————- | —————- |</div>
-<div class="line">0     | 1                | default          |</div>
-<div class="line">1     | 2                | default          |</div>
-<div class="line">2     | default          | 3                |</div>
-<div class="line">3     | default          | 4                |</div>
-<div class="line">4     | default          | 5                |</div>
-</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">settingName1</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">settingName2</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>default</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>default</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>default</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>default</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>default</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#armi.cases.suiteBuilder.SuiteBuilder.addDegreeOfFreedom" title="armi.cases.suiteBuilder.SuiteBuilder.addDegreeOfFreedom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SuiteBuilder.addDegreeOfFreedom</span></code></a></p>
@@ -387,7 +432,7 @@ then added to a <code class="docutils literal notranslate"><span class="pre">Cas
 <dd class="field-odd"><p><strong>namingFunc</strong> (<em>callable</em><em>(</em><em>index</em><em>, </em><em>case</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>(</em><em>InputModifier</em><em>)</em><em>)</em><em>, </em><em>(</em><em>optional</em><em>)</em>) – <p>Function used to name each case. It is supplied with the index (int), the case (Case),
 and a tuple of InputModifiers used to edit the case. This should be enough information
 for someone to derive a meaningful name.</p>
-<p>The function should return a string specifying the path of the <code class="docutils literal notranslate"><span class="pre">CaseSettings</span></code>, this
+<p>The function should return a string specifying the path of the <code class="docutils literal notranslate"><span class="pre">Settings</span></code>, this
 allows the user to specify the directories where each case will be run.</p>
 <p>If not supplied the path will be <code class="docutils literal notranslate"><span class="pre">./case-suite/&lt;0000&gt;/&lt;title&gt;-&lt;0000&gt;</span></code>, where
 <code class="docutils literal notranslate"><span class="pre">&lt;0000&gt;</span></code> is the four-digit case index, and <code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code> is the <code class="docutils literal notranslate"><span class="pre">baseCase.title</span></code>.</p>
@@ -420,8 +465,8 @@ allows the user to specify the directories where each case will be run.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

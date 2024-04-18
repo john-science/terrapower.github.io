@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.fuelCycle.fuelHandlers &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.physics.fuelCycle.fuelHandlers &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -217,7 +217,10 @@
             <span class="c1"># The user can choose the algorithm method name directly in the settings</span>
             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">rotAlgos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_ASSEMBLY_ROTATION_ALG</span><span class="p">]):</span>
                 <span class="n">rotationMethod</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">rotAlgos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_ASSEMBLY_ROTATION_ALG</span><span class="p">])</span>
-                <span class="n">rotationMethod</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">rotationMethod</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                    <span class="n">rotationMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
                     <span class="s2">&quot;FuelHandler </span><span class="si">{0}</span><span class="s2"> does not have a rotation algorithm called </span><span class="si">{1}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -461,14 +464,15 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        feed = self.findAssembly(targetRing=4,</span>
-<span class="sd">                                 width=(0,0),</span>
-<span class="sd">                                 param=&#39;maxPercentBu&#39;,</span>
-<span class="sd">                                 compareTo=100,</span>
-<span class="sd">                                 typeSpec=Flags.FEED | Flags.FUEL)</span>
+<span class="sd">        This returns the feed fuel assembly in ring 4 that has a burnup closest to 100%</span>
+<span class="sd">        (the highest burnup assembly)::</span>
 
-<span class="sd">        returns the feed fuel assembly in ring 4 that has a burnup closest to 100% (the highest</span>
-<span class="sd">        burnup assembly)</span>
+<span class="sd">            feed = self.findAssembly(targetRing=4,</span>
+<span class="sd">                                     width=(0,0),</span>
+<span class="sd">                                     param=&#39;maxPercentBu&#39;,</span>
+<span class="sd">                                     compareTo=100,</span>
+<span class="sd">                                     typeSpec=Flags.FEED | Flags.FUEL)</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">compareAssem</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span> <span class="n">current</span><span class="p">):</span>
@@ -634,17 +638,9 @@
                         <span class="c1"># this assembly is in the excluded location list. skip it.</span>
                         <span class="k">continue</span>
 
-                <span class="c1"># only continue of the Assembly is in a Zone</span>
-                <span class="k">if</span> <span class="n">zoneList</span><span class="p">:</span>
-                    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># guilty until proven innocent</span>
-                    <span class="k">for</span> <span class="n">zone</span> <span class="ow">in</span> <span class="n">zoneList</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">()</span> <span class="ow">in</span> <span class="n">zone</span><span class="p">:</span>
-                            <span class="c1"># great! it&#39;s in there, so we&#39;ll accept this assembly</span>
-                            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># innocent</span>
-                            <span class="k">break</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-                        <span class="c1"># this assembly is not in any of the zones in the zone list. skip it.</span>
-                        <span class="k">continue</span>
+                <span class="c1"># only process of the Assembly is in a Zone</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isAssemblyInAZone</span><span class="p">(</span><span class="n">zoneList</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+                    <span class="k">continue</span>
 
                 <span class="c1"># Now find the assembly with the param closest to the target val.</span>
                 <span class="k">if</span> <span class="n">param</span><span class="p">:</span>
@@ -711,6 +707,21 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">minDiff</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
 
+<div class="viewcode-block" id="FuelHandler.isAssemblyInAZone"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.fuelCycle.fuelHandlers.html#armi.physics.fuelCycle.fuelHandlers.FuelHandler.isAssemblyInAZone">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">isAssemblyInAZone</span><span class="p">(</span><span class="n">zoneList</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Does the given assembly in one of these zones.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">zoneList</span><span class="p">:</span>
+            <span class="c1"># ruff: noqa: SIM110</span>
+            <span class="k">for</span> <span class="n">zone</span> <span class="ow">in</span> <span class="n">zoneList</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">getLocation</span><span class="p">()</span> <span class="ow">in</span> <span class="n">zone</span><span class="p">:</span>
+                    <span class="c1"># Success!</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># A little counter-intuitively, if there are no zones, we return True.</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
     <span class="k">def</span> <span class="nf">_getAssembliesInRings</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ringList</span><span class="p">,</span>
@@ -719,7 +730,7 @@
         <span class="n">exclusions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">circularRingFlag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        find assemblies in particular rings.</span>
 
 <span class="sd">        Parameters</span>
@@ -804,22 +815,42 @@
         <span class="k">return</span> <span class="n">assemblyList</span>
 
 <div class="viewcode-block" id="FuelHandler.swapAssemblies"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.fuelCycle.fuelHandlers.html#armi.physics.fuelCycle.fuelHandlers.FuelHandler.swapAssemblies">[docs]</a>    <span class="k">def</span> <span class="nf">swapAssemblies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Moves a whole assembly from one place to another.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Moves a whole assembly from one place to another.</span>
 
 <span class="sd">        .. impl:: Assemblies can be moved from one place to another.</span>
 <span class="sd">            :id: I_ARMI_SHUFFLE_MOVE</span>
 <span class="sd">            :implements: R_ARMI_SHUFFLE_MOVE</span>
 
-<span class="sd">        .. impl:: User-specified blocks can be left in place and not moved.</span>
+<span class="sd">            For the two assemblies that are passed in, call to their :py:meth:`~armi.reactor.assemblies.Assembly.moveTo`</span>
+<span class="sd">            methods to transfer their underlying ``spatialLocator`` attributes to</span>
+<span class="sd">            each other. This will also update the ``childrenByLocator`` list on the</span>
+<span class="sd">            core as well as the assembly parameters ``numMoves`` and ``daysSinceLastMove``.</span>
+
+<span class="sd">        .. impl:: User-specified blocks can be left in place during within-core swaps.</span>
 <span class="sd">            :id: I_ARMI_SHUFFLE_STATIONARY0</span>
 <span class="sd">            :implements: R_ARMI_SHUFFLE_STATIONARY</span>
 
+<span class="sd">            Before assemblies are moved,</span>
+<span class="sd">            the ``_transferStationaryBlocks`` class method is called to</span>
+<span class="sd">            check if there are any block types specified by the user as stationary</span>
+<span class="sd">            via the ``stationaryBlockFlags`` case setting. Using these flags, blocks</span>
+<span class="sd">            are gathered from each assembly which should remain stationary and</span>
+<span class="sd">            checked to make sure that both assemblies have the same number</span>
+<span class="sd">            and same height of stationary blocks. If not, return an error.</span>
+
+<span class="sd">            If all checks pass, the :py:meth:`~armi.reactor.assemblies.Assembly.remove`</span>
+<span class="sd">            and :py:meth:`~armi.reactor.assemblies.Assembly.insert`</span>
+<span class="sd">            methods are used to swap the stationary blocks between the two assemblies.</span>
+
+<span class="sd">            Once this process is complete, the actual assembly movement can take</span>
+<span class="sd">            place. Through this process, the stationary blocks remain in the same</span>
+<span class="sd">            core location.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        a1 : Assembly</span>
+<span class="sd">        a1 : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
 <span class="sd">            The first assembly</span>
-<span class="sd">        a2 : Assembly</span>
+<span class="sd">        a2 : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
 <span class="sd">            The second assembly</span>
 
 <span class="sd">        See Also</span>
@@ -901,12 +932,33 @@
             <span class="n">assembly2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">assem2BlockIndex</span><span class="p">,</span> <span class="n">assem1Block</span><span class="p">)</span>
 
 <div class="viewcode-block" id="FuelHandler.dischargeSwap"><a class="viewcode-back" href="../../../../.apidocs/armi.physics.fuelCycle.fuelHandlers.html#armi.physics.fuelCycle.fuelHandlers.FuelHandler.dischargeSwap">[docs]</a>    <span class="k">def</span> <span class="nf">dischargeSwap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">incoming</span><span class="p">,</span> <span class="n">outgoing</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Removes one assembly from the core and replace it with another assembly.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes one assembly from the core and replace it with another assembly.</span>
 
-<span class="sd">        .. impl:: User-specified blocks can be left in place and not moved.</span>
+<span class="sd">        .. impl:: User-specified blocks can be left in place for the discharge swap.</span>
 <span class="sd">            :id: I_ARMI_SHUFFLE_STATIONARY1</span>
 <span class="sd">            :implements: R_ARMI_SHUFFLE_STATIONARY</span>
+
+<span class="sd">            Before assemblies are moved, the ``_transferStationaryBlocks`` class method is called to</span>
+<span class="sd">            check if there are any block types specified by the user as stationary via the</span>
+<span class="sd">            ``stationaryBlockFlags`` case setting. Using these flags, blocks are gathered from each</span>
+<span class="sd">            assembly which should remain stationary and checked to make sure that both assemblies</span>
+<span class="sd">            have the same number and same height of stationary blocks. If not, return an error.</span>
+
+<span class="sd">            If all checks pass, the :py:meth:`~armi.reactor.assemblies.Assembly.remove` and</span>
+<span class="sd">            :py:meth:`~armi.reactor.assemblies.Assembly.insert` methods are used to swap the</span>
+<span class="sd">            stationary blocks between the two assemblies.</span>
+
+<span class="sd">            Once this process is complete, the actual assembly movement can take place. Through this</span>
+<span class="sd">            process, the stationary blocks from the outgoing assembly remain in the original core</span>
+<span class="sd">            position, while the stationary blocks from the incoming assembly are discharged with the</span>
+<span class="sd">            outgoing assembly.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        incoming : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
+<span class="sd">            The assembly getting swapped into the core.</span>
+<span class="sd">        outgoing : :py:class:`Assembly &lt;armi.reactor.assemblies.Assembly&gt;`</span>
+<span class="sd">            The assembly getting discharged out the core.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -1076,7 +1128,10 @@
             <span class="k">elif</span> <span class="s2">&quot;assembly&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="c1"># this is the new load style where an actual assembly type is written to the shuffle logic</span>
                 <span class="c1"># due to legacy reasons, the assembly type will be put into group 4</span>
-                <span class="n">pat</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([A-Za-z0-9!\-]+) moved to ([A-Za-z0-9!\-]+) with assembly type ([A-Za-z0-9!\s]+)\s*(ANAME=\S+)?\s*with enrich list: (.+)&quot;</span>
+                <span class="n">pat</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">r</span><span class="s2">&quot;([A-Za-z0-9!\-]+) moved to ([A-Za-z0-9!\-]+) with assembly type &quot;</span>
+                    <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;([A-Za-z0-9!\s]+)\s*(ANAME=\S+)?\s*with enrich list: (.+)&quot;</span>
+                <span class="p">)</span>
                 <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="n">InputError</span><span class="p">(</span>
@@ -1479,8 +1534,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

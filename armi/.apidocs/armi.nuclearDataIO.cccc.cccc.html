@@ -12,7 +12,7 @@
 <meta name="description" content="Defines containers for the reading and writing standard interface files for reactor physics codes." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.nuclearDataIO.cccc.cccc module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.nuclearDataIO.cccc.cccc module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -379,7 +379,7 @@ does not match the initial value, an exception will be raised.</p>
 <dt class="sig sig-object py" id="armi.nuclearDataIO.cccc.cccc.BinaryRecordWriter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.nuclearDataIO.cccc.cccc.</span></span><span class="sig-name descname"><span class="pre">BinaryRecordWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hasRecordBoundaries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/nuclearDataIO/cccc/cccc.html#BinaryRecordWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.nuclearDataIO.cccc.cccc.BinaryRecordWriter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#armi.nuclearDataIO.cccc.cccc.IORecord" title="armi.nuclearDataIO.cccc.cccc.IORecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">IORecord</span></code></a></p>
-<p>a single record from a CCCC file.</p>
+<p>Reads a single CCCC record in binary format.</p>
 <p>Reads binary information sequentially.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.nuclearDataIO.cccc.cccc.BinaryRecordWriter.open">
@@ -621,8 +621,8 @@ The non-zero band from JL to JH is what we’re talking about here.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

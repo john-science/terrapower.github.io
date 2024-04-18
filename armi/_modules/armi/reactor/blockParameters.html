@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blockParameters &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blockParameters &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -126,8 +126,8 @@
             <span class="s2">&quot;orientation&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">DEGREES</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="p">(</span>
-                <span class="s2">&quot;Triple representing rotations counterclockwise around each spatial axis. For example, &quot;</span>
-                <span class="s2">&quot;a hex assembly rotated by 1/6th has orientation (0,0,60.0)&quot;</span>
+                <span class="s2">&quot;Triple representing rotations counterclockwise around each spatial axis. For &quot;</span>
+                <span class="s2">&quot;example, a hex assembly rotated by 1/6th has orientation (0,0,60.0)&quot;</span>
             <span class="p">),</span>
             <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="p">)</span>
@@ -254,7 +254,10 @@
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;residence&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">DAYS</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Duration that a block has been in the core multiplied by the fraction of full power generated in that time.&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="p">(</span>
+                <span class="s2">&quot;Duration that a block has been in the core multiplied by the fraction &quot;</span>
+                <span class="s2">&quot;of full power generated in that time.&quot;</span>
+            <span class="p">),</span>
             <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cumulative&quot;</span><span class="p">],</span>
         <span class="p">)</span>
 
@@ -438,7 +441,10 @@
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;axialExpTargetComponent&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">UNITLESS</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The name of the target component used for axial expansion and contraction of solid components.&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="p">(</span>
+                <span class="s2">&quot;The name of the target component used for axial expansion and &quot;</span>
+                <span class="s2">&quot;contraction of solid components.&quot;</span>
+            <span class="p">),</span>
             <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
             <span class="n">saveToDB</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
@@ -536,82 +542,82 @@
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelDensityCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelDopplerConstant&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">*</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">^(n-1)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Doppler Constant&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Doppler constant&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelVoidedDopplerConstant&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">*</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">^(n-1)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Voided-Coolant Constant&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel voided-coolant Doppler constant&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelTemperatureCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelVoidedTemperatureCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Voided-Coolant Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel voided-coolant temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># CLAD COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCladDensityCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCladDopplerConstant&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">*</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">^(n-1)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Doppler Constant&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Doppler constant&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCladTemperatureCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># STRUCTURE COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxStructureDensityCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxStructureDopplerConstant&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">*</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">^(n-1)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Doppler Constant&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Doppler constant&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxStructureTemperatureCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># COOLANT COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCoolantDensityCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCoolantTemperatureCoeffPerMass&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">KG</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">(</span>
@@ -627,83 +633,83 @@
         <span class="c1"># FUEL COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelDensityCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelDopplerCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Doppler Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Doppler coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelVoidedDopplerCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Voided-Coolant Doppler Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel voided-coolant Doppler coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelTemperatureCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxFuelVoidedTemperatureCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel Voided-Coolant Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fuel voided-coolant temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># CLAD COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCladDensityCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCladDopplerCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Doppler Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Doppler coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCladTemperatureCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clad temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># STRUCTURE COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxStructureDensityCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxStructureDopplerCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Doppler Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Doppler coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxStructureTemperatureCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Structure temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># COOLANT COEFFICIENTS</span>
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCoolantDensityCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant Density Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant density coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;rxCoolantTemperatureCoeffPerTemp&quot;</span><span class="p">,</span>
-            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant Temperature Coefficient&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">REACTIVITY</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">units</span><span class="o">.</span><span class="n">DEGK</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Coolant temperature coefficient&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">with</span> <span class="n">pDefs</span><span class="o">.</span><span class="n">createBuilder</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span> <span class="k">as</span> <span class="n">pb</span><span class="p">:</span>
@@ -718,12 +724,11 @@
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;assemNum&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">UNITLESS</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Index that refers, nominally, to the assemNum parameter of &quot;</span>
-            <span class="s2">&quot;the containing Assembly object. This is stored on the Block to aid in &quot;</span>
-            <span class="s2">&quot;visualizing shuffle patterns and the like, and should not be used within &quot;</span>
-            <span class="s2">&quot;the code. These are not guaranteed to be consistent with the containing &quot;</span>
-            <span class="s2">&quot;Assembly, so they should not be used as a reliable means to reconstruct &quot;</span>
-            <span class="s2">&quot;the model.&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Index that refers, nominally, to the assemNum parameter of the containing &quot;</span>
+            <span class="s2">&quot;Assembly object. This is stored on the Block to aid in visualizing shuffle patterns &quot;</span>
+            <span class="s2">&quot;and the like, and should not be used within the code. These are not guaranteed to be &quot;</span>
+            <span class="s2">&quot;consistent with the containing Assembly, so they should not be used as a reliable &quot;</span>
+            <span class="s2">&quot;means to reconstruct the model.&quot;</span><span class="p">,</span>
             <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="n">parameters</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">retainOnReplacement</span><span class="p">],</span>
         <span class="p">)</span>
 
@@ -892,7 +897,10 @@
         <span class="n">pb</span><span class="o">.</span><span class="n">defParam</span><span class="p">(</span>
             <span class="s2">&quot;smearDensity&quot;</span><span class="p">,</span>
             <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="o">.</span><span class="n">UNITLESS</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Smear density of fuel pins in this block. Defined as the ratio of fuel area to total space inside cladding.&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="p">(</span>
+                <span class="s2">&quot;Smear density of fuel pins in this block. Defined as the ratio of fuel &quot;</span>
+                <span class="s2">&quot;area to total space inside cladding.&quot;</span>
+            <span class="p">),</span>
             <span class="n">location</span><span class="o">=</span><span class="n">ParamLocation</span><span class="o">.</span><span class="n">AVERAGE</span><span class="p">,</span>
         <span class="p">)</span>
 
@@ -906,8 +914,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

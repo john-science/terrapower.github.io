@@ -12,7 +12,7 @@
 <meta name="description" content="Here you will learn how to use ARMI. It will cover getting and installing ARMI and its prerequisites, making ARMI input files, running various kinds of ARMI runs, analyzing ARMI output files, etc. ..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Docs &mdash; ARMI 0.2.9 documentation</title>
+  <title>User Docs &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1. Installation" href="user_install.html" />
-    <link rel="prev" title="7. Parameter sweeps" href="../tutorials/param_sweep.html" /> 
+    <link rel="prev" title="Installation" href="../installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,12 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">User Docs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_install.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inputs/index.html">2. Inputs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outputs/index.html">3. Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">2. Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html">3. Outputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual_data_access.html">4. Accessing Data in ARMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reactor_parameters_report.html">5. Reactor Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="core_parameters_report.html">6. Core Parameters</a></li>
@@ -82,6 +80,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -131,16 +131,17 @@ analyzing ARMI output files, etc.</p>
 <li class="toctree-l2"><a class="reference internal" href="user_install.html#optional-setup">1.4. Optional Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="inputs/index.html">2. Inputs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inputs/settings.html">2.1. The Settings Input File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inputs/blueprints.html">2.2. The Blueprints Input File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inputs/fuel_management.html">2.3. Fuel Management Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inputs/settings_report.html">2.4. Settings Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">2. Inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#yaml-files">2.1. YAML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#the-settings-input-file">2.2. The Settings Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#the-blueprints-input-file">2.3. The Blueprints Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#fuel-management-input">2.4. Fuel Management Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#settings-report">2.5. Settings Report</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="outputs/index.html">3. Outputs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="outputs/stdout.html">3.1. The Standard Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outputs/database.html">3.2. The Database File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">3. Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#the-standard-output">3.1. The Standard Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#the-database-file">3.2. The Database File</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual_data_access.html">4. Accessing Data in ARMI</a><ul>
@@ -160,8 +161,6 @@ analyzing ARMI output files, etc.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="radial_and_axial_expansion.html">11. Radial and Axial Expansion and Contraction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="radial_and_axial_expansion.html#thermal-expansion">11.1. Thermal Expansion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radial_and_axial_expansion.html#radial-expansion">11.2. Radial Expansion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radial_and_axial_expansion.html#axial-expansion">11.3. Axial Expansion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="accessingEntryPoints.html">12. Accessing Entry Points</a><ul>
@@ -176,15 +175,15 @@ analyzing ARMI output files, etc.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../tutorials/param_sweep.html" class="btn btn-neutral float-left" title="7. Parameter sweeps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="user_install.html" class="btn btn-neutral float-right" title="1. Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

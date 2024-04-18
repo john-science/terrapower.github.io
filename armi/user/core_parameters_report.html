@@ -12,7 +12,7 @@
 <meta name="description" content="This document lists all of the Core Parameters that are provided by the ARMI Framework. Core Parameters from Framework:,,, Name, Description, Units,,, detailedNucKeys, Nuclide vector keys, used to ..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6. Core Parameters &mdash; ARMI 0.2.9 documentation</title>
+  <title>6. Core Parameters &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,12 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">User Docs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="user_install.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inputs/index.html">2. Inputs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outputs/index.html">3. Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">2. Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html">3. Outputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual_data_access.html">4. Accessing Data in ARMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reactor_parameters_report.html">5. Reactor Parameters</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">6. Core Parameters</a></li>
@@ -82,6 +80,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -116,7 +116,7 @@
            <div itemprop="articleBody">
              
   <section id="core-parameters">
-<h1><span class="section-number">6. </span>Core Parameters<a class="headerlink" href="#core-parameters" title="Permalink to this heading"></a></h1>
+<span id="core-parameters-report"></span><h1><span class="section-number">6. </span>Core Parameters<a class="headerlink" href="#core-parameters" title="Permalink to this heading"></a></h1>
 <p>This document lists all of the Core Parameters that are provided by the ARMI Framework.</p>
 <div class="docutils container">
 <blockquote id="framework-core-param-table">
@@ -136,7 +136,8 @@
 <tbody>
 <tr class="row-even"><td><p>detailedNucKeys</p></td>
 <td><dl class="simple">
-<dt>Nuclide vector keys, used to map densities in b.p.detailedNDens and a.p.detailedNDens.</dt><dd><p>ZZZAAA (ZZZ atomic number, AAA mass number, + 100 * m for metastable states.</p>
+<dt>Nuclide vector keys, used to map densities in b.p.detailedNDens and </dt><dd><p>a.p.detailedNDens.ZZZAAA (ZZZ atomic number, AAA mass number, + 100 * m for metastable
+states.</p>
 </dd>
 </dl>
 </td>
@@ -188,7 +189,7 @@
 </tr>
 <tr class="row-even"><td><p>doublingTime</p></td>
 <td><dl class="simple">
-<dt>The time it takes to produce enough spent fuel to fuel a daughter reactor,</dt><dd><p>in effective number of years at full power.</p>
+<dt>The time it takes to produce enough spent fuel to fuel a daughter </dt><dd><p>reactor, in effective number of years at full power.</p>
 </dd>
 </dl>
 </td>
@@ -387,7 +388,7 @@
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>betaComponents</p></td>
-<td><p>Group-wise delayed neutron fractions.</p></td>
+<td><p>Group-wise delayed neutron fractions</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>betaDecayConstants</p></td>
@@ -408,7 +409,7 @@
 </tr>
 <tr class="row-even"><td><p>rxFuelAxialExpansionCoeffPerPercent</p></td>
 <td><p>Fuel Axial Expansion Coefficient</p></td>
-<td><p>dk/kk’-%</p></td>
+<td><p>Δk/k/k’/%</p></td>
 </tr>
 <tr class="row-odd"><td><p>rxGridPlateRadialExpansionCoeffPerTemp</p></td>
 <td><p>Grid Plate Radial Expansion Coefficient</p></td>
@@ -585,8 +586,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

@@ -12,7 +12,7 @@
 <meta name="description" content="This module contains the basic composite pattern underlying the reactor package. This follows the principles of the Composite Design Pattern to allow the construction of a part/whole hierarchy repr..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.composites module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.composites module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -54,7 +54,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,10 +66,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -141,19 +141,21 @@
   <section id="module-armi.reactor.composites">
 <span id="armi-reactor-composites-module"></span><h1>armi.reactor.composites module<a class="headerlink" href="#module-armi.reactor.composites" title="Permalink to this heading"></a></h1>
 <p>This module contains the basic composite pattern underlying the reactor package.</p>
-<p>This follows the principles of the <a class="reference external" href="https://en.wikipedia.org/wiki/Composite_pattern">Composite Design Pattern</a> to allow the construction of a
-part/whole hierarchy representing a physical nuclear reactor. The composite objects act
-somewhat like lists: they can be indexed, iterated over, appended, extended, inserted,
-etc. Each member of the hierarchy knows its children and its parent, so full access to
-the hierarchy is available from everywhere. This design was chosen because of the close
-analogy of the model to the physical nature of nuclear reactors.</p>
+<p>This follows the principles of the <a class="reference external" href="https://en.wikipedia.org/wiki/Composite_pattern">Composite Design Pattern</a> to allow the construction of a part/whole
+hierarchy representing a physical nuclear reactor. The composite objects act somewhat like lists:
+they can be indexed, iterated over, appended, extended, inserted, etc. Each member of the hierarchy
+knows its children and its parent, so full access to the hierarchy is available from everywhere.
+This design was chosen because of the close analogy of the model to the physical nature of nuclear
+reactors.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Because each member of the hierarchy is linked to the entire tree,
-it is often unsafe to save references to individual members; it can cause
-large and unexpected memory inefficiencies.</p>
+<p>Because each member of the hierarchy is linked to the entire tree, it is often unsafe to save
+references to individual members; it can cause large and unexpected memory inefficiencies.</p>
 </div>
-<p>See Also: <a class="reference internal" href="../developer/index.html"><span class="doc">Developer Docs</span></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../developer/index.html"><span class="doc">Developer Docs</span></a>.</p>
+</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="armi.reactor.composites.FlagSerializer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.composites.</span></span><span class="sig-name descname"><span class="pre">FlagSerializer</span></span><a class="reference internal" href="../_modules/armi/reactor/composites.html#FlagSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.FlagSerializer" title="Permalink to this definition"></a></dt>
@@ -197,13 +199,16 @@ flags.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.composites.</span></span><span class="sig-name descname"><span class="pre">CompositeModelType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#CompositeModelType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.CompositeModelType" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="armi.reactor.parameters.resolveCollections.html#armi.reactor.parameters.resolveCollections.ResolveParametersMeta" title="armi.reactor.parameters.resolveCollections.ResolveParametersMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResolveParametersMeta</span></code></a></p>
 <p>Metaclass for tracking subclasses of ArmiObject subclasses.</p>
-<p>It is often useful to have an easily-accessible collection of all classes that
-participate in the ARMI composite reactor model. This metaclass maintains a
-collection of all defined subclasses, called TYPES.</p>
+<p>It is often useful to have an easily-accessible collection of all classes that participate in
+the ARMI composite reactor model. This metaclass maintains a collection of all defined
+subclasses, called TYPES.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="armi.reactor.composites.CompositeModelType.TYPES">
-<span class="sig-name descname"><span class="pre">TYPES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ArmiObject':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.composites.ArmiObject'&gt;,</span> <span class="pre">'Assembly':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblies.Assembly'&gt;,</span> <span class="pre">'AssemblyList':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblyLists.AssemblyList'&gt;,</span> <span class="pre">'Block':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.blocks.Block'&gt;,</span> <span class="pre">'CartesianAssembly':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblies.CartesianAssembly'&gt;,</span> <span class="pre">'CartesianBlock':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.blocks.CartesianBlock'&gt;,</span> <span class="pre">'Circle':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.Circle'&gt;,</span> <span class="pre">'Component':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.component.Component'&gt;,</span> <span class="pre">'Composite':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.composites.Composite'&gt;,</span> <span class="pre">'Core':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.reactors.Core'&gt;,</span> <span class="pre">'Cube':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.volumetricShapes.Cube'&gt;,</span> <span class="pre">'DerivedShape':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.DerivedShape'&gt;,</span> <span class="pre">'DifferentialRadialSegment':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.volumetricShapes.DifferentialRadialSegment'&gt;,</span> <span class="pre">'Helix':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.complexShapes.Helix'&gt;,</span> <span class="pre">'HexAssembly':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblies.HexAssembly'&gt;,</span> <span class="pre">'HexBlock':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.blocks.HexBlock'&gt;,</span> <span class="pre">'HexHoledCircle':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.complexShapes.HexHoledCircle'&gt;,</span> <span class="pre">'Hexagon':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.Hexagon'&gt;,</span> <span class="pre">'HoledHexagon':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.complexShapes.HoledHexagon'&gt;,</span> <span class="pre">'HoledRectangle':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.complexShapes.HoledRectangle'&gt;,</span> <span class="pre">'HoledSquare':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.complexShapes.HoledSquare'&gt;,</span> <span class="pre">'MockBlock':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.nuclearDataIO.tests.test_xsCollections.MockBlock'&gt;,</span> <span class="pre">'NullComponent':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.NullComponent'&gt;,</span> <span class="pre">'PositiveOrNegativeVolumeComponent':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.PositiveOrNegativeVolumeComponent'&gt;,</span> <span class="pre">'RZAssembly':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblies.RZAssembly'&gt;,</span> <span class="pre">'RadialSegment':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.volumetricShapes.RadialSegment'&gt;,</span> <span class="pre">'Reactor':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.reactors.Reactor'&gt;,</span> <span class="pre">'Rectangle':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.Rectangle'&gt;,</span> <span class="pre">'ShapedComponent':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.component.ShapedComponent'&gt;,</span> <span class="pre">'SolidRectangle':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.SolidRectangle'&gt;,</span> <span class="pre">'SpentFuelPool':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblyLists.SpentFuelPool'&gt;,</span> <span class="pre">'Sphere':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.volumetricShapes.Sphere'&gt;,</span> <span class="pre">'Square':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.Square'&gt;,</span> <span class="pre">'ThRZAssembly':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.assemblies.ThRZAssembly'&gt;,</span> <span class="pre">'ThRZBlock':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.blocks.ThRZBlock'&gt;,</span> <span class="pre">'Triangle':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.basicShapes.Triangle'&gt;,</span> <span class="pre">'UnshapedComponent':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.UnshapedComponent'&gt;,</span> <span class="pre">'UnshapedVolumetricComponent':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.UnshapedVolumetricComponent'&gt;,</span> <span class="pre">'ZeroMassComponent':</span> <span class="pre">&lt;class</span> <span class="pre">'armi.reactor.components.ZeroMassComponent'&gt;}</span></em><a class="headerlink" href="#armi.reactor.composites.CompositeModelType.TYPES" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">TYPES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#armi.reactor.composites.CompositeModelType.TYPES" title="Permalink to this definition"></a></dt>
+<dd><p>Dictionary mapping class name to class object for all subclasses.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -215,31 +220,27 @@ collection of all defined subclasses, called TYPES.</p>
 <p>This:</p>
 <ul class="simple">
 <li><p>declares the interface for objects in the composition</p></li>
-<li><p>implements default behavior for the interface common to all
-classes</p></li>
-<li><p>Declares an interface for accessing and managing
-child objects</p></li>
+<li><p>implements default behavior for the interface common to all classes</p></li>
+<li><p>Declares an interface for accessing and managing child objects</p></li>
 <li><p>Defines an interface for accessing parents.</p></li>
 </ul>
-<p>Called “component” in gang of four, this is an ArmiObject here because the word
-component was already taken in ARMI.</p>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">armi.reactor.parameters.ResolveParametersMeta</span></code> metaclass is used to
-automatically create <code class="docutils literal notranslate"><span class="pre">ParameterCollection</span></code> subclasses for storing parameters
-associated with any particular subclass of ArmiObject. Defining a <code class="docutils literal notranslate"><span class="pre">pDefs</span></code> class
-attribute in the definition of a subclass of ArmiObject will lead to the creation of
-a new subclass of py:class:<cite>armi.reactor.parameters.ParameterCollection</cite>, which will
-contain the definitions from that class’s <code class="docutils literal notranslate"><span class="pre">pDefs</span></code> as well as the definitions for
-all of its parents. A new <code class="docutils literal notranslate"><span class="pre">paramCollectionType</span></code> class attribute will be added to
-the ArmiObject subclass to reflect which type of parameter collection should be
-used.</p>
+<p>Called “component” in gang of four, this is an ArmiObject here because the word component was
+already taken in ARMI.</p>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">armi.reactor.parameters.ResolveParametersMeta</span></code> metaclass is used to automatically
+create <code class="docutils literal notranslate"><span class="pre">ParameterCollection</span></code> subclasses for storing parameters associated with any particular
+subclass of ArmiObject. Defining a <code class="docutils literal notranslate"><span class="pre">pDefs</span></code> class attribute in the definition of a subclass of
+ArmiObject will lead to the creation of a new subclass of
+py:class:<cite>armi.reactor.parameters.ParameterCollection</cite>, which will contain the definitions from
+that class’s <code class="docutils literal notranslate"><span class="pre">pDefs</span></code> as well as the definitions for all of its parents. A new
+<code class="docutils literal notranslate"><span class="pre">paramCollectionType</span></code> class attribute will be added to the ArmiObject subclass to reflect
+which type of parameter collection should be used.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This class has far too many public methods. We are in the midst of a composite
-tree cleanup that will likely break these out onto a number of separate functional
-classes grouping things like composition, location, shape/dimensions, and
-various physics queries. Methods are being collected here from the various
-specialized subclasses (Block, Assembly) in preparation for this next step.
-As a result, the public API on this method should be considered unstable.</p>
+<p>This class has far too many public methods. We are in the midst of a composite tree cleanup that
+will likely break these out onto a number of separate functional classes grouping things like
+composition, location, shape/dimensions, and various physics queries. Methods are being
+collected here from the various specialized subclasses (Block, Assembly) in preparation for this
+next step. As a result, the public API on this method should be considered unstable.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
@@ -410,7 +411,7 @@ instance through a class method like this is useful in situations where the
 <code class="docutils literal notranslate"><span class="pre">paramCollectionType</span></code> is not a top-level object and therefore cannot be
 trivially pickled. Since we know that by the time we want to make any instances
 of/unpickle a given <code class="docutils literal notranslate"><span class="pre">ArmiObject</span></code>, such a class attribute will have been
-created and associated. So, we use this top-level class method to dig
+created and associated. So, we use this top-level method to dig
 dynamically down to the underlying parameter collection type.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -599,20 +600,6 @@ test_block.Block_TestCase.test_consistentAreaWithOverlappingComponents</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="armi.reactor.blocks.html#armi.reactor.blocks.HexBlock.getMaxArea" title="armi.reactor.blocks.HexBlock.getMaxArea"><code class="xref py py-obj docutils literal notranslate"><span class="pre">armi.reactor.blocks.HexBlock.getMaxArea</span></code></a></p>
 </div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getMaxVolume">
-<span class="sig-name descname"><span class="pre">getMaxVolume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getMaxVolume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getMaxVolume" title="Permalink to this definition"></a></dt>
-<dd><p>The maximum volume of this object if it were totally full.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>vol</strong> – volume in cm^3.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1050,33 +1037,9 @@ components that contain it.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getBoronMassEnrich">
-<span class="sig-name descname"><span class="pre">getBoronMassEnrich</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getBoronMassEnrich"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getBoronMassEnrich" title="Permalink to this definition"></a></dt>
-<dd><p>Return B-10 mass fraction.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getUraniumMassEnrich">
-<span class="sig-name descname"><span class="pre">getUraniumMassEnrich</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getUraniumMassEnrich"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getUraniumMassEnrich" title="Permalink to this definition"></a></dt>
-<dd><p>Returns U-235 mass fraction assuming U-235 and U-238 only.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getUraniumNumEnrich">
 <span class="sig-name descname"><span class="pre">getUraniumNumEnrich</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getUraniumNumEnrich"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getUraniumNumEnrich" title="Permalink to this definition"></a></dt>
 <dd><p>Returns U-235 number fraction.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getPuN">
-<span class="sig-name descname"><span class="pre">getPuN</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getPuN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getPuN" title="Permalink to this definition"></a></dt>
-<dd><p>Returns total number density of Pu isotopes.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getPuMoles">
-<span class="sig-name descname"><span class="pre">getPuMoles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getPuMoles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getPuMoles" title="Permalink to this definition"></a></dt>
-<dd><p>Returns total number of moles of Pu isotopes.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1255,37 +1218,6 @@ block/assembly was on a symmetry line or not.</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getPuMass">
-<span class="sig-name descname"><span class="pre">getPuMass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getPuMass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getPuMass" title="Permalink to this definition"></a></dt>
-<dd><p>Get the mass of Pu in this object in grams.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getPuFrac">
-<span class="sig-name descname"><span class="pre">getPuFrac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getPuFrac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getPuFrac" title="Permalink to this definition"></a></dt>
-<dd><p>Compute the Pu/HM mass fraction in this object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>puFrac</strong> – The pu mass fraction in heavy metal in this assembly</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getZrFrac">
-<span class="sig-name descname"><span class="pre">getZrFrac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getZrFrac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getZrFrac" title="Permalink to this definition"></a></dt>
-<dd><p>Return the total zr/(hm+zr) fraction in this assembly.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getMaxUraniumMassEnrich">
-<span class="sig-name descname"><span class="pre">getMaxUraniumMassEnrich</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.getMaxUraniumMassEnrich"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.getMaxUraniumMassEnrich" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.getFPMass">
@@ -1564,12 +1496,6 @@ for getting nPins even when there are pin detailed cases.</p>
 <dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.setComponentDimensionsReport">
 <span class="sig-name descname"><span class="pre">setComponentDimensionsReport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.setComponentDimensionsReport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.setComponentDimensionsReport" title="Permalink to this definition"></a></dt>
 <dd><p>Makes a summary of the dimensions of the components in this object.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.ArmiObject.printDensities">
-<span class="sig-name descname"><span class="pre">printDensities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expandFissionProducts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#ArmiObject.printDensities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.ArmiObject.printDensities" title="Permalink to this definition"></a></dt>
-<dd><p>Get lines that have the number densities of a object.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1948,11 +1874,6 @@ group is the next energy group, as set in the ISOTXS library.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="armi.reactor.composites.Composite.isOnWhichSymmetryLine">
-<span class="sig-name descname"><span class="pre">isOnWhichSymmetryLine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#Composite.isOnWhichSymmetryLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.Composite.isOnWhichSymmetryLine" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="armi.reactor.composites.Composite.getBoundingCircleOuterDiameter">
 <span class="sig-name descname"><span class="pre">getBoundingCircleOuterDiameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#Composite.getBoundingCircleOuterDiameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.Composite.getBoundingCircleOuterDiameter" title="Permalink to this definition"></a></dt>
 <dd><p>Get sum circle bound.</p>
@@ -1972,26 +1893,24 @@ group is the next energy group, as set in the ISOTXS library.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.composites.</span></span><span class="sig-name descname"><span class="pre">StateRetainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paramsToApply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/composites.html#StateRetainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.composites.StateRetainer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Retains state during some operations.</p>
-<p>This can be used to temporarily cache state, perform an operation, extract some info, and
-then revert back to the original state.</p>
+<p>This can be used to temporarily cache state, perform an operation, extract some info, and then
+revert back to the original state.</p>
 <ul class="simple">
-<li><p>A state retainer is faster than restoring state from a database as it reduces
-the number of IO reads; however, it does use more memory.</p></li>
+<li><p>A state retainer is faster than restoring state from a database as it reduces the number of IO
+reads; however, it does use more memory.</p></li>
 <li><p>This can be used on any object within the composite pattern via with
 <code class="docutils literal notranslate"><span class="pre">[rabc].retainState([list],</span> <span class="pre">[of],</span> <span class="pre">[parameters],</span> <span class="pre">[to],</span> <span class="pre">[retain]):</span></code>.
 Use on an object up in the hierarchy applies to all objects below as well.</p></li>
-<li><p>This is intended to work across MPI, so that if you were to broadcast the
-reactor the state would be correct; however the exact implication on
-<code class="docutils literal notranslate"><span class="pre">parameters</span></code> may be unclear.</p></li>
+<li><p>This is intended to work across MPI, so that if you were to broadcast the reactor the state
+would be correct; however the exact implication on <code class="docutils literal notranslate"><span class="pre">parameters</span></code> may be unclear.</p></li>
 </ul>
 <p>Create an instance of a StateRetainer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>composite</strong> (<a class="reference internal" href="#armi.reactor.composites.Composite" title="armi.reactor.composites.Composite"><em>Composite</em></a>) – composite object to retain state (recursively)</p></li>
-<li><p><strong>paramsToApply</strong> (<em>iterable</em><em> of </em><em>parameters.Parameter</em>) – Iterable of parameters.Parameter to retain updated values after <cite>__exit__</cite>.
-All other parameters are reverted to the original state, i.e. retained at
-the original value.</p></li>
+<li><p><strong>paramsToApply</strong> (<em>iterable</em><em> of </em><em>parameters.Parameter</em>) – Iterable of parameters.Parameter to retain updated values after <cite>__exit__</cite>. All other
+parameters are reverted to the original state, i.e. retained at the original value.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2004,8 +1923,8 @@ the original value.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>objects</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference internal" href="#armi.reactor.composites.ArmiObject" title="armi.reactor.composites.ArmiObject"><em>ArmiObject</em></a>) – Objects to look within. This argument allows clients to search though some subset
-of the three (e.g. when you’re looking for all CLADDING components within FUEL blocks)</p></li>
+<li><p><strong>objects</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference internal" href="#armi.reactor.composites.ArmiObject" title="armi.reactor.composites.ArmiObject"><em>ArmiObject</em></a>) – Objects to look within. This argument allows clients to search though some subset of the
+three (e.g. when you’re looking for all CLADDING components within FUEL blocks)</p></li>
 <li><p><strong>typeSpec</strong> (<em>TypeSpec</em>) – Flags for the components to look at</p></li>
 <li><p><strong>exact</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Whether or not the TypeSpec is exact</p></li>
 </ul>
@@ -2013,9 +1932,9 @@ of the three (e.g. when you’re looking for all CLADDING components within FUEL
 </dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
-<p>This helper method is outside the main ArmiObject tree for the special clients that need
-to filter both by container type (e.g. Block type) with one set of flags, and Components
-with another set of flags.</p>
+<p>This helper method is outside the main ArmiObject tree for the special clients that need to
+filter both by container type (e.g. Block type) with one set of flags, and Components with
+another set of flags.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is a <strong>composition</strong> related helper method that will likely be filed into
@@ -2031,9 +1950,9 @@ Thus clients that use it from here should expect to need updates soon.</p>
 <dd><p>Return the first sample of the most dominant material (by volume) in a set of objects.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is a <strong>composition</strong> related helper method that will likely be filed into
-classes/modules that deal specifically with the composition of things in the data model.
-Thus clients that use it from here should expect to need updates soon.</p>
+<p>This is a <strong>composition</strong> related helper method that will likely be filed into classes/modules
+that deal specifically with the composition of things in the data model. Thus clients that use
+it from here should expect to need updates soon.</p>
 </div>
 </dd></dl>
 
@@ -2043,11 +1962,11 @@ Thus clients that use it from here should expect to need updates soon.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nucName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – nuclide name – e.g. ‘U235’, ‘PU239’, etc. Not to be confused with the nuclide
-_label_, see the nucDirectory module for a description of the difference.</p></li>
+<li><p><strong>nucName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – nuclide name – e.g. ‘U235’, ‘PU239’, etc. Not to be confused with the nuclide _label_, see
+the nucDirectory module for a description of the difference.</p></li>
 <li><p><strong>lib</strong> (<em>isotxs</em>) – cross section library</p></li>
-<li><p><strong>xsSuffix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – cross section suffix, consisting of the type followed by the burnup group,
-e.g. ‘AB’ for the second burnup group of type A</p></li>
+<li><p><strong>xsSuffix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – cross section suffix, consisting of the type followed by the burnup group, e.g. ‘AB’ for the
+second burnup group of type A</p></li>
 <li><p><strong>mgFlux</strong> (<em>numpy.nArray</em>) – integrated mgFlux (n-cm/s)</p></li>
 <li><p><strong>nDens</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – number density (atom/bn-cm)</p></li>
 </ul>
@@ -2078,8 +1997,8 @@ e.g. ‘AB’ for the second burnup group of type A</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

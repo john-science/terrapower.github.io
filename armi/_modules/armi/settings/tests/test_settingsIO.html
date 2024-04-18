@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.settings.tests.test_settingsIO &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.settings.tests.test_settingsIO &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -165,8 +165,8 @@
 <div class="viewcode-block" id="SettingsReaderTests.test_readFromFile"><a class="viewcode-back" href="../../../../.apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsReaderTests.test_readFromFile">[docs]</a>    <span class="k">def</span> <span class="nf">test_readFromFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read settings from a (human-readable) YAML file.</span>
 
-<span class="sd">        .. test:: The setting file is in a human-readable plain text file.</span>
-<span class="sd">            :id: T_ARMI_SETTINGS_IO_TXT</span>
+<span class="sd">        .. test:: Settings can be input from a human-readable text file.</span>
+<span class="sd">            :id: T_ARMI_SETTINGS_IO_TXT0</span>
 <span class="sd">            :tests: R_ARMI_SETTINGS_IO_TXT</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="n">directoryChangers</span><span class="o">.</span><span class="n">TemporaryDirectoryChanger</span><span class="p">():</span>
@@ -259,7 +259,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;numProcessors: 1&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SettingsWriterTests.test_writeFull"><a class="viewcode-back" href="../../../../.apidocs/armi.settings.tests.test_settingsIO.html#armi.settings.tests.test_settingsIO.SettingsWriterTests.test_writeFull">[docs]</a>    <span class="k">def</span> <span class="nf">test_writeFull</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setting output as a full, all defaults included file.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setting output as a full, all defaults included file.</span>
+
+<span class="sd">        .. test:: Settings can be output to a human-readable text file.</span>
+<span class="sd">            :id: T_ARMI_SETTINGS_IO_TXT1</span>
+<span class="sd">            :tests: R_ARMI_SETTINGS_IO_TXT</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">writeToYamlFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filepathYaml</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">)</span>
         <span class="n">txt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filepathYaml</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;nCycles: 55&quot;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
@@ -307,8 +312,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

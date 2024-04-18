@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.tests.test_executers &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.physics.tests.test_executers &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -205,10 +205,17 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">filePath</span> <span class="o">=</span> <span class="s2">&quot;test_runExternalExecutable.py&quot;</span>
         <span class="n">outFile</span> <span class="o">=</span> <span class="s2">&quot;tmp.txt&quot;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;printExtraStuff&quot;</span>
 
-        <span class="k">class</span> <span class="nc">TestSillyExecuter</span><span class="p">(</span><span class="n">executers</span><span class="o">.</span><span class="n">Executer</span><span class="p">):</span>
+        <span class="k">class</span> <span class="nc">MockExecutionOptions</span><span class="p">(</span><span class="n">executers</span><span class="o">.</span><span class="n">ExecutionOptions</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+        <span class="k">class</span> <span class="nc">MockExecuter</span><span class="p">(</span><span class="n">executers</span><span class="o">.</span><span class="n">Executer</span><span class="p">):</span>
             <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-                <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">args</span><span class="p">])</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">label</span> <span class="o">==</span> <span class="n">label</span><span class="p">:</span>
+                    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">filePath</span><span class="p">,</span> <span class="s2">&quot;extra stuff&quot;</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">args</span><span class="p">])</span>
 
         <span class="k">with</span> <span class="n">directoryChangers</span><span class="o">.</span><span class="n">TemporaryDirectoryChanger</span><span class="p">():</span>
             <span class="c1"># build a mock external program (a little Python script)</span>
@@ -218,7 +225,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outFile</span><span class="p">))</span>
 
             <span class="c1"># set up an executer for our little test program</span>
-            <span class="n">exe</span> <span class="o">=</span> <span class="n">TestSillyExecuter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">opts</span> <span class="o">=</span> <span class="n">MockExecutionOptions</span><span class="p">()</span>
+            <span class="n">exe</span> <span class="o">=</span> <span class="n">MockExecuter</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="n">exe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
             <span class="c1"># make sure the output file exists now</span>
@@ -231,7 +239,13 @@
             <span class="c1"># make sure the output file exists now</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outFile</span><span class="p">))</span>
             <span class="n">newTxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outFile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">testString</span><span class="p">,</span> <span class="n">newTxt</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">testString</span><span class="p">,</span> <span class="n">newTxt</span><span class="p">)</span>
+
+            <span class="c1"># now prove the options object can affect the execution</span>
+            <span class="n">exe</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+            <span class="n">exe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">newerTxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outFile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;extra stuff&quot;</span><span class="p">,</span> <span class="n">newerTxt</span><span class="p">)</span></div>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">__makeALittleTestProgram</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">outFile</span><span class="p">):</span>
@@ -259,8 +273,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

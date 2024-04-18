@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.components &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.components &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../.apidocs/modules.html">API Docs</a></li>
@@ -181,17 +181,17 @@
 
 
 <div class="viewcode-block" id="NullComponent"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.components.html#armi.reactor.components.NullComponent">[docs]</a><span class="k">class</span> <span class="nc">NullComponent</span><span class="p">(</span><span class="n">Component</span><span class="p">):</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns zero for all dimensions. is none.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns zero for all dimensions.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__cmp__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Be smaller than everything.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Be smaller than everything.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 
     <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Handles truth testing.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handles truth testing.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="kc">False</span>
 
     <span class="n">__nonzero__</span> <span class="o">=</span> <span class="fm">__bool__</span>  <span class="c1"># Python2 compatibility</span>
@@ -418,11 +418,32 @@
 <div class="viewcode-block" id="DerivedShape.computeVolume"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.components.html#armi.reactor.components.DerivedShape.computeVolume">[docs]</a>    <span class="k">def</span> <span class="nf">computeVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cannot compute volume until it is derived.</span>
 
-<span class="sd">        .. impl:: The volume of a DerivedShape depends on the solid shapes surrounding them.</span>
-<span class="sd">            :id: I_ARMI_COMP_FLUID</span>
+<span class="sd">        .. impl:: The volume of a DerivedShape depends on the solid shapes surrounding</span>
+<span class="sd">            them.</span>
+<span class="sd">            :id: I_ARMI_COMP_FLUID0</span>
 <span class="sd">            :implements: R_ARMI_COMP_FLUID</span>
+
+<span class="sd">            Computing the volume of a ``DerivedShape`` means looking at the solid</span>
+<span class="sd">            materials around it, and finding what shaped space is left over in between</span>
+<span class="sd">            them. This method calls the method ``_deriveVolumeAndArea``, which makes</span>
+<span class="sd">            use of the fact that the ARMI reactor data model is hierarchical. It starts</span>
+<span class="sd">            by finding the parent of this object, and then finding the volume of all</span>
+<span class="sd">            the other objects at this level. Whatever is left over, is the volume of</span>
+<span class="sd">            this object. Obviously, you can only have one ``DerivedShape`` child of any</span>
+<span class="sd">            parent for this logic to work.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deriveVolumeAndArea</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DerivedShape.getMaxVolume"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.components.html#armi.reactor.components.DerivedShape.getMaxVolume">[docs]</a>    <span class="k">def</span> <span class="nf">getMaxVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The maximum volume of the parent Block.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        vol : float</span>
+<span class="sd">            volume in cm^3.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">getMaxArea</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_deriveVolumeAndArea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -466,7 +487,7 @@
             <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
                 <span class="n">siblingArea</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="n">remainingVolume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">getMaxVolume</span><span class="p">()</span> <span class="o">-</span> <span class="n">siblingVolume</span>
+        <span class="n">remainingVolume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMaxVolume</span><span class="p">()</span> <span class="o">-</span> <span class="n">siblingVolume</span>
         <span class="k">if</span> <span class="n">siblingArea</span><span class="p">:</span>
             <span class="n">remainingArea</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">getMaxArea</span><span class="p">()</span> <span class="o">-</span> <span class="n">siblingArea</span>
 
@@ -476,8 +497,8 @@
                 <span class="sa">f</span><span class="s2">&quot;The component areas in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2"> exceed the maximum &quot;</span>
                 <span class="s2">&quot;allowable volume based on the geometry. Check that the &quot;</span>
                 <span class="s2">&quot;geometry is defined correctly.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;Maximum allowable volume: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">getMaxVolume</span><span class="p">()</span><span class="si">}</span><span class="s2"> cm^3</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;Volume of all non-derived shape components: </span><span class="si">{</span><span class="n">siblingVolume</span><span class="si">}</span><span class="s2"> cm^3</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Maximum allowable volume: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">getMaxVolume</span><span class="p">()</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;cm^3</span><span class="se">\n</span><span class="s2">Volume of all non-derived shape components: </span><span class="si">{</span><span class="n">siblingVolume</span><span class="si">}</span><span class="s2"> cm^3</span><span class="se">\n</span><span class="s2">&quot;</span>
             <span class="p">)</span>
             <span class="n">runLog</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -493,6 +514,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">remainingArea</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">remainingVolume</span> <span class="o">/</span> <span class="n">height</span>
+
         <span class="k">return</span> <span class="n">remainingVolume</span>
 
 <div class="viewcode-block" id="DerivedShape.getVolume"><a class="viewcode-back" href="../../../.apidocs/armi.reactor.components.html#armi.reactor.components.DerivedShape.getVolume">[docs]</a>    <span class="k">def</span> <span class="nf">getVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -540,8 +562,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

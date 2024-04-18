@@ -12,7 +12,7 @@
 <meta name="description" content="Converts reactor with arbitrary axial meshing (e.g. multiple assemblies with different axial meshes) to one with a global uniform axial mesh. Useful for preparing inputs for physics codes that requ..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.converters.uniformMesh module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.converters.uniformMesh module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -54,7 +54,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,10 +66,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -211,8 +211,7 @@ If no minimum mesh size is provided, no “decusping” is performed</p></li>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <p>Attempts to reduce the effect of fuel and control rod absorber smearing
-(“cusping” effect) by keeping important material boundaries in the
-common mesh.</p>
+(“cusping” effect) by keeping important material boundaries in the common mesh.</p>
 </div>
 </dd></dl>
 
@@ -222,23 +221,33 @@ common mesh.</p>
 <dt class="sig sig-object py" id="armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.reactor.converters.uniformMesh.</span></span><span class="sig-name descname"><span class="pre">UniformMeshGeometryConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/reactor/converters/uniformMesh.html#UniformMeshGeometryConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="armi.reactor.converters.geometryConverters.html#armi.reactor.converters.geometryConverters.GeometryConverter" title="armi.reactor.converters.geometryConverters.GeometryConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeometryConverter</span></code></a></p>
-<p>This geometry converter can be used to change the axial mesh structure of the reactor core.</p>
+<p>This geometry converter can be used to change the axial mesh structure of the
+reactor core.</p>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
-<dl class="simple">
+<dl>
 <dt>There are several staticmethods available on this class that allow for:</dt><dd><ul class="simple">
-<li><p>Creation of a new reactor without applying a new uniform axial mesh. See: <cite>&lt;UniformMeshGeometryConverter.initNewReactor&gt;</cite></p></li>
-<li><p>Creation of a new assembly with a new axial mesh applied. See: <cite>&lt;UniformMeshGeometryConverter.makeAssemWithUniformMesh&gt;</cite></p></li>
-<li><p>Resetting the parameter state of an assembly back to the defaults for the provided block parameters. See: <cite>&lt;UniformMeshGeometryConverter.clearStateOnAssemblies&gt;</cite></p></li>
-<li><p>Mapping number densities and block parameters between one assembly to another. See: <cite>&lt;UniformMeshGeometryConverter.setAssemblyStateFromOverlaps&gt;</cite></p></li>
+<li><p>Creation of a new reactor without applying a new uniform axial mesh. See:</p></li>
 </ul>
+<p><cite>&lt;UniformMeshGeometryConverter.initNewReactor&gt;</cite>
+- Creation of a new assembly with a new axial mesh applied. See:
+<cite>&lt;UniformMeshGeometryConverter.makeAssemWithUniformMesh&gt;</cite>
+- Resetting the parameter state of an assembly back to the defaults for the
+provided block parameters. See:
+<cite>&lt;UniformMeshGeometryConverter.clearStateOnAssemblies&gt;</cite>
+- Mapping number densities and block parameters between one assembly to
+another. See: <cite>&lt;UniformMeshGeometryConverter.setAssemblyStateFromOverlaps&gt;</cite></p>
 </dd>
 </dl>
-<p>This class is meant to be extended for specific physics calculations that require a uniform mesh.
-The child types of this class should define custom <cite>reactorParamsToMap</cite> and <cite>blockParamsToMap</cite> attributes, and the <cite>_setParamsToUpdate</cite> method
-to specify the precise parameters that need to be mapped in each direction between the non-uniform and uniform mesh assemblies. The definitions should avoid mapping
-block parameters in both directions because the mapping process will cause numerical diffusion. The behavior of <cite>setAssemblyStateFromOverlaps</cite> is dependent on the
-direction in which the mapping is being applied to prevent the numerical diffusion problem.</p>
+<p>This class is meant to be extended for specific physics calculations that require a
+uniform mesh. The child types of this class should define custom
+<cite>reactorParamsToMap</cite> and <cite>blockParamsToMap</cite> attributes, and the
+<cite>_setParamsToUpdate</cite> method to specify the precise parameters that need to be
+mapped in each direction between the non-uniform and uniform mesh assemblies. The
+definitions should avoid mapping block parameters in both directions because the
+mapping process will cause numerical diffusion. The behavior of
+<cite>setAssemblyStateFromOverlaps</cite> is dependent on the direction in which the mapping
+is being applied to prevent the numerical diffusion problem.</p>
 <ul class="simple">
 <li><p>“in” is used when mapping parameters into the uniform assembly</p></li>
 </ul>
@@ -280,7 +289,7 @@ parameters to be mapped in each direction.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sourceReactor</strong> (<a class="reference internal" href="armi.reactor.reactors.html#armi.reactor.reactors.Reactor" title="armi.reactor.reactors.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a> object.) – original reactor to be copied</p></li>
-<li><p><strong>cs</strong> (<em>CaseSetting object</em>) – Complete settings object</p></li>
+<li><p><strong>cs</strong> (<em>Setting</em>) – Complete settings object</p></li>
 </ul>
 </dd>
 </dl>
@@ -554,8 +563,8 @@ heights <span class="math notranslate nohighlight">\(h_i\)</span>, the following
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.blueprints.tests.test_gridBlueprints &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.blueprints.tests.test_gridBlueprints &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../.apidocs/modules.html">API Docs</a></li>
@@ -286,6 +286,7 @@
 <span class="s2">        [8,6]: assembly9_7 fuel</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
+<span class="c1"># ruff: noqa: E501</span>
 <span class="n">RTH_GEOM</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;reactor geom=&quot;ThetaRZ&quot; symmetry=&quot;eighth core periodic&quot;&gt;</span>
 <span class="s2">    &lt;assembly azimuthalMesh=&quot;4&quot; name=&quot;assembly1_1 fuel&quot; rad1=&quot;0.0&quot; rad2=&quot;14.2857142857&quot; radialMesh=&quot;4&quot; theta1=&quot;0.0&quot; theta2=&quot;0.11556368446681414&quot; /&gt;</span>
@@ -399,19 +400,19 @@
 <span class="s2">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="TestRoundTrip"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestRoundTrip">[docs]</a><span class="k">class</span> <span class="nc">TestRoundTrip</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestGridBPRoundTrip"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestGridBPRoundTrip">[docs]</a><span class="k">class</span> <span class="nc">TestGridBPRoundTrip</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grids</span> <span class="o">=</span> <span class="n">Grids</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">SMALL_HEX</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TestRoundTrip.test_contents"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestRoundTrip.test_contents">[docs]</a>    <span class="k">def</span> <span class="nf">test_contents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestGridBPRoundTrip.test_contents"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestGridBPRoundTrip.test_contents">[docs]</a>    <span class="k">def</span> <span class="nf">test_contents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;core&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grids</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TestRoundTrip.test_roundTrip"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestRoundTrip.test_roundTrip">[docs]</a>    <span class="k">def</span> <span class="nf">test_roundTrip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestGridBPRoundTrip.test_roundTrip"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestGridBPRoundTrip.test_roundTrip">[docs]</a>    <span class="k">def</span> <span class="nf">test_roundTrip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Test saving blueprint data to a stream.</span>
 
-<span class="sd">        .. test:: Blueprints settings can be written to disk.</span>
-<span class="sd">            :id: T_ARMI_BP_TO_DB</span>
+<span class="sd">        .. test:: Grid blueprints can be written to disk.</span>
+<span class="sd">            :id: T_ARMI_BP_TO_DB0</span>
 <span class="sd">            :tests: R_ARMI_BP_TO_DB</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
@@ -420,7 +421,7 @@
         <span class="n">gridBp</span> <span class="o">=</span> <span class="n">Grids</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;third&quot;</span><span class="p">,</span> <span class="n">gridBp</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">symmetry</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TestRoundTrip.test_tiny_map"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestRoundTrip.test_tiny_map">[docs]</a>    <span class="k">def</span> <span class="nf">test_tiny_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestGridBPRoundTrip.test_tinyMap"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestGridBPRoundTrip.test_tinyMap">[docs]</a>    <span class="k">def</span> <span class="nf">test_tinyMap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Test that a lattice map can be defined, written, and read in from blueprint file.</span>
 
@@ -454,7 +455,7 @@
 <div class="viewcode-block" id="TestGridBlueprintsSection.test_simpleRead"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.blueprints.tests.test_gridBlueprints.html#armi.reactor.blueprints.tests.test_gridBlueprints.TestGridBlueprintsSection.test_simpleRead">[docs]</a>    <span class="k">def</span> <span class="nf">test_simpleRead</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">gridDesign</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grids</span><span class="p">[</span><span class="s2">&quot;control&quot;</span><span class="p">]</span>
         <span class="n">_</span> <span class="o">=</span> <span class="n">gridDesign</span><span class="o">.</span><span class="n">construct</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">gridDesign</span><span class="o">.</span><span class="n">gridContents</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">],</span> <span class="s2">&quot;6&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">gridDesign</span><span class="o">.</span><span class="n">gridContents</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;6&quot;</span><span class="p">)</span>
 
         <span class="c1"># Cartesian full, odd</span>
         <span class="n">gridDesign2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grids</span><span class="p">[</span><span class="s2">&quot;sfp&quot;</span><span class="p">]</span>
@@ -594,8 +595,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

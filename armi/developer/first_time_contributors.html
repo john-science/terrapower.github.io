@@ -12,7 +12,7 @@
 <meta name="description" content="The ARMI team strongly encourages developers to contribute to the codebase. The ARMI framework code is open source, and your contributions will become open source. Although fewer laws apply to open..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>8. First Time Contributors Guide &mdash; ARMI 0.2.9 documentation</title>
+  <title>8. First Time Contributors Guide &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,8 +64,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="guide.html">1. Framework Architecture</a></li>
@@ -86,6 +84,8 @@
 <li class="toctree-l2"><a class="reference internal" href="tooling.html">10. Tooling and Infrastructure</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../.apidocs/modules.html">API Docs</a></li>
@@ -129,7 +129,7 @@ must comply with all applicable laws and regulations.</p>
 <h2><span class="section-number">8.1. </span>Help Wanted<a class="headerlink" href="#help-wanted" title="Permalink to this heading"></a></h2>
 <p>There are a lot of places you can get started to help the ARMI project and team:</p>
 <ul class="simple">
-<li><p>Better <a class="reference internal" href="documenting.html"><span class="doc">documentation</span></a></p></li>
+<li><p>Better <a class="reference internal" href="documenting.html#armi-docing"><span class="std std-ref">Documenting ARMI</span></a></p></li>
 <li><p>Better test coverage</p></li>
 <li><p>Many more type annotations are desired. Type issues cause lots of bugs.</p></li>
 <li><p>Targeted speedups (e.g. informed by a profiler)</p></li>
@@ -142,15 +142,9 @@ must comply with all applicable laws and regulations.</p>
 <p>Any contribution must pass all included unit tests. You will frequently have to fix
 tests your code changes break. And you should definitely add tests to cover anything
 new your code does.</p>
-<p>The standard way to run the tests is to install and use <a class="reference external" href="https://tox.readthedocs.io/en/latest/">tox</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install tox
-$ tox -- -n 6
-</pre></div>
-</div>
-<p>This runs the unit tests in parallel on 6 processes. Omit the <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">6</span></code> argument
-to run on a single process.</p>
-<p>Or the tests can also be run using <code class="docutils literal notranslate"><span class="pre">pytest</span></code> directly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip intall -e .[test]
+<p>The ARMI tests are meant to be run using <a class="reference external" href="https://docs.pytest.org/en/8.0.x/">pytest</a>
+locally</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e .[test]
 $ pytest -n 4 armi
 </pre></div>
 </div>
@@ -166,7 +160,7 @@ $ pytest -n 4 armi
 <li><dl class="simple">
 <dt>Submit a Pull Request against <a class="reference external" href="https://github.com/terrapower/armi/pull/new/main">ARMIs main branch</a></dt><dd><ol class="loweralpha simple">
 <li><p>See <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">GitHubs general guidance on Pull Requests</a></p></li>
-<li><p>See <a class="reference internal" href="tooling.html"><span class="doc">ARMIs specific guidance</span></a> on what makes a “good” Pull Request.</p></li>
+<li><p>See ARMIs specific guidance on what makes a “good” Pull Request: <a class="reference internal" href="tooling.html#armi-tooling"><span class="std std-ref">Tooling and Infrastructure</span></a>.</p></li>
 </ol>
 </dd>
 </dl>
@@ -175,8 +169,8 @@ $ pytest -n 4 armi
 </ol>
 <p>&gt; Note that a bot will require that you sign our <a class="reference external" href="https://gist.github.com/youngmit/8654abcf93f309771ae9296abebe9d4a">Contributor License Agreement</a>
 before we can accept a pull request from you.</p>
-<p>See our published documentation for a complete guide to our <span class="xref std std-doc">coding standards and practices</span>.</p>
-<p>Also, please check out our (quick) synopsis on <a class="reference internal" href="tooling.html"><span class="doc">good commit messages</span></a>.</p>
+<p>See our published documentation for a complete guide to our coding standards and practices: <a class="reference internal" href="standards_and_practices.html#armi-stds"><span class="std std-ref">Standards and Practices for Coding</span></a>.</p>
+<p>Also, please check out our (quick) synopsis on good commit messages: <a class="reference internal" href="tooling.html#armi-tooling"><span class="std std-ref">Tooling and Infrastructure</span></a>.</p>
 </section>
 <section id="licensing-of-tools">
 <h2><span class="section-number">8.4. </span>Licensing of Tools<a class="headerlink" href="#licensing-of-tools" title="Permalink to this heading"></a></h2>
@@ -201,8 +195,8 @@ only use third-party Python libraries that have MIT or BSD licenses.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

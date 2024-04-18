@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.converters.blockConverters &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.converters.blockConverters &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -309,6 +309,20 @@
 <span class="sd">    .. impl:: Homogenize one component into another.</span>
 <span class="sd">        :id: I_ARMI_BLOCKCONV0</span>
 <span class="sd">        :implements: R_ARMI_BLOCKCONV</span>
+
+<span class="sd">        This subclass of ``BlockConverter`` is meant as a one-time-use tool, to convert</span>
+<span class="sd">        a ``Block`` into one ``Component``. A ``Block`` is a ``Composite`` that may</span>
+<span class="sd">        probably has multiple ``Components`` somewhere in it. This means averaging the</span>
+<span class="sd">        material properties in the original ``Block``, and ensuring that the final</span>
+<span class="sd">        ``Component`` has the same shape and volume as the original ``Block``. This</span>
+<span class="sd">        subclass essentially just uses the base class method</span>
+<span class="sd">        ``dissolveComponentIntoComponent()`` given prescribed solute and solvent</span>
+<span class="sd">        materials, to define the merger.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    It is the job of the developer to determine if merging a Block into one Component</span>
+<span class="sd">    will yield valid or sane results.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourceBlock</span><span class="p">,</span> <span class="n">soluteName</span><span class="p">,</span> <span class="n">solventName</span><span class="p">):</span>
@@ -343,17 +357,23 @@
 <span class="sd">    liner was dissolved first, this would normally cause a ValueError in _verifyExpansion since the</span>
 <span class="sd">    clad would be completely expanded over a non void component.</span>
 
-<span class="sd">    This could be implemented on the regular ComponentMerger, as the Flags system has enough power</span>
-<span class="sd">    in the type specification arguments to things like ``getComponents()``, ``hasFlags()``, etc., to</span>
-<span class="sd">    do single and multiple components with the same code.</span>
-
-<span class="sd">    .. impl:: Homogenize one component into another.</span>
+<span class="sd">    .. impl:: Homogenize multiple components into one.</span>
 <span class="sd">        :id: I_ARMI_BLOCKCONV1</span>
 <span class="sd">        :implements: R_ARMI_BLOCKCONV</span>
+
+<span class="sd">        This subclass of ``BlockConverter`` is meant as a one-time-use tool, to convert</span>
+<span class="sd">        a multiple ``Components`` into one. This means averaging the material</span>
+<span class="sd">        properties in the original ``Components``, and ensuring that the final</span>
+<span class="sd">        ``Component`` has the same shape and volume as all of the originals. This</span>
+<span class="sd">        subclass essentially just uses the base class method</span>
+<span class="sd">        ``dissolveComponentIntoComponent()`` given prescribed solute and solvent</span>
+<span class="sd">        materials, to define the merger. Though care is taken here to ensure the merger</span>
+<span class="sd">        isn&#39;t verified until it is completely finished.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourceBlock</span><span class="p">,</span> <span class="n">soluteNames</span><span class="p">,</span> <span class="n">solventName</span><span class="p">,</span> <span class="n">specifiedMinID</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Standard constructor method.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        sourceBlock : :py:class:`armi.reactor.blocks.Block`</span>
@@ -633,6 +653,15 @@
 <span class="sd">        .. impl:: Convert hex blocks to cylindrical blocks.</span>
 <span class="sd">            :id:  I_ARMI_BLOCKCONV_HEX_TO_CYL</span>
 <span class="sd">            :implements: R_ARMI_BLOCKCONV_HEX_TO_CYL</span>
+
+<span class="sd">            This method converts a ``HexBlock`` to a cylindrical ``Block``. Obviously,</span>
+<span class="sd">            this is not a physically meaningful transition; it is a helpful</span>
+<span class="sd">            approximation tool for analysts. This is a subclass of</span>
+<span class="sd">            ``BlockAvgToCylConverter`` which is a subclass of ``BlockConverter``. This</span>
+<span class="sd">            converter expects the ``sourceBlock`` and ``driverFuelBlock`` to defined</span>
+<span class="sd">            and for the ``sourceBlock`` to have a spatial grid defined. Additionally,</span>
+<span class="sd">            both the ``sourceBlock`` and ``driverFuelBlock`` must be instances of</span>
+<span class="sd">            ``HexBlocks``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="s2">&quot;Converting representative block </span><span class="si">{}</span><span class="s2"> to its equivalent cylindrical model&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -822,7 +851,7 @@
 
 
 <div class="viewcode-block" id="radiiFromRingOfRods"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.blockConverters.html#armi.reactor.converters.blockConverters.radiiFromRingOfRods">[docs]</a><span class="k">def</span> <span class="nf">radiiFromRingOfRods</span><span class="p">(</span><span class="n">distToRodCenter</span><span class="p">,</span> <span class="n">numRods</span><span class="p">,</span> <span class="n">rodRadii</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;hexagon&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return list of radii from ring of rods.</span>
 
 <span class="sd">    Parameters</span>
@@ -842,17 +871,24 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    There are two assumptions when making circles:</span>
-<span class="sd">    1) the rings are concentric about the radToRodCenter;</span>
-<span class="sd">    2) the ring area of the fuel rods are distributed to the inside and outside rings with the same thickness.</span>
-<span class="sd">    thicknessOnEachSide (t) is calculated as follows:</span>
-<span class="sd">    r1 = inner rad that thickness is added to on inside</span>
-<span class="sd">    r2 = outer rad that thickness is added to on outside</span>
-<span class="sd">    radToRodCenter = (r1 + r2) / 2.0 due to being concentric;</span>
-<span class="sd">    Total Area = Area of annulus 1 + Area of annulus 2</span>
-<span class="sd">    Area of annulus 1 = pi * r1 ** 2       -  pi * (r1 - t) ** 2</span>
-<span class="sd">    Area of annulus 2 = pi * (r2 + t) ** 2 -  pi * r2 ** 2</span>
-<span class="sd">    Solving for thicknessOnEachSide(t):</span>
-<span class="sd">    t = Total Area  / (4 * pi * radToRodCenter)</span>
+
+<span class="sd">    #. The rings are concentric about the ``radToRodCenter``.</span>
+<span class="sd">    #. The ring area of the fuel rods are distributed to the inside and outside</span>
+<span class="sd">       rings with the same thickness. ``thicknessOnEachSide`` (:math:`t`) is calculated</span>
+<span class="sd">       as follows:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            :nowrap:</span>
+
+<span class="sd">            \begin{aligned}</span>
+<span class="sd">            r_1 &amp;\equiv \text{inner rad that thickness is added to on inside} \\</span>
+<span class="sd">            r_2 &amp;\equiv \text{outer rad that thickness is added to on outside} \\</span>
+<span class="sd">            \texttt{radToRodCenter} &amp;= \frac{r_1 + r_2}{2} \text{(due to being concentric)} \\</span>
+<span class="sd">            \text{Total Area} &amp;= \text{Area of annulus 1} + \text{Area of annulus 2} \\</span>
+<span class="sd">            \text{Area of annulus 1} &amp;= \pi r_1^2 -  \pi (r_1 - t)^2 \\</span>
+<span class="sd">            \text{Area of annulus 2} &amp;= \pi (r_2 + t)^2 -  \pi r_2^2 \\</span>
+<span class="sd">            t &amp;= \frac{\text{Total Area}}{4\pi\times\texttt{radToRodCenter}}</span>
+<span class="sd">            \end{aligned}</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">layout</span> <span class="o">==</span> <span class="s2">&quot;polygon&quot;</span><span class="p">:</span>
         <span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">numRods</span><span class="p">)</span>
@@ -887,8 +923,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

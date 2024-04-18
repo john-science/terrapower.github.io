@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.apps &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.apps &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../.apidocs/modules.html">API Docs</a></li>
@@ -111,13 +111,14 @@
 <span class="sd">Framework for a specific application. An ``App`` implements a simple interface for</span>
 <span class="sd">customizing much of the Framework&#39;s behavior.</span>
 
-<span class="sd">.. admonition:: Historical Fun Fact</span>
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Historical Fun Fact</span>
 
-<span class="sd">    This pattern is used by many frameworks as a way of encapsulating what would</span>
-<span class="sd">    otherwise be global state. The ARMI Framework has historically made heavy use of</span>
-<span class="sd">    global state (e.g., :py:mod:`armi.nucDirectory.nuclideBases`), and it will take</span>
-<span class="sd">    quite a bit of effort to refactor the code to access such things through an App</span>
-<span class="sd">    object.</span>
+<span class="sd">This pattern is used by many frameworks as a way of encapsulating what would otherwise be global</span>
+<span class="sd">state. The ARMI Framework has historically made heavy use of global state (e.g.,</span>
+<span class="sd">:py:mod:`armi.nucDirectory.nuclideBases`), and it will take quite a bit of effort to refactor the</span>
+<span class="sd">code to access such things through an App object.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># ruff: noqa: E402</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
@@ -134,23 +135,23 @@
 
 <div class="viewcode-block" id="App"><a class="viewcode-back" href="../../.apidocs/armi.apps.html#armi.apps.App">[docs]</a><span class="k">class</span> <span class="nc">App</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The main point of customization for the ARMI Framework.</span>
-
-<span class="sd">    The App class is intended to be subclassed in order to customize the functionality</span>
-<span class="sd">    and look-and-feel of the ARMI Framework for a specific use case. An App contains a</span>
-<span class="sd">    plugin manager, which should be populated in ``__init__()`` with a collection of</span>
-<span class="sd">    plugins that are deemed suitable for a given application, as well as other methods</span>
-<span class="sd">    which provide further customization.</span>
-
-<span class="sd">    The base App class is also a good place to expose some more convenient ways to get</span>
-<span class="sd">    data out of the Plugin API; calling the ``pluggy`` hooks directly can sometimes be a</span>
-<span class="sd">    pain, as the results returned by the individual plugins may need to be merged and/or</span>
-<span class="sd">    checked for errors. Adding that logic here reduces boilerplate throughout the rest</span>
-<span class="sd">    of the code.</span>
+<span class="sd">    The highest-level of abstraction for defining what happens during an ARMI run.</span>
 
 <span class="sd">    .. impl:: An App has a plugin manager.</span>
 <span class="sd">        :id: I_ARMI_APP_PLUGINS</span>
 <span class="sd">        :implements: R_ARMI_APP_PLUGINS</span>
+
+<span class="sd">        The App class is intended to be subclassed in order to customize the functionality</span>
+<span class="sd">        and look-and-feel of the ARMI Framework for a specific use case. An App contains a</span>
+<span class="sd">        plugin manager, which should be populated in ``__init__()`` with a collection of</span>
+<span class="sd">        plugins that are deemed suitable for a given application, as well as other methods</span>
+<span class="sd">        which provide further customization.</span>
+
+<span class="sd">        The base App class is also a good place to expose some more convenient ways to get</span>
+<span class="sd">        data out of the Plugin API; calling the ``pluggy`` hooks directly can sometimes be a</span>
+<span class="sd">        pain, as the results returned by the individual plugins may need to be merged and/or</span>
+<span class="sd">        checked for errors. Adding that logic here reduces boilerplate throughout the rest</span>
+<span class="sd">        of the code.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;armi&quot;</span>
@@ -222,6 +223,17 @@
 <span class="sd">        .. impl:: Applications will not allow duplicate settings.</span>
 <span class="sd">            :id: I_ARMI_SETTINGS_UNIQUE</span>
 <span class="sd">            :implements: R_ARMI_SETTINGS_UNIQUE</span>
+
+<span class="sd">            Each ARMI application includes a collection of Plugins. Among other</span>
+<span class="sd">            things, these plugins can register new settings in addition to</span>
+<span class="sd">            the default settings that come with ARMI. This feature provides a</span>
+<span class="sd">            lot of utility, so application developers can easily configure</span>
+<span class="sd">            their ARMI appliction in customizable ways.</span>
+
+<span class="sd">            However, it would get confusing if two different plugins registered</span>
+<span class="sd">            a setting with the same name string. Or if a plugin registered a</span>
+<span class="sd">            setting with the same name as an ARMI default setting. So this</span>
+<span class="sd">            method throws an error if such a situation arises.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Start with framework settings</span>
         <span class="n">settingDefs</span> <span class="o">=</span> <span class="p">{</span>
@@ -508,8 +520,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

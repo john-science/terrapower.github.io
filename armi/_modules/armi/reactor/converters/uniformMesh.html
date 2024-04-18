@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.converters.uniformMesh &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.reactor.converters.uniformMesh &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,10 +53,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../.apidocs/modules.html">API Docs</a></li>
@@ -134,11 +134,11 @@
 
 <span class="sd">Examples</span>
 <span class="sd">--------</span>
-<span class="sd">converter = uniformMesh.NeutronicsUniformMeshConverter()</span>
-<span class="sd">converter.convert(reactor)</span>
-<span class="sd">uniformReactor = converter.convReactor</span>
-<span class="sd"># do calcs, then:</span>
-<span class="sd">converter.applyStateToOriginal()</span>
+<span class="sd">    converter = uniformMesh.NeutronicsUniformMeshConverter()</span>
+<span class="sd">    converter.convert(reactor)</span>
+<span class="sd">    uniformReactor = converter.convReactor</span>
+<span class="sd">    # do calcs, then:</span>
+<span class="sd">    converter.applyStateToOriginal()</span>
 
 <span class="sd">The mesh mapping happens as described in the figure:</span>
 
@@ -216,15 +216,31 @@
 <span class="sd">            :id: I_ARMI_UMC_NON_UNIFORM</span>
 <span class="sd">            :implements: R_ARMI_UMC_NON_UNIFORM</span>
 
+<span class="sd">            A core-wide mesh is computed via ``_computeAverageAxialMesh`` which</span>
+<span class="sd">            operates by first collecting all the mesh points for every assembly</span>
+<span class="sd">            (``allMeshes``) and then averaging them together using</span>
+<span class="sd">            ``average1DWithinTolerance``. An attempt to preserve fuel and control</span>
+<span class="sd">            material boundaries is accomplished by moving fuel region boundaries</span>
+<span class="sd">            to accomodate control rod boundaries. Note this behavior only occurs</span>
+<span class="sd">            by calling ``_decuspAxialMesh`` which is dependent on ``minimumMeshSize``</span>
+<span class="sd">            being defined (this is controlled by the ``uniformMeshMinimumSize`` setting).</span>
+
 <span class="sd">        .. impl:: Produce a mesh with a size no smaller than a user-specified value.</span>
 <span class="sd">            :id: I_ARMI_UMC_MIN_MESH</span>
 <span class="sd">            :implements: R_ARMI_UMC_MIN_MESH</span>
 
+<span class="sd">            If a minimum mesh size ``minimumMeshSize`` is provided, calls</span>
+<span class="sd">            ``_decuspAxialMesh`` on the core-wide mesh to maintain that minimum size</span>
+<span class="sd">            while still attempting to honor fuel and control material boundaries. Relies</span>
+<span class="sd">            ultimately on ``_filterMesh`` to remove mesh points that violate the minimum</span>
+<span class="sd">            size. Note that ``_filterMesh`` will always respect the minimum mesh size,</span>
+<span class="sd">            even if this means losing a mesh point that represents a fuel or control</span>
+<span class="sd">            material boundary.</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        Attempts to reduce the effect of fuel and control rod absorber smearing</span>
-<span class="sd">        (&quot;cusping&quot; effect) by keeping important material boundaries in the</span>
-<span class="sd">        common mesh.</span>
+<span class="sd">        (&quot;cusping&quot; effect) by keeping important material boundaries in the common mesh.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_computeAverageAxialMesh</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimumMeshSize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -440,21 +456,31 @@
 
 <div class="viewcode-block" id="UniformMeshGeometryConverter"><a class="viewcode-back" href="../../../../.apidocs/armi.reactor.converters.uniformMesh.html#armi.reactor.converters.uniformMesh.UniformMeshGeometryConverter">[docs]</a><span class="k">class</span> <span class="nc">UniformMeshGeometryConverter</span><span class="p">(</span><span class="n">GeometryConverter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This geometry converter can be used to change the axial mesh structure of the reactor core.</span>
+<span class="sd">    This geometry converter can be used to change the axial mesh structure of the</span>
+<span class="sd">    reactor core.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    There are several staticmethods available on this class that allow for:</span>
-<span class="sd">        - Creation of a new reactor without applying a new uniform axial mesh. See: `&lt;UniformMeshGeometryConverter.initNewReactor&gt;`</span>
-<span class="sd">        - Creation of a new assembly with a new axial mesh applied. See: `&lt;UniformMeshGeometryConverter.makeAssemWithUniformMesh&gt;`</span>
-<span class="sd">        - Resetting the parameter state of an assembly back to the defaults for the provided block parameters. See: `&lt;UniformMeshGeometryConverter.clearStateOnAssemblies&gt;`</span>
-<span class="sd">        - Mapping number densities and block parameters between one assembly to another. See: `&lt;UniformMeshGeometryConverter.setAssemblyStateFromOverlaps&gt;`</span>
+<span class="sd">        - Creation of a new reactor without applying a new uniform axial mesh. See:</span>
+<span class="sd">        `&lt;UniformMeshGeometryConverter.initNewReactor&gt;`</span>
+<span class="sd">        - Creation of a new assembly with a new axial mesh applied. See:</span>
+<span class="sd">        `&lt;UniformMeshGeometryConverter.makeAssemWithUniformMesh&gt;`</span>
+<span class="sd">        - Resetting the parameter state of an assembly back to the defaults for the</span>
+<span class="sd">        provided block parameters. See:</span>
+<span class="sd">        `&lt;UniformMeshGeometryConverter.clearStateOnAssemblies&gt;`</span>
+<span class="sd">        - Mapping number densities and block parameters between one assembly to</span>
+<span class="sd">        another. See: `&lt;UniformMeshGeometryConverter.setAssemblyStateFromOverlaps&gt;`</span>
 
-<span class="sd">    This class is meant to be extended for specific physics calculations that require a uniform mesh.</span>
-<span class="sd">    The child types of this class should define custom `reactorParamsToMap` and `blockParamsToMap` attributes, and the `_setParamsToUpdate` method</span>
-<span class="sd">    to specify the precise parameters that need to be mapped in each direction between the non-uniform and uniform mesh assemblies. The definitions should avoid mapping</span>
-<span class="sd">    block parameters in both directions because the mapping process will cause numerical diffusion. The behavior of `setAssemblyStateFromOverlaps` is dependent on the</span>
-<span class="sd">    direction in which the mapping is being applied to prevent the numerical diffusion problem.</span>
+<span class="sd">    This class is meant to be extended for specific physics calculations that require a</span>
+<span class="sd">    uniform mesh. The child types of this class should define custom</span>
+<span class="sd">    `reactorParamsToMap` and `blockParamsToMap` attributes, and the</span>
+<span class="sd">    `_setParamsToUpdate` method to specify the precise parameters that need to be</span>
+<span class="sd">    mapped in each direction between the non-uniform and uniform mesh assemblies. The</span>
+<span class="sd">    definitions should avoid mapping block parameters in both directions because the</span>
+<span class="sd">    mapping process will cause numerical diffusion. The behavior of</span>
+<span class="sd">    `setAssemblyStateFromOverlaps` is dependent on the direction in which the mapping</span>
+<span class="sd">    is being applied to prevent the numerical diffusion problem.</span>
 
 <span class="sd">    - &quot;in&quot; is used when mapping parameters into the uniform assembly</span>
 <span class="sd">    from the non-uniform assembly.</span>
@@ -516,9 +542,24 @@
 <span class="sd">            :id: I_ARMI_UMC</span>
 <span class="sd">            :implements: R_ARMI_UMC</span>
 
+<span class="sd">            Given a source Reactor, ``r``, as input and when ``_hasNonUniformAssems`` is ``False``,</span>
+<span class="sd">            a new Reactor is created in ``initNewReactor``. This new Reactor contains copies of select</span>
+<span class="sd">            information from the input source Reactor (e.g., Operator, Blueprints, cycle, timeNode, etc).</span>
+<span class="sd">            The uniform mesh to be applied to the new Reactor is calculated in ``_generateUniformMesh``</span>
+<span class="sd">            (see :need:`I_ARMI_UMC_NON_UNIFORM` and :need:`I_ARMI_UMC_MIN_MESH`). New assemblies with this</span>
+<span class="sd">            uniform mesh are created in ``_buildAllUniformAssemblies`` and added to the new Reactor.</span>
+<span class="sd">            Core-level parameters are then mapped from the source Reactor to the new Reactor in</span>
+<span class="sd">            ``_mapStateFromReactorToOther``. Finally, the core-wide axial mesh is updated on the new Reactor</span>
+<span class="sd">            via ``updateAxialMesh``.</span>
+
+
 <span class="sd">        .. impl:: Map select parameters from composites on the original mesh to the new mesh.</span>
 <span class="sd">            :id: I_ARMI_UMC_PARAM_FORWARD</span>
 <span class="sd">            :implements: R_ARMI_UMC_PARAM_FORWARD</span>
+
+<span class="sd">            In ``_mapStateFromReactorToOther``, Core-level parameters are mapped from the source Reactor</span>
+<span class="sd">            to the new Reactor. If requested, block-level parameters can be mapped using an averaging</span>
+<span class="sd">            equation as described in ``setAssemblyStateFromOverlaps``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No reactor provided in </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -601,7 +642,7 @@
 <span class="sd">        ----------</span>
 <span class="sd">        sourceReactor : :py:class:`Reactor &lt;armi.reactor.reactors.Reactor&gt;` object.</span>
 <span class="sd">            original reactor to be copied</span>
-<span class="sd">        cs: CaseSetting object</span>
+<span class="sd">        cs: Setting</span>
 <span class="sd">            Complete settings object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># developer note: deepcopy on the blueprint object ensures that all relevant blueprints</span>
@@ -638,6 +679,12 @@
 <span class="sd">        .. impl:: Map select parameters from composites on the new mesh to the original mesh.</span>
 <span class="sd">            :id: I_ARMI_UMC_PARAM_BACKWARD</span>
 <span class="sd">            :implements: R_ARMI_UMC_PARAM_BACKWARD</span>
+
+<span class="sd">            To ensure that the parameters on the original Reactor are from the converted Reactor,</span>
+<span class="sd">            the first step is to clear the Reactor-level parameters on the original Reactor</span>
+<span class="sd">            (see ``_clearStateOnReactor``). ``_mapStateFromReactorToOther`` is then called</span>
+<span class="sd">            to map Core-level parameters and, optionally, averaged Block-level parameters</span>
+<span class="sd">            (see :need:`I_ARMI_UMC_PARAM_FORWARD`).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Applying uniform neutronics results from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">convReactor</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sourceReactor</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1504,8 +1551,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 

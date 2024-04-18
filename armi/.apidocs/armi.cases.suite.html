@@ -12,7 +12,7 @@
 <meta name="description" content="The CaseSuite object is responsible for running, and executing a set of user inputs. Many entry points redirect into CaseSuite methods, such as clone, compare, and submit. Used in conjunction with ..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.cases.suite module &mdash; ARMI 0.2.9 documentation</title>
+  <title>armi.cases.suite module &mdash; ARMI 0.3.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -52,7 +52,7 @@
               <img src="../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.9
+                0.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +64,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Docs</a><ul class="current">
@@ -158,10 +158,6 @@ This is useful for plugin-informed testing as well as other things.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">armi.cases.suite.</span></span><span class="sig-name descname"><span class="pre">CaseSuite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/cases/suite.html#CaseSuite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cases.suite.CaseSuite" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A CaseSuite is a collection of possibly related Case objects.</p>
-<p>A CaseSuite is intended to be both a pre-processing and post-processing tool to
-facilitate case generation and analysis. Under most circumstances one may wish to
-subclass a CaseSuite to meet the needs of a specific calculation.</p>
-<p>A CaseSuite is a collection that is keyed off Case titles.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.cases.suite.CaseSuite.add">
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/cases/suite.html#CaseSuite.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cases.suite.CaseSuite.add" title="Permalink to this definition"></a></dt>
@@ -179,8 +175,9 @@ KeyError will be raised</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="armi.cases.suite.CaseSuite.discover">
 <span class="sig-name descname"><span class="pre">discover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootDir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignorePatterns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/armi/cases/suite.html#CaseSuite.discover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#armi.cases.suite.CaseSuite.discover" title="Permalink to this definition"></a></dt>
-<dd><p>Finds case objects by searching for a pattern of inputs, and adds them to the suite.</p>
-<p>This searches for CaseSettings input files and loads them to create Case objects.</p>
+<dd><p>Finds case objects by searching for a pattern of file paths, and adds them to
+the suite.</p>
+<p>This searches for Settings input files and loads them to create Case objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -199,8 +196,8 @@ KeyError will be raised</p>
 <dd><p>Print information about this suite to the run log.</p>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
-<p>Some of these printouts won’t make sense for all users, and may
-make sense to be delegated to the plugins/app.</p>
+<p>Some of these printouts won’t make sense for all users, and may make sense to
+be delegated to the plugins/app.</p>
 </div>
 </dd></dl>
 
@@ -210,8 +207,8 @@ make sense to be delegated to the plugins/app.</p>
 <dd><p>Clone a CaseSuite to a new place.</p>
 <p>Creates a clone for each case within a CaseSuite. If <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code> is not
 specified, then each case clone is made in a directory with the title of the
-case. If <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code> is specified, then a relative path from <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code> will be
-used to determine a new relative path to the current directory <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code>.</p>
+case. If <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code> is specified, then a relative path from <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code> will
+be used to determine a new relative path to the current directory <code class="docutils literal notranslate"><span class="pre">oldRoot</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -241,9 +238,8 @@ been.</p>
 <dd><p>Run each case, one after the other.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Suite running may not work yet if the cases have interdependencies.
-We typically run on a HPC but are still working on a platform
-independent way of handling HPCs.</p>
+<p>Suite running may not work yet if the cases have interdependencies. We typically run on a
+HPC but are still working on a platform independent way of handling HPCs.</p>
 </div>
 </dd></dl>
 
@@ -297,8 +293,8 @@ independent way of handling HPCs.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2023-12-04.
+    <p>&#169; Copyright 2009-2024, TerraPower, LLC.
+      <span class="lastupdated">Last updated on 2024-04-18.
       </span></p>
   </div>
 
