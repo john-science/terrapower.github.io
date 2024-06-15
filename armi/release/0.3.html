@@ -6,10 +6,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://terrapower.github.io/armi/release/0.3.html" />
 <meta property="og:site_name" content="Advanced Reactor Modeling Interface" />
-<meta property="og:description" content="ARMI v0.3.1: Release Date: TBD New Features: Conserve mass by component in assembly.setBlockMesh(). ( PR#1665), TBD. API Changes: Renaming structuredgrid.py to camelCase. ( PR#1650), Removing unuse..." />
+<meta property="og:description" content="ARMI v0.3.1: Release Date: TBD New Features: Conserve mass by component in assembly.setBlockMesh(). ( PR#1665), Removal of the Block.reactor property. ( PR#1425), System information is now also log..." />
 <meta property="og:image" content="https://terrapower.github.io/armi/_static/armiSchematicView.png" />
 <meta property="og:image:alt" content="Advanced Reactor Modeling Interface" />
-<meta name="description" content="ARMI v0.3.1: Release Date: TBD New Features: Conserve mass by component in assembly.setBlockMesh(). ( PR#1665), TBD. API Changes: Renaming structuredgrid.py to camelCase. ( PR#1650), Removing unuse..." />
+<meta name="description" content="ARMI v0.3.1: Release Date: TBD New Features: Conserve mass by component in assembly.setBlockMesh(). ( PR#1665), Removal of the Block.reactor property. ( PR#1425), System information is now also log..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARMI v0.3 Release Notes &mdash; ARMI 0.3.0 documentation</title>
@@ -80,8 +80,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#armi-v0-3-0">ARMI v0.3.0</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-s-new-in-armi">What’s new in ARMI?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Bug Fixes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Quality Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Quality Work</a></li>
 </ul>
 </li>
 </ul>
@@ -130,19 +130,23 @@
 <section id="new-features">
 <h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Conserve mass by component in assembly.setBlockMesh(). (<a class="reference external" href="https://github.com/terrapower/armi/pull/1665">PR#1665</a>)</p></li>
+<li><p>Conserve mass by component in <code class="docutils literal notranslate"><span class="pre">assembly.setBlockMesh()</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1665">PR#1665</a>)</p></li>
+<li><p>Removal of the <code class="docutils literal notranslate"><span class="pre">Block.reactor</span></code> property. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1425">PR#1425</a>)</p></li>
+<li><p>System information is now also logged on Linux. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1689">PR#1689</a>)</p></li>
 <li><p>TBD</p></li>
 </ol>
 </section>
 <section id="api-changes">
 <h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
+<li><p>Replacing the concrete material with a better reference. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1717">PR#1717</a>)</p></li>
 <li><p>Renaming <code class="docutils literal notranslate"><span class="pre">structuredgrid.py</span></code> to camelCase. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1650">PR#1650</a>)</p></li>
 <li><p>Removing unused argument from <code class="docutils literal notranslate"><span class="pre">Block.coords()</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1651">PR#1651</a>)</p></li>
 <li><p>Removing unused method <code class="docutils literal notranslate"><span class="pre">HexGrid.allPositionsInThird()</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1655">PR#1655</a>)</p></li>
 <li><p>Removed unused methods: <code class="docutils literal notranslate"><span class="pre">Reactor.getAllNuclidesIn()</span></code>, <code class="docutils literal notranslate"><span class="pre">plotTriangleFlux()</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1656">PR#1656</a>)</p></li>
 <li><p>Removed <code class="docutils literal notranslate"><span class="pre">armi.utils.dochelpers</span></code>; not relevant to nuclear modeling. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1662">PR#1662</a>)</p></li>
 <li><p>Removing old tools created to help people convert to the current database format: <code class="docutils literal notranslate"><span class="pre">armi.bookkeeping.db.convertDatabase()</span></code> and <code class="docutils literal notranslate"><span class="pre">ConvertDB</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1658">PR#1658</a>)</p></li>
+<li><p>Removed the variable <code class="docutils literal notranslate"><span class="pre">armi.physics.neutronics.isotopicDepletion.ORDER</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1671">PR#1671</a>)</p></li>
 <li><dl class="simple">
 <dt>Removing extraneous <code class="docutils literal notranslate"><span class="pre">ArmiOjbect</span></code> methods. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1667">PR#1667</a>)</dt><dd><ul class="simple">
 <li><p>Moving <code class="docutils literal notranslate"><span class="pre">ArmiObject.getBoronMassEnrich()</span></code> to <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
@@ -161,6 +165,22 @@
 </dd>
 </dl>
 </li>
+<li><p>Removing the <code class="docutils literal notranslate"><span class="pre">Block.reactor</span></code> property. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1425">PR#1425</a>)</p></li>
+<li><dl class="simple">
+<dt>Moving several <code class="docutils literal notranslate"><span class="pre">ArmiObject</span></code> methods. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1425">PR#1425</a>)</dt><dd><ul class="simple">
+<li><p>Moving <code class="docutils literal notranslate"><span class="pre">ArmiObject.getNeutronEnergyDepositionConstants</span></code> to <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
+<li><p>Moving <code class="docutils literal notranslate"><span class="pre">ArmiObject.getGammaEnergyDepositionConstants</span></code> to <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
+<li><p>Moving <code class="docutils literal notranslate"><span class="pre">ArmiObject.getTotalEnergyGenerationConstants</span></code> to <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
+<li><p>Moving <code class="docutils literal notranslate"><span class="pre">ArmiObject.getFissionEnergyGenerationConstants</span></code> to <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
+<li><p>Moving <code class="docutils literal notranslate"><span class="pre">ArmiObject.getCaptureEnergyGenerationConstants</span></code> to <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Removing the parameeter <code class="docutils literal notranslate"><span class="pre">rdIterNum</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1704">PR#1704</a>)</p></li>
+<li><p>Removing the parameters <code class="docutils literal notranslate"><span class="pre">outsideFuelRing</span></code> and <code class="docutils literal notranslate"><span class="pre">outsideFuelRingFluxFr</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1700">PR#1700</a>)</p></li>
+<li><p>Removing the setting <code class="docutils literal notranslate"><span class="pre">doOrificedTH</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1706">PR#1706</a>)</p></li>
+<li><p>Changing the Doppler constant params to <code class="docutils literal notranslate"><span class="pre">VOLUME_INTEGRATED</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1659">PR#1659</a>)</p></li>
 <li><p>TBD</p></li>
 </ol>
 </section>
@@ -168,13 +188,17 @@
 <h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Fixed four bugs with “corners up” hex grids. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1649">PR#1649</a>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">safeCopy</span></code> to work on both Windows and Linux with strict permissions (<a class="reference external" href="https://github.com/terrapower/armi/pull/1691">PR#1691</a>)</p></li>
+<li><p>When creating a new XS group, inherit settings from initial group. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1653">PR#1653</a>)</p></li>
 <li><p>TBD</p></li>
 </ol>
 </section>
 <section id="quality-work">
 <h3>Quality Work<a class="headerlink" href="#quality-work" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
+<li><p>Supporting MacOS in CI. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1713">PR#1713</a>)</p></li>
 <li><p>We now enforce a maximum line length of 120 characters, using <code class="docutils literal notranslate"><span class="pre">ruff</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1646">PR#1646</a>)</p></li>
+<li><p>Move <code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code> file information into <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1692">PR#1692</a>)</p></li>
 <li><p>TBD</p></li>
 </ol>
 </section>
@@ -200,14 +224,14 @@
 <li><p>Remove a number of deprecated block, assembly, and core parameters related to a defunct internal plugin.</p></li>
 </ol>
 </section>
-<section id="id3">
-<h3>Bug Fixes<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<section id="id5">
+<h3>Bug Fixes<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">StructuredGrid.getNeighboringCellIndices()</span></code> was incorrectly implemented for the second neighbor. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1614">PR#1614</a>)</p></li>
 </ol>
 </section>
-<section id="id4">
-<h3>Quality Work<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<section id="id6">
+<h3>Quality Work<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>ARMI now mandates <code class="docutils literal notranslate"><span class="pre">ruff</span></code> linting. (<a class="reference external" href="https://github.com/terrapower/armi/pull/1419">PR#1419</a>)</p></li>
 <li><p>Many new references to requirement tests and implementations were added to docstrings.</p></li>
@@ -230,7 +254,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-04-18.
+      <span class="lastupdated">Last updated on 2024-06-15.
       </span></p>
   </div>
 

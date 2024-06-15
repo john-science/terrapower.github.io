@@ -110,10 +110,10 @@
 
 <span class="sd">:py:mod:`armi.physics.neutronics.crossSectionGroupManager`</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 <span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">MagicMock</span>
 
 <span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span>
@@ -122,27 +122,24 @@
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics</span> <span class="kn">import</span> <span class="n">crossSectionGroupManager</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.const</span> <span class="kn">import</span> <span class="n">CONF_CROSS_SECTION</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.crossSectionGroupManager</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">BlockCollection</span><span class="p">,</span>
-    <span class="n">FluxWeightedAverageBlockCollection</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="kn">from</span> <span class="nn">armi.physics.neutronics.crossSectionGroupManager</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">MedianBlockCollection</span><span class="p">,</span>
     <span class="n">AverageBlockCollection</span><span class="p">,</span>
+    <span class="n">BlockCollection</span><span class="p">,</span>
+    <span class="n">CrossSectionGroupManager</span><span class="p">,</span>
+    <span class="n">FluxWeightedAverageBlockCollection</span><span class="p">,</span>
+    <span class="n">MedianBlockCollection</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">armi.physics.neutronics.crossSectionGroupManager</span> <span class="kn">import</span> <span class="n">CrossSectionGroupManager</span>
+<span class="kn">from</span> <span class="nn">armi.physics.neutronics.crossSectionSettings</span> <span class="kn">import</span> <span class="n">XSModelingOptions</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.fissionProductModel.tests</span> <span class="kn">import</span> <span class="n">test_lumpedFissionProduct</span>
 <span class="kn">from</span> <span class="nn">armi.physics.neutronics.settings</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">CONF_XS_BLOCK_REPRESENTATION</span><span class="p">,</span>
     <span class="n">CONF_LATTICE_PHYSICS_FREQUENCY</span><span class="p">,</span>
+    <span class="n">CONF_XS_BLOCK_REPRESENTATION</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.blocks</span> <span class="kn">import</span> <span class="n">HexBlock</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.flags</span> <span class="kn">import</span> <span class="n">Flags</span>
-<span class="kn">from</span> <span class="nn">armi.reactor.tests</span> <span class="kn">import</span> <span class="n">test_reactors</span><span class="p">,</span> <span class="n">test_blocks</span>
-<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">TEST_ROOT</span>
-<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">mockRunLogs</span>
+<span class="kn">from</span> <span class="nn">armi.reactor.tests</span> <span class="kn">import</span> <span class="n">test_blocks</span><span class="p">,</span> <span class="n">test_reactors</span>
+<span class="kn">from</span> <span class="nn">armi.tests</span> <span class="kn">import</span> <span class="n">TEST_ROOT</span><span class="p">,</span> <span class="n">mockRunLogs</span>
 <span class="kn">from</span> <span class="nn">armi.utils</span> <span class="kn">import</span> <span class="n">units</span>
 <span class="kn">from</span> <span class="nn">armi.utils.directoryChangers</span> <span class="kn">import</span> <span class="n">TemporaryDirectoryChanger</span>
-
 
 <span class="n">THIS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 
@@ -150,7 +147,9 @@
 <div class="viewcode-block" id="TestBlockCollection"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollection">[docs]</a><span class="k">class</span> <span class="nc">TestBlockCollection</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span> <span class="o">=</span> <span class="n">makeBlocks</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">BlockCollection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">BlockCollection</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TestBlockCollection.test_add"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestBlockCollection.test_add">[docs]</a>    <span class="k">def</span> <span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -181,7 +180,7 @@
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBu</span> <span class="o">=</span> <span class="n">bi</span> <span class="o">/</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="mi">100</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">MedianBlockCollection</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">)</span>
 
@@ -218,7 +217,7 @@
 
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">AverageBlockCollection</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="o">.</span><span class="n">averageByComponent</span> <span class="o">=</span> <span class="kc">True</span>
@@ -253,7 +252,7 @@
         <span class="c1"># check that a new block collection of the representative block has right temperatures</span>
         <span class="c1"># this is required for Doppler coefficient calculations</span>
         <span class="n">newBc</span> <span class="o">=</span> <span class="n">AverageBlockCollection</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
         <span class="p">)</span>
         <span class="n">newBc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avgB</span><span class="p">)</span>
         <span class="n">newBc</span><span class="o">.</span><span class="n">calcAvgNuclideTemperatures</span><span class="p">()</span>
@@ -292,7 +291,7 @@
 
         <span class="c1"># U35 has different average temperature because blocks have different U235 content</span>
         <span class="n">newBc</span> <span class="o">=</span> <span class="n">AverageBlockCollection</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
         <span class="p">)</span>
         <span class="n">newBc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avgB</span><span class="p">)</span>
         <span class="n">newBc</span><span class="o">.</span><span class="n">calcAvgNuclideTemperatures</span><span class="p">()</span>
@@ -344,7 +343,7 @@
 
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">AverageBlockCollection</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
         <span class="p">)</span>
         <span class="n">blockCopies</span> <span class="o">=</span> <span class="p">[</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">blockCopies</span><span class="p">)</span>
@@ -768,7 +767,7 @@
 
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span> <span class="o">=</span> <span class="n">FluxWeightedAverageBlockCollection</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">allNuclidesInProblem</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">)</span>
 
@@ -789,7 +788,7 @@
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span> <span class="o">=</span> <span class="n">makeBlocks</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">csm</span> <span class="o">=</span> <span class="n">CrossSectionGroupManager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">cs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csm</span> <span class="o">=</span> <span class="n">CrossSectionGroupManager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">cs</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">bi</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">):</span>
             <span class="n">b</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">percentBu</span> <span class="o">=</span> <span class="n">bi</span> <span class="o">/</span> <span class="mf">19.0</span> <span class="o">*</span> <span class="mi">100</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">_setBuGroupBounds</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
@@ -920,7 +919,25 @@
 <span class="sd">        This tests that the XS ID of the new representative block is correct and that the</span>
 <span class="sd">        compositions are identical between the original and the new representative blocks.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">_o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">test_reactors</span><span class="o">.</span><span class="n">loadTestReactor</span><span class="p">(</span><span class="n">TEST_ROOT</span><span class="p">)</span>
+        <span class="n">o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">test_reactors</span><span class="o">.</span><span class="n">loadTestReactor</span><span class="p">(</span><span class="n">TEST_ROOT</span><span class="p">)</span>
+        <span class="c1"># set a few random non-default settings on AA to be copied to the new BA group</span>
+        <span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_CROSS_SECTION</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;AA&quot;</span><span class="p">:</span> <span class="n">XSModelingOptions</span><span class="p">(</span>
+                    <span class="s2">&quot;AA&quot;</span><span class="p">,</span>
+                    <span class="n">geometry</span><span class="o">=</span><span class="s2">&quot;0D&quot;</span><span class="p">,</span>
+                    <span class="n">averageByComponent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">xsMaxAtomNumber</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                    <span class="n">criticalBuckling</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">xsPriority</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_CROSS_SECTION</span><span class="p">]</span><span class="o">.</span><span class="n">setDefaults</span><span class="p">(</span>
+            <span class="n">crossSectionGroupManager</span><span class="o">.</span><span class="n">AVERAGE_BLOCK_COLLECTION</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;fuel&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">aaSettings</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_CROSS_SECTION</span><span class="p">][</span><span class="s2">&quot;AA&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">createRepresentativeBlocks</span><span class="p">()</span>
         <span class="n">unperturbedReprBlocks</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">representativeBlocks</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertNotIn</span><span class="p">(</span><span class="s2">&quot;BA&quot;</span><span class="p">,</span> <span class="n">unperturbedReprBlocks</span><span class="p">)</span>
@@ -941,7 +958,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
             <span class="n">newReprBlock</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">(),</span> <span class="n">oldReprBlock</span><span class="o">.</span><span class="n">getNumberDensities</span><span class="p">()</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">origXSIDsFromNew</span><span class="p">[</span><span class="s2">&quot;BA&quot;</span><span class="p">],</span> <span class="s2">&quot;AA&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">origXSIDsFromNew</span><span class="p">[</span><span class="s2">&quot;BA&quot;</span><span class="p">],</span> <span class="s2">&quot;AA&quot;</span><span class="p">)</span>
+
+        <span class="c1"># check that settings were copied correctly</span>
+        <span class="n">baSettings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_CROSS_SECTION</span><span class="p">][</span><span class="s2">&quot;BA&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">baSettings</span><span class="o">.</span><span class="n">xsID</span><span class="p">,</span> <span class="s2">&quot;BA&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">setting</span><span class="p">,</span> <span class="n">baSettingValue</span> <span class="ow">in</span> <span class="n">baSettings</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">setting</span> <span class="o">==</span> <span class="s2">&quot;xsID&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">baSettingValue</span><span class="p">,</span> <span class="n">aaSettings</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">setting</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="TestCrossSectionGroupManager.test_interactBOL"><a class="viewcode-back" href="../../../../../.apidocs/armi.physics.neutronics.tests.test_crossSectionManager.html#armi.physics.neutronics.tests.test_crossSectionManager.TestCrossSectionGroupManager.test_interactBOL">[docs]</a>    <span class="k">def</span> <span class="nf">test_interactBOL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Test `BOL` lattice physics update frequency.</span>
@@ -951,7 +976,7 @@
 <span class="sd">            :tests: R_ARMI_XSGM_FREQ</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">representativeBlocks</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_LATTICE_PHYSICS_FREQUENCY</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;BOL&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">interactBOL</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">representativeBlocks</span><span class="p">)</span></div>
@@ -964,7 +989,7 @@
 <span class="sd">            :tests: R_ARMI_XSGM_FREQ</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">representativeBlocks</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blockList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">CONF_LATTICE_PHYSICS_FREQUENCY</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;BOC&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">interactBOL</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">csm</span><span class="o">.</span><span class="n">interactBOC</span><span class="p">()</span>
@@ -1081,7 +1106,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-04-18.
+      <span class="lastupdated">Last updated on 2024-06-15.
       </span></p>
   </div>
 

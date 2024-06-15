@@ -62,7 +62,7 @@ This file is a YAML file that you can edit manually with a text editor or with t
 
 Here is an excerpt from a settings file:
 
-.. literalinclude:: ../../../armi/tests/armiRun.yaml
+.. literalinclude:: ../../armi/tests/armiRun.yaml
     :language: yaml
     :lines: 3-15
 
@@ -478,7 +478,7 @@ The ARMI data model is represented schematically below, and the blueprints are d
     Defines :py:class:`~armi.reactor.components.component.Component` inputs for a
     :py:class:`~armi.reactor.blocks.Block`.
 
-:ref:`asssemblies <assemblies>`:
+:ref:`assemblies <assemblies>`:
     Defines vertical stacks of blocks used to define the axial profile of an
     :py:class:`~armi.reactor.assemblies.Assembly`.
 
@@ -576,8 +576,6 @@ material
 |Thot|
     The temperature (in C) that the component dimensions will be thermal expanded to (using material properties based on
     the ``material`` input). To disable automatic thermal expansion, set |Tinput| and |Thot| both to the same value
-
-    .. note:: The T/H modules of ARMI will update the hot temperature when coupling is activated.
 
 mult
     Multiplicity specifies how many duplicates of this component exist in this block. If you want 169 pins per assembly,
@@ -762,15 +760,14 @@ A complete definition of an inner-core assembly may be seen below::
                 nozzleType: Inner
                 xs types: [A, B, C, D, E, F]
 
-.. note:: While component dimensions are entered as cold dimensions, axial heights must
-        be entered as hot dimensions. The reason for this is that each component with different
-        material will thermally expand at different rates. In the axial dimension, this is
-        problematic because after a change in temperature each component in the same block
-        will have a different height. The solution is to pre-expand each component
-        axially and enter hot axial block heights. After the reactor is created, further
-        temperature changes will cause dimension changes only in 2 dimensions (radially). Mass
-        is always conserved, but if temperature deviates significantly from hot axial heights,
-        density may deviate as well.
+.. note:: 
+        While component dimensions are entered as cold dimensions, axial heights may be entered as 
+        either cold or hot dimensions. In older versions of ARMI, it was required to enter heights 
+        in the hot dimension (this behavior is preserved by setting `inputHeightsConsideredHot: True`).
+        However, with the 
+        :py:class:`axial expansion changer <armi.reactor.converters.axialExpansionChanger.AxialExpansionChanger>`, 
+        heights may be entered at cold temperatures (`inputHeightsConsideredHot: False`). Each Assembly will then 
+        be expanded to its hot dimensions upon construction.
 
 For many cases, a shared height and axial mesh point definition is sufficient. These can be included
 globally as shown above and linked with anchors, or specified explicitly.
@@ -1045,6 +1042,15 @@ Example grid definitions are shown below::
 
 .. tip:: We have gone through some effort to allow both pin and core grid definitions to share this
     input and it may improve in the future.
+
+You may set up some kinds of grids (e.g. 1/3 and full core hex or Cartesian core
+loadings) using our interactive graphical grid editor described more in
+:py:mod:`armi.utils.gridEditor`.
+
+.. figure:: /.static/gridEditor.png
+    :align: center
+
+    An example of the Grid Editor being used on a FFTF input file
 
 .. _custom-isotopics:
 
