@@ -154,8 +154,6 @@
 
             <span class="c1"># test warnings are being logged for malformed isotopics info in the settings file</span>
             <span class="n">streamVal</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">getStdout</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">streamVal</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;[warn]&quot;</span><span class="p">),</span> <span class="mi">32</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">streamVal</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">streamVal</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;custom isotopics&quot;</span><span class="p">),</span> <span class="mi">32</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">streamVal</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;UraniumOxide&quot;</span><span class="p">,</span> <span class="n">streamVal</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">streamVal</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;SaturatedWater&quot;</span><span class="p">,</span> <span class="n">streamVal</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">streamVal</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">&quot;invalid settings: fakeBad&quot;</span><span class="p">,</span> <span class="n">streamVal</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">streamVal</span><span class="p">)</span>
@@ -201,7 +199,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-06-23.
+      <span class="lastupdated">Last updated on 2024-07-03.
       </span></p>
   </div>
 
