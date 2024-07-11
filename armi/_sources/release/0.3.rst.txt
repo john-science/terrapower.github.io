@@ -50,6 +50,7 @@ API Changes
 #. Removing the parameters ``outsideFuelRing`` and ``outsideFuelRingFluxFr``. (`PR#1700 <https://github.com/terrapower/armi/pull/1700>`_)
 #. Removing the setting ``doOrificedTH``. (`PR#1706 <https://github.com/terrapower/armi/pull/1706>`_)
 #. Changing the Doppler constant params to ``VOLUME_INTEGRATED``. (`PR#1659 <https://github.com/terrapower/armi/pull/1659>`_)
+#. Change ``Operator._expandCycleAndTimeNodeArgs`` to be a non-static method so it no longer needs to take arbitrary args (`PR#1766 <https://github.com/terrapower/armi/pull/1766>`_)
 #. TBD
 
 Bug Fixes
@@ -57,7 +58,7 @@ Bug Fixes
 #. Fixed four bugs with "corners up" hex grids. (`PR#1649 <https://github.com/terrapower/armi/pull/1649>`_)
 #. Fixed ``safeCopy`` to work on both Windows and Linux with strict permissions (`PR#1691 <https://github.com/terrapower/armi/pull/1691>`_)
 #. When creating a new XS group, inherit settings from initial group. (`PR#1653 <https://github.com/terrapower/armi/pull/1653>`_, `PR#1751 <https://github.com/terrapower/armi/pull/1751>`_)
-
+#. Fixed a bug with ``Core.getReactionRates``. (`PR#1771 <https://github.com/terrapower/armi/pull/1771>`_)
 #. TBD
 
 Quality Work
