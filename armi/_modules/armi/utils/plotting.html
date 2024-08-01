@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.utils.plotting &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.utils.plotting &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -1113,7 +1113,7 @@
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">G</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">neutronEnergyUpperBounds</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="n">runLog</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No ISOTXS library attached so no flux plots.&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
@@ -1612,7 +1612,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

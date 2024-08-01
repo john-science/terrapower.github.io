@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.nuclearDataIO.cccc.cccc &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.nuclearDataIO.cccc.cccc &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -328,7 +328,7 @@
             <span class="s2">&quot;string&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">val</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rwString</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">strLength</span><span class="p">),</span>
             <span class="s2">&quot;double&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rwDouble</span><span class="p">,</span>
         <span class="p">}</span>
-        <span class="n">action</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">containedType</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">containedType</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">action</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
                 <span class="s1">&#39;Cannot pack or unpack the type &quot;</span><span class="si">{}</span><span class="s1">&quot;.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">containedType</span><span class="p">)</span>
@@ -828,7 +828,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

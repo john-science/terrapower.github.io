@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.bookkeeping.db.tests.test_database3 &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.bookkeeping.db.tests.test_database3 &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
@@ -115,6 +115,7 @@
 
 <span class="kn">from</span> <span class="nn">armi.bookkeeping.db</span> <span class="kn">import</span> <span class="n">_getH5File</span>
 <span class="kn">from</span> <span class="nn">armi.bookkeeping.db</span> <span class="kn">import</span> <span class="n">database3</span>
+<span class="kn">from</span> <span class="nn">armi.bookkeeping.db.jaggedArray</span> <span class="kn">import</span> <span class="n">JaggedArray</span>
 <span class="kn">from</span> <span class="nn">armi.bookkeeping.db.databaseInterface</span> <span class="kn">import</span> <span class="n">DatabaseInterface</span>
 <span class="kn">from</span> <span class="nn">armi.reactor</span> <span class="kn">import</span> <span class="n">parameters</span>
 <span class="kn">from</span> <span class="nn">armi.reactor.tests.test_reactors</span> <span class="kn">import</span> <span class="n">loadTestReactor</span><span class="p">,</span> <span class="n">reduceTestReactorRings</span>
@@ -418,13 +419,11 @@
         <span class="n">data2fNones</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
             <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span>
         <span class="p">)</span>
-        <span class="n">dataJag</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span>
-        <span class="p">)</span>
-        <span class="n">dataJagNones</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]],</span>
-            <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="n">twoByTwo</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+        <span class="n">twoByOne</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="kc">None</span><span class="p">]])</span>
+        <span class="n">threeByThree</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+        <span class="n">dataJag</span> <span class="o">=</span> <span class="n">JaggedArray</span><span class="p">([</span><span class="n">twoByTwo</span><span class="p">,</span> <span class="n">threeByThree</span><span class="p">],</span> <span class="s2">&quot;testParam&quot;</span><span class="p">)</span>
+        <span class="n">dataJagNones</span> <span class="o">=</span> <span class="n">JaggedArray</span><span class="p">([</span><span class="n">twoByTwo</span><span class="p">,</span> <span class="n">twoByOne</span><span class="p">,</span> <span class="n">threeByThree</span><span class="p">],</span> <span class="s2">&quot;testParam&quot;</span><span class="p">)</span>
         <span class="n">dataDict</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
             <span class="p">[{</span><span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}]</span>
         <span class="p">)</span>
@@ -801,7 +800,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

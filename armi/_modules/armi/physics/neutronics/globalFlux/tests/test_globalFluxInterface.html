@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
@@ -264,14 +264,31 @@
 <span class="sd">        Check that a 1000 pcm rx swing is observed due to the mock.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
+        <span class="n">cs</span><span class="p">[</span><span class="s2">&quot;burnSteps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
         <span class="n">_o</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">test_reactors</span><span class="o">.</span><span class="n">loadTestReactor</span><span class="p">(</span>
             <span class="n">inputFileName</span><span class="o">=</span><span class="s2">&quot;smallestTestReactor/armiRunSmallest.yaml&quot;</span>
         <span class="p">)</span>
         <span class="n">gfi</span> <span class="o">=</span> <span class="n">MockGlobalFluxInterface</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">cs</span><span class="p">)</span>
+        <span class="n">bocKeff</span> <span class="o">=</span> <span class="mf">1.1</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">keffUnc</span> <span class="o">=</span> <span class="mf">1.1</span>
         <span class="n">gfi</span><span class="o">.</span><span class="n">interactBOC</span><span class="p">()</span>
+
+        <span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
         <span class="n">gfi</span><span class="o">.</span><span class="n">interactEveryNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">gfi</span><span class="o">.</span><span class="n">interactEOC</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">rxSwing</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">gfi</span><span class="o">.</span><span class="n">_bocKeff</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">keffUnc</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">keffUnc</span> <span class="o">=</span> <span class="mf">1.05</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+        <span class="n">gfi</span><span class="o">.</span><span class="n">interactEveryNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># doesn&#39;t change since its not the first node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">gfi</span><span class="o">.</span><span class="n">_bocKeff</span><span class="p">,</span> <span class="n">bocKeff</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">keffUnc</span> <span class="o">=</span> <span class="mf">1.01</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cycle</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeNode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span>
+        <span class="n">gfi</span><span class="o">.</span><span class="n">interactEveryNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">gfi</span><span class="o">.</span><span class="n">_bocKeff</span><span class="p">,</span> <span class="n">bocKeff</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">rxSwing</span><span class="p">,</span> <span class="o">-</span><span class="mf">1e5</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.1</span> <span class="o">-</span> <span class="mf">1.01</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.1</span> <span class="o">*</span> <span class="mf">1.01</span><span class="p">))</span>
+        <span class="n">gfi</span><span class="o">.</span><span class="n">interactBOC</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># now its zeroed at BOC</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">rxSwing</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestGlobalFluxInterface.test_getIOFileNames"><a class="viewcode-back" href="../../../../../../.apidocs/armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.html#armi.physics.neutronics.globalFlux.tests.test_globalFluxInterface.TestGlobalFluxInterface.test_getIOFileNames">[docs]</a>    <span class="k">def</span> <span class="nf">test_getIOFileNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">cs</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
@@ -630,7 +647,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

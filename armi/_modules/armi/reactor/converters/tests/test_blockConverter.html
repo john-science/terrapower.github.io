@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.reactor.converters.tests.test_blockConverter &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.reactor.converters.tests.test_blockConverter &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
@@ -172,6 +172,22 @@
         <span class="n">converter</span> <span class="o">=</span> <span class="n">blockConverters</span><span class="o">.</span><span class="n">ComponentMerger</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">soluteName</span><span class="p">,</span> <span class="n">solventName</span><span class="p">)</span>
         <span class="n">convertedBlock</span> <span class="o">=</span> <span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertNotIn</span><span class="p">(</span><span class="n">soluteName</span><span class="p">,</span> <span class="n">convertedBlock</span><span class="o">.</span><span class="n">getComponentNames</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_checkAreaAndComposition</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">convertedBlock</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TestBlockConverter.test_dissolveMultiple"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.converters.tests.test_blockConverter.html#armi.reactor.converters.tests.test_blockConverter.TestBlockConverter.test_dissolveMultiple">[docs]</a>    <span class="k">def</span> <span class="nf">test_dissolveMultiple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Test dissolving multiple components into another.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_test_dissolve_multi</span><span class="p">(</span><span class="n">loadTestBlock</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;wire&quot;</span><span class="p">,</span> <span class="s2">&quot;clad&quot;</span><span class="p">],</span> <span class="s2">&quot;coolant&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_test_dissolve_multi</span><span class="p">(</span>
+            <span class="n">loadTestBlock</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;inner liner&quot;</span><span class="p">,</span> <span class="s2">&quot;outer liner&quot;</span><span class="p">],</span> <span class="s2">&quot;clad&quot;</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_test_dissolve_multi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">soluteNames</span><span class="p">,</span> <span class="n">solventName</span><span class="p">):</span>
+        <span class="n">converter</span> <span class="o">=</span> <span class="n">blockConverters</span><span class="o">.</span><span class="n">MultipleComponentMerger</span><span class="p">(</span>
+            <span class="n">block</span><span class="p">,</span> <span class="n">soluteNames</span><span class="p">,</span> <span class="n">solventName</span>
+        <span class="p">)</span>
+        <span class="n">convertedBlock</span> <span class="o">=</span> <span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">soluteName</span> <span class="ow">in</span> <span class="n">soluteNames</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertNotIn</span><span class="p">(</span><span class="n">soluteName</span><span class="p">,</span> <span class="n">convertedBlock</span><span class="o">.</span><span class="n">getComponentNames</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_checkAreaAndComposition</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">convertedBlock</span><span class="p">)</span>
 
 <div class="viewcode-block" id="TestBlockConverter.test_build_NthRing"><a class="viewcode-back" href="../../../../../.apidocs/armi.reactor.converters.tests.test_blockConverter.html#armi.reactor.converters.tests.test_blockConverter.TestBlockConverter.test_build_NthRing">[docs]</a>    <span class="k">def</span> <span class="nf">test_build_NthRing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -520,7 +536,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

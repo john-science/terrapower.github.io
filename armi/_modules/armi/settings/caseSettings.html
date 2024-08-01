@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.settings.caseSettings &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.settings.caseSettings &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -560,7 +560,9 @@
                 <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">settings</span><span class="o">.</span><span class="n">__settings</span><span class="p">:</span>
                     <span class="n">settings</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">settings</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">Setting</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+                    <span class="n">settings</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">Setting</span><span class="p">(</span>
+                        <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Description from cs.modified()&quot;</span>
+                    <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">settings</span></div>
 
@@ -600,7 +602,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

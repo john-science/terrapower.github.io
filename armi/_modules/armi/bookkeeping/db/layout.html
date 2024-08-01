@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.bookkeeping.db.layout &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.bookkeeping.db.layout &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -325,7 +325,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">temperatures</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">comp</span><span class="o">.</span><span class="n">inputTemperatureInC</span><span class="p">,</span> <span class="n">comp</span><span class="o">.</span><span class="n">temperatureInC</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">temperatures</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">900</span><span class="p">,</span> <span class="o">-</span><span class="mi">900</span><span class="p">))</span>  <span class="c1"># an impossible temperature</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
@@ -910,7 +910,7 @@
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">realType</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
             <span class="s2">&quot;Could not coerce data for </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">, data:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">paramName</span><span class="p">,</span> <span class="n">realType</span><span class="p">,</span> <span class="n">data</span>
@@ -985,7 +985,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 

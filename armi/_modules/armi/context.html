@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>armi.context &mdash; ARMI 0.3.0 documentation</title>
+  <title>armi.context &mdash; ARMI 0.4.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme_fixes.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="../../_static/armiicon_24x24.ico" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -107,10 +107,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Module containing global constants that reflect the executing context of ARMI.</span>
 
-<span class="sd">This contains information about the circumstatces under which an ARMI application is</span>
-<span class="sd">running. Things like the MPI environment, executing user, etc. live here. These are</span>
-<span class="sd">re-exported by the `armi` package, but live here so that import loops won&#39;t lead to</span>
-<span class="sd">as many issues.</span>
+<span class="sd">ARMI&#39;s global state information: operating system information, environment data, user data, memory</span>
+<span class="sd">parallelism, temporary storage locations, and if operational mode (interactive, gui, or batch).</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">DEBUG</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -121,14 +119,8 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="c1"># h5py needs to be imported here, so that the disconnectAllHdfDBs() call that gets bound</span>
-<span class="c1"># to atexit below doesn&#39;t lead to a segfault on python exit. The Database3 module is</span>
-<span class="c1"># imported at call time, since it itself needs stuff that is initialized in this module</span>
-<span class="c1"># to import properly.  However, if that import leads to the first time that h5py is</span>
-<span class="c1"># imported in this process, doing so will cause a segfault. The theory here is that this</span>
-<span class="c1"># happens because the h5py extension module is not safe to import (for whatever reason)</span>
-<span class="c1"># when the python interpreter is in whatever state it&#39;s in when the atexit callbacks are</span>
-<span class="c1"># being invoked.  Importing early avoids this.</span>
+<span class="c1"># h5py needs to be imported here, so that the disconnectAllHdfDBs() call that gets bound to atexit</span>
+<span class="c1"># below doesn&#39;t lead to a segfault on python exit.</span>
 <span class="c1">#</span>
 <span class="c1"># Minimal code to reproduce the issue:</span>
 <span class="c1">#</span>
@@ -139,31 +131,25 @@
 <span class="c1">#</span>
 <span class="c1"># &gt;&gt;&gt; atexit.register(willSegFault)</span>
 
-<span class="kn">import</span> <span class="nn">h5py</span>  <span class="c1"># noqa: unused-import</span>
+<span class="kn">import</span> <span class="nn">h5py</span>  <span class="c1"># noqa: F401</span>
 
 
 <span class="n">BLUEPRINTS_IMPORTED</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">BLUEPRINTS_IMPORT_CONTEXT</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-<span class="c1"># App name is used when spawning new tasks that should invoke a specific ARMI</span>
-<span class="c1"># application. For instance, the framework provides some features to help with</span>
-<span class="c1"># submitting tasks to an HPC cluster. Sometimes these tasks are themselves only using</span>
-<span class="c1"># ARMI functionality, so running `python -m armi` is fine. Other times, the task is</span>
-<span class="c1"># specific to an application, requiring something like `python -m myArmiApp`</span>
+<span class="c1"># App name is used when spawning new tasks that should invoke a specific ARMI application. Sometimes</span>
+<span class="c1"># these tasks only use ARMI functionality, so running `python -m armi` is fine. Other times, the</span>
+<span class="c1"># task is specific to an application, requiring something like: `python -m myArmiApp`</span>
 <span class="n">APP_NAME</span> <span class="o">=</span> <span class="s2">&quot;armi&quot;</span>
 
 
 <div class="viewcode-block" id="Mode"><a class="viewcode-back" href="../../.apidocs/armi.context.html#armi.context.Mode">[docs]</a><span class="k">class</span> <span class="nc">Mode</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Mode represents different run modes possible in ARMI.</span>
+<span class="sd">    Mode represents different run types possible in ARMI.</span>
 
-<span class="sd">    The modes can be Batch, Interactive, or GUI. In different modes, there are different</span>
-<span class="sd">    types of interactions possible.</span>
-
-<span class="sd">    Mode is generally auto-detected based on your terminal. It can also be set in</span>
-<span class="sd">    various CLI entry points, which are the implementations of</span>
-<span class="sd">    :py:class:`armi.cli.entryPoint.EntryPoint`. Lastly, each entry point has a</span>
-<span class="sd">    ``--batch`` command line argument that can force Batch mode.</span>
+<span class="sd">    The modes can be Batch, Interactive, or GUI. Mode is generally auto-detected based on your</span>
+<span class="sd">    terminal. It can also be set in various CLI entry points. Each entry point has a ``--batch``</span>
+<span class="sd">    command line argument that can force Batch mode.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">BATCH</span> <span class="o">=</span> <span class="mi">1</span>
@@ -185,16 +171,18 @@
 <span class="n">USER</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
 <span class="n">START_TIME</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
 
-<span class="c1"># Set batch mode if not a TTY, which means you&#39;re on a cluster writing to a stdout file</span>
-<span class="c1"># In this mode you cannot respond to prompts or anything</span>
-<span class="n">CURRENT_MODE</span> <span class="o">=</span> <span class="n">Mode</span><span class="o">.</span><span class="n">INTERACTIVE</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">isatty</span><span class="p">()</span> <span class="k">else</span> <span class="n">Mode</span><span class="o">.</span><span class="n">BATCH</span>
+<span class="c1"># Set batch mode if not a TTY, which means you&#39;re on a cluster writing to a stdout file. In this</span>
+<span class="c1"># mode you cannot respond to prompts. (This does not work reliably for both Windows and Linux so an</span>
+<span class="c1"># os-specific solution is applied.)</span>
+<span class="n">isatty</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">isatty</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;win&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="k">else</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">isatty</span><span class="p">()</span>
+<span class="n">CURRENT_MODE</span> <span class="o">=</span> <span class="n">Mode</span><span class="o">.</span><span class="n">INTERACTIVE</span> <span class="k">if</span> <span class="n">isatty</span> <span class="k">else</span> <span class="n">Mode</span><span class="o">.</span><span class="n">BATCH</span>
 <span class="n">Mode</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">CURRENT_MODE</span><span class="p">)</span>
 
 <span class="n">MPI_COMM</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="c1"># MPI_RANK represents the index of the CPU that is running.</span>
 <span class="c1"># 0 is typically the primary CPU, while 1+ are typically workers.</span>
-<span class="c1"># MPI_SIZE is the total number of CPUs</span>
 <span class="n">MPI_RANK</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># MPI_SIZE is the total number of CPUs.</span>
 <span class="n">MPI_SIZE</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">LOCAL</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
 <span class="n">MPI_NODENAME</span> <span class="o">=</span> <span class="n">LOCAL</span>
@@ -202,13 +190,11 @@
 
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="c1"># Check for MPI</span>
-    <span class="c1"># The mpi4py module uses cPickle to serialize python objects in preparation for</span>
-    <span class="c1"># network transmission. Sometimes, when cPickle fails, it gives very cryptic error</span>
-    <span class="c1"># messages that do not help much. If you uncomment th following line, you can trick</span>
-    <span class="c1"># mpi4py into using the pure-python pickle module in place of cPickle and now you</span>
-    <span class="c1"># will generally get much more meaningful and useful error messages Then comment it</span>
-    <span class="c1"># back out because it&#39;s slow.</span>
+    <span class="c1"># Check for MPI. The mpi4py module uses cPickle to serialize python objects in preparation for</span>
+    <span class="c1"># network transmission. Sometimes, when cPickle fails, it gives very cryptic error messages that</span>
+    <span class="c1"># do not help much. If you uncomment th following line, you can trick mpi4py into using the</span>
+    <span class="c1"># pure-python pickle module in place of cPickle and now you will generally get much more</span>
+    <span class="c1"># meaningful and useful error messages Then comment it back out because it&#39;s slow.</span>
     <span class="c1"># import sys, pickle; sys.modules[&#39;cPickle&#39;] = pickle</span>
     <span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
 
@@ -217,20 +203,16 @@
     <span class="n">MPI_SIZE</span> <span class="o">=</span> <span class="n">MPI_COMM</span><span class="o">.</span><span class="n">Get_size</span><span class="p">()</span>
     <span class="n">MPI_NODENAME</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Get_processor_name</span><span class="p">()</span>
     <span class="n">MPI_NODENAMES</span> <span class="o">=</span> <span class="n">MPI_COMM</span><span class="o">.</span><span class="n">allgather</span><span class="p">(</span><span class="n">MPI_NODENAME</span><span class="p">)</span>
-
-    <span class="c1"># fix an exceptional error case when we are not in &quot;interactive mode&quot;</span>
-    <span class="k">if</span> <span class="n">MPI_SIZE</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">CURRENT_MODE</span> <span class="o">==</span> <span class="n">Mode</span><span class="o">.</span><span class="n">INTERACTIVE</span><span class="p">:</span>
-        <span class="n">CURRENT_MODE</span> <span class="o">=</span> <span class="n">Mode</span><span class="o">.</span><span class="n">BATCH</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="c1"># stick with defaults</span>
     <span class="k">pass</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="c1"># trying a windows approach</span>
+    <span class="c1"># trying a Windows approach</span>
     <span class="n">APP_DATA</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;APPDATA&quot;</span><span class="p">],</span> <span class="s2">&quot;armi&quot;</span><span class="p">)</span>
     <span class="n">APP_DATA</span> <span class="o">=</span> <span class="n">APP_DATA</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
-    <span class="c1"># non-windows</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="c1"># non-Windows</span>
     <span class="n">APP_DATA</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.armi&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">MPI_NODENAMES</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">MPI_NODENAME</span><span class="p">)</span> <span class="o">==</span> <span class="n">MPI_RANK</span><span class="p">:</span>
@@ -243,13 +225,14 @@
         <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;Directory doesn&#39;t exist </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">APP_DATA</span><span class="p">))</span>
 
 <span class="k">if</span> <span class="n">MPI_COMM</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">MPI_COMM</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>  <span class="c1"># make sure app data exists before workers proceed.</span>
+    <span class="c1"># Make sure app data exists before workers proceed.</span>
+    <span class="n">MPI_COMM</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
 
 <span class="n">MPI_DISTRIBUTABLE</span> <span class="o">=</span> <span class="n">MPI_SIZE</span> <span class="o">&gt;</span> <span class="mi">1</span>
 
 <span class="n">_FAST_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">A directory available for high-performance I/O</span>
+<span class="sd">A directory available for high-performance I/O.</span>
 
 <span class="sd">.. warning:: This is not a constant and can change at runtime.</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -262,17 +245,16 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Specify a local temp directory to be the fast path.</span>
 
-<span class="sd">    ``FAST_PATH`` is often a local hard drive on a cluster node. It&#39;s a high-performance</span>
+<span class="sd">    ``FAST_PATH`` is often a local hard drive on a cluster node. It should be a high-performance</span>
 <span class="sd">    scratch space. Different processors on the same node should have different fast paths.</span>
-<span class="sd">    Some old code may MPI_RANK-dependent folders/filenames as well, but this is no longer</span>
-<span class="sd">    necessary.</span>
 
-<span class="sd">    .. warning:: This path will be obliterated when the job ends so be careful.</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This path will be obliterated when the job ends.</span>
 
-<span class="sd">    Note also</span>
-<span class="sd">    that this path is set at import time, so if a series of unit tests come through that</span>
-<span class="sd">    instantiate one operator after the other, the path will already exist the second time.</span>
-<span class="sd">    The directory is created in the Operator constructor.</span>
+<span class="sd">    This path is set at import time, so if a series of unit tests come through that instantiate one</span>
+<span class="sd">    operator after the other, the path will already exist the second time. The directory is created</span>
+<span class="sd">    in the Operator constructor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">_FAST_PATH</span><span class="p">,</span> <span class="n">_FAST_PATH_IS_TEMPORARY</span><span class="p">,</span> <span class="n">APP_DATA</span>
 
@@ -298,9 +280,8 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    It&#39;s too dangerous to use ``FAST_PATH`` directly as it can change between import and</span>
-<span class="sd">    runtime. For example, a module that does ``from armi.context import FAST_PATH`` is</span>
-<span class="sd">    disconnected from the official ``FAST_PATH`` controlled by this module.</span>
+<span class="sd">    This exists because it&#39;s dangerous to use ``FAST_PATH`` directly. as it can change between</span>
+<span class="sd">    import and runtime.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_FAST_PATH</span></div>
 
@@ -309,19 +290,17 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Clean up temporary files after a run.</span>
 
-<span class="sd">    The Windows HPC system sends a SIGBREAK signal when the user cancels a job, which</span>
-<span class="sd">    is NOT handled by ``atexit``. Notably SIGBREAK doesn&#39;t exist off Windows.</span>
-<span class="sd">    For the SIGBREAK signal to work with a Microsoft HPC, the ``TaskCancelGracePeriod``</span>
-<span class="sd">    option must be configured to be non-zero. This sets the period between SIGBREAK</span>
-<span class="sd">    and SIGTERM/SIGINT. To do cleanups in this case, we must use the ``signal`` module.</span>
-<span class="sd">    Actually, even then it does not work because MS ``mpiexec`` does not pass signals</span>
-<span class="sd">    through.</span>
+<span class="sd">    Some Windows HPC systems send a SIGBREAK signal when the user cancels a job, which is NOT</span>
+<span class="sd">    handled by ``atexit``. Notably, SIGBREAK does not exist outside Windows. For the SIGBREAK signal</span>
+<span class="sd">    to work with a Windows HPC, the ``TaskCancelGracePeriod`` option must be configured to be non-</span>
+<span class="sd">    zero. This sets the period between SIGBREAK and SIGTERM/SIGINT. To do cleanups in this case, we</span>
+<span class="sd">    must use the ``signal`` module. Actually, even then it does not work because MS ``mpiexec`` does</span>
+<span class="sd">    not pass signals through.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    olderThanDays: int, optional</span>
-<span class="sd">        If provided, deletes other ARMI directories if they are older than the requested</span>
-<span class="sd">        time.</span>
+<span class="sd">        If provided, deletes other ARMI directories if they are older than the requested time.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">armi</span> <span class="kn">import</span> <span class="n">runLog</span>
     <span class="kn">from</span> <span class="nn">armi.utils.pathTools</span> <span class="kn">import</span> <span class="n">cleanPath</span>
@@ -351,12 +330,14 @@
 
 <div class="viewcode-block" id="cleanAllArmiTempDirs"><a class="viewcode-back" href="../../.apidocs/armi.context.html#armi.context.cleanAllArmiTempDirs">[docs]</a><span class="k">def</span> <span class="nf">cleanAllArmiTempDirs</span><span class="p">(</span><span class="n">olderThanDays</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Delete all ARMI-related files from other unrelated runs after `olderThanDays` days (in</span>
-<span class="sd">    case this failed on earlier runs).</span>
-
-<span class="sd">    .. warning:: This will break any concurrent runs that are still running.</span>
+<span class="sd">    Delete all ARMI-related files from other unrelated runs after `olderThanDays` days (in case this</span>
+<span class="sd">    failed on earlier runs).</span>
 
 <span class="sd">    This is a useful utility in HPC environments when some runs crash sometimes.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This will break any concurrent runs that are still running.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">armi.utils.pathTools</span> <span class="kn">import</span> <span class="n">cleanPath</span>
 
@@ -376,7 +357,7 @@
             <span class="k">if</span> <span class="n">runIsOldAndLikleyComplete</span> <span class="ow">or</span> <span class="n">fromThisRun</span><span class="p">:</span>
                 <span class="c1"># Delete old files</span>
                 <span class="n">cleanPath</span><span class="p">(</span><span class="n">dirPath</span><span class="p">,</span> <span class="n">mpiRank</span><span class="o">=</span><span class="n">MPI_RANK</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: bare-except</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span></div>
 
 
@@ -386,14 +367,12 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    This is a hack to help ARMI exit gracefully when the garbage collector and h5py have</span>
-<span class="sd">    issues destroying objects. After lots of investigation, the root cause for why this</span>
-<span class="sd">    was having issues was never identified. It appears that when several HDF5 files are</span>
-<span class="sd">    open in the same run (e.g.  when calling armi.init() multiple times from a</span>
-<span class="sd">    post-processing script), when these h5py File objects were closed, the garbage</span>
-<span class="sd">    collector would raise an exception related to the repr&#39;ing the object. We</span>
-<span class="sd">    get around this by using the garbage collector to manually disconnect all open HdfDB</span>
-<span class="sd">    objects.</span>
+<span class="sd">    This is a hack to help ARMI exit gracefully when the garbage collector and h5py have issues</span>
+<span class="sd">    destroying objects. The root cause for why this was having issues was never identified. It</span>
+<span class="sd">    appears that when several HDF5 files are open in the same run (e.g. when calling ``armi.init()``</span>
+<span class="sd">    multiple times from a post-processing script), when these h5py File objects were closed, the</span>
+<span class="sd">    garbage collector would raise an exception related to the repr&#39;ing the object. We get around</span>
+<span class="sd">    this by using the garbage collector to manually disconnect all open HdfDBs.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">armi.bookkeeping.db</span> <span class="kn">import</span> <span class="n">Database3</span>
 
@@ -410,7 +389,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2009-2024, TerraPower, LLC.
-      <span class="lastupdated">Last updated on 2024-07-11.
+      <span class="lastupdated">Last updated on 2024-08-01.
       </span></p>
   </div>
 
